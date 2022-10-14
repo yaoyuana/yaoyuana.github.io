@@ -5,7 +5,6 @@
 body{
     /* 渐变背景 */
     background: linear-gradient(150deg,#d299c2,#fef9d7);
-    /* 溢出隐藏 */
     font-family: 'Microsoft JhengHei';
 }
 .con{
