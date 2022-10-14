@@ -1,0 +1,7 @@
+body{
+    /* 渐变背景 */
+    text-indent: 2em;
+    font-size: 20px;
+    font-family: 'Microsoft JhengHei';
+    background: linear-gradient(150deg,#d299c2,#fef9d7);
+}
