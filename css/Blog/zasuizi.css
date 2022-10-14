@@ -3,12 +3,9 @@
     padding: 0;
 }
 body{
-    /* 100%窗口高度 */
-    height: 100vh;
     /* 渐变背景 */
     background: linear-gradient(150deg,#d299c2,#fef9d7);
     /* 溢出隐藏 */
-    overflow: hidden;
     font-family: 'Microsoft JhengHei';
 }
 .con{
