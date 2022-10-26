@@ -1,6 +1,6 @@
 body{
     /* 渐变背景 */
-    background: linear-gradient(150deg,#f6f7e6,#dafffc);
+    background: linear-gradient(150deg,#f6f7e6,#dafffc) !important;
 }
 p{
     text-indent: 2em;

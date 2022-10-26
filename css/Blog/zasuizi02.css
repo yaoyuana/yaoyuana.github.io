@@ -4,7 +4,7 @@
 }
 body{
     /* 渐变背景 */
-    background: linear-gradient(150deg,#EAE5C9,#6CC6CB);
+    background: linear-gradient(150deg,#EAE5C9,#6CC6CB) !important;
     font-family: 'Microsoft JhengHei';
 }
 .container{
@@ -14,6 +14,7 @@ body{
     position: relative;
     /* 溢出隐藏 */
     overflow: hidden;
+    margin-bottom: 20px;
 }
 .container div{
     width: 100%;
@@ -44,5 +45,7 @@ h3{
     text-align: center;
 }
 .con-text{
+    font-size: 20px;
     text-indent: 2em;
+    margin-bottom: 20px;
 }
