@@ -925,6 +925,25 @@ h6 {
     display: inline;
   }
 }
+.post .sidebar-title {
+  font-size: 20px;
+}
+.post #article-toc-inner {
+  color: red;
+  position: absolute;
+  right: 20px;
+  min-width: 250px;
+}
+@media screen and (min-width: 1421px) {
+  .post #article-toc-inner {
+    visibility: visible;
+  }
+}
+@media not screen and (min-width: 1421px) {
+  .post #article-toc-inner {
+    visibility: hidden;
+  }
+}
 
 .pagination {
   padding-bottom: 1.2em;

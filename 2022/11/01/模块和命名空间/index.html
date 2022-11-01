@@ -152,17 +152,17 @@
                 <strong class="sidebar-title">
                     目录
                 </strong>
-                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4"><span class="toc-text">命名空间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4%E5%92%8C%E6%A8%A1%E5%9D%97%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">命名空间和模块的区别</span></a></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">命名空间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">命名空间和模块的区别</span></a></li></ol>
             </div>
             <div class="post-content">
-            <h2 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h2><hr>
+            <h2><span id="命名空间">命名空间</span></h2><hr>
 <ul>
 <li>微型模块</li>
 <li>想把相关的业务代码写在一起，又不想污染全局空间时可使用</li>
 <li>本质就是定义一个大对象，把变量&#x2F;方法&#x2F;类&#x2F;接口…都放在里面</li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">namespace <span class="title class_">Validation</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> lettersRegexp = <span class="regexp">/^[A-Za-z]+$/</span>;</span><br><span class="line">    <span class="keyword">const</span> lettersOnlyValidator implements <span class="title class_">StringVaildator</span> &#123;</span><br><span class="line">        <span class="title function_">isAcceptable</span>(<span class="params">s: string</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> lettersRegexp.<span class="title function_">test</span>(s);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="命名空间和模块的区别"><a href="#命名空间和模块的区别" class="headerlink" title="命名空间和模块的区别"></a>命名空间和模块的区别</h2><hr>
+<h2><span id="命名空间和模块的区别">命名空间和模块的区别</span></h2><hr>
 <ul>
 <li>在程序内部使用的代码，可以使用命名空间封装和防止全局污染</li>
 <li>在程序外部使用的代码，可以使用模块封装和防止全局污染<blockquote>
