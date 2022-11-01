@@ -184,11 +184,8 @@ figure {
  * Address differences between Firefox and other browsers.
  */
 hr {
-  margin-top: 52px;
-  margin-bottom: 42px;
-  display: block;
-  border: 0;
-  text-align: center;
+  border: revert;
+  border-color: #F0F2F3;
 }
 
 /**
@@ -484,8 +481,8 @@ h6 {
 }
 
 ::-webkit-scrollbar {
+  background-image: linear-gradient(135deg, rgba(121, 121, 121, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%);
   width: 0.6rem;
-  background-image: #e6e6e6;
 }
 
 ::-webkit-scrollbar-track {
@@ -494,13 +491,13 @@ h6 {
 
 ::-webkit-scrollbar-thumb {
   border-radius: 0;
-  background-image: linear-gradient(135deg, #D8D1FA 0%, #c2b6fd 100%);
+  background-image: linear-gradient(135deg, #a7a7a7 0%, #c4c4c4 100%);
   transition: all 0.2s;
   border-radius: 0.25rem;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(95, 95, 95, 0.7);
+  background-color: rgba(161, 161, 161, 0.7);
 }
 
 #content {
@@ -516,6 +513,7 @@ h6 {
 
 #primary {
   max-width: 850px;
+  min-height: 86vh;
   margin: 0 auto;
 }
 
@@ -590,7 +588,7 @@ h6 {
 }
 
 .posts {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   border-bottom: 1px solid #eee;
 }
 
@@ -633,7 +631,7 @@ h6 {
   margin: 0 0 16px;
 }
 .post .post-content {
-  margin-bottom: 40px;
+  margin-bottom: 6px;
 }
 .post .post-content h1 {
   font-size: 1.3em;
@@ -1015,9 +1013,7 @@ h6 {
   padding: 0 10px 7px 0;
   font-size: 14px;
   text-transform: uppercase;
-  border: 1px solid #ff;
-  display: inline-block;
-  background: #fff;
+  display: block;
 }
 .widget_tags .tag-list-item .tag-list-link {
   color: rgba(0, 0, 0, 0.6);
