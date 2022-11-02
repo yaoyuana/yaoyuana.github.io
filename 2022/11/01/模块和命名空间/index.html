@@ -35,12 +35,12 @@
 <link rel="canonical" href="http://example.com/2022/11/01/模块和命名空间/"/>
 
 
-<meta name="description" content="命名空间  微型模块 想把相关的业务代码写在一起，又不想污染全局空间时可使用 本质就是定义一个大对象，把变量&#x2F;方法&#x2F;类&#x2F;接口…都放在里面  12345678namespace Validation &amp;#123;    const lettersRegexp &#x3D; &#x2F;^[A-Za-z]+$&#x2F;;    const lettersOnlyValidator implement">
+<meta name="description" content="命名空间  微型模块 想把相关的业务代码写在一起，又不想污染全局空间时可使用 本质就是定义一个大对象，把变量&#x2F;方法&#x2F;类&#x2F;接口…都放在里面  namespace Validation {     const lettersRegexp &#x3D; &#x2F;^[A-Za-z]+$&#x2F;;     const lettersOnlyValidator implements StringVaildator {">
 <meta property="og:type" content="article">
 <meta property="og:title" content="模块和命名空间">
 <meta property="og:url" content="http://example.com/2022/11/01/%E6%A8%A1%E5%9D%97%E5%92%8C%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/index.html">
 <meta property="og:site_name" content="yaoyuan">
-<meta property="og:description" content="命名空间  微型模块 想把相关的业务代码写在一起，又不想污染全局空间时可使用 本质就是定义一个大对象，把变量&#x2F;方法&#x2F;类&#x2F;接口…都放在里面  12345678namespace Validation &amp;#123;    const lettersRegexp &#x3D; &#x2F;^[A-Za-z]+$&#x2F;;    const lettersOnlyValidator implement">
+<meta property="og:description" content="命名空间  微型模块 想把相关的业务代码写在一起，又不想污染全局空间时可使用 本质就是定义一个大对象，把变量&#x2F;方法&#x2F;类&#x2F;接口…都放在里面  namespace Validation {     const lettersRegexp &#x3D; &#x2F;^[A-Za-z]+$&#x2F;;     const lettersOnlyValidator implements StringVaildator {">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-11-01T08:03:28.000Z">
 <meta property="article:modified_time" content="2022-11-02T01:34:10.081Z">
@@ -174,9 +174,17 @@
 <ul>
 <li>微型模块</li>
 <li>想把相关的业务代码写在一起，又不想污染全局空间时可使用</li>
-<li>本质就是定义一个大对象，把变量&#x2F;方法&#x2F;类&#x2F;接口…都放在里面</li>
+<li>本质就是定义一个大对象，把变量/方法/类/接口…都放在里面</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">namespace <span class="title class_">Validation</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> lettersRegexp = <span class="regexp">/^[A-Za-z]+$/</span>;</span><br><span class="line">    <span class="keyword">const</span> lettersOnlyValidator implements <span class="title class_">StringVaildator</span> &#123;</span><br><span class="line">        <span class="title function_">isAcceptable</span>(<span class="params">s: string</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> lettersRegexp.<span class="title function_">test</span>(s);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">namespace Validation {
+    const lettersRegexp = /^[A-Za-z]+$/;
+    const lettersOnlyValidator implements StringVaildator {
+        isAcceptable(s: string) {
+            return lettersRegexp.test(s);
+        }
+    }
+}
+</code></pre>
 <h2><span id="命名空间和模块的区别">命名空间和模块的区别</span></h2><hr>
 <ul>
 <li>在程序内部使用的代码，可以使用命名空间封装和防止全局污染</li>

@@ -8,7 +8,7 @@ document.addEventListener('visibilitychange', function () {
     }
     else {
         $('[rel="icon"]').attr('href', "/img/trhx2.png");
-        document.title = '你帅就回来！O.oヾ' + OriginTitle;
+        document.title = '你帅就回来！o.Oヾ' + OriginTitle;
         titleTime = setTimeout(function () {
             document.title = OriginTitle;
         }, 2000);
