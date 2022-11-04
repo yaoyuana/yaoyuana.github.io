@@ -12,7 +12,7 @@
 
 
 
-  <meta name="description" content="关于"/>
+  <meta name="description" content="姚远"/>
 
 
 
@@ -33,19 +33,17 @@
 <link rel="canonical" href="http://example.com/me/"/>
 
 
-<meta name="description" content="Hi~你来了哦          我叫姚远     陕西渭南人，今年本科毕业，目前在西安从事前端开发的工作">
+<meta name="description" content="悬停看下美女             （bushi）                                                                                         我叫姚远     建站不久，内容和功能慢慢加（上班的时候弄，下班弄浪费时间🐕">
 <meta property="og:type" content="website">
-<meta property="og:title" content="关于">
+<meta property="og:title" content="姚远">
 <meta property="og:url" content="http://example.com/me/index.html">
 <meta property="og:site_name" content="yaoyuan">
-<meta property="og:description" content="Hi~你来了哦          我叫姚远     陕西渭南人，今年本科毕业，目前在西安从事前端开发的工作">
+<meta property="og:description" content="悬停看下美女             （bushi）                                                                                         我叫姚远     建站不久，内容和功能慢慢加（上班的时候弄，下班弄浪费时间🐕">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/images/background.jpg">
 <meta property="article:published_time" content="2020-02-10T14:07:08.000Z">
-<meta property="article:modified_time" content="2022-10-25T03:44:24.717Z">
+<meta property="article:modified_time" content="2022-11-04T08:55:39.924Z">
 <meta property="article:author" content="yaoyuan">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/images/background.jpg">
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1" />
@@ -71,7 +69,7 @@
 
 
     <script type="text/javascript" src="\js\funnyTitle.js"></script>
-    <title> 关于 - yaoyuan </title>
+    <title> 姚远 - yaoyuan </title>
   <meta name="generator" content="Hexo 6.3.0"></head>
 
   <body>
@@ -144,7 +142,7 @@
         <article class="post">
             <header class="post-header">
                 <h1 class="post-title">
-                    关于
+                    姚远
                 </h1>
             </header>
             <div class="post-content">
@@ -152,15 +150,66 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/css/About/about.css">
+    <link rel="stylesheet" href="/css/Me/me.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body class="about-body">
-    <p>Hi~你来了哦</p>
-    <img src="/images/background.jpg" alt>
+    <div class="container">
+        <div class="text">
+            <h2><span id="悬停看下美女">悬停看下美女</span></h2>
+            （bushi）
+        </div>
+        <div class="image">
+            <div class="part part-1"></div>
+            <div class="part part-2"></div>
+            <div class="part part-3"></div>
+            <div class="part part-4"></div>
+        </div>
+    </div>
     <p color="#7DA5BF">我叫姚远</p>
-    <p>陕西渭南人，今年本科毕业，目前在西安从事前端开发的工作</p>
+    <p>建站不久，内容和功能慢慢加（上班的时候弄，下班弄浪费时间🐕:狗头:哈哈~）</p>
+    <p><a href="#javascript;" id="addFirend">暂无评论功能，如果对我有什么建议，那么加个好友吧~</a></p>
+    <div class="circle" id="circle">
+       ~ I'm A vegetable student 
+    </div>
+    
 </body>
+<script>
+    // 要操作的元素
+    const circle=document.querySelector('.circle');
+    const text=circle.innerText;
+    // 先清空原有文本
+    circle.innerText='';
+
+    for(let i=0;i<text.length;i++){
+        // 循环文本，取出单字
+        let letter=text[i];
+        // 创建span元素，并把单字赋给span
+        let span=document.createElement('span');
+        span.innerText=letter;
+        // 计算每一个字的旋转角度
+        let r=(360/text.length)*i;
+        // 设置span的旋转角度
+        span.style.transform='rotate('+r+'deg)';
+        // 追加span
+        circle.appendChild(span);
+    }
+
+    // 悬停效果
+    const box = document.querySelector('.text')
+    const img = document.querySelectorAll('.part')
+    box.addEventListener('mouseover', function () {
+        for(let i = 0;i<img.length;i++){
+            img[i].style.opacity = 0.1
+        }
+    });
+    box.addEventListener('mouseout', function () {
+        for(let i = 0;i<img.length;i++){
+            img[i].style.opacity = 1
+        }
+    });
+    
+</script>
 </html>
             </div>
         </article>

@@ -3,9 +3,7 @@
     padding: 0;
 }
 body{
-    /* 渐变背景 */
     background: linear-gradient(150deg,#EAE5C9,#6CC6CB) !important;
-    font-family: 'Microsoft JhengHei';
 }
 .container{
     width: 100%;
