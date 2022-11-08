@@ -12,12 +12,12 @@
 
 
 
-  <meta name="description" content="绝望的文盲"/>
+  <meta name="description" content="模块和命名空间"/>
 
 
 
 
-  <meta name="keywords" content="小情绪," />
+  <meta name="keywords" content="Study-TS," />
 
 
 
@@ -32,23 +32,21 @@
 
 
 
-<link rel="canonical" href="http://example.com/2022/10/28/杂碎子05/"/>
+<link rel="canonical" href="http://example.com/2022/11/01/6-模块和命名空间/"/>
 
 
-<meta name="description" content="body{         background: linear-gradient(150deg,#EAE5C9,#6CC6CB) !important;     }  绝望的文盲逛微博看到一句话： “一眼就能看出来，是一个绝望的文盲写的”。   啊，好痛😂，被内涵到了，一直觉得自己文化涵养很差，常常无法表达自我，心里有一万个草泥马脸上却只挤出个微笑。话语没有任何杀伤力，写的东西也多半">
+<meta name="description" content="试试文章效果怎么样 专门给文章加了目录喔（以字段toc区分）  命名空间  微型模块 想把相关的业务代码写在一起，又不想污染全局空间时可使用 本质就是定义一个大对象，把变量&#x2F;方法&#x2F;类&#x2F;接口…都放在里面  12345678namespace Validation &amp;#123;    const lettersRegexp &#x3D; &#x2F;^[A-Za-z]+$&#x2F;;    cons">
 <meta property="og:type" content="article">
-<meta property="og:title" content="绝望的文盲">
-<meta property="og:url" content="http://example.com/2022/10/28/%E6%9D%82%E7%A2%8E%E5%AD%9005/index.html">
+<meta property="og:title" content="模块和命名空间">
+<meta property="og:url" content="http://example.com/2022/11/01/6-%E6%A8%A1%E5%9D%97%E5%92%8C%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/index.html">
 <meta property="og:site_name" content="yaoyuan">
-<meta property="og:description" content="body{         background: linear-gradient(150deg,#EAE5C9,#6CC6CB) !important;     }  绝望的文盲逛微博看到一句话： “一眼就能看出来，是一个绝望的文盲写的”。   啊，好痛😂，被内涵到了，一直觉得自己文化涵养很差，常常无法表达自我，心里有一万个草泥马脸上却只挤出个微笑。话语没有任何杀伤力，写的东西也多半">
+<meta property="og:description" content="试试文章效果怎么样 专门给文章加了目录喔（以字段toc区分）  命名空间  微型模块 想把相关的业务代码写在一起，又不想污染全局空间时可使用 本质就是定义一个大对象，把变量&#x2F;方法&#x2F;类&#x2F;接口…都放在里面  12345678namespace Validation &amp;#123;    const lettersRegexp &#x3D; &#x2F;^[A-Za-z]+$&#x2F;;    cons">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/images/Blog/zasuizi05/less.jpg">
-<meta property="article:published_time" content="2022-10-28T08:58:38.000Z">
-<meta property="article:modified_time" content="2022-11-06T10:36:49.020Z">
+<meta property="article:published_time" content="2022-11-01T08:03:28.000Z">
+<meta property="article:modified_time" content="2022-11-03T09:49:22.658Z">
 <meta property="article:author" content="yaoyuan">
-<meta property="article:tag" content="小情绪">
+<meta property="article:tag" content="Study-TS">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/images/Blog/zasuizi05/less.jpg">
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1" />
@@ -74,7 +72,7 @@
 
 
     <script type="text/javascript" src="\js\funnyTitle.js"></script>
-    <title> 绝望的文盲 - yaoyuan </title>
+    <title> 模块和命名空间 - yaoyuan </title>
   <meta name="generator" content="Hexo 6.3.0"></head>
 
   <body>
@@ -149,12 +147,12 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          绝望的文盲
+          模块和命名空间
         
       </h1>
 
       <time class="post-time">
-          10月 28 2022
+          11月 01 2022
       </time>
     </header>
 
@@ -166,20 +164,28 @@
                   <strong class="sidebar-title">
                       目录
                   </strong>
-                  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">绝望的文盲</span></a></li></ol>
+                  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">试试文章效果怎么样</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">命名空间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">命名空间和模块的区别</span></a></li></ol>
               </div>
             
             <div class="post-content">
-            <style>
-    body{
-        background: linear-gradient(150deg,#EAE5C9,#6CC6CB) !important;
-    }
-</style>
-<h1><span id="绝望的文盲">绝望的文盲</span></h1><p>逛微博看到一句话：</p>
-<center>“一眼就能看出来，是一个绝望的文盲写的”。</center>
-
-<p><img src="/images/Blog/zasuizi05/less.jpg" alt="avatar"></p>
-<p>啊，好痛😂，被内涵到了，一直觉得自己文化涵养很差，常常无法表达自我，心里有一万个草泥马脸上却只挤出个微笑。<br>话语没有任何杀伤力，写的东西也多半是不知所云班门弄斧无病呻吟枯燥无味，看到这句话真是被深深的伤到了（而且如此脆弱）。</p>
+            <h2><span id="试试文章效果怎么样">试试文章效果怎么样</span></h2><ul>
+<li>专门给文章加了目录喔（以字段toc区分）</li>
+</ul>
+<h2><span id="命名空间">命名空间</span></h2><hr>
+<ul>
+<li>微型模块</li>
+<li>想把相关的业务代码写在一起，又不想污染全局空间时可使用</li>
+<li>本质就是定义一个大对象，把变量&#x2F;方法&#x2F;类&#x2F;接口…都放在里面</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">namespace <span class="title class_">Validation</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> lettersRegexp = <span class="regexp">/^[A-Za-z]+$/</span>;</span><br><span class="line">    <span class="keyword">const</span> lettersOnlyValidator implements <span class="title class_">StringVaildator</span> &#123;</span><br><span class="line">        <span class="title function_">isAcceptable</span>(<span class="params">s: string</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> lettersRegexp.<span class="title function_">test</span>(s);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2><span id="命名空间和模块的区别">命名空间和模块的区别</span></h2><hr>
+<ul>
+<li>在程序内部使用的代码，可以使用命名空间封装和防止全局污染</li>
+<li>在程序外部使用的代码，可以使用模块封装和防止全局污染<blockquote>
+<p>大部分情况下模块够用了</p>
+</blockquote>
+</li>
+</ul>
 
             </div>
           
@@ -189,7 +195,7 @@
 		
 		<div class="post-tags">
 		  
-			<a href="/tags/%E5%B0%8F%E6%83%85%E7%BB%AA/">小情绪</a>
+			<a href="/tags/Study-TS/">Study-TS</a>
 		  
 		</div>
 		
@@ -198,15 +204,15 @@
         
   <nav class="post-nav">
     
-      <a class="prev" href="/2022/11/01/%E6%A8%A1%E5%9D%97%E5%92%8C%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/">
+      <a class="prev" href="/2022/11/08/7-%E6%9D%82%E7%A2%8E%E5%AD%90/">
         <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">模块和命名空间</span>
+        <span class="prev-text nav-default">7-杂碎子</span>
         <span class="prev-text nav-mobile">上一篇</span>
       </a>
     
     
-      <a class="next" href="/2022/10/26/%E6%9D%82%E7%A2%8E%E5%AD%9004/">
-        <span class="next-text nav-default">杂碎子04</span>
+      <a class="next" href="/2022/10/28/5-%E7%BB%9D%E6%9C%9B%E7%9A%84%E6%96%87%E7%9B%B2/">
+        <span class="next-text nav-default">绝望的文盲</span>
         <span class="prev-text nav-mobile">下一篇</span>
         <i class="iconfont icon-right"></i>
       </a>
