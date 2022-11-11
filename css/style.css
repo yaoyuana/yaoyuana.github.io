@@ -494,6 +494,10 @@ h6 {
   background-color: rgba(161, 161, 161, 0.7);
 }
 
+.far {
+  display: block !important;
+}
+
 #content {
   margin: 0 auto;
   width: 90%;
@@ -1079,6 +1083,10 @@ h6 {
 /* 远的 */
 .num.far {
   opacity: 0.15;
+  display: block !important;
+}
+
+.far {
   display: block !important;
 }
 
