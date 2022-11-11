@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="Git常用命令"/>
+
+
+
+
+  <meta name="keywords" content="Tools," />
+
+
+
+
+
+  <link rel="alternate" href="/default" title="yaoyuan" >
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.1" />
+
+
+
+<link rel="canonical" href="http://example.com/2022/11/10/8-Git常用命令/"/>
+
+
+<meta name="description" content="本次调整（踩坑日记）： 1、调整了下整体UI2、优化了代码块样式，但渲染有点子问题，没有识别出语言而生成相应的HTML，弄了好久，没弄对…..3、添加音乐：  尝试aplayer插件： No ~ 插件的生成代码必须写在MD文件里通过Hexo进行渲染生成，而此主题页面是通过.swig渲染，不会走hexo，如之奈何，（写到这里，好像有点思路，可以专门把播放器写到md文件里，引进来hexo就会渲染了）；">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git常用命令">
+<meta property="og:url" content="http://example.com/2022/11/10/8-Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/index.html">
+<meta property="og:site_name" content="yaoyuan">
+<meta property="og:description" content="本次调整（踩坑日记）： 1、调整了下整体UI2、优化了代码块样式，但渲染有点子问题，没有识别出语言而生成相应的HTML，弄了好久，没弄对…..3、添加音乐：  尝试aplayer插件： No ~ 插件的生成代码必须写在MD文件里通过Hexo进行渲染生成，而此主题页面是通过.swig渲染，不会走hexo，如之奈何，（写到这里，好像有点思路，可以专门把播放器写到md文件里，引进来hexo就会渲染了）；">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-11-10T06:15:22.000Z">
+<meta property="article:modified_time" content="2022-11-11T09:19:17.147Z">
+<meta property="article:author" content="yaoyuan">
+<meta property="article:tag" content="Tools">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1" />
+<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    fancybox: {
+      enable: false
+    },
+  };
+</script>
+
+
+
+
+  
+
+
+
+    <script type="text/javascript" src="\js\funnyTitle.js"></script>
+    <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+    <title> Git常用命令 - yaoyuan </title>
+  <meta name="generator" content="Hexo 6.3.0"></head>
+
+  <body>
+    <script type="text/javascript" src="\js\funnyTitle.js"></script>
+    <div id="page">
+      <header id="masthead"><div class="site-header-inner">
+    <h1 class="site-title">
+        <div
+          style="display: inline-block"
+        >
+            <img 
+            style="border-radius:50%;width:40px"
+            id="avatar-img"
+            alt="yaoyuan" 
+            src="/images/Avatar.jpg"
+            >
+        </div>
+        <a href="/." class="logo">yaoyuan</a>
+    </h1>
+
+    <nav id="nav-top">
+        
+            <ul id="menu-top" class="nav-top-items">
+                
+                    <li class="menu-item">
+                        <a href="/">
+                            
+                            
+                                首页
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/archives">
+                            
+                            
+                                归档
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/about">
+                            
+                            
+                                关于
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/me">
+                            
+                            
+                                姚远
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        
+  </nav>
+</div>
+
+      </header>
+      <div id="content">
+        
+    <div id="primary">
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          Git常用命令
+        
+      </h1>
+
+      <time class="post-time">
+          11月 10 2022
+      </time>
+    </header>
+
+
+
+    
+            
+              <div id="article-toc-inner">
+                  <strong class="sidebar-title">
+                      目录
+                  </strong>
+                  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#git"><span class="toc-text">Git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-clone-amp-init"><span class="toc-text">Git clone &amp; init</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-stash-%E5%AD%98%E5%82%A8%E5%8C%BA"><span class="toc-text">Git stash (存储区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-remote"><span class="toc-text">Git remote</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-branch"><span class="toc-text">Git branch</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-checkout"><span class="toc-text">Git checkout</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-commit"><span class="toc-text">Git commit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-rm"><span class="toc-text">Git rm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-push"><span class="toc-text">Git push</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-pull"><span class="toc-text">Git pull</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-fetch"><span class="toc-text">Git fetch</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-merge"><span class="toc-text">Git merge</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-log"><span class="toc-text">Git log</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-reset"><span class="toc-text">Git reset</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#head"><span class="toc-text">HEAD</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-reflog"><span class="toc-text">Git reflog</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-revert"><span class="toc-text">Git revert</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-cherrt-pick"><span class="toc-text">Git cherrt-pick</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-tag"><span class="toc-text">Git tag</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-submoudule"><span class="toc-text"> Git SubMoudule</span></a></li></ol>
+              </div>
+            
+            <div class="post-content">
+            <p>本次调整（踩坑日记）：</p>
+<p>1、调整了下整体UI<br>2、优化了代码块样式，但渲染有点子问题，没有识别出语言而生成相应的HTML，弄了好久，没弄对…..<br>3、添加音乐：</p>
+<p style="text-indent: 2em">
+尝试aplayer插件： No ~ 插件的生成代码必须写在MD文件里通过Hexo进行渲染生成，而此主题页面是通过.swig渲染，不会走hexo，如之奈何，（写到这里，好像有点思路，可以专门把播放器写到md文件里，引进来hexo就会渲染了）；
+随后直接将插件的静态文件引入到页面，编写Html生成播放器，功能也挺全乎的，但是！！，页面一条转就会重新加载，严重影响使用，看博友使用了pjax： 主要是利用pushState来改变浏览器URL，利用ajax来请求页面，以实现不刷新浏览器更新页面，这样就能保证正在播放音乐中的播放器不受影响；
+我也加上了，没搞明白原理，并且没有效果。。。。。。
+暂时放弃了，下次再加把，然后把加的全删了（生气了/////
+</p>
+4、本文只搭了内容框架，还没写，被上面两个功能折磨够呛，眼看着也已经到了下班时间，周五了，我还是撤了把，坐不住了
+
+<h2 id="git"><a href="#Git" class="headerlink" title="Git"></a><strong>Git</strong></h2><h2 id="git-clone-amp-init"><a href="#Git-clone-amp-init" class="headerlink" title="Git clone &amp; init"></a>Git clone &amp; init</h2><p>  不多说了昂，</p>
+<blockquote>
+<p>git clone &lt;远程网址&gt;<br>git clone &lt;远程网址&gt; &lt;本地目录&gt;<br>git clone &lt;远程网址&gt; -b &lt;分支名称&gt; &lt;本地目录&gt;</p>
+</blockquote>
+<pre class="line-numbers language-none"><code class="language-none">git clone &lt;远程网址&gt;
+git clone &lt;远程网址&gt; &lt;本地目录&gt;
+git clone &lt;远程网址&gt; -b &lt;分支名称&gt; &lt;本地目录&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">searchItems() &#123;
+  let searchInfo &#x3D; &#123;&#125;;
+  if (this.searchForm.item_name) &#123;
+    searchInfo.name &#x3D; this.searchForm.item_name;
+  &#125;
+  if (this.searchForm.sn) &#123;
+    searchInfo.id &#x3D; this.searchForm.sn;
+  &#125;
+  if (this.searchForm.device_type) &#123;
+    searchInfo.type &#x3D; this.searchForm.device_type;
+  &#125;
+  if (this.searchForm.device_position) &#123;
+    searchInfo.position &#x3D; this.searchForm.device_position;
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="git-stash-存储区"><a href="#Git-stash-存储区" class="headerlink" title="Git stash (存储区"></a>Git stash (存储区</h2><h2 id="git-remote"><a href="#Git-remote" class="headerlink" title="Git remote"></a>Git remote</h2><h2 id="git-branch"><a href="#Git-branch" class="headerlink" title="Git branch"></a>Git branch</h2><h2 id="git-checkout"><a href="#Git-checkout" class="headerlink" title="Git checkout"></a>Git checkout</h2><h2 id="git-commit"><a href="#Git-commit" class="headerlink" title="Git commit"></a>Git commit</h2><h2 id="git-rm"><a href="#Git-rm" class="headerlink" title="Git rm"></a>Git rm</h2><h2 id="git-push"><a href="#Git-push" class="headerlink" title="Git push"></a>Git push</h2><h2 id="git-pull"><a href="#Git-pull" class="headerlink" title="Git pull"></a>Git pull</h2><h2 id="git-fetch"><a href="#Git-fetch" class="headerlink" title="Git fetch"></a>Git fetch</h2><h2 id="git-merge"><a href="#Git-merge" class="headerlink" title="Git merge"></a>Git merge</h2><h2 id="git-log"><a href="#Git-log" class="headerlink" title="Git log"></a>Git log</h2><h2 id="git-reset"><a href="#Git-reset" class="headerlink" title="Git reset"></a>Git reset</h2><h2 id="head"><a href="#HEAD" class="headerlink" title="HEAD"></a>HEAD</h2><ul>
+<li>撤销 add</li>
+<li>撤销 commit</li>
+<li>回滚上一版本</li>
+</ul>
+<h2 id="git-reflog"><a href="#Git-reflog" class="headerlink" title="Git reflog"></a>Git reflog</h2><h2 id="git-revert"><a href="#Git-revert" class="headerlink" title="Git revert"></a>Git revert</h2><h2 id="git-cherrt-pick"><a href="#Git-cherrt-pick" class="headerlink" title="Git cherrt-pick"></a>Git cherrt-pick</h2><h2 id="git-tag"><a href="#Git-tag" class="headerlink" title="Git tag"></a>Git tag</h2><ul>
+<li>轻量标签</li>
+<li>附注标签</li>
+</ul>
+<h2 id="git-submoudule"><a href="#Git-SubMoudule" class="headerlink" title=" Git SubMoudule"></a> <strong>Git SubMoudule</strong></h2>
+            </div>
+          
+
+    
+      <footer class="post-footer">
+		
+		<div class="post-tags">
+		  
+			<a href="/tags/Tools/">Tools</a>
+		  
+		</div>
+		
+
+        
+        
+  <nav class="post-nav">
+    
+    
+      <a class="next" href="/2022/11/08/7-%E6%9D%82%E7%A2%8E%E5%AD%90/">
+        <span class="next-text nav-default">7-杂碎子</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+        
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+      </footer>
+    
+  </article>
+
+    </div>
+
+      </div>
+
+      <footer id="colophon"><span class="copyright-year">
+    
+    
+        &copy;
+    
+        2022-10 至
+    
+    2022-11
+    <div
+      style="display:inline-block;margin: 0 10px"
+    ></div>
+    <span class="footer-author">yaoyuan.</span>
+    <span class="power-by">
+        秘密基地
+    </span>
+</span>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+
+    <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script>
+
+      <script type="text/javascript" src="/lib/codeBlock/codeBlockFuction.js"></script>
+      <!-- 代码语言 -->
+      <script type="text/javascript" src="/lib/codeBlock/codeBLang.js"></script>
+      <!-- 代码块复制 -->
+      <script type="text/javascript" src="/lib/codeBlock/codeCopy.js"></script>
+      <script type="text/javascript" src="/lib/codeBlock/clipboard.min.js"></script>
+      <!-- 代码块收缩 -->
+      <script type="text/javascript" src="/lib/codeBlock/codeShrink.js"></script> 
+      <!-- 代码块折行 -->
+      <style type="text/css">code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }</style>
+  </body>
+</html>

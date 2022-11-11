@@ -30,7 +30,6 @@ article,
 aside,
 details,
 figcaption,
-figure,
 footer,
 header,
 hgroup,
@@ -177,10 +176,6 @@ svg:not(:root) {
 /**
  * Address margin not present in IE 8/9 and Safari.
  */
-figure {
-  margin: 1em 40px;
-}
-
 /**
  * Address differences between Firefox and other browsers.
  */
@@ -192,16 +187,10 @@ hr {
 /**
  * Contain overflow in all browsers.
  */
-pre {
-  overflow: auto;
-}
-
 /**
  * Address odd `em`-unit font size rendering in all browsers.
  */
-code,
 kbd,
-pre,
 samp {
   font-family: monospace, monospace;
   font-size: 1em;
@@ -516,10 +505,6 @@ h6 {
   float: left;
 }
 
-.home .post {
-  padding: 10px 0;
-}
-
 .home .post-header {
   display: flex;
   justify-content: space-between;
@@ -751,149 +736,124 @@ h6 {
   border: 1px double #f0f0f0;
   text-align: left;
 }
-.post .post-content code, .post .post-content pre {
-  padding: 7px;
-  font-size: 13px;
-  font-family: "Open Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft Yahei", "Microsoft Jhenghei", sans-serif;
-  background: #F8F8F8;
+.post .post-content code {
+  padding: 1px 5px;
+  font-family: Inconsolata, Monaco, Consolas, "Courier New", Courier, monospace;
+  /* font-size: 0.91rem; */
+  color: #e96900;
+  background-color: #f8f8f8;
+  border-radius: 2px;
+}
+.post .post-content pre code {
+  padding: 0;
+  color: #e8eaf6;
+  background-color: #272822;
+}
+.post .post-content pre[class*=language-] {
+  padding: 1.2em;
+  margin: 0.5em 0;
+}
+.post .post-content code[class*=language-],
+.post .post-content pre[class*=language-] {
+  color: #e8eaf6;
+  white-space: pre-wrap !important;
+}
+.post .post-content .line-numbers-rows {
+  border-right-width: 0px !important;
+}
+.post .post-content .line-numbers {
+  padding: 1.5rem 1.5rem 1.5rem 3.2rem !important;
+  margin: 1rem 0 !important;
+  background: #272822;
+  overflow: auto;
+  border-radius: 0.35rem;
+  tab-size: 4;
+}
+.post .post-content pre {
+  padding: 1.5rem !important;
+  margin: 1rem 0 !important;
+  background: #272822;
+  overflow: auto;
+  border-radius: 0.35rem;
+  tab-size: 4;
+}
+.post .post-content pre::before {
+  content: "";
+  height: 16px;
+  margin-bottom: 0;
+  display: block;
+}
+.post .post-content pre::after {
+  content: " ";
+  position: absolute;
+  border-radius: 50%;
+  background: #ff5f56;
+  width: 12px;
+  height: 12px;
+  top: 0;
+  left: 12px;
+  margin-top: 12px;
+  -webkit-box-shadow: 20px 0 #ffbd2e, 40px 0 #27c93f;
+  box-shadow: 20px 0 #ffbd2e, 40px 0 #27c93f;
 }
 .post .post-content code {
-  padding: 3px 5px;
-  color: #000;
+  padding: 1px 5px;
+  font-family: Inconsolata, Monaco, Consolas, "Courier New", Courier, monospace;
+  font-size: 0.91rem;
+  color: #e96900;
+  background-color: #f8f8f8;
+  border-radius: 2px;
 }
-.post .post-content .highlight {
-  margin: 1em 0;
-  overflow-x: auto;
-  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.125);
-}
-.post .post-content .highlight table {
-  position: relative;
-}
-.post .post-content .highlight table::after {
+.post .post-content .code_copy {
   position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  padding: 2px 7px;
-  font-size: 13px;
+  top: 0.7rem;
+  right: 35px;
+  z-index: 1;
+  filter: invert(50%);
+  cursor: pointer;
+}
+.post .post-content .code_lang {
+  position: absolute;
+  top: 1.2rem;
+  right: 60px;
+  line-height: 0;
   font-weight: bold;
-  color: #cacaca;
-  background: #f0f0f0;
-  content: "Code";
+  font-family: normal;
+  z-index: 1;
+  filter: invert(50%);
+  cursor: pointer;
 }
-.post .post-content .highlight.html > ::after {
-  content: "HTML";
+.post .post-content .code-expand {
+  position: absolute;
+  top: 4px;
+  right: 0px;
+  filter: invert(50%);
+  padding: 7px 10px;
+  z-index: 1;
+  cursor: pointer;
+  transition: all 0.3s;
+  transform: rotate(0deg);
 }
-.post .post-content .highlight.js > ::after {
-  content: "JavaScript";
+.post .post-content .code-closed .code-expand {
+  transform: rotate(-180deg) !important;
+  transition: all 0.3s;
 }
-.post .post-content .highlight.bash > ::after {
-  content: "Bash";
+.post .post-content .code-closed pre::before {
+  height: 0px;
 }
-.post .post-content .highlight.css > ::after {
-  content: "CSS";
-}
-.post .post-content .highlight.scss > ::after {
-  content: "Scss";
-}
-.post .post-content .highlight.java > ::after {
-  content: "Java";
-}
-.post .post-content .highlight.xml > ::after {
-  content: "XML";
-}
-.post .post-content .highlight.python > ::after {
-  content: "Python";
-}
-.post .post-content .highlight.json > ::after {
-  content: "JSON";
-}
-.post .post-content .highlight.swift > ::after {
-  content: "Swift";
-}
-.post .post-content .highlight.ruby > ::after {
-  content: "Ruby";
-}
-.post .post-content .highlight.php > ::after {
-  content: "PHP";
-}
-.post .post-content .highlight.c > ::after {
-  content: "C";
-}
-.post .post-content .highlight.cpp > ::after {
-  content: "C++";
-}
-.post .post-content .highlight.scheme > ::after {
-  content: "Scheme";
-}
-.post .post-content .highlight.objectivec > ::after {
-  content: "Objective-C";
-}
-.post .post-content .highlight.yml > ::after {
-  content: "YAML";
-}
-.post .post-content .highlight.stylus > ::after {
-  content: "Stylus";
-}
-.post .post-content .highlight .code pre {
-  margin: 0;
-  padding: 30px 10px 10px;
-}
-.post .post-content .highlight .gutter {
-  width: 10px;
-  color: #cacaca;
-}
-.post .post-content .highlight .gutter pre {
-  margin: 0;
-  padding: 30px 7px 10px;
-}
-.post .post-content .highlight .line {
-  height: 20px;
-}
-.post .post-content .highlight table, .post .post-content .highlight tr, .post .post-content .highlight td {
-  margin: 0;
+.post .post-content pre code {
   padding: 0;
-  width: 100%;
-  border-collapse: collapse;
+  color: #e8eaf6;
+  background-color: #272822;
 }
-.post .post-content .highlight .code .comment,
-.post .post-content .highlight .code .quote {
-  color: #93a1a1;
+.post .post-content pre[class*=language-] {
+  padding: 1.2em;
+  margin: 0.5em 0;
 }
-.post .post-content .highlight .code .keyword,
-.post .post-content .highlight .code .selector-tag,
-.post .post-content .highlight .code .addition {
-  color: #859900;
-}
-.post .post-content .highlight .code .number,
-.post .post-content .highlight .code .string,
-.post .post-content .highlight .code .meta .meta-string,
-.post .post-content .highlight .code .literal,
-.post .post-content .highlight .code .doctag,
-.post .post-content .highlight .code .regexp {
-  color: #2aa198;
-}
-.post .post-content .highlight .code .attribute,
-.post .post-content .highlight .code .attr,
-.post .post-content .highlight .code .variable,
-.post .post-content .highlight .code .template-variable,
-.post .post-content .highlight .code .class .title,
-.post .post-content .highlight .code .type {
-  color: #b58900;
-}
-.post .post-content .highlight .code .symbol,
-.post .post-content .highlight .code .bullet,
-.post .post-content .highlight .code .subst,
-.post .post-content .highlight .code .meta,
-.post .post-content .highlight .code .meta .keyword,
-.post .post-content .highlight .code .selector-attr,
-.post .post-content .highlight .code .selector-pseudo,
-.post .post-content .highlight .code .link {
-  color: #cb4b16;
-}
-.post .post-content .highlight .code .built_in,
-.post .post-content .highlight .code .deletion {
-  color: #dc322f;
+.post .post-content code[class*=language-],
+.post .post-content pre[class*=language-] {
+  color: #e8eaf6;
+  white-space: pre-wrap !important;
 }
 .post .post-content .read-more .read-more-link {
   color: #4D89FB;
