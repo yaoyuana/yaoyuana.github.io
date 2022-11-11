@@ -960,7 +960,7 @@ h6 {
 }
 
 #secondary {
-  width: 19%;
+  width: 20%;
   float: right;
   padding-top: 40px;
   color: rgba(0, 0, 0, 0.6);
@@ -1079,6 +1079,7 @@ h6 {
 /* 远的 */
 .num.far {
   opacity: 0.15;
+  display: block !important;
 }
 
 /* 更远的（越远越透明） */
