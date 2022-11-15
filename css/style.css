@@ -387,6 +387,10 @@ img {
   cursor: url(https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@latest/Hexo/img/pointer.cur), default;
 }
 
+p {
+  cursor: url("/images/mouse/text.cur"), default;
+}
+
 body {
   padding: 0;
   margin: 0;

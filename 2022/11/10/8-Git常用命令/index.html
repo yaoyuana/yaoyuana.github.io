@@ -35,15 +35,15 @@
 <link rel="canonical" href="http://example.com/2022/11/10/8-Git常用命令/"/>
 
 
-<meta name="description" content="body{     background: linear-gradient(150deg,#BEDBDF,#ebf4f5,#ACD1D0) !important; }  本次调整（踩坑日记）： 1、调整了下整体UI2、优化了代码块样式，但渲染有点子问题，没有识别出语言而生成相应的HTML，弄了好久，没弄对…..3、添加音乐：  尝试aplayer插件： No ~ 插件的生成代码必须写在MD文">
+<meta name="description" content="body{     background: linear-gradient(150deg,#BEDBDF,#ebf4f5,#ACD1D0) !important; }   本次调整（踩坑日记）： 1、调整了下整体UI2、优化了代码块样式，但渲染有点子问题，没有识别出语言而生成相应的HTML，弄了好久，没弄对…..3、添加音乐：  尝试aplayer插件： No ~ 插件的生成代码必须写在MD">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git常用命令">
 <meta property="og:url" content="http://example.com/2022/11/10/8-Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/index.html">
 <meta property="og:site_name" content="yaoyuan">
-<meta property="og:description" content="body{     background: linear-gradient(150deg,#BEDBDF,#ebf4f5,#ACD1D0) !important; }  本次调整（踩坑日记）： 1、调整了下整体UI2、优化了代码块样式，但渲染有点子问题，没有识别出语言而生成相应的HTML，弄了好久，没弄对…..3、添加音乐：  尝试aplayer插件： No ~ 插件的生成代码必须写在MD文">
+<meta property="og:description" content="body{     background: linear-gradient(150deg,#BEDBDF,#ebf4f5,#ACD1D0) !important; }   本次调整（踩坑日记）： 1、调整了下整体UI2、优化了代码块样式，但渲染有点子问题，没有识别出语言而生成相应的HTML，弄了好久，没弄对…..3、添加音乐：  尝试aplayer插件： No ~ 插件的生成代码必须写在MD">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-11-10T06:15:22.000Z">
-<meta property="article:modified_time" content="2022-11-11T09:36:03.417Z">
+<meta property="article:modified_time" content="2022-11-15T10:16:31.869Z">
 <meta property="article:author" content="yaoyuan">
 <meta property="article:tag" content="Tools">
 <meta name="twitter:card" content="summary">
@@ -165,7 +165,7 @@
                   <strong class="sidebar-title">
                       目录
                   </strong>
-                  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#git"><span class="toc-text">Git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-clone-amp-init"><span class="toc-text">Git clone &amp; init</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-stash-%E5%AD%98%E5%82%A8%E5%8C%BA"><span class="toc-text">Git stash (存储区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-remote"><span class="toc-text">Git remote</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-branch"><span class="toc-text">Git branch</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-checkout"><span class="toc-text">Git checkout</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-commit"><span class="toc-text">Git commit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-rm"><span class="toc-text">Git rm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-push"><span class="toc-text">Git push</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-pull"><span class="toc-text">Git pull</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-fetch"><span class="toc-text">Git fetch</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-merge"><span class="toc-text">Git merge</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-log"><span class="toc-text">Git log</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-reset"><span class="toc-text">Git reset</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#head"><span class="toc-text">HEAD</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-reflog"><span class="toc-text">Git reflog</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-revert"><span class="toc-text">Git revert</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-cherrt-pick"><span class="toc-text">Git cherrt-pick</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-tag"><span class="toc-text">Git tag</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-submoudule"><span class="toc-text"> Git SubMoudule</span></a></li></ol>
+                  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#git-clone-amp-init"><span class="toc-text">Git clone &amp; init</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-stash-%E5%AD%98%E5%82%A8%E5%8C%BA"><span class="toc-text">Git stash (存储区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-remote"><span class="toc-text">Git remote</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-branch-amp-checkout"><span class="toc-text">Git branch &amp; checkout</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-add"><span class="toc-text">Git add</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-commit"><span class="toc-text">Git commit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-rm"><span class="toc-text">Git rm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-push"><span class="toc-text">Git push</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-pull-amp-fetch"><span class="toc-text">Git pull &amp; fetch</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-merge"><span class="toc-text">Git merge</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-log"><span class="toc-text">Git log</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-reset"><span class="toc-text">Git reset</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#head"><span class="toc-text">HEAD</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-log-amp-reflog"><span class="toc-text">Git log &amp; reflog</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-revert"><span class="toc-text">Git revert</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-cherrt-pick"><span class="toc-text">Git cherrt-pick</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-tag"><span class="toc-text">Git tag</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-submoudule"><span class="toc-text"> Git SubMoudule</span></a></li></ol>
               </div>
             
             <div class="post-content">
@@ -174,7 +174,8 @@
     background: linear-gradient(150deg,#BEDBDF,#ebf4f5,#ACD1D0) !important;
 }
 </style>
-<p>本次调整（踩坑日记）：</p>
+<hr>
+<p><strong>本次调整（踩坑日记）</strong>：</p>
 <p>1、调整了下整体UI<br>2、优化了代码块样式，但渲染有点子问题，没有识别出语言而生成相应的HTML，弄了好久，没弄对…..<br>3、添加音乐：</p>
 <p style="text-indent: 2em">
 尝试aplayer插件： No ~ 插件的生成代码必须写在MD文件里通过Hexo进行渲染生成，而此主题页面是通过.swig渲染，不会走hexo，如之奈何，（写到这里，好像有点思路，可以专门把播放器写到md文件里，引进来hexo就会渲染了）；
@@ -182,37 +183,107 @@
 我也加上了，没搞明白原理，并且没有效果。。。。。。
 暂时放弃了，下次再加把，然后把加的全删了（生气了/////
 </p>
-4、本文只搭了内容框架，还没写，被上面两个功能折磨够呛，眼看着也已经到了下班时间，周五了，我还是撤了把，坐不住了
+<s>4、本文只搭了内容框架，还没写，被上面两个功能折磨够呛，眼看着也已经到了下班时间，周五了，我还是撤了把，坐不住了</s>
 
-<h2 id="git"><a href="#Git" class="headerlink" title="Git"></a><strong>Git</strong></h2><h2 id="git-clone-amp-init"><a href="#Git-clone-amp-init" class="headerlink" title="Git clone &amp; init"></a>Git clone &amp; init</h2><p>  不多说了昂，</p>
-<blockquote>
-<p>git clone &lt;远程网址&gt;<br>git clone &lt;远程网址&gt; &lt;本地目录&gt;<br>git clone &lt;远程网址&gt; -b &lt;分支名称&gt; &lt;本地目录&gt;</p>
-</blockquote>
-<pre class="line-numbers language-none"><code class="language-none">git clone &lt;远程网址&gt;
-git clone &lt;远程网址&gt; &lt;本地目录&gt;
-git clone &lt;远程网址&gt; -b &lt;分支名称&gt; &lt;本地目录&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">searchItems() &#123;
-  let searchInfo &#x3D; &#123;&#125;;
-  if (this.searchForm.item_name) &#123;
-    searchInfo.name &#x3D; this.searchForm.item_name;
-  &#125;
-  if (this.searchForm.sn) &#123;
-    searchInfo.id &#x3D; this.searchForm.sn;
-  &#125;
-  if (this.searchForm.device_type) &#123;
-    searchInfo.type &#x3D; this.searchForm.device_type;
-  &#125;
-  if (this.searchForm.device_position) &#123;
-    searchInfo.position &#x3D; this.searchForm.device_position;
-  &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="git-stash-存储区"><a href="#Git-stash-存储区" class="headerlink" title="Git stash (存储区"></a>Git stash (存储区</h2><h2 id="git-remote"><a href="#Git-remote" class="headerlink" title="Git remote"></a>Git remote</h2><h2 id="git-branch"><a href="#Git-branch" class="headerlink" title="Git branch"></a>Git branch</h2><h2 id="git-checkout"><a href="#Git-checkout" class="headerlink" title="Git checkout"></a>Git checkout</h2><h2 id="git-commit"><a href="#Git-commit" class="headerlink" title="Git commit"></a>Git commit</h2><h2 id="git-rm"><a href="#Git-rm" class="headerlink" title="Git rm"></a>Git rm</h2><h2 id="git-push"><a href="#Git-push" class="headerlink" title="Git push"></a>Git push</h2><h2 id="git-pull"><a href="#Git-pull" class="headerlink" title="Git pull"></a>Git pull</h2><h2 id="git-fetch"><a href="#Git-fetch" class="headerlink" title="Git fetch"></a>Git fetch</h2><h2 id="git-merge"><a href="#Git-merge" class="headerlink" title="Git merge"></a>Git merge</h2><h2 id="git-log"><a href="#Git-log" class="headerlink" title="Git log"></a>Git log</h2><h2 id="git-reset"><a href="#Git-reset" class="headerlink" title="Git reset"></a>Git reset</h2><h2 id="head"><a href="#HEAD" class="headerlink" title="HEAD"></a>HEAD</h2><ul>
-<li>撤销 add</li>
-<li>撤销 commit</li>
-<li>回滚上一版本</li>
+<hr>
+<p><strong>一些概念</strong></p>
+<ul>
+<li><code>暂存区</code><br>git add之后会存在此区域, 用来与本地仓库之间做一个缓存, 帮助Git在做diff时提高查找性能</li>
+<li>本地分支<br>git commit 之后会存在此区域, .git目录下的refs&#x2F;heads目录, 里面村的就是本地的分支代码信息.</li>
+<li><code>存储区</code><br>stash是本地的存储区,<br>场景: 已经改了本地的代码,但是突然有个人来问你另一个分支的问题,同事这个时候你代码搞了一半,又不想提交到Git仓库中,那么就可以考虑<code>git stash save &#39;临时存一下&#39;</code>,之后再<code>git stash pop</code></li>
 </ul>
-<h2 id="git-reflog"><a href="#Git-reflog" class="headerlink" title="Git reflog"></a>Git reflog</h2><h2 id="git-revert"><a href="#Git-revert" class="headerlink" title="Git revert"></a>Git revert</h2><h2 id="git-cherrt-pick"><a href="#Git-cherrt-pick" class="headerlink" title="Git cherrt-pick"></a>Git cherrt-pick</h2><h2 id="git-tag"><a href="#Git-tag" class="headerlink" title="Git tag"></a>Git tag</h2><ul>
+<blockquote>
+<p>有点不建议使用这个,确实得小心一点, 哪天stash了, 但是忘记恢复了, 哭哭可没人安慰喔</p>
+</blockquote>
+<hr>
+<p><strong>一些选项</strong></p>
+<blockquote>
+<p><code>-d</code>   –delete：删除<br><code>-D</code>   –delete –force的快捷键<br><code>-f</code>   –force：强制<br><code>-m</code>   –move：移动或重命名<br><code>-M</code>   –move –force的快捷键<br><code>-r</code>   –remote：远程<br><code>-a</code>   –all：所有</p>
+</blockquote>
+<hr>
+<h2 id="git-clone-amp-init"><a href="#Git-clone-amp-init" class="headerlink" title="Git clone &amp; init"></a>Git clone &amp; init</h2><p>  不多说了昂，</p>
+<blockquote>
+<p><code>git init</code><br><code>git config &lt;--global&gt; user.name</code> xx<br><code>git config &lt;--global&gt; user.email</code> <a href="mailto:&#x78;&#120;&#x40;&#x65;&#109;&#x61;&#105;&#x6c;&#x2e;&#99;&#x6f;&#109;">&#x78;&#120;&#x40;&#x65;&#109;&#x61;&#105;&#x6c;&#x2e;&#99;&#x6f;&#109;</a><br><code>git clone</code> &lt;远程网址&gt;<br><code>git clone</code> &lt;远程网址&gt; &lt;本地目录&gt;<br><code>git clone</code> &lt;远程网址&gt; <code>-b</code> &lt;分支名称&gt; &lt;本地目录&gt;</p>
+</blockquote>
+<h2 id="git-stash-存储区"><a href="#Git-stash-存储区" class="headerlink" title="Git stash (存储区"></a>Git stash (存储区</h2><p>  临时存一下不想被提交的代码, 数据存储在 .git 文件夹下的 refs&#x2F;stash 里</p>
+<pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">git stash save &#39;xxx&#39;: 储存变更
+
+git stash list: 查看储存区所有提交列表
+
+git stash pop: 弹出并应用最近的一次储存区的代码提交
+
+git stash drop stash@&#123;n&#125;: 删除某次储存记录
+
+git stash clear: 清楚所有 stash 信息
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="git-remote"><a href="#Git-remote" class="headerlink" title="Git remote"></a>Git remote</h2><pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">git remote (-v) &#x2F; (show)  : 显示远程仓库详细信息
+
+git remote rm &lt;仓库名称&gt;   : 删除某个远程版本库关联
+
+git remote add origin xxx.git  : 添加一个远程版本库关联
+
+git push -u origin master 表示把当前分支和远端仓库的 master 分支关联起来
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="git-branch-amp-checkout"><a href="#Git-branch-amp-checkout" class="headerlink" title="Git branch &amp; checkout"></a>Git branch &amp; checkout</h2><pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">git branch：查看本地所有分支信息
+
+git branch -r：查看远程仓库所有分支
+git branch -a：查看本地和远程仓库所有分支
+
+git checkout xxx : 切换至新的分支
+
+git branch xxx: 基于当前分支创建新的分支,但不切换
+git checkout -b newbranch :以当前分支为基准创建并切换到指定新分支
+
+git branch -d &lt;分支名&gt;: 删除一个分支，前提是该分支没有未合并的变动。
+git branch -D &lt;分支名&gt;: 强制删除一个分支，不管有没有未合并变化。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="git-add"><a href="#Git-add" class="headerlink" title="Git add"></a>Git add</h2><pre class="line-numbers language-none"><code class="language-none">git add [file1] [file2]: 添加一个或多个文件到暂存区
+
+git add .：把当前目录下得所有文件改动都添加到暂存区
+
+git add -A：把当前仓库内所有文件改动都添加到暂存区<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="git-commit"><a href="#Git-commit" class="headerlink" title="Git commit"></a>Git commit</h2><pre class="line-numbers language-none"><code class="language-none">git commit -m xxxx: 不多说了啊
+git commit -a -m xxxx : 连带着没有add的文件一起提交
+git commit -am xxxx
+
+git commit --amend 
+- 场景: 
+    - 你上次提交的commit信息有误
+    - 你上次提交的文件没改完或没改对
+    - 不想生成太多commit记录 ,可以交一次换一次, 这样最后合代码的时候就非常优雅
+- 步骤:
+  前面已经commit了;
+  重新将想改的文件改好,然后git add;
+  输入git commit --amend;
+  终端显示上次commit的信息, 光标移动至commit的信息并按下&quot;i&quot;进入编辑;
+  编辑完成后(覆盖上次的commit信息);
+  按下Esc退出编辑, 并输入 &quot;:wq&quot; 回车退出并保存修改，完成提交.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="git-rm"><a href="#Git-rm" class="headerlink" title="Git rm"></a>Git rm</h2><pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript"> 已经把私有文件提交至远程, 这时候.gitignore再添加是没用的
+ 所以需要先删除远程的文件, 再.gitignore
+
+git rm xxx： xxx从git仓库中删除了，配合 .gitignore 就能保证xxx文件变更都不会提交到远程。
+
+git rm -r dist：要删除的是一个目录，要加上 -r 。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="git-push"><a href="#Git-push" class="headerlink" title="Git push"></a>Git push</h2><blockquote>
+<p><code>git push --set-upstream origin branch1</code>: 推送分支并建立关联关系</p>
+</blockquote>
+<h2 id="git-pull-amp-fetch"><a href="#Git-pull-amp-fetch" class="headerlink" title="Git pull &amp; fetch"></a>Git pull &amp; fetch</h2><blockquote>
+<p>没有冒号就是当前分支,没有中括号就是更新仓库<br><code>git pull [origin 远程分支:本地分支]</code>: 拉取最新版本合并到本地, 会自动合并,但如果你本地有修改就麻烦了啊,冲突太烦人了<br>所以!!!, 没事就pull一下括弧前提是工作区&#x2F;暂存区干干净净<br><code>git fetch [origin 远程分支:本地分支]</code>: 拉取最新版本至本地,不会自动合并,需要你手动<code>git merge origin/xxxx</code>一下</p>
+</blockquote>
+<h2 id="git-merge"><a href="#Git-merge" class="headerlink" title="Git merge"></a>Git merge</h2><blockquote>
+<p><code>git merge origin/xxxx</code><br><code>git merge xxxx</code></p>
+</blockquote>
+<h2 id="git-log"><a href="#Git-log" class="headerlink" title="Git log"></a>Git log</h2><h2 id="git-reset"><a href="#Git-reset" class="headerlink" title="Git reset"></a>Git reset</h2><blockquote>
+<p><code>git reset [--soft | --mixed | --hard] [HEAD]</code><br>–soft: 重置你最新一次提交版本，不会修改你的暂存区和工作区。<br>–mixed: 默认参数，用于重置暂存区的文件与上一次的提交(commit)保持一致，工作区文件内容保持不变。<br>–hard: 重置所有提交到上一个版本，并且修改你的工作区，会彻底回到上一个提交版本，在代码中看不到当前提交的代码，也就是你的工作区改动也被干掉了。</p>
+</blockquote>
+<h2 id="head"><a href="#HEAD" class="headerlink" title="HEAD"></a>HEAD</h2><ul>
+<li>撤销 add<br>  <code>git reset</code><br>  <code>git reset HEAD</code></li>
+<li>撤销 commit<br>  <code>git reset HEAD^</code><br>  <code>git reset HEAD^^^^</code><br>  <code>git reset HEAD~n</code></li>
+<li>回滚<br>  <code>git reset --hard commitId</code></li>
+</ul>
+<h2 id="git-log-amp-reflog"><a href="#Git-log-amp-reflog" class="headerlink" title="Git log &amp; reflog"></a>Git log &amp; reflog</h2><h2 id="git-revert"><a href="#Git-revert" class="headerlink" title="Git revert"></a>Git revert</h2><h2 id="git-cherrt-pick"><a href="#Git-cherrt-pick" class="headerlink" title="Git cherrt-pick"></a>Git cherrt-pick</h2><h2 id="git-tag"><a href="#Git-tag" class="headerlink" title="Git tag"></a>Git tag</h2><ul>
 <li>轻量标签</li>
 <li>附注标签</li>
 </ul>
