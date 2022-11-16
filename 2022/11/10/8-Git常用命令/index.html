@@ -43,7 +43,7 @@
 <meta property="og:description" content="body{     background: linear-gradient(150deg,#BEDBDF,#ebf4f5,#ACD1D0) !important; }   本次调整（踩坑日记）： 1、调整了下整体UI2、优化了代码块样式，但渲染有点子问题，没有识别出语言而生成相应的HTML，弄了好久，没弄对…..3、添加音乐：  尝试aplayer插件： No ~ 插件的生成代码必须写在MD">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-11-10T06:15:22.000Z">
-<meta property="article:modified_time" content="2022-11-15T10:16:31.869Z">
+<meta property="article:modified_time" content="2022-11-16T07:29:46.706Z">
 <meta property="article:author" content="yaoyuan">
 <meta property="article:tag" content="Tools">
 <meta name="twitter:card" content="summary">
@@ -203,7 +203,7 @@
 <hr>
 <h2 id="git-clone-amp-init"><a href="#Git-clone-amp-init" class="headerlink" title="Git clone &amp; init"></a>Git clone &amp; init</h2><p>  不多说了昂，</p>
 <blockquote>
-<p><code>git init</code><br><code>git config &lt;--global&gt; user.name</code> xx<br><code>git config &lt;--global&gt; user.email</code> <a href="mailto:&#x78;&#120;&#x40;&#x65;&#109;&#x61;&#105;&#x6c;&#x2e;&#99;&#x6f;&#109;">&#x78;&#120;&#x40;&#x65;&#109;&#x61;&#105;&#x6c;&#x2e;&#99;&#x6f;&#109;</a><br><code>git clone</code> &lt;远程网址&gt;<br><code>git clone</code> &lt;远程网址&gt; &lt;本地目录&gt;<br><code>git clone</code> &lt;远程网址&gt; <code>-b</code> &lt;分支名称&gt; &lt;本地目录&gt;</p>
+<p><code>git init</code><br><code>git config &lt;--global&gt; user.name</code> xx<br><code>git config &lt;--global&gt; user.email</code> <a href="mailto:&#x78;&#x78;&#x40;&#x65;&#x6d;&#97;&#x69;&#108;&#46;&#x63;&#x6f;&#109;">&#x78;&#x78;&#x40;&#x65;&#x6d;&#97;&#x69;&#108;&#46;&#x63;&#x6f;&#109;</a><br><code>git clone</code> &lt;远程网址&gt;<br><code>git clone</code> &lt;远程网址&gt; &lt;本地目录&gt;<br><code>git clone</code> &lt;远程网址&gt; <code>-b</code> &lt;分支名称&gt; &lt;本地目录&gt;</p>
 </blockquote>
 <h2 id="git-stash-存储区"><a href="#Git-stash-存储区" class="headerlink" title="Git stash (存储区"></a>Git stash (存储区</h2><p>  临时存一下不想被提交的代码, 数据存储在 .git 文件夹下的 refs&#x2F;stash 里</p>
 <pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">git stash save &#39;xxx&#39;: 储存变更
@@ -248,6 +248,8 @@ git add -A：把当前仓库内所有文件改动都添加到暂存区<span aria
 git commit -a -m xxxx : 连带着没有add的文件一起提交
 git commit -am xxxx
 
+git commit -m xxx --no-verify ：取消代码预检查，直接交（不推荐昂，即加了pre-commit,就要从一开始好好按规矩办事，跳过一次，次次跳，直接摆烂？
+
 git commit --amend 
 - 场景: 
     - 你上次提交的commit信息有误
@@ -259,7 +261,7 @@ git commit --amend
   输入git commit --amend;
   终端显示上次commit的信息, 光标移动至commit的信息并按下&quot;i&quot;进入编辑;
   编辑完成后(覆盖上次的commit信息);
-  按下Esc退出编辑, 并输入 &quot;:wq&quot; 回车退出并保存修改，完成提交.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  按下Esc退出编辑, 并输入 &quot;:wq&quot; 回车退出并保存修改，完成提交.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="git-rm"><a href="#Git-rm" class="headerlink" title="Git rm"></a>Git rm</h2><pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript"> 已经把私有文件提交至远程, 这时候.gitignore再添加是没用的
  所以需要先删除远程的文件, 再.gitignore
 
@@ -304,6 +306,12 @@ git rm -r dist：要删除的是一个目录，要加上 -r 。<span aria-hidden
         
         
   <nav class="post-nav">
+    
+      <a class="prev" href="/2022/11/16/9-%E8%BF%99%E5%87%A0%E5%A4%A9/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">这几天</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
     
     
       <a class="next" href="/2022/11/08/7-%E6%9D%82%E7%A2%8E%E5%AD%90/">
