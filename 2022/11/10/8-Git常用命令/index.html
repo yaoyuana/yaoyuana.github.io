@@ -43,7 +43,7 @@
 <meta property="og:description" content="body{     background: linear-gradient(150deg,#BEDBDF,#ebf4f5,#ACD1D0) !important; }   本次调整（踩坑日记）： 1、调整了下整体UI2、优化了代码块样式，但渲染有点子问题，没有识别出语言而生成相应的HTML，弄了好久，没弄对…..3、添加音乐：  尝试aplayer插件： No ~ 插件的生成代码必须写在MD">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-11-10T06:15:22.000Z">
-<meta property="article:modified_time" content="2022-11-16T07:29:46.706Z">
+<meta property="article:modified_time" content="2022-11-17T09:01:59.089Z">
 <meta property="article:author" content="yaoyuan">
 <meta property="article:tag" content="Tools">
 <meta name="twitter:card" content="summary">
@@ -203,7 +203,7 @@
 <hr>
 <h2 id="git-clone-amp-init"><a href="#Git-clone-amp-init" class="headerlink" title="Git clone &amp; init"></a>Git clone &amp; init</h2><p>  不多说了昂，</p>
 <blockquote>
-<p><code>git init</code><br><code>git config &lt;--global&gt; user.name</code> xx<br><code>git config &lt;--global&gt; user.email</code> <a href="mailto:&#x78;&#x78;&#x40;&#x65;&#x6d;&#97;&#x69;&#108;&#46;&#x63;&#x6f;&#109;">&#x78;&#x78;&#x40;&#x65;&#x6d;&#97;&#x69;&#108;&#46;&#x63;&#x6f;&#109;</a><br><code>git clone</code> &lt;远程网址&gt;<br><code>git clone</code> &lt;远程网址&gt; &lt;本地目录&gt;<br><code>git clone</code> &lt;远程网址&gt; <code>-b</code> &lt;分支名称&gt; &lt;本地目录&gt;</p>
+<p><code>git init</code><br><code>git config &lt;--global&gt; user.name</code> xx<br><code>git config &lt;--global&gt; user.email</code> <a href="mailto:&#120;&#120;&#x40;&#101;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#111;&#x6d;">&#120;&#120;&#x40;&#101;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#111;&#x6d;</a><br><code>git clone</code> &lt;远程网址&gt;<br><code>git clone</code> &lt;远程网址&gt; &lt;本地目录&gt;<br><code>git clone</code> &lt;远程网址&gt; <code>-b</code> &lt;分支名称&gt; &lt;本地目录&gt;</p>
 </blockquote>
 <h2 id="git-stash-存储区"><a href="#Git-stash-存储区" class="headerlink" title="Git stash (存储区"></a>Git stash (存储区</h2><p>  临时存一下不想被提交的代码, 数据存储在 .git 文件夹下的 refs&#x2F;stash 里</p>
 <pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">git stash save &#39;xxx&#39;: 储存变更
@@ -295,13 +295,13 @@ git rm -r dist：要删除的是一个目录，要加上 -r 。<span aria-hidden
 
     
       <footer class="post-footer">
-		
-		<div class="post-tags">
-		  
-			<a href="/tags/Tools/">Tools</a>
-		  
-		</div>
-		
+      
+        <div class="post-tags">
+          
+          <a href="/tags/Tools/">Tools</a>
+          
+        </div>
+      
 
         
         
@@ -324,6 +324,27 @@ git rm -r dist：要删除的是一个目录，要加上 -r 。<span aria-hidden
 
         
   <div class="comments" id="comments">
+    
+    <div id="vcomment" class="comment"></div> 
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+    <script>
+      window.onload = function() {
+        new Valine({
+            el: '#vcomment',
+            notify: true,
+            verify: false,
+            app_id: 'unnudWlPyrKXJy8ZHA7NZclo-gzGzoHsz',
+            app_key: 'HAVxxg2rAU74oBO1M1ssTo1U',
+            placeholder: '说点什么吧......',
+            avatar: 'monsterid',
+            pageSize: 5,
+            visitor: true,
+            highlight: true,
+            recordIP: true,
+        });
+      }
+    </script>
     
   </div>
 

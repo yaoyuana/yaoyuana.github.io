@@ -187,13 +187,13 @@
 
     
       <footer class="post-footer">
-		
-		<div class="post-tags">
-		  
-			<a href="/tags/%E5%B0%8F%E6%83%85%E7%BB%AA/">小情绪</a>
-		  
-		</div>
-		
+      
+        <div class="post-tags">
+          
+          <a href="/tags/%E5%B0%8F%E6%83%85%E7%BB%AA/">小情绪</a>
+          
+        </div>
+      
 
         
         
@@ -216,6 +216,27 @@
 
         
   <div class="comments" id="comments">
+    
+    <div id="vcomment" class="comment"></div> 
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+    <script>
+      window.onload = function() {
+        new Valine({
+            el: '#vcomment',
+            notify: true,
+            verify: false,
+            app_id: 'unnudWlPyrKXJy8ZHA7NZclo-gzGzoHsz',
+            app_key: 'HAVxxg2rAU74oBO1M1ssTo1U',
+            placeholder: '说点什么吧......',
+            avatar: 'monsterid',
+            pageSize: 5,
+            visitor: true,
+            highlight: true,
+            recordIP: true,
+        });
+      }
+    </script>
     
   </div>
 

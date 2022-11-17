@@ -41,7 +41,7 @@
 <meta property="og:description" content="悬停看下美女             （bushi）                                                                                         我叫姚远，女(实在是很喜欢自己的名字，出现了很多次哈哈！)     建站不久，">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-02-10T14:07:08.000Z">
-<meta property="article:modified_time" content="2022-11-09T10:14:25.611Z">
+<meta property="article:modified_time" content="2022-11-17T09:07:42.636Z">
 <meta property="article:author" content="yaoyuan">
 <meta name="twitter:card" content="summary">
 
@@ -169,12 +169,14 @@
     </div>
     <p color="#7DA5BF">我叫姚远，女(实在是很喜欢自己的名字，出现了很多次哈哈！)</p>
     <p>建站不久，内容和功能慢慢加（上班的时候弄，下班弄浪费时间🐕:狗头:哈哈~）</p>
-    <p><a href="#javascript;" id="addFirend">暂无评论功能，如果对我有什么建议，那么加个好友吧~</a></p>
+    <p><a href="#javascript;" id="addFirend"><s>暂无评论功能</s>，如果对我有什么建议，那么加个好友吧~</a></p>
     <div class="circle" id="circle">
        ~ I'm A vegetable student 
     </div>
-    
+    <div id="vcomment" class="comment"></div> 
 </body>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
 <script>
     // 要操作的元素
     const circle=document.querySelector('.circle');
@@ -209,7 +211,19 @@
             img[i].style.opacity = 1
         }
     });
-    
+    new Valine({
+        el: '#vcomment',
+        notify: true,
+        verify: false,
+        app_id: 'unnudWlPyrKXJy8ZHA7NZclo-gzGzoHsz',
+        app_key: 'HAVxxg2rAU74oBO1M1ssTo1U',
+        placeholder: '说点什么吧......',
+        avatar: 'monsterid',
+        pageSize: 5,
+        visitor: true,
+        highlight: true,
+        recordIP: true,
+    });
 </script>
 </html>
             </div>

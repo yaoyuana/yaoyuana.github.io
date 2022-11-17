@@ -43,7 +43,7 @@
 <meta property="og:description" content="body{     background: linear-gradient(150deg, #FFFFFF, #B2E0DF) !important; } .post-content p{     text-indent: 2em;     font-size: 20px; }   上周不是发了篇文，吐槽说前端项目组不够规范，可烦人了。这周二就收到了整顿的消息 规范了下commit，更新了下ig">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-11-16T08:57:35.000Z">
-<meta property="article:modified_time" content="2022-11-16T09:48:18.219Z">
+<meta property="article:modified_time" content="2022-11-17T09:01:48.583Z">
 <meta property="article:author" content="yaoyuan">
 <meta property="article:tag" content="small talk">
 <meta name="twitter:card" content="summary">
@@ -186,13 +186,13 @@ body{
 
     
       <footer class="post-footer">
-		
-		<div class="post-tags">
-		  
-			<a href="/tags/small-talk/">small talk</a>
-		  
-		</div>
-		
+      
+        <div class="post-tags">
+          
+          <a href="/tags/small-talk/">small talk</a>
+          
+        </div>
+      
 
         
         
@@ -209,6 +209,27 @@ body{
 
         
   <div class="comments" id="comments">
+    
+    <div id="vcomment" class="comment"></div> 
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+    <script>
+      window.onload = function() {
+        new Valine({
+            el: '#vcomment',
+            notify: true,
+            verify: false,
+            app_id: 'unnudWlPyrKXJy8ZHA7NZclo-gzGzoHsz',
+            app_key: 'HAVxxg2rAU74oBO1M1ssTo1U',
+            placeholder: '说点什么吧......',
+            avatar: 'monsterid',
+            pageSize: 5,
+            visitor: true,
+            highlight: true,
+            recordIP: true,
+        });
+      }
+    </script>
     
   </div>
 
