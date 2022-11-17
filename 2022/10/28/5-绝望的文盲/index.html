@@ -217,6 +217,7 @@
         
   <div class="comments" id="comments">
     
+    <div id="change">展开评论</div>
     <div id="vcomment" class="comment"></div> 
     <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
     <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
@@ -235,6 +236,12 @@
             highlight: true,
             recordIP: true,
         });
+        let change = document.getElementById('change')
+        let comment = document.getElementById('vcomment')
+        change.addEventListener('click', function(){
+          console.log(comment.style.display)
+          comment.style.display = (comment.style.display == 'none'||comment.style.display=='')? 'block': 'none'
+        })
       }
     </script>
     
