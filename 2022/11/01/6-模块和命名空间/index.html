@@ -252,6 +252,7 @@
         let change = document.getElementById('change')
         let comment = document.getElementById('vcomment')
         change.addEventListener('click', function(){
+          console.log(comment.style.display)
           comment.style.display = (comment.style.display == 'none'||comment.style.display=='')? 'block': 'none'
         })
       }
@@ -284,9 +285,28 @@
         秘密基地
     </span>
 </span>
+<div id="runtime"></div>
+<script type="text/javascript">
+  function show_runtime(){
+    window.setTimeout("show_runtime()",1000);
+    X=new Date("10/14/2022");
+    Y=new Date();T=(Y.getTime()-X.getTime());
+    M=24*60*60*1000;
+    a=T/M;
+    A=Math.floor(a);
+    b=(a-A)*24;
+    B=Math.floor(b);
+    c=(b-B)*60;
+    C=Math.floor((b-B)*60);
+    D=Math.floor((c-C)*60);
+    runtime.innerHTML=""+A+"天"+B+"小时"+C+"分"+D+"秒"
+  }
+    show_runtime();
+</script>
+
 
       </footer>
-
+      
       <div class="back-to-top" id="back-to-top">
         <i class="iconfont icon-up"></i>
       </div>

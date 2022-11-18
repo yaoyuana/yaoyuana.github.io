@@ -239,17 +239,27 @@
         </span>
       </div>
     
+      
+
+      <div class="archive-post">
+        <span class="archive-post-time">
+          
+            1970-01-01
+          
+        </span>
+        <span class="archive-post-title">
+          <a href="/1970/01/01/0-%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" class="archive-post-link">
+            第一篇博客
+          </a>
+        </span>
+      </div>
+    
   </section>
  </div>
 
   
   <nav class="pagination">
     
-    
-      <a class="next" href="/tags/small-talk/page/2/">
-        <span class="next-text">下一页</span>
-        <i class="iconfont icon-right"></i>
-      </a>
     
   </nav>
 
@@ -273,9 +283,28 @@
         秘密基地
     </span>
 </span>
+<div id="runtime"></div>
+<script type="text/javascript">
+  function show_runtime(){
+    window.setTimeout("show_runtime()",1000);
+    X=new Date("10/14/2022");
+    Y=new Date();T=(Y.getTime()-X.getTime());
+    M=24*60*60*1000;
+    a=T/M;
+    A=Math.floor(a);
+    b=(a-A)*24;
+    B=Math.floor(b);
+    c=(b-B)*60;
+    C=Math.floor((b-B)*60);
+    D=Math.floor((c-C)*60);
+    runtime.innerHTML=""+A+"天"+B+"小时"+C+"分"+D+"秒"
+  }
+    show_runtime();
+</script>
+
 
       </footer>
-
+      
       <div class="back-to-top" id="back-to-top">
         <i class="iconfont icon-up"></i>
       </div>

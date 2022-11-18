@@ -42,7 +42,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/images/background.jpg">
 <meta property="article:published_time" content="2020-02-10T14:07:08.000Z">
-<meta property="article:modified_time" content="2022-11-17T09:02:03.773Z">
+<meta property="article:modified_time" content="2022-11-18T03:38:19.229Z">
 <meta property="article:author" content="yaoyuan">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/images/background.jpg">
@@ -158,7 +158,7 @@
 </head>
 <body class="about-body">
     <p>Hi~你好</p>
-    <img src="/images/background.jpg" alt>
+    <!-- <img src="/images/background.jpg" alt=""> -->
     <p color="#7DA5BF">我叫姚远</p>
     <p>陕西渭南人，今年本科毕业，目前在西安从事前端开发的工作。</p>
     <p>在各个平台，总是有话不敢讲，有图不敢晒，所以我来了这里。博客刚搭建，甚是喜爱，以后坚持记录把，不用对心情挑挑拣拣，
@@ -189,9 +189,28 @@
         秘密基地
     </span>
 </span>
+<div id="runtime"></div>
+<script type="text/javascript">
+  function show_runtime(){
+    window.setTimeout("show_runtime()",1000);
+    X=new Date("10/14/2022");
+    Y=new Date();T=(Y.getTime()-X.getTime());
+    M=24*60*60*1000;
+    a=T/M;
+    A=Math.floor(a);
+    b=(a-A)*24;
+    B=Math.floor(b);
+    c=(b-B)*60;
+    C=Math.floor((b-B)*60);
+    D=Math.floor((c-C)*60);
+    runtime.innerHTML=""+A+"天"+B+"小时"+C+"分"+D+"秒"
+  }
+    show_runtime();
+</script>
+
 
       </footer>
-
+      
       <div class="back-to-top" id="back-to-top">
         <i class="iconfont icon-up"></i>
       </div>
