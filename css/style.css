@@ -1,4 +1,14 @@
 @charset "UTF-8";
+#change {
+  text-align: center;
+  line-height: 2em;
+  cursor: pointer;
+}
+
+#vcomment {
+  display: none;
+}
+
 #comments {
   margin-top: 20px;
 }
