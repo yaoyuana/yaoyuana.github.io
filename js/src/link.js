@@ -15,7 +15,7 @@ function shuffle(arr) {
       name = data[i].name;
       avatar = data[i].avatar;
       site = data[i].site;
-      li += '<div class="card">' + '<a href="' + site + '" target="_blank">' + '<div class="thumb" style="background: url( ' + avatar + ');">' + '</div>' + '</a>' + '<div class="card-header">' + '<div><a href="' + site + '" target="_blank">' + name + '</a></div>' + '</div>' + '</div>';
+      li += '<div class="card">' + '<a href="' + site + '" target="_blank">' + '<div class="thumb" style="background: url( ' + avatar + ');">' + '</div>'+'<img src="https://s0.wp.com/mshots/v1/'+ site + '/?w=600&h=400"></img>' + '</a>' + '<div class="card-header">' + '<div><a href="' + site + '" target="_blank">' + name + '</a></div>' + '</div>' + '</div>';
     }
     document.querySelector(".link-navigation").innerHTML = li;
   }
