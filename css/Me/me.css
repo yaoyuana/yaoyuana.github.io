@@ -5,7 +5,6 @@ body{
     background: linear-gradient(150deg,#BEDBDF,#ebf4f5,#ACD1D0) !important;
 }
 p{
-    text-indent: 2em;
     font-size: 20px;
 }
 /* #qcode{
