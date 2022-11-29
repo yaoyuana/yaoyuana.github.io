@@ -3,12 +3,12 @@ let titleTime;
 document.addEventListener('visibilitychange', function () {
     if (document.hidden) {
         $('[rel="icon"]').attr('href', "/img/trhx2.png");
-        document.title = '你丑你就走！ヽ(●-`Д´-)ノ';
+        document.title = '我躲好了！o.Oヾ';
         clearTimeout(titleTime);
     }
     else {
         $('[rel="icon"]').attr('href', "/img/trhx2.png");
-        document.title = '你帅就回来！o.Oヾ' + OriginTitle;
+        document.title = '被发现了！O.oヾ' + OriginTitle;
         titleTime = setTimeout(function () {
             document.title = OriginTitle;
         }, 2000);
