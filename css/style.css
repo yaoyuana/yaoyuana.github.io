@@ -733,10 +733,15 @@ h6 {
 .post .sidebar-title {
   font-size: 20px;
 }
+.post #mulu {
+  position: absolute;
+  right: -280px;
+  min-width: 250px;
+}
 .post #article-toc-inner {
   color: rgba(0, 0, 0, 0.6);
-  position: absolute;
-  right: 20px;
+  position: sticky;
+  top: 20px;
   min-width: 250px;
 }
 @media screen and (min-width: 1421px) {
@@ -1191,28 +1196,16 @@ h6 {
   margin-top: 2em;
 }
 
-#colophon:before {
-  content: "  ";
-  background: url("/images/qunqun.png") no-repeat center;
-  height: 368px;
-  width: 100%;
-  display: block;
-  position: absolute;
-  top: -295px;
-  left: 0;
-  pointer-events: none;
-}
-
 #colophon {
   width: 90%;
-  margin: 240px auto 0;
+  margin: 30px auto 0;
   padding: 20px 0;
   border-top: 1px solid #e1e1e1;
   color: #aaa;
   font-size: 14px;
   max-width: 1000px;
   display: block;
-  position: relative;
+  overflow: hidden;
   text-align: center;
 }
 #colophon a {

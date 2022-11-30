@@ -31,11 +31,12 @@
     /* 设置模糊度 */
     filter: blur(var(--blur));
 }
-#colophon {
+/* 首页隐藏底部图片 */
+/* #colophon {
     margin: 30px auto 0;
     overflow: hidden;
     position: inherit;
-}
+} */
 #colophon:before {
     display: none !important;
 }
