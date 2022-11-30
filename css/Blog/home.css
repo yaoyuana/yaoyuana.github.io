@@ -31,3 +31,11 @@
     /* 设置模糊度 */
     filter: blur(var(--blur));
 }
+#colophon {
+    margin: 30px auto 0;
+    overflow: hidden;
+    position: inherit;
+}
+#colophon:before {
+    display: none !important;
+}

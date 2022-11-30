@@ -1191,16 +1191,28 @@ h6 {
   margin-top: 2em;
 }
 
+#colophon:before {
+  content: "  ";
+  background: url("/images/qunqun.png") no-repeat center;
+  height: 368px;
+  width: 100%;
+  display: block;
+  position: absolute;
+  top: -295px;
+  left: 0;
+  pointer-events: none;
+}
+
 #colophon {
   width: 90%;
-  margin: 30px auto 0;
+  margin: 240px auto 0;
   padding: 20px 0;
   border-top: 1px solid #e1e1e1;
   color: #aaa;
   font-size: 14px;
   max-width: 1000px;
   display: block;
-  overflow: hidden;
+  position: relative;
   text-align: center;
 }
 #colophon a {
