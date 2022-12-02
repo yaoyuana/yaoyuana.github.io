@@ -48,7 +48,7 @@ function moveTo(marker,nameList,pointList,i){
             });
         }else{
             if(nameList[i].type  &&  nameList[i].site){
-                window.location.href = nameList[i].site
+                window.open(nameList[i].site, '_blank').location;
             }
         }
     }

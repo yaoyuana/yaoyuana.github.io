@@ -566,24 +566,24 @@ h6 {
   text-decoration: none;
 }
 
+/*定义滚动条样式（高宽及背景）*/
 ::-webkit-scrollbar {
-  background-image: linear-gradient(135deg, rgba(121, 121, 121, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%);
-  width: 0.6rem;
+  width: 6px; /* 滚动条宽度， width：对应竖滚动条的宽度  height：对应横滚动条的高度*/
+  background: rgba(0, 0, 0, 0);
 }
 
+/*定义滚动条轨道（凹槽）样式*/
 ::-webkit-scrollbar-track {
-  border-radius: 0;
+  color: transparent;
+  background: transparent;
+  background-color: transparent;
 }
 
+/*定义滑块 样式*/
 ::-webkit-scrollbar-thumb {
-  border-radius: 0;
-  background-image: linear-gradient(135deg, #a7a7a7 0%, #c4c4c4 100%);
-  transition: all 0.2s;
-  border-radius: 0.25rem;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(161, 161, 161, 0.7);
+  border-radius: 3px;
+  height: 100px; /* 滚动条滑块长度 */
+  background-color: #ccc;
 }
 
 .far {
@@ -741,7 +741,7 @@ h6 {
 .post #article-toc-inner {
   color: rgba(0, 0, 0, 0.6);
   position: sticky;
-  top: 20px;
+  top: 60px;
   min-width: 250px;
 }
 @media screen and (min-width: 1421px) {
