@@ -108,7 +108,7 @@ div#artitalk_main {
     bottom: -2px;
     right: 10px;
 }
-#artitalk_main p.shuoshuo_time>span:nth-child(1) svg {
+#artitalk_main p.shuoshuo_time>span:nth-child(1) {
     display: none !important;
 }
 #artitalk_main p.shuoshuo_time>span:nth-child(3) {
