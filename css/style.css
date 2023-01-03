@@ -492,6 +492,7 @@ body {
   scroll-behavior: smooth;
   vertical-align: baseline;
   background: linear-gradient(150deg, #f6f7e6, #dafffc);
+  overflow-x: hidden;
 }
 
 img {
@@ -626,6 +627,55 @@ h6 {
   }
   #primary.home {
     width: 100%;
+  }
+}
+@media screen and (min-width: 480px) {
+  .logo {
+    display: inline-block;
+  }
+}
+@media not screen and (min-width: 480px) {
+  .logo {
+    display: none;
+  }
+}
+.tree {
+  width: 20px;
+  height: 30px;
+  /* 开启3D */
+  transform-style: preserve-3d;
+  /* 执行动画 */
+  animation: spin 2s linear infinite;
+}
+
+/* 星星 */
+.tree-star {
+  /* 定义线条 */
+  stroke: #f5e0a3;
+  /* 设置虚线：虚线长度 间距 */
+  stroke-dasharray: 1000 1000;
+  width: 32px;
+  height: 32px;
+  /* 星星发光效果 */
+  filter: drop-shadow(0 0 10px #b2c7e2);
+  /* 绝对定位 */
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  /* 执行动画 */
+  animation: stroke 1s calc(var(--delay) * 0.95 * 0.05s) backwards;
+}
+
+/* 圣诞树旋转 */
+@keyframes spin {
+  to {
+    transform: rotateY(360deg);
+  }
+}
+/* 星星出现 */
+@keyframes stroke {
+  from {
+    stroke-dashoffset: -1000;
   }
 }
 .header {

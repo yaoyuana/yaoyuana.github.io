@@ -17,7 +17,7 @@ p{
 }
 .circle{
     margin: 0 auto;
-    background-image: url('/images/me.jpg');
+    background-image: url('/images/Avatar.jpg');
     /* 不平铺 */
     background-repeat: no-repeat;
     /* 保持图像比例，裁切长边 */
@@ -27,11 +27,11 @@ p{
     /* 固定背景图像 */
     /* background-attachment: fixed; */
     pointer-events: none;
-    width: 50vh;
-    height: 50vh;
+    width: 20vh;
+    height: 20vh;
     border-radius: 50%;
     color: #62bfad;
-    font-size: 4vh;
+    font-size: 2vh;
     font-weight: bold;
     /* 转大写 */
     text-transform: uppercase;
@@ -185,6 +185,6 @@ p{
         transform: rotate3d(1.9, 0.2, 0, 1deg);
     }
 }
-#vcomment {
-    display: block;
-  }
+#change {
+    margin-top: 30px;
+}

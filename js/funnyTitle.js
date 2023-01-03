@@ -1,16 +1,14 @@
-let OriginTitle = document.title;
-let titleTime;
+window.localStorage.setItem('OriginTitle',document.title);
 document.addEventListener('visibilitychange', function () {
     if (document.hidden) {
         $('[rel="icon"]').attr('href', "/img/trhx2.png");
         document.title = '我躲好了！o.Oヾ';
-        clearTimeout(titleTime);
     }
     else {
         $('[rel="icon"]').attr('href', "/img/trhx2.png");
-        document.title = '被发现了！O.oヾ' + OriginTitle;
-        titleTime = setTimeout(function () {
-            document.title = OriginTitle;
+        document.title = '被发现了！O.oヾ';
+        setTimeout(function () {
+            document.title = window.localStorage.getItem('OriginTitle');
         }, 2000);
     }
 });
@@ -26,7 +24,7 @@ document.addEventListener('visibilitychange', function () {
     function n() {
         var t = "function" == typeof e.onclick && e.onclick;
         e.onclick = function (e) {
-            t && t(), o(e)
+            t && t(e), o(e)
         }
     }
 
