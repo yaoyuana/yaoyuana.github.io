@@ -9,7 +9,7 @@ body{
     color: #A0A1A2;
 }
 a,.site-title {
-    color: #A0A1A2 !important;
+    color: #c8c8c9 !important;
 }
 .post .post-content {
     min-height: 85vh;
@@ -105,4 +105,135 @@ a,.site-title {
     text-align: start;
     padding-top: 20px;
     text-indent: 2em;
+}
+
+/* 旋转方块 */
+.container{
+    width: 100%;
+    color: #fff;
+    font-weight: 300;
+    /* 大写 */
+    text-transform: uppercase;
+    /* 设置视距 */
+    perspective: 1300px;
+}
+input{
+    display: none;
+}
+.labels{
+    display: flex;
+    margin: 5px auto;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+.tab{
+    color: #ffffff;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    margin: 0 10px;
+}
+.tab:nth-child(1){
+    width: 30%;
+    background-color: #00b4db;
+}
+.tab:nth-child(2){
+    width: 45%;
+    background-color: #009bc5;
+}
+.tab:nth-child(3){
+    width: 60%;
+    background-color: #007ba4;
+}
+.tab:nth-child(4){
+    width: 70%;
+    background-color: #025774;
+}
+.tab:nth-child(5){
+    width: 80%;
+    background-color: #013c50;
+}
+.tab:nth-child(6){
+    width: 90%;
+    background-color: #02242e;
+}
+.cube{
+    display: flex;
+    margin: 40px auto;
+    height: 250px;
+    width: 250px;
+    /* 开启3D */
+    transform-style: preserve-3d;
+    /* 设置过渡效果 */
+    transition: transform 0.5s ease-in;
+}
+.tab-content{
+    width: 230px;
+    height: 230px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: red;
+}
+.tab-content h1{
+    font-size: 28px !important;
+    font-weight: 300;
+    text-indent: 0;
+}
+.tab-content p{
+    font-size: 14px;
+    font-weight: 100;
+}
+.tab-content:nth-child(1){
+    background-color: #00b4db;
+    transform: rotateX(-270deg) translateY(-115px);
+    transform-origin: top center;
+}
+.tab-content:nth-child(2){
+    background-color: #009bc5;
+    transform: translateZ(115px);
+}
+.tab-content:nth-child(3){
+    background-color: #007ba4;
+    transform: rotateX(-90deg) translateY(115px);
+    transform-origin: bottom center;
+}
+.tab-content:nth-child(4){
+    background-color: #007ba4;
+    transform: rotateX(180deg) translateY(230px) translateZ(115px);
+    transform-origin: bottom center;
+}
+.tab-content:nth-child(5){
+    background-color: #007ba4;
+    transform: rotateY(270deg) translateX(-115px);
+    transform-origin: left;
+}
+.tab-content:nth-child(6){
+    background-color: #007ba4;
+    transform: rotateY(90deg) translateX(115px);
+    transform-origin: right;
+}
+#tab_one:checked ~ .cube{
+    transform: rotateX(-90deg);
+}
+#tab_two:checked ~ .cube{
+    transform: rotateX(0deg);
+}
+#tab_three:checked ~ .cube{
+    transform: rotateX(90deg);
+}
+#tab_for:checked ~ .cube{
+    transform: rotateX(180deg);
+}
+#tab_fiv:checked ~ .cube{
+    transform: rotateY(90deg);
+    transform-origin: center;
+}
+#tab_six:checked ~ .cube{
+    transform: rotateY(-90deg);
+    transform-origin: center;
 }
