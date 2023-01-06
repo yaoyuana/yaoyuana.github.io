@@ -50,7 +50,7 @@
     /* 悬停图片变大 */
     transform: scale(1.1);
 }
-.content li:nth-child(3){
+.content li:nth-child(3), .content li:nth-child(6){
     width: 30%;
     height: 400px;
 }
