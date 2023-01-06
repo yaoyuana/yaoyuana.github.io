@@ -60,19 +60,18 @@ div#artitalk_main {
 	margin-bottom: 0;
 }
 #artitalk_main .cbp_tmtimeline>li .cbp_tmlabel {
-	/* margin: 0 0 10px 60px; */
-    margin: 0 0 10px 0;
-	z-index: 1;
-	background: #E9F6EE;
-	color: #000000 ;
-	padding: 0.1em 1.2em 1em 1.2em;
-	font-weight: 300;
-	line-height: 1.6;
-	position: relative;
-	border-radius: 5px;
-	transition: all 0.3s ease 0s;
-	box-shadow: 0 1px 2px rgba(0,0,0,0.15);
-	display: block;
+	border-bottom: 1px solid #D5E1E1;
+    z-index: 1;
+    color: #000000;
+    padding: 0.1em 1.2em 1em 1.2em;
+    font-weight: 300;
+    line-height: 1.6;
+    position: relative;
+    transition: all 0.3s ease 0s;
+    display: block;
+	border-radius: 0;
+	background: none;
+	box-shadow: none;
 }
 #artitalk_main .cbp_tmlabel:hover {
 	/* transform: scale(1.05);*/
@@ -499,6 +498,14 @@ div#artitalk_main {
 }
 #artitalk_main ul#maina>li {
 	list-style: none;
+	max-height: 300px;
+    overflow: hidden;
+}
+#artitalk_main ul#maina>li::after {
+	content: '<';
+    height: 50px;
+    width: 100px;
+    /* pointer-events: none; */
 }
 #artitalk_main div#artitalk_main {
 	transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
