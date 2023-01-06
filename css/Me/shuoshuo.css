@@ -507,6 +507,9 @@ div#artitalk_main {
     width: 100px;
     pointer-events: none;
 } */
+#artitalk_main ul#maina>li img {
+	max-height: 250px;
+}
 #artitalk_main div#artitalk_main {
 	transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
 }
