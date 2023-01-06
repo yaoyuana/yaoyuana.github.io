@@ -498,15 +498,15 @@ div#artitalk_main {
 }
 #artitalk_main ul#maina>li {
 	list-style: none;
-	max-height: 300px;
-    overflow: hidden;
+	/* max-height: 300px; */
+    /* overflow: hidden; */
 }
-#artitalk_main ul#maina>li::after {
+/* #artitalk_main ul#maina>li::after {
 	content: '<';
     height: 50px;
     width: 100px;
-    /* pointer-events: none; */
-}
+    pointer-events: none;
+} */
 #artitalk_main div#artitalk_main {
 	transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
 }
