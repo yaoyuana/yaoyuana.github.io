@@ -102,7 +102,7 @@ div#artitalk_main {
 	border-right-color: #787C75;
 }
 #artitalk_main p.shuoshuo_time {
-	font-size: 12px;
+	font-size: 0.8em;
     position: absolute;
     bottom: -2px;
     right: 10px;
@@ -177,7 +177,7 @@ div#artitalk_main {
 	border: 1px solid #ccc;
 	padding: 8px 16px;
 	width: 40%;
-	font-size: 12px;
+	font-size: 0.8em;
 	background-color: transparent;
 	color: #999;
 }
@@ -193,7 +193,7 @@ div#artitalk_main {
 	height: auto;
 	line-height: 20px;
 	display: inline-block;
-	font-size: 12px;
+	font-size: 0.8em;
 	border-radius: 12px;
 	/* circle*/
 	outline: none;
@@ -389,7 +389,7 @@ div#artitalk_main {
 	border: 1px solid #ccc;
 	border-radius: 6px;
 	padding: 8px 16px;
-	font-size: 12px;
+	font-size: 0.8em;
 	background-color: transparent;
 	color: #999;
 }
@@ -472,7 +472,7 @@ div#artitalk_main {
 	display: none;
 }
 #artitalk_main div#loading_txt {
-	font-size: 20px;
+	font-size: 1.2em;
 }
 #artitalk_main audio {
 	display: block;

@@ -60,7 +60,7 @@
     background-attachment: fixed;
 }
 .con-txt{
-    font-size: 20px;
+    font-size: 1.2em;
     color: aliceblue;
     pointer-events: none;
     position: absolute;

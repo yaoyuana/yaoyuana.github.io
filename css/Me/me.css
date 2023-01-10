@@ -4,9 +4,7 @@
 body{
     background: linear-gradient(150deg,#BEDBDF,#ebf4f5,#ACD1D0) !important;
 }
-p{
-    font-size: 20px;
-}
+
 /* #qcode{
     display: none;
     margin: 0;
@@ -86,7 +84,7 @@ p{
     transition: 0.25s ease-in-out;
 }
 .text h2{
-    font-size: 30px;
+    font-size: 1.8em;
     font-weight: 100;
     margin-bottom: 10px;
 }

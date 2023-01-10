@@ -96,7 +96,7 @@ body{
     position: absolute;
     z-index: 101;
     width: 50%;
-    font-size: 20px;
+    font-size: 1.2em;
     text-indent: 2em;
 }
 .btn-box .link_text{
@@ -109,7 +109,7 @@ body{
     line-height: 40px;
     text-align: center;
     margin: 5px;
-    font-size: 14px;
+    font-size: 0.9em;
     border-radius: 5px;
     cursor: pointer;
 }

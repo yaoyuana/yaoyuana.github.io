@@ -180,12 +180,12 @@ input{
     background-color: red;
 }
 .tab-content h1{
-    font-size: 28px !important;
+    font-size: 1.7em !important;
     font-weight: 300;
     text-indent: 0;
 }
 .tab-content p{
-    font-size: 14px;
+    font-size: 0.9em;
     font-weight: 100;
 }
 .tab-content:nth-child(1){
@@ -236,4 +236,12 @@ input{
 #tab_six:checked ~ .cube{
     transform: rotateY(-90deg);
     transform-origin: center;
+}
+
+/* 评论样式调整 */
+.vcards p {
+    color: rgb(255 255 255 / 85%) !important;
+}
+.vcards .vcard .vh .vmeta .vat {
+    color: #00B4DB !important;
 }

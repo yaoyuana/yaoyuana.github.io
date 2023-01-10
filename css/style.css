@@ -19,7 +19,7 @@
 }
 
 .vwrap .vheader .vinput {
-  font-size: 18px !important;
+  font-size: 1.2em !important;
   width: 38% !important;
   border-bottom: 1px #dedede dasheed !important;
 }
@@ -559,7 +559,7 @@ h6 {
 .btn {
   display: inline-block;
   padding: 5px 10px;
-  font-size: 14px;
+  font-size: 1.2em;
   margin-top: 1em;
   color: rgba(0, 0, 0, 0.75);
   background: #fff;
@@ -639,8 +639,17 @@ h6 {
     display: none;
   }
 }
+@media not screen and (min-width: 380px) {
+  .logo {
+    display: none;
+  }
+  #nav-top .nav-top-items .menu-item {
+    font-size: 0.85em !important;
+    margin-left: 8px !important;
+  }
+}
 .tree {
-  width: 20px;
+  width: 15px;
   height: 30px;
   /* 开启3D */
   transform-style: preserve-3d;
@@ -709,6 +718,7 @@ h6 {
   max-width: 1000px;
   margin: 0 auto;
   width: 90%;
+  overflow: hidden;
 }
 
 .site-title {
@@ -722,6 +732,12 @@ h6 {
 
 #nav-top {
   float: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: all 0.5s;
+  right: -240px;
 }
 #nav-top .nav-top-items {
   list-style: none;
@@ -729,12 +745,55 @@ h6 {
   margin: 0 auto;
 }
 #nav-top .nav-top-items .menu-item {
-  font-size: 16px;
-  margin-left: 30px;
+  font-size: 1em;
+  margin-left: 15px;
   display: inline-block;
 }
 #nav-top .nav-top-items .menu-item a {
   color: rgba(0, 0, 0, 0.6);
+}
+
+#nav-top input {
+  width: 30px;
+  height: 30px;
+  opacity: 0;
+  cursor: pointer;
+}
+
+#nav-top input:checked ~ span:nth-child(2) {
+  top: calc(50% - 2px);
+  transform: rotate(-45deg);
+  background-color: #fb7299;
+  /* 这里先执行top，然后0.3秒后执行transform */
+  transition: top 0.3s ease-in-out, transform 0.3s ease-in-out 0.3s;
+}
+
+#nav-top input:checked ~ span:nth-child(3) {
+  top: calc(50% - 2px);
+  transform: rotate(45deg);
+  background-color: #fb7299;
+  transition: top 0.3s ease-in-out, transform 0.3s ease-in-out 0.3s;
+}
+
+#nav-top span {
+  position: absolute;
+  left: 6px;
+  display: inline-block;
+  width: 28px;
+  height: 4px;
+  top: calc(50% - 10px);
+  border-radius: 15px;
+  background-color: #999;
+  pointer-events: none;
+  transition: transform 0.3s ease-in-out, top 0.3s ease-in-out 0.3s;
+}
+
+#nav-top span:nth-child(3) {
+  top: calc(50% + 5px);
+}
+
+#menu-top {
+  display: inline-block;
 }
 
 .posts {
@@ -774,14 +833,14 @@ h6 {
 .post .post-time {
   color: #aaa;
   display: block;
-  font-size: 14px;
+  font-size: 0.9em;
   margin-bottom: 10px;
 }
 .post .post-excerpt p {
   margin: 0 0 16px;
 }
 .post .sidebar-title {
-  font-size: 20px;
+  font-size: 1.25em;
 }
 .post #mulu {
   position: absolute;
@@ -1043,7 +1102,7 @@ h6 {
 .post .post-footer .post-nav .prev,
 .post .post-footer .post-nav .next {
   font-weight: 400;
-  font-size: 16px;
+  font-size: 1em;
   color: rgba(0, 0, 0, 0.75);
   font-family: "Microsoft JhengHei", "Open Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft Yahei", "Microsoft Jhenghei", sans-serif;
   transition-property: transform;
@@ -1089,7 +1148,7 @@ h6 {
 .pagination .prev,
 .pagination .next {
   font-weight: 400;
-  font-size: 16px;
+  font-size: 1em;
   font-family: "Microsoft JhengHei", "Open Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft Yahei", "Microsoft Jhenghei", sans-serif;
   transition-property: transform;
   transition-timing-function: ease-out;
@@ -1121,7 +1180,7 @@ h6 {
 }
 
 .widget-area {
-  font-size: 14px;
+  font-size: 0.9em;
 }
 .widget-area ul {
   padding-left: 0;
@@ -1131,7 +1190,7 @@ h6 {
   color: #000;
 }
 .widget-area .widget-title {
-  font-size: 16px;
+  font-size: 1em;
   letter-spacing: 1px;
   padding-bottom: 5px;
   font-weight: 300;
@@ -1161,7 +1220,7 @@ h6 {
 
 .widget_tags .tag-list-item {
   padding: 0 10px 7px 0;
-  font-size: 14px;
+  font-size: 0.9em;
   text-transform: uppercase;
   display: block;
 }
@@ -1187,7 +1246,7 @@ h6 {
 .colon {
   /* 行内块元素 */
   display: inline-block;
-  font-size: 26px;
+  font-size: 1.6em;
   line-height: 26px;
   /* 顶部对齐 */
   vertical-align: top;
@@ -1252,7 +1311,7 @@ h6 {
   padding: 20px 0;
   border-top: 1px solid #e1e1e1;
   color: #aaa;
-  font-size: 14px;
+  font-size: 0.9em;
   max-width: 1000px;
   display: block;
   overflow: hidden;
@@ -1282,18 +1341,18 @@ h6 {
   margin: 0;
   display: inline-block;
   font-weight: 400;
-  font-size: 29px;
-  line-height: 31px;
+  font-size: 28px;
+  line-height: 30px;
 }
 .archive .collection-title {
   font-family: "Microsoft JhengHei", "Open Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft Yahei", "Microsoft Jhenghei", sans-serif;
-  font-size: 29px;
+  font-size: 28px;
 }
 .archive .collection-title .archive-year {
   margin: 18px 0;
   font-weight: 400;
-  font-size: 29px;
-  line-height: 34px;
+  font-size: 28px;
+  line-height: 33px;
 }
 .archive .archive-post {
   margin: 15px 0;
@@ -1384,7 +1443,7 @@ h6 {
   top: -8px;
   right: -2px;
   color: #4D89FB;
-  font-size: 12px;
+  font-size: 0.9em;
 }
 .categories .categories-tags .category-link:active, .categories .categories-tags .category-link:focus, .categories .categories-tags .category-link:hover {
   color: #4D89FB;
