@@ -74,12 +74,13 @@
         <div
           style="display: inline-block"
         >
-            <img 
-            style="border-radius:50%;width:40px"
-            id="avatar-img"
-            alt="yaoyuan" 
-            src="/images/Avatar.jpg"
-            >
+            <a href="/.">
+              <img 
+                style="border-radius:50%;width:40px"
+                id="avatar-img"
+                alt="yaoyuan" 
+                src="/images/Avatar.jpg"
+            ></a>
         </div>
         <a href="/." class="logo">yaoyuan</a>
         <div class="tree" style="display: inline-block">
@@ -91,16 +92,10 @@
 
     <nav id="nav-top">
         
+            <input type="checkbox" id="ipt">
+            <span></span>
+            <span></span>
             <ul id="menu-top" class="nav-top-items">
-                
-                    <li class="menu-item">
-                        <a href="/">
-                            
-                            
-                                首页
-                            
-                        </a>
-                    </li>
                 
                     <li class="menu-item">
                         <a href="/links">
@@ -121,6 +116,24 @@
                     </li>
                 
                     <li class="menu-item">
+                        <a href="/about">
+                            
+                            
+                                哔哔
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/photo">
+                            
+                            
+                                照片
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
                         <a href="/me">
                             
                             
@@ -133,6 +146,20 @@
         
   </nav>
 </div>
+<script>
+//手机打开默认收起菜单
+let navBar = document.getElementById('nav-top')
+let ipt = document.getElementById('ipt')
+ipt.checked = document.body.clientWidth < 400? false: true
+navBar.style.right = ipt.checked? "0px": "-240px"
+ipt.addEventListener("click",()=>{
+    if(ipt.checked){
+        navBar.style.right = "0px"
+    }else{
+        navBar.style.right = "-240px"
+    }
+})
+</script>
 
       </header>
       <div id="content">
@@ -156,12 +183,12 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          <a class="post-link" href="/2023/01/04/13-%E8%B7%9F%E4%BD%A0%E6%9C%89%E5%85%B3%E7%B3%BB%E5%90%97/">跟你有关系吗</a>
+          <a class="post-link" href="/2023/01/10/13-%E7%85%A7%E7%89%87%E5%BF%86%E5%BD%95/">照片忆录-顺便整了照片墙</a>
         
       </h1>
 
       <time class="post-time">
-          1月 04 2023
+          1月 10 2023
       </time>
     </header>
 
@@ -173,9 +200,13 @@
             
             
             
+              
+            
 
             
             
+            
+              但是样式还是又点问题，准备给照片墙做个瀑布流
             
         </div>
           
@@ -587,7 +618,6 @@
     </div>
     <section id="tags" class="widget-area widget_tags">
         <h3 class="widget-title">Tags</h3>
-        <a href="/about" style="color: #1A2B31;font-weight:bolder; font-size: 18px">关于</a>
         <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/small-talk/" rel="tag">small talk</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B4%E6%B4%BB/" rel="tag">整活</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tools/" rel="tag">Tools</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E6%83%85%E7%BB%AA/" rel="tag">小情绪</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Study-TS/" rel="tag">Study-TS</a><span class="tag-list-count">1</span></li></ul>
     </section>
 

@@ -85,12 +85,13 @@
         <div
           style="display: inline-block"
         >
-            <img 
-            style="border-radius:50%;width:40px"
-            id="avatar-img"
-            alt="yaoyuan" 
-            src="/images/Avatar.jpg"
-            >
+            <a href="/.">
+              <img 
+                style="border-radius:50%;width:40px"
+                id="avatar-img"
+                alt="yaoyuan" 
+                src="/images/Avatar.jpg"
+            ></a>
         </div>
         <a href="/." class="logo">yaoyuan</a>
         <div class="tree" style="display: inline-block">
@@ -102,16 +103,10 @@
 
     <nav id="nav-top">
         
+            <input type="checkbox" id="ipt">
+            <span></span>
+            <span></span>
             <ul id="menu-top" class="nav-top-items">
-                
-                    <li class="menu-item">
-                        <a href="/">
-                            
-                            
-                                首页
-                            
-                        </a>
-                    </li>
                 
                     <li class="menu-item">
                         <a href="/links">
@@ -132,6 +127,24 @@
                     </li>
                 
                     <li class="menu-item">
+                        <a href="/about">
+                            
+                            
+                                哔哔
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/photo">
+                            
+                            
+                                照片
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
                         <a href="/me">
                             
                             
@@ -144,6 +157,20 @@
         
   </nav>
 </div>
+<script>
+//手机打开默认收起菜单
+let navBar = document.getElementById('nav-top')
+let ipt = document.getElementById('ipt')
+ipt.checked = document.body.clientWidth < 400? false: true
+navBar.style.right = ipt.checked? "0px": "-240px"
+ipt.addEventListener("click",()=>{
+    if(ipt.checked){
+        navBar.style.right = "0px"
+    }else{
+        navBar.style.right = "-240px"
+    }
+})
+</script>
 
       </header>
       <div id="content">

@@ -8,18 +8,18 @@
 }
 .content{
     width: 100%;
-    padding: 0;
-    margin: 0;
+    padding: 0px;
+    margin: 0px;
 }
 .content li{
     list-style: none;
     position: relative;
-    width: 30%;
+    width: 33.2%;
     height: 200px;
     float: left;
     overflow: hidden;
     box-sizing: border-box;
-    border: 5px solid rgba(0,0,0,0);
+    border: 2px solid rgba(0,0,0,0);
 }
 .content li img{
     width: 100%;
@@ -51,18 +51,4 @@
 .content li:hover img{
     /* 悬停图片变大 */
     transform: scale(1.1);
-}
-.content li:nth-child(3), .content li:nth-child(6){
-    width: 30%;
-    height: 400px;
-}
-.content li:nth-child(4),
-.content li:nth-child(5){
-    margin-top: -200px;
-}
-.content li:nth-child(5){
-    margin-left: 300px;
-}
-.content li:nth-child(8){
-    margin-right: 0;
 }
