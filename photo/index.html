@@ -41,7 +41,7 @@
 <meta property="og:description" content="&#x2F;&#x2F; 渲染数据   function renderlink(data) {     let desc, link, li &#x3D; &quot;&quot;;     for (let i &#x3D; 0; i &lt; data.length; i++) {       desc &#x3D; data[i].desc;       link &#x3D; data[i].link;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-01-09T14:07:08.000Z">
-<meta property="article:modified_time" content="2023-01-09T02:33:43.692Z">
+<meta property="article:modified_time" content="2023-01-11T01:23:30.977Z">
 <meta property="article:author" content="yaoyuan">
 <meta name="twitter:card" content="summary">
 
@@ -189,6 +189,7 @@ ipt.addEventListener("click",()=>{
     <ul class="content"></ul>
 </body>
 <script type="text/javascript" src="\js\src\posts\photo.js"></script>
+<script type="text/javascript" src="\js\src\Plugins\view-image.min.js"></script>
 <script>
     // 渲染数据
   function renderlink(data) {
@@ -207,6 +208,7 @@ ipt.addEventListener("click",()=>{
     .then(res => {
         renderlink(res);
         renderr();
+        window.ViewImage && ViewImage.init('.content img');
     });
 </script>
 </html>
