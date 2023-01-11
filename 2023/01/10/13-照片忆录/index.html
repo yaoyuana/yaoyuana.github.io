@@ -12,7 +12,7 @@
 
 
 
-  <meta name="description" content="照片忆录-顺便整了照片墙"/>
+  <meta name="description" content="照片忆录"/>
 
 
 
@@ -37,7 +37,7 @@
 
 <meta name="description" content="但是样式还是又点问题，准备给照片墙做个瀑布流">
 <meta property="og:type" content="article">
-<meta property="og:title" content="照片忆录-顺便整了照片墙">
+<meta property="og:title" content="照片忆录">
 <meta property="og:url" content="http://example.com/2023/01/10/13-%E7%85%A7%E7%89%87%E5%BF%86%E5%BD%95/index.html">
 <meta property="og:site_name" content="yaoyuan">
 <meta property="og:description" content="但是样式还是又点问题，准备给照片墙做个瀑布流">
@@ -53,7 +53,7 @@
 <meta property="og:image" content="http://m.qpic.cn/psc?/V51jdjHV0Blt1j1u3SGl1KWqkk2a38ly/ruAMsa53pVQWN7FLK88i5h4H2Qt0ipJuXMbLVYadF9Zhx4crwQLOSeIuMzZaboC2dHaFVivmMyfTq0Bm.r8Jp4hWZIHJuYbn21eHFUHYQ2w!/b&bo=VghABlYIQAYBByA!&rf=viewer_4">
 <meta property="og:image" content="https://m.qpic.cn/psc?/V51jdjHV0Blt1j1u3SGl1KWqkk2a38ly/ruAMsa53pVQWN7FLK88i5otRMWhfMprLa9zwaQ9L0ZbutIq3vK1rcYq*H6UF0W5h2Ukd6urh9KRQtPk6TJTNKB5p3kJ37KEJj*EEbNPfy08!/b&bo=QAZABkAGQAYBByA!&rf=viewer_4">
 <meta property="article:published_time" content="2023-01-10T06:15:22.000Z">
-<meta property="article:modified_time" content="2023-01-10T09:34:31.293Z">
+<meta property="article:modified_time" content="2023-01-11T02:59:56.476Z">
 <meta property="article:author" content="yaoyuan">
 <meta property="article:tag" content="small talk">
 <meta property="article:tag" content="整活">
@@ -84,7 +84,7 @@
 
     <script type="text/javascript" src="\js\funnyTitle.js"></script>
     <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
-    <title> 照片忆录-顺便整了照片墙 - yaoyuan </title>
+    <title> 照片忆录 - yaoyuan </title>
   <meta name="generator" content="Hexo 6.3.0"></head>
 
   <body>
@@ -113,9 +113,9 @@
 
     <nav id="nav-top">
         
-            <input type="checkbox" id="ipt">
-            <span></span>
-            <span></span>
+            <input type="checkbox" id="ipt" class="changeBtn">
+            <span class="changeBtn"></span>
+            <span class="changeBtn"></span>
             <ul id="menu-top" class="nav-top-items">
                 
                     <li class="menu-item">
@@ -171,15 +171,22 @@
 //手机打开默认收起菜单
 let navBar = document.getElementById('nav-top')
 let ipt = document.getElementById('ipt')
-ipt.checked = document.body.clientWidth < 400? false: true
+let changeBtns = document.getElementsByClassName('changeBtn')
+ipt.checked = document.body.clientWidth < 400? document.body.clientWidth < 380?true:false: true
 navBar.style.right = ipt.checked? "0px": "-240px"
-ipt.addEventListener("click",()=>{
-    if(ipt.checked){
-        navBar.style.right = "0px"
-    }else{
-        navBar.style.right = "-240px"
+if(document.body.clientWidth < 380){
+    for(let i = 0;i<changeBtns.length;i++){
+        changeBtns[i].style.display = "none"
     }
-})
+}else{
+    ipt.addEventListener("click",()=>{
+        if(ipt.checked){
+            navBar.style.right = "0px"
+        }else{
+            navBar.style.right = "-240px"
+        }
+    })
+}
 </script>
 
       </header>
@@ -191,7 +198,7 @@ ipt.addEventListener("click",()=>{
     <header class="post-header">
       <h1 class="post-title">
         
-          照片忆录-顺便整了照片墙
+          照片忆录
         
       </h1>
 

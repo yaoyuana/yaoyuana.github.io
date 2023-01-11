@@ -96,9 +96,9 @@
 
     <nav id="nav-top">
         
-            <input type="checkbox" id="ipt">
-            <span></span>
-            <span></span>
+            <input type="checkbox" id="ipt" class="changeBtn">
+            <span class="changeBtn"></span>
+            <span class="changeBtn"></span>
             <ul id="menu-top" class="nav-top-items">
                 
                     <li class="menu-item">
@@ -154,15 +154,22 @@
 //手机打开默认收起菜单
 let navBar = document.getElementById('nav-top')
 let ipt = document.getElementById('ipt')
-ipt.checked = document.body.clientWidth < 400? false: true
+let changeBtns = document.getElementsByClassName('changeBtn')
+ipt.checked = document.body.clientWidth < 400? document.body.clientWidth < 380?true:false: true
 navBar.style.right = ipt.checked? "0px": "-240px"
-ipt.addEventListener("click",()=>{
-    if(ipt.checked){
-        navBar.style.right = "0px"
-    }else{
-        navBar.style.right = "-240px"
+if(document.body.clientWidth < 380){
+    for(let i = 0;i<changeBtns.length;i++){
+        changeBtns[i].style.display = "none"
     }
-})
+}else{
+    ipt.addEventListener("click",()=>{
+        if(ipt.checked){
+            navBar.style.right = "0px"
+        }else{
+            navBar.style.right = "-240px"
+        }
+    })
+}
 </script>
 
       </header>
@@ -196,7 +203,7 @@ ipt.addEventListener("click",()=>{
         </span>
         <span class="archive-post-title">
           <a href="/2023/01/10/13-%E7%85%A7%E7%89%87%E5%BF%86%E5%BD%95/" class="archive-post-link">
-            照片忆录-顺便整了照片墙
+            照片忆录
           </a>
         </span>
       </div>
