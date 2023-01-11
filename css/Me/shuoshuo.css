@@ -508,10 +508,7 @@ div#artitalk_main {
     pointer-events: none;
 } */
 #artitalk_main ul#maina>li img {
-	max-height: 250px;
-}
-#artitalk_main ul#maina>li img:hover {
-	max-height: none;
+	max-height: 250px !important;
 }
 #artitalk_main div#artitalk_main {
 	transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
