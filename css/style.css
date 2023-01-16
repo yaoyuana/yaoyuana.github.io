@@ -94,7 +94,7 @@
  *    user zoom.
  */
 html {
-  font-family: sans-serif; /* 1 */
+  font-family: "Microsoft JhengHei", "Open Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft Yahei", "Microsoft Jhenghei", sans-serif; /* 1 */
   -ms-text-size-adjust: 100%; /* 2 */
   -webkit-text-size-adjust: 100%; /* 2 */
 }
@@ -482,7 +482,6 @@ p {
 body {
   padding: 0;
   margin: 0;
-  font-family: "Microsoft JhengHei";
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
