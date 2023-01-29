@@ -33,15 +33,15 @@
 <link rel="canonical" href="https://yaoyuan.vip/photo/"/>
 
 
-<meta name="description" content="&#x2F;&#x2F; 渲染数据   function renderlink(data) {     let desc, link, li &#x3D; &quot;&quot;;     for (let i &#x3D; 0; i &lt; data.length; i++) {       desc &#x3D; data[i].desc;       link &#x3D; data[i].link;">
+<meta name="description" content="&#x2F;&#x2F;TODO: 懒加载、滚动加载     const waterfall &#x3D; document.getElementById(&#39;waterfall&#39;)     function getData() {       return new Promise((resolve, reject) &#x3D;&gt; {         fetch(&#39;.&#x2F;photoList.j">
 <meta property="og:type" content="website">
 <meta property="og:title" content="照片墙">
 <meta property="og:url" content="https://yaoyuan.vip/photo/index.html">
 <meta property="og:site_name" content="yaoyuan">
-<meta property="og:description" content="&#x2F;&#x2F; 渲染数据   function renderlink(data) {     let desc, link, li &#x3D; &quot;&quot;;     for (let i &#x3D; 0; i &lt; data.length; i++) {       desc &#x3D; data[i].desc;       link &#x3D; data[i].link;">
+<meta property="og:description" content="&#x2F;&#x2F;TODO: 懒加载、滚动加载     const waterfall &#x3D; document.getElementById(&#39;waterfall&#39;)     function getData() {       return new Promise((resolve, reject) &#x3D;&gt; {         fetch(&#39;.&#x2F;photoList.j">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-01-09T14:07:08.000Z">
-<meta property="article:modified_time" content="2023-01-11T01:23:30.977Z">
+<meta property="article:modified_time" content="2023-01-29T02:02:33.729Z">
 <meta property="article:author" content="yaoyuan">
 <meta name="twitter:card" content="summary">
 
@@ -188,35 +188,57 @@ if(document.body.clientWidth < 380){
                 <!DOCTYPE html>
 <html lang="en">
 <head> 
-    <meta charset="UTF-8">
     <link rel="stylesheet" href="/css/Me/photo.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <ul class="content"></ul>
+    <ul class="waterfall" id="waterfall"></ul>
 </body>
 <script type="text/javascript" src="\js\src\posts\photo.js"></script>
 <script type="text/javascript" src="\js\src\Plugins\view-image.min.js"></script>
+<script src="\js\src\posts\pubu.js"></script>
 <script>
-    // 渲染数据
-  function renderlink(data) {
-    let desc, link, li = "";
-    for (let i = 0; i < data.length; i++) {
-      desc = data[i].desc;
-      link = data[i].link;
-      li += '<li><img src="'+link+'" ><p><span>'+desc+'</span></p></li>'
+  //TODO: 懒加载、滚动加载
+    const waterfall = document.getElementById('waterfall')
+    function getData() {
+      return new Promise((resolve, reject) => {
+        fetch('./photoList.json')
+          .then(response => response.json())
+          .then(res => {
+              renderData(res);
+              renderr();
+              window.ViewImage && ViewImage.init('.waterfall img');
+              resolve()
+          });
+      })
     }
-    document.querySelector(".content").innerHTML = li;
-  }
-  
-  // 获取 json 文件
-  fetch('./photoList.json')
-    .then(response => response.json())
-    .then(res => {
-        renderlink(res);
-        renderr();
-        window.ViewImage && ViewImage.init('.content img');
-    });
+    getData()
+    // var loading = false;
+    // window.onscroll = async function() {
+    //   const scrollTop = document.documentElement.scrollTop; // 滚动条位置
+    //   const clientHeight = document.documentElement.clientHeight;
+    //   const scrollHeight = document.body.scrollHeight; // 完整高度
+    //   if((scrollTop + clientHeight >= scrollHeight) && !loading) {
+    //     await getData();
+    //   }
+    // }
+    function renderData(data) {
+      const fragment = document.createDocumentFragment();
+      for (let i = 0; i < data.length; i++) {
+        const div = document.createElement('li');
+        const p = document.createElement('p');
+        const span = document.createElement('span');
+        const img = document.createElement('img');
+        div.className = 'waterfall-item'
+        img.src = data[i].link;
+        span.textContent = data[i].desc;
+        p.appendChild(span);
+        div.appendChild(img);
+        div.appendChild(p);
+        div.style.width =  '30%'
+        fragment.appendChild(div);
+      }
+      waterfall.appendChild(fragment);
+    }
 </script>
 </html>
             </div>

@@ -107,7 +107,7 @@ function mouseEvent( angle, o, d ){
 }
 function renderr () {
     // 要操作的元素
-    const lis=document.querySelectorAll('.content li')
+    const lis=document.querySelectorAll('#waterfall li')
     lis.forEach(li=>{
         li.addEventListener('mouseenter',function(e){
             var e = e || window.event;

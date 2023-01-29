@@ -6,3 +6,6 @@ p{
     text-indent: 2em;
     font-size: 1.2em;
 }
+.view-image-tools {
+    display: none !important;
+}
