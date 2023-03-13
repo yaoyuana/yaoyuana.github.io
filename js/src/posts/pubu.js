@@ -15,6 +15,7 @@ class WaterFall {
       })
     }
     layout() {
+      debugger
       if(this.items.length === 0) return;
       const gap = this.gap;
       const pageWidth = this.container.offsetWidth;

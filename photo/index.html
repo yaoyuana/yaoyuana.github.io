@@ -33,15 +33,15 @@
 <link rel="canonical" href="https://yaoyuan.vip/photo/"/>
 
 
-<meta name="description" content="&#x2F;&#x2F;TODO: 懒加载、滚动加载     const waterfall &#x3D; document.getElementById(&#39;waterfall&#39;)     function getData() {       return new Promise((resolve, reject) &#x3D;&gt; {         fetch(&#39;.&#x2F;photoList.j">
+<meta name="description" content="有点Bug，打开后需要刷新一下（正在解决           &#x2F;&#x2F;TODO: 懒加载、滚动加载     const waterfall &#x3D; document.getElementById(&#39;waterfall&#39;)     function getData() {       return new Promise((resolve, reject) &#x3D;&gt; {">
 <meta property="og:type" content="website">
 <meta property="og:title" content="照片墙">
 <meta property="og:url" content="https://yaoyuan.vip/photo/index.html">
 <meta property="og:site_name" content="yaoyuan">
-<meta property="og:description" content="&#x2F;&#x2F;TODO: 懒加载、滚动加载     const waterfall &#x3D; document.getElementById(&#39;waterfall&#39;)     function getData() {       return new Promise((resolve, reject) &#x3D;&gt; {         fetch(&#39;.&#x2F;photoList.j">
+<meta property="og:description" content="有点Bug，打开后需要刷新一下（正在解决           &#x2F;&#x2F;TODO: 懒加载、滚动加载     const waterfall &#x3D; document.getElementById(&#39;waterfall&#39;)     function getData() {       return new Promise((resolve, reject) &#x3D;&gt; {">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-01-09T14:07:08.000Z">
-<meta property="article:modified_time" content="2023-01-29T02:02:33.729Z">
+<meta property="article:modified_time" content="2023-03-13T03:38:20.806Z">
 <meta property="article:author" content="yaoyuan">
 <meta name="twitter:card" content="summary">
 
@@ -191,7 +191,8 @@ if(document.body.clientWidth < 380){
     <link rel="stylesheet" href="/css/Me/photo.css">
 </head>
 <body>
-    <ul class="waterfall" id="waterfall"></ul>
+  <center>有点Bug，打开后需要刷新一下（正在解决</center>
+  <ul class="waterfall" id="waterfall"></ul>
 </body>
 <script type="text/javascript" src="\js\src\posts\photo.js"></script>
 <script type="text/javascript" src="\js\src\Plugins\view-image.min.js"></script>
@@ -207,6 +208,11 @@ if(document.body.clientWidth < 380){
               renderData(res);
               renderr();
               window.ViewImage && ViewImage.init('.waterfall img');
+              setTimeout(()=>{
+                const waterfall = document.getElementById('waterfall');
+                const water = new WaterFall(waterfall, {gap: 10})
+                water.layout()
+              },1000)
               resolve()
           });
       })
