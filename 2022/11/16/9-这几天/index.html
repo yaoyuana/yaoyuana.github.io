@@ -186,7 +186,7 @@ if(localStorage.getItem('is_dark') == 'true'){
     btn.classList.add('dark');
     let a=document.createElement('style');
     a.id='aa';
-    a.innerHTML='html{background-color:#fff;filter:invert(1);font-family: sans-serif;font-size: large;}img{filter:invert(1);}.container div img{filter: blur(var(--blur)) invert(1) !important;}';
+    a.innerHTML='html{background-color:#fff;filter:invert(1);font-family: sans-serif;font-size: large;} img{filter:invert(1);}.container div img{filter: blur(var(--blur)) invert(1) !important;}#baiduMap{filter: invert(1) !important}.card .thumb{filter: invert(1)}.circle{filter: invert(1)}#people{filter: invert(1)}';
     document.head.appendChild(a);
     localStorage.setItem('is_dark', 'true')
 }
