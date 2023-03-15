@@ -46,9 +46,10 @@
 }
 .waterfall li p span{
     width: 80%;
-    font-size: 0.95em;
-    color: #aaa;
+    font-size: 1.2em;
+    color: #c2c2c2;
     line-height: 24px;
+    text-align: center;
 }
 .waterfall li:hover img{
     /* 悬停图片变大 */

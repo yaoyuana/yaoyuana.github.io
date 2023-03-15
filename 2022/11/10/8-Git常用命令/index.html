@@ -154,6 +154,10 @@
             </ul>
         
   </nav>
+  <div class="switch">
+    <i class="fa" style="margin-left: 4px;color: #fff">☀</i>
+    <i class="fa">🌙</i>
+  </div>
 </div>
 <script>
 //手机打开默认收起菜单
@@ -174,6 +178,37 @@ if(document.body.clientWidth < 380){
             navBar.style.right = "-240px"
         }
     })
+}
+// 切换按钮
+const btn=document.querySelector('.switch');
+if(localStorage.getItem('is_dark')==undefined) localStorage.setItem('is_dark','false')
+if(localStorage.getItem('is_dark') == 'true'){
+    btn.classList.add('dark');
+    let a=document.createElement('style');
+    a.id='aa';
+    a.innerHTML='html{background-color:#fff;filter:invert(1);font-family: sans-serif;font-size: large;}img{filter:invert(1);}.container div img{filter: blur(var(--blur)) invert(1) !important;}';
+    document.head.appendChild(a);
+    localStorage.setItem('is_dark', 'true')
+}
+btn.addEventListener('click',function(){
+    changeStyle()
+})
+function changeStyle(){
+    let is_dark = localStorage.getItem('is_dark') == 'true'? true: false;
+    if(!is_dark){
+        // 切换为暗色主题
+        btn.classList.add('dark');
+        let a=document.createElement('style');
+        a.id='aa';
+        a.innerHTML='html{background-color:#fff;filter:invert(1);font-family: sans-serif;font-size: large;}img{filter:invert(1);}.container div img{filter: blur(var(--blur)) invert(1) !important;}';
+        document.head.appendChild(a);
+        localStorage.setItem('is_dark', 'true')
+    }else if(is_dark && document.head.querySelector('#aa')){
+        // 切换为亮色主题
+        btn.classList.remove('dark');
+        document.head.querySelector('#aa').remove();
+        localStorage.setItem('is_dark', 'false')
+    }
 }
 </script>
 
@@ -243,7 +278,7 @@ if(document.body.clientWidth < 380){
 <hr>
 <h2 id="git-clone-amp-init"><a href="#Git-clone-amp-init" class="headerlink" title="Git clone &amp; init"></a>Git clone &amp; init</h2><p>  不多说了昂，</p>
 <blockquote>
-<p><code>git init</code><br><code>git config &lt;--global&gt; user.name</code> xx<br><code>git config &lt;--global&gt; user.email</code> <a href="mailto:&#x78;&#x78;&#x40;&#x65;&#x6d;&#x61;&#105;&#108;&#46;&#x63;&#111;&#109;">&#x78;&#x78;&#x40;&#x65;&#x6d;&#x61;&#105;&#108;&#46;&#x63;&#111;&#109;</a><br><code>git clone</code> &lt;远程网址&gt;<br><code>git clone</code> &lt;远程网址&gt; &lt;本地目录&gt;<br><code>git clone</code> &lt;远程网址&gt; <code>-b</code> &lt;分支名称&gt; &lt;本地目录&gt;</p>
+<p><code>git init</code><br><code>git config &lt;--global&gt; user.name</code> xx<br><code>git config &lt;--global&gt; user.email</code> <a href="mailto:&#x78;&#x78;&#64;&#101;&#x6d;&#97;&#105;&#x6c;&#46;&#x63;&#111;&#x6d;">&#x78;&#x78;&#64;&#101;&#x6d;&#97;&#105;&#x6c;&#46;&#x63;&#111;&#x6d;</a><br><code>git clone</code> &lt;远程网址&gt;<br><code>git clone</code> &lt;远程网址&gt; &lt;本地目录&gt;<br><code>git clone</code> &lt;远程网址&gt; <code>-b</code> &lt;分支名称&gt; &lt;本地目录&gt;</p>
 </blockquote>
 <h2 id="git-stash-存储区"><a href="#Git-stash-存储区" class="headerlink" title="Git stash (存储区"></a>Git stash (存储区</h2><p>  临时存一下不想被提交的代码, 数据存储在 .git 文件夹下的 refs&#x2F;stash 里</p>
 <pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">git stash save &#39;xxx&#39;: 储存变更

@@ -72,6 +72,7 @@ div#artitalk_main {
 	border-radius: 0;
 	background: none;
 	box-shadow: none;
+	margin-top: -12px;
 }
 #artitalk_main .cbp_tmlabel:hover {
 	/* transform: scale(1.05);*/
@@ -135,7 +136,7 @@ div#artitalk_main {
     pointer-events: none;
 } */
 #artitalk_main .shuoshuo_author_img img {
-	display: none;
+	display: block;
 	margin-top: 10px;
 	margin-right: 0px;
 	border: 1px solid #ddd;

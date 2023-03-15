@@ -103,6 +103,7 @@
   height: 0;
   padding-bottom: 100%;
   background-size: 100% 100%!important;
+  filter: invert(1) !important;
 }
 
 .posts-expand .post-body img {

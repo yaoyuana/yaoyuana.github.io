@@ -151,6 +151,10 @@
             </ul>
         
   </nav>
+  <div class="switch">
+    <i class="fa" style="margin-left: 4px;color: #fff">☀</i>
+    <i class="fa">🌙</i>
+  </div>
 </div>
 <script>
 //手机打开默认收起菜单
@@ -171,6 +175,37 @@ if(document.body.clientWidth < 380){
             navBar.style.right = "-240px"
         }
     })
+}
+// 切换按钮
+const btn=document.querySelector('.switch');
+if(localStorage.getItem('is_dark')==undefined) localStorage.setItem('is_dark','false')
+if(localStorage.getItem('is_dark') == 'true'){
+    btn.classList.add('dark');
+    let a=document.createElement('style');
+    a.id='aa';
+    a.innerHTML='html{background-color:#fff;filter:invert(1);font-family: sans-serif;font-size: large;}img{filter:invert(1);}.container div img{filter: blur(var(--blur)) invert(1) !important;}';
+    document.head.appendChild(a);
+    localStorage.setItem('is_dark', 'true')
+}
+btn.addEventListener('click',function(){
+    changeStyle()
+})
+function changeStyle(){
+    let is_dark = localStorage.getItem('is_dark') == 'true'? true: false;
+    if(!is_dark){
+        // 切换为暗色主题
+        btn.classList.add('dark');
+        let a=document.createElement('style');
+        a.id='aa';
+        a.innerHTML='html{background-color:#fff;filter:invert(1);font-family: sans-serif;font-size: large;}img{filter:invert(1);}.container div img{filter: blur(var(--blur)) invert(1) !important;}';
+        document.head.appendChild(a);
+        localStorage.setItem('is_dark', 'true')
+    }else if(is_dark && document.head.querySelector('#aa')){
+        // 切换为亮色主题
+        btn.classList.remove('dark');
+        document.head.querySelector('#aa').remove();
+        localStorage.setItem('is_dark', 'false')
+    }
 }
 </script>
 
