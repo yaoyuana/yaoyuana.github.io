@@ -16,7 +16,7 @@ div#artitalk_main {
     font-family: '微软雅黑';
 }
 #artitalk_main #shuoshuo_content p {
-    text-indent: 0em;
+    text-indent: 2em;
 }
 #artitalk_main body.theme-dark .cbp_tmtimeline::before {
 	background: RGBA(255, 255, 255, 0.06);
@@ -60,11 +60,11 @@ div#artitalk_main {
 	margin-bottom: 0;
 }
 #artitalk_main .cbp_tmtimeline>li .cbp_tmlabel {
-	border-bottom: 1px solid #D5E1E1;
+	border-bottom: none;
+	/* border-bottom: 1px solid #D5E1E1; */
     z-index: 1;
     color: #000000;
     padding: 0.2em 1.2em 1.5em 1.2em;
-    font-weight: 300;
     line-height: 1.6;
     position: relative;
     transition: all 0.3s ease 0s;
@@ -106,6 +106,7 @@ div#artitalk_main {
     position: absolute;
     bottom: -2px;
     right: 10px;
+	font-family: MiSans, PingFang SC, Century Gothic, Microsoft YaHei UI Light, system-ui, sans-serif;;
 }
 #artitalk_main p.shuoshuo_time>span:nth-child(1) {
     display: none !important;
@@ -134,14 +135,19 @@ div#artitalk_main {
     pointer-events: none;
 } */
 #artitalk_main .shuoshuo_author_img img {
-    display: inline-block !important;
+	display: none;
 	margin-top: 10px;
-	margin-right: 10px;
+	margin-right: 0px;
 	border: 1px solid #ddd;
 	padding: 2px;
-	float: left;
+	float: none;
 	border-radius: 64px;
 	transition: all 1s;
+}
+@media not screen and (min-width : 380px) {
+	#artitalk_main .shuoshuo_author_img img {
+		display: none !important;
+	}
 }
 #artitalk_main .artitalk_avatar {
 	border-radius: 100% ;
@@ -500,6 +506,12 @@ div#artitalk_main {
 }
 #artitalk_main ul#maina>li {
 	list-style: none;
+	margin: 10px 0 !important;
+    background: #FCFAFA;
+    border-radius: 15px;
+    padding: 1rem;
+    overflow-wrap: anywhere;
+    font-family: serif;
 	/* max-height: 300px; */
     /* overflow: hidden; */
 }

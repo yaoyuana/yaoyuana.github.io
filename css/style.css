@@ -769,6 +769,7 @@ canvas:not(#ribbon-canvas), #web_bg {
 }
 #nav-top .nav-top-items .menu-item a {
   color: rgba(0, 0, 0, 0.6);
+  font-weight: 600 !important;
 }
 
 #nav-top input {
@@ -831,6 +832,7 @@ canvas:not(#ribbon-canvas), #web_bg {
 .post .post-header .post-title {
   margin: 0 0 10px;
   line-height: 1.4;
+  font-weight: 600 !important;
   font-size: 1.3em;
   font-weight: 400;
   font-family: "Microsoft JhengHei", "Open Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft Yahei", "Microsoft Jhenghei", sans-serif;
@@ -882,6 +884,7 @@ canvas:not(#ribbon-canvas), #web_bg {
   }
 }
 .post .post-content {
+  line-height: 1.8em;
   margin-bottom: 6px;
   /*首行缩进*/
 }
@@ -1211,7 +1214,7 @@ canvas:not(#ribbon-canvas), #web_bg {
   font-size: 1em;
   letter-spacing: 1px;
   padding-bottom: 5px;
-  font-weight: 300;
+  font-weight: 400 !important;
   border-bottom: 1px solid #ddd;
 }
 .widget-area .category-list-item {

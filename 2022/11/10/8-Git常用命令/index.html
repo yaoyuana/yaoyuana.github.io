@@ -243,7 +243,7 @@ if(document.body.clientWidth < 380){
 <hr>
 <h2 id="git-clone-amp-init"><a href="#Git-clone-amp-init" class="headerlink" title="Git clone &amp; init"></a>Git clone &amp; init</h2><p>  不多说了昂，</p>
 <blockquote>
-<p><code>git init</code><br><code>git config &lt;--global&gt; user.name</code> xx<br><code>git config &lt;--global&gt; user.email</code> <a href="mailto:&#120;&#120;&#64;&#101;&#109;&#97;&#105;&#108;&#x2e;&#99;&#111;&#109;">&#120;&#120;&#64;&#101;&#109;&#97;&#105;&#108;&#x2e;&#99;&#111;&#109;</a><br><code>git clone</code> &lt;远程网址&gt;<br><code>git clone</code> &lt;远程网址&gt; &lt;本地目录&gt;<br><code>git clone</code> &lt;远程网址&gt; <code>-b</code> &lt;分支名称&gt; &lt;本地目录&gt;</p>
+<p><code>git init</code><br><code>git config &lt;--global&gt; user.name</code> xx<br><code>git config &lt;--global&gt; user.email</code> <a href="mailto:&#x78;&#x78;&#x40;&#x65;&#x6d;&#x61;&#105;&#108;&#46;&#x63;&#111;&#109;">&#x78;&#x78;&#x40;&#x65;&#x6d;&#x61;&#105;&#108;&#46;&#x63;&#111;&#109;</a><br><code>git clone</code> &lt;远程网址&gt;<br><code>git clone</code> &lt;远程网址&gt; &lt;本地目录&gt;<br><code>git clone</code> &lt;远程网址&gt; <code>-b</code> &lt;分支名称&gt; &lt;本地目录&gt;</p>
 </blockquote>
 <h2 id="git-stash-存储区"><a href="#Git-stash-存储区" class="headerlink" title="Git stash (存储区"></a>Git stash (存储区</h2><p>  临时存一下不想被提交的代码, 数据存储在 .git 文件夹下的 refs&#x2F;stash 里</p>
 <pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">git stash save &#39;xxx&#39;: 储存变更
@@ -472,5 +472,18 @@ git rm -r dist：要删除的是一个目录，要加上 -r 。<span aria-hidden
 <script type="text/javascript" src="/js/src/Plugins/fish.js"></script>
 
     <style type="text/css">code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }</style>
-  </body>
+  
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 3,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body>
 </html>

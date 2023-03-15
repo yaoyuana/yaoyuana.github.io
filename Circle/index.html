@@ -12,12 +12,10 @@
 
 
 
-  <meta name="description" content="模块和命名空间"/>
+  <meta name="description" content="朋友圈"/>
 
 
 
-
-  <meta name="keywords" content="Study-TS," />
 
 <meta name="referrer" content="never">
 
@@ -32,20 +30,19 @@
 
 
 
-<link rel="canonical" href="https://yaoyuan.vip/2022/11/01/6-模块和命名空间/"/>
+<link rel="canonical" href="https://yaoyuan.vip/Circle/"/>
 
 
-<meta name="description" content="试试文章效果怎么样 专门给文章加了目录喔（以字段toc区分）  命名空间  微型模块 想把相关的业务代码写在一起，又不想污染全局空间时可使用 本质就是定义一个大对象，把变量&#x2F;方法&#x2F;类&#x2F;接口…都放在里面  namespace Validation &amp;#123;     const lettersRegexp &#x3D; &#x2F;^[A-Za-z]+$&#x2F;;     const lett">
-<meta property="og:type" content="article">
-<meta property="og:title" content="模块和命名空间">
-<meta property="og:url" content="https://yaoyuan.vip/2022/11/01/6-%E6%A8%A1%E5%9D%97%E5%92%8C%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/index.html">
+<meta name="description" content="let UserConfig &#x3D; {         &#x2F;&#x2F; 填写你的api地址         private_api_url: &#39;https:&#x2F;&#x2F;hexo-circle-of-friends-flax.vercel.app&#x2F;&#39;,         &#x2F;&#x2F; 初始加载几篇文章         page_init_number: 20,         &#x2F;&#x2F; 点击加载更多时，一次最多加载几篇文">
+<meta property="og:type" content="website">
+<meta property="og:title" content="朋友圈">
+<meta property="og:url" content="https://yaoyuan.vip/Circle/index.html">
 <meta property="og:site_name" content="yaoyuan">
-<meta property="og:description" content="试试文章效果怎么样 专门给文章加了目录喔（以字段toc区分）  命名空间  微型模块 想把相关的业务代码写在一起，又不想污染全局空间时可使用 本质就是定义一个大对象，把变量&#x2F;方法&#x2F;类&#x2F;接口…都放在里面  namespace Validation &amp;#123;     const lettersRegexp &#x3D; &#x2F;^[A-Za-z]+$&#x2F;;     const lett">
+<meta property="og:description" content="let UserConfig &#x3D; {         &#x2F;&#x2F; 填写你的api地址         private_api_url: &#39;https:&#x2F;&#x2F;hexo-circle-of-friends-flax.vercel.app&#x2F;&#39;,         &#x2F;&#x2F; 初始加载几篇文章         page_init_number: 20,         &#x2F;&#x2F; 点击加载更多时，一次最多加载几篇文">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-11-01T08:03:28.000Z">
-<meta property="article:modified_time" content="2022-11-03T09:49:22.658Z">
+<meta property="article:published_time" content="2023-03-12T16:38:16.000Z">
+<meta property="article:modified_time" content="2023-03-13T06:14:43.795Z">
 <meta property="article:author" content="yaoyuan">
-<meta property="article:tag" content="Study-TS">
 <meta name="twitter:card" content="summary">
 
 
@@ -72,7 +69,7 @@
 
     <script type="text/javascript" src="\js\funnyTitle.js"></script>
     <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
-    <title> 模块和命名空间 - yaoyuan </title>
+    <title> 朋友圈 - yaoyuan </title>
   <meta name="generator" content="Hexo 6.3.0"></head>
 
   <body>
@@ -181,133 +178,33 @@ if(document.body.clientWidth < 380){
       <div id="content">
         
     <div id="primary">
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          模块和命名空间
-        
-      </h1>
-
-      <time class="post-time">
-          11月 01 2022
-      </time>
-    </header>
-
-
-
-    
-            
-              <div id="article-toc-inner">
-                <div id="mulu">
-                    <strong class="sidebar-title">
-                        目录 
-                    </strong>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%95%E8%AF%95%E6%96%87%E7%AB%A0%E6%95%88%E6%9E%9C%E6%80%8E%E4%B9%88%E6%A0%B7"><span class="toc-text">试试文章效果怎么样</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4"><span class="toc-text">命名空间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4%E5%92%8C%E6%A8%A1%E5%9D%97%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">命名空间和模块的区别</span></a></li></ol>
-                </div>
-              </div>
-            
+        <article class="post">
+            <header class="post-header">
+                <h1 class="post-title">
+                    朋友圈
+                </h1>
+            </header>
             <div class="post-content">
-            <h2 id="试试文章效果怎么样"><a href="#试试文章效果怎么样" class="headerlink" title="试试文章效果怎么样"></a>试试文章效果怎么样</h2><ul>
-<li>专门给文章加了目录喔（以字段toc区分）</li>
-</ul>
-<h2 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h2><hr>
-<ul>
-<li>微型模块</li>
-<li>想把相关的业务代码写在一起，又不想污染全局空间时可使用</li>
-<li>本质就是定义一个大对象，把变量&#x2F;方法&#x2F;类&#x2F;接口…都放在里面</li>
-</ul>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">namespace Validation <span class="token punctuation">&#123;</span>
-    <span class="token keyword">const</span> lettersRegexp <span class="token operator">=</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^[A-Za-z]+$</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">;</span>
-    <span class="token keyword">const</span> lettersOnlyValidator <span class="token keyword">implements</span> <span class="token class-name">StringVaildator</span> <span class="token punctuation">&#123;</span>
-        <span class="token function">isAcceptable</span><span class="token punctuation">(</span><span class="token parameter"><span class="token literal-property property">s</span><span class="token operator">:</span> string</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            <span class="token keyword">return</span> lettersRegexp<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="命名空间和模块的区别"><a href="#命名空间和模块的区别" class="headerlink" title="命名空间和模块的区别"></a>命名空间和模块的区别</h2><hr>
-<ul>
-<li>在程序内部使用的代码，可以使用命名空间封装和防止全局污染</li>
-<li>在程序外部使用的代码，可以使用模块封装和防止全局污染<blockquote>
-<p>大部分情况下模块够用了</p>
-</blockquote>
-</li>
-</ul>
-
+                <div id="hexo-circle-of-friends-root"></div>
+<script>
+    let UserConfig = {
+        // 填写你的api地址
+        private_api_url: 'https://hexo-circle-of-friends-flax.vercel.app/',
+        // 初始加载几篇文章
+        page_init_number: 20,
+        // 点击加载更多时，一次最多加载几篇文章，默认10
+        page_turning_number: 10,
+        // 头像加载失败时，默认头像地址
+        error_img: 'https://yaoyuan.vip/images/Avatar.jpg',
+        // 进入页面时第一次的排序规则
+        sort_rule: 'created',
+        // 本地文章缓存数据过期时间（天）
+        expire_days: 1, 
+    }
+</script>
+<script type="text/javascript" src="https://npm.elemecdn.com/fcircle-theme-yyyz@1.0.13/dist/fcircle.min.js"></script>
             </div>
-          
-
-    
-      <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-          <a href="/tags/Study-TS/">Study-TS</a>
-          
-        </div>
-      
-
-        
-        
-  <nav class="post-nav">
-    
-      <a class="prev" href="/2022/11/08/7-%E6%9D%82%E7%A2%8E%E5%AD%90/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">7-杂碎子</span>
-        <span class="prev-text nav-mobile">上一篇</span>
-      </a>
-    
-    
-      <a class="next" href="/2022/10/28/5-%E7%BB%9D%E6%9C%9B%E7%9A%84%E6%96%87%E7%9B%B2/">
-        <span class="next-text nav-default">绝望的文盲</span>
-        <span class="prev-text nav-mobile">下一篇</span>
-        <i class="iconfont icon-right"></i>
-      </a>
-    
-  </nav>
-
-        
-  <div class="comments" id="comments">
-    
-    <div id="change">展开评论</div>
-    <div id="vcomment" class="comment"></div> 
-    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-    <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-    <script>
-      window.onload = function() {
-        new Valine({
-            el: '#vcomment',
-            notify: true,
-            verify: false,
-            // app_id: 'DFIWx0Ig1P6q1pCANzVk1rOp-MdYXbMMI',
-            // app_key: 'HAVxxg2rAU74oBO1M1ssTo1U',
-            app_id: 'unnudWlPyrKXJy8ZHA7NZclo-gzGzoHsz',
-            app_key: 'HAVxxg2rAU74oBO1M1ssTo1U',
-            placeholder: '说点什么吧......',
-            avatar: 'monsterid',
-            pageSize: 5,
-            visitor: true,
-            highlight: true,
-            recordIP: true,
-            // serverURLs: 'https://dfiwx0ig.api.lncldglobal.com' 
-        });
-        let change = document.getElementById('change')
-        let comment = document.getElementById('vcomment')
-        change.addEventListener('click', function(){
-          console.log(comment.style.display)
-          comment.style.display = (comment.style.display == 'none'||comment.style.display=='')? 'block': 'none'
-        })
-      }
-    </script>
-    
-  </div>
-
-
-      </footer>
-    
-  </article>
-
+        </article>
     </div>
 
       </div>

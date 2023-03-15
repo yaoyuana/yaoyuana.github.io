@@ -1,10 +1,14 @@
 body{
     /* 渐变背景 */
-    background: linear-gradient(150deg,#f6f7e6,#dafffc) !important;
+    background: linear-gradient(150deg,#F3E5E5,#F3EFEE) !important;
+    /* background: linear-gradient(150deg,#f6f7e6,#dafffc) !important; */
 }
 p{
     text-indent: 2em;
     font-size: 1.2em;
+}
+#primary {
+    max-width: 1000px !important;
 }
 .view-image-tools {
     display: none !important;
