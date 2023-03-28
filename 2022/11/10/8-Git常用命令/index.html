@@ -35,15 +35,15 @@
 <link rel="canonical" href="https://yaoyuan.vip/2022/11/10/8-Git常用命令/"/>
 
 
-<meta name="description" content="body{     background: linear-gradient(150deg,#BEDBDF,#ebf4f5,#ACD1D0) !important; }   本次调整（踩坑日记）： 1、调整了下整体UI2、优化了代码块样式，但渲染有点子问题，没有识别出语言而生成相应的HTML，弄了好久，没弄对…..3、添加音乐：  尝试aplayer插件： No ~ 插件的生成代码必须写在MD">
+<meta name="description" content="body{     font-family: &#39;Harmony_Regular&#39;,&#39;Microsoft JhengHei&#39;,&quot;Open Sans&quot;,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft Yahei&quot;,&quot;Microsoft Jhenghei&quot;,sans-serif;     background: linear-gradient(150deg,">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git常用命令">
 <meta property="og:url" content="https://yaoyuan.vip/2022/11/10/8-Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/index.html">
 <meta property="og:site_name" content="yaoyuan">
-<meta property="og:description" content="body{     background: linear-gradient(150deg,#BEDBDF,#ebf4f5,#ACD1D0) !important; }   本次调整（踩坑日记）： 1、调整了下整体UI2、优化了代码块样式，但渲染有点子问题，没有识别出语言而生成相应的HTML，弄了好久，没弄对…..3、添加音乐：  尝试aplayer插件： No ~ 插件的生成代码必须写在MD">
+<meta property="og:description" content="body{     font-family: &#39;Harmony_Regular&#39;,&#39;Microsoft JhengHei&#39;,&quot;Open Sans&quot;,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft Yahei&quot;,&quot;Microsoft Jhenghei&quot;,sans-serif;     background: linear-gradient(150deg,">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-11-10T06:15:22.000Z">
-<meta property="article:modified_time" content="2022-11-30T08:25:53.768Z">
+<meta property="article:modified_time" content="2023-03-28T09:10:06.105Z">
 <meta property="article:author" content="yaoyuan">
 <meta property="article:tag" content="Tools">
 <meta name="twitter:card" content="summary">
@@ -154,7 +154,7 @@
             </ul>
         
   </nav>
-  <div class="switch">
+  <div class="switch" style="display: none !important;">
     <i class="fa" style="margin-left: 4px;color: #fff">☀</i>
     <i class="fa">🌙</i>
   </div>
@@ -186,7 +186,7 @@ if(localStorage.getItem('is_dark') == 'true'){
     btn.classList.add('dark');
     let a=document.createElement('style');
     a.id='aa';
-    a.innerHTML='html{background-color:#fff;filter:invert(1);font-family: sans-serif;font-size: large;} img{filter:invert(1);}.container div img{filter: blur(var(--blur)) invert(1) !important;}#baiduMap{filter: invert(1) !important}.card .thumb{filter: invert(1)}.circle{filter: invert(1)}#people{filter: invert(1)}';
+    a.innerHTML='html{background-color:#fff;filter:invert(1);font-size: large;} img{filter:invert(1);}.container div img{filter: blur(var(--blur)) invert(1) !important;}#baiduMap{filter: invert(1) !important}.card .thumb{filter: invert(1)}.circle{filter: invert(1)}#people{filter: invert(1)}';
     document.head.appendChild(a);
     localStorage.setItem('is_dark', 'true')
 }
@@ -200,7 +200,7 @@ function changeStyle(){
         btn.classList.add('dark');
         let a=document.createElement('style');
         a.id='aa';
-        a.innerHTML='html{background-color:#fff;filter:invert(1);font-family: sans-serif;font-size: large;} img{filter:invert(1);}.container div img{filter: blur(var(--blur)) invert(1) !important;}#baiduMap{filter: invert(1) !important}.card .thumb{filter: invert(1)}.circle{filter: invert(1)}#people{filter: invert(1)}';
+        a.innerHTML='html{background-color:#fff;filter:invert(1);font-size: large;} img{filter:invert(1);}.container div img{filter: blur(var(--blur)) invert(1) !important;}#baiduMap{filter: invert(1) !important}.card .thumb{filter: invert(1)}.circle{filter: invert(1)}#people{filter: invert(1)}';
         document.head.appendChild(a);
         localStorage.setItem('is_dark', 'true')
     }else if(is_dark && document.head.querySelector('#aa')){
@@ -246,6 +246,7 @@ function changeStyle(){
             <div class="post-content">
             <style>
   body{
+    font-family: 'Harmony_Regular','Microsoft JhengHei',"Open Sans","PingFang SC","Hiragino Sans GB","Microsoft Yahei","Microsoft Jhenghei",sans-serif;
     background: linear-gradient(150deg,#BEDBDF,#ebf4f5,#ACD1D0) !important;
 }
 </style>
@@ -278,7 +279,7 @@ function changeStyle(){
 <hr>
 <h2 id="git-clone-amp-init"><a href="#Git-clone-amp-init" class="headerlink" title="Git clone &amp; init"></a>Git clone &amp; init</h2><p>  不多说了昂，</p>
 <blockquote>
-<p><code>git init</code><br><code>git config &lt;--global&gt; user.name</code> xx<br><code>git config &lt;--global&gt; user.email</code> <a href="mailto:&#120;&#x78;&#x40;&#x65;&#109;&#97;&#105;&#x6c;&#46;&#x63;&#111;&#109;">&#120;&#x78;&#x40;&#x65;&#109;&#97;&#105;&#x6c;&#46;&#x63;&#111;&#109;</a><br><code>git clone</code> &lt;远程网址&gt;<br><code>git clone</code> &lt;远程网址&gt; &lt;本地目录&gt;<br><code>git clone</code> &lt;远程网址&gt; <code>-b</code> &lt;分支名称&gt; &lt;本地目录&gt;</p>
+<p><code>git init</code><br><code>git config &lt;--global&gt; user.name</code> xx<br><code>git config &lt;--global&gt; user.email</code> <a href="mailto:&#x78;&#x78;&#x40;&#x65;&#109;&#x61;&#x69;&#x6c;&#x2e;&#99;&#x6f;&#109;">&#x78;&#x78;&#x40;&#x65;&#109;&#x61;&#x69;&#x6c;&#x2e;&#99;&#x6f;&#109;</a><br><code>git clone</code> &lt;远程网址&gt;<br><code>git clone</code> &lt;远程网址&gt; &lt;本地目录&gt;<br><code>git clone</code> &lt;远程网址&gt; <code>-b</code> &lt;分支名称&gt; &lt;本地目录&gt;</p>
 </blockquote>
 <h2 id="git-stash-存储区"><a href="#Git-stash-存储区" class="headerlink" title="Git stash (存储区"></a>Git stash (存储区</h2><p>  临时存一下不想被提交的代码, 数据存储在 .git 文件夹下的 refs&#x2F;stash 里</p>
 <pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">git stash save &#39;xxx&#39;: 储存变更

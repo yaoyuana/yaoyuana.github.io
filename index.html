@@ -145,7 +145,7 @@
             </ul>
         
   </nav>
-  <div class="switch">
+  <div class="switch" style="display: none !important;">
     <i class="fa" style="margin-left: 4px;color: #fff">☀</i>
     <i class="fa">🌙</i>
   </div>
@@ -177,7 +177,7 @@ if(localStorage.getItem('is_dark') == 'true'){
     btn.classList.add('dark');
     let a=document.createElement('style');
     a.id='aa';
-    a.innerHTML='html{background-color:#fff;filter:invert(1);font-family: sans-serif;font-size: large;} img{filter:invert(1);}.container div img{filter: blur(var(--blur)) invert(1) !important;}#baiduMap{filter: invert(1) !important}.card .thumb{filter: invert(1)}.circle{filter: invert(1)}#people{filter: invert(1)}';
+    a.innerHTML='html{background-color:#fff;filter:invert(1);font-size: large;} img{filter:invert(1);}.container div img{filter: blur(var(--blur)) invert(1) !important;}#baiduMap{filter: invert(1) !important}.card .thumb{filter: invert(1)}.circle{filter: invert(1)}#people{filter: invert(1)}';
     document.head.appendChild(a);
     localStorage.setItem('is_dark', 'true')
 }
@@ -191,7 +191,7 @@ function changeStyle(){
         btn.classList.add('dark');
         let a=document.createElement('style');
         a.id='aa';
-        a.innerHTML='html{background-color:#fff;filter:invert(1);font-family: sans-serif;font-size: large;} img{filter:invert(1);}.container div img{filter: blur(var(--blur)) invert(1) !important;}#baiduMap{filter: invert(1) !important}.card .thumb{filter: invert(1)}.circle{filter: invert(1)}#people{filter: invert(1)}';
+        a.innerHTML='html{background-color:#fff;filter:invert(1);font-size: large;} img{filter:invert(1);}.container div img{filter: blur(var(--blur)) invert(1) !important;}#baiduMap{filter: invert(1) !important}.card .thumb{filter: invert(1)}.circle{filter: invert(1)}#people{filter: invert(1)}';
         document.head.appendChild(a);
         localStorage.setItem('is_dark', 'true')
     }else if(is_dark && document.head.querySelector('#aa')){
@@ -648,18 +648,16 @@ function changeStyle(){
     <div class="widget-area widget_tags">
         <h3 class="widget-title">Abstract</h3>
         <div>&nbsp;&nbsp;
-            <!--主题是大改出来的，大道至简的同时，每个页面都有自己的风格，但我还没有研究透，
-            待我再研究研究，<s>心情好了会选择开源喔~</s>心情好了也不一定会选择开源喔~-->
-			嗯......
+			嗯......大道至简，不使用魔法打开会慢
         </div>
     </div>
 	<div class="widget-area widget_tags">
         <h3 class="widget-title">待办/Bug</h3>
 			<li>暂无邮箱推送，随缘联系</li>
 			<li>代码块-不识别语言</li>
-			<li>听歌-切页歌不刷新，算了，我也不在这听歌瞎折腾</li>
+			<li><s>听歌</s>-我也不在这听歌瞎折腾</li>
 			<li>大屏页+<s>地图页</s></li>
-			<li><s>备案</s>（算了，没啥需求，现在这不挺好</li>
+			<li><s>备案</s>（算了，暂时凑活凑活</li>
 			<li><s>图床</s>用QQ空间弄了</li>
     </div>
     <section id="tags" class="widget-area widget_tags">

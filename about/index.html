@@ -153,7 +153,7 @@
             </ul>
         
   </nav>
-  <div class="switch">
+  <div class="switch" style="display: none !important;">
     <i class="fa" style="margin-left: 4px;color: #fff">☀</i>
     <i class="fa">🌙</i>
   </div>
@@ -185,7 +185,7 @@ if(localStorage.getItem('is_dark') == 'true'){
     btn.classList.add('dark');
     let a=document.createElement('style');
     a.id='aa';
-    a.innerHTML='html{background-color:#fff;filter:invert(1);font-family: sans-serif;font-size: large;} img{filter:invert(1);}.container div img{filter: blur(var(--blur)) invert(1) !important;}#baiduMap{filter: invert(1) !important}.card .thumb{filter: invert(1)}.circle{filter: invert(1)}#people{filter: invert(1)}';
+    a.innerHTML='html{background-color:#fff;filter:invert(1);font-size: large;} img{filter:invert(1);}.container div img{filter: blur(var(--blur)) invert(1) !important;}#baiduMap{filter: invert(1) !important}.card .thumb{filter: invert(1)}.circle{filter: invert(1)}#people{filter: invert(1)}';
     document.head.appendChild(a);
     localStorage.setItem('is_dark', 'true')
 }
@@ -199,7 +199,7 @@ function changeStyle(){
         btn.classList.add('dark');
         let a=document.createElement('style');
         a.id='aa';
-        a.innerHTML='html{background-color:#fff;filter:invert(1);font-family: sans-serif;font-size: large;} img{filter:invert(1);}.container div img{filter: blur(var(--blur)) invert(1) !important;}#baiduMap{filter: invert(1) !important}.card .thumb{filter: invert(1)}.circle{filter: invert(1)}#people{filter: invert(1)}';
+        a.innerHTML='html{background-color:#fff;filter:invert(1);font-size: large;} img{filter:invert(1);}.container div img{filter: blur(var(--blur)) invert(1) !important;}#baiduMap{filter: invert(1) !important}.card .thumb{filter: invert(1)}.circle{filter: invert(1)}#people{filter: invert(1)}';
         document.head.appendChild(a);
         localStorage.setItem('is_dark', 'true')
     }else if(is_dark && document.head.querySelector('#aa')){
