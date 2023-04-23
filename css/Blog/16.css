@@ -1,0 +1,108 @@
+body{
+    background: linear-gradient(150deg,#f3d2d2,#F2E8E8,#FCFAFA) !important;
+}
+.post .post-content img{
+    width: 50%;
+    margin: 0 auto;
+    display: block;
+    padding-top: 6px;
+}
+p {
+    font-size: 1.1em;
+    text-indent: 2em;
+    font-family: 'Harmony_Regular','Microsoft JhengHei',"Open Sans","PingFang SC","Hiragino Sans GB","Microsoft Yahei","Microsoft Jhenghei",sans-serif;
+}
+.over-flash {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0,0,0,0);
+    position: fixed; 
+    pointer-events: none;
+    top: 0;
+    left: 0;
+}
+#plane{
+    color: #fff;
+    font-size: 70px;
+    /* 绝对定位 */
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    bottom: 150px;
+}
+@media screen and (min-width : 1421px) {
+    .container {
+        visibility: visible;
+    }
+}
+@media not screen and (min-width : 1421px) {
+    .container {
+        visibility: hidden;
+    }
+}
+.container1{
+    bottom: 150px;
+    left: 20px;
+}
+.container2{
+    bottom: 150px;
+    right: 20px;
+}
+/* 泡泡 */
+.bubble{
+    width: 100%;
+    height: 100%;
+    /* 径向渐变 */
+    background: radial-gradient(circle at 75% 30%,#fff 5px,#ff21c0 8%,#5b5b5b 60%,#ff21c0 100%);
+    border-radius: 50%;
+    /* 阴影 */
+    box-shadow: inset 0 0 20px #fff,
+        inset 10px 0 46px #eaf5fc,
+        inset 80px 0 60px #efcde6,
+        inset -20px -60px 100px #f9f6de,
+        inset 0 50px 140px #f9f6de,
+        0 0 90px #fff;
+    /* 执行动画：动画名 时长 加速后减速 无限次播放 */
+    animation: bubble 4s ease-in-out infinite;
+}
+.shadow{
+    background-color: rgba(0,0,0,0.15);
+    width: 150px;
+    height: 40px;
+    border-radius: 50%;
+    /* 绝对定位 */
+    position: absolute;
+    left: 50%;
+    margin-left: -75px;
+    bottom: -100px;
+    /* 一点点模糊效果 */
+    filter: blur(1px);
+    /* 执行动画：动画名 时长 加速后减速 无限次播放 */
+    animation: shadow 4s ease-in-out infinite;
+}
+
+/* 定义动画 */
+/* 泡泡浮动动画 */
+@keyframes bubble {
+    0%,100%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(-80px);
+    }
+}
+/* 投影动画 */
+@keyframes shadow {
+    0%,100%{
+        transform: scale(0.5);
+    }
+    50%{
+        transform: scale(1);
+    }
+}
