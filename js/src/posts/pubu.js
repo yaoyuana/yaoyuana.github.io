@@ -61,6 +61,6 @@ class WaterFall {
   }
   window.onload = function() {
     const waterfall = document.getElementById('waterfall');
-    const water = new WaterFall(waterfall, {gap: 10})
+    const water = new WaterFall(waterfall, {gap: 0})
     water.layout()
   }

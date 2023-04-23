@@ -1,7 +1,9 @@
 body{
     background: linear-gradient(150deg,#FCFAFA,#F2E8E8,#f3d2d2) !important;
 }
-
+#content {
+    max-width: 1400px;
+}
 .post .post-content {
     min-height: 800px;
 }
@@ -18,13 +20,15 @@ body{
     position: absolute;
     /* width: 300px; */
     /* height: 100px; */
-    background: rgb(236, 146, 10);
+    background: rgb(236, 146, 10, 0);
     margin-bottom: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     transition: all 0.1s;
     overflow: hidden;
+    box-sizing: border-box;
+    border: 0.2rem solid rgba(0, 0, 0, 0);
 }
 .waterfall li img{
     width: 100%;
@@ -64,15 +68,16 @@ body{
     justify-content: center;
     margin-bottom: 20px;
     transition: 1s ease-out;
-    
+    background-color: #F1E7E7;
+    padding: 10px;
 }
 
 .filter button {
     font-family: 'Harmony_Regular';
-    padding: 10px;
+    padding: 3px 5px;
     font-size: 18px;
+    background-color: #F2E7E7;
     color: #ffb5b5;
-    background-color: #ffffff;
     border: none;
     border-radius: 5px;
     margin: 0 5px;
@@ -81,6 +86,6 @@ body{
 }
 
 .filter button.active {
-    background-color: #F2E7E7;
     color: #ffb5b5;
+    background-color: #ffffff;
 }
