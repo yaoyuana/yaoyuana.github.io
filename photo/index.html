@@ -41,7 +41,7 @@
 <meta property="og:description" content="有Bug（正在解决--------得做懒加载              &#x2F;&#x2F;TODO: 懒加载、滚动加载   const waterfall &#x3D; document.getElementById(&#39;waterfall&#39;)   const filterBtn  &#x3D; document.getElementById(&#39;filter&#39;)   let filterBtns  &#x3D; []">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-01-09T14:07:08.000Z">
-<meta property="article:modified_time" content="2023-04-23T08:49:45.082Z">
+<meta property="article:modified_time" content="2023-04-23T09:10:44.623Z">
 <meta property="article:author" content="yaoyuan">
 <meta name="twitter:card" content="summary">
 
@@ -302,6 +302,12 @@ function changeStyle(){
         }, delay || 1000);
     }
   }
+  function isMobile() {
+    const userAgent = navigator.userAgent.toLowerCase();
+    const mobileKeywords = ['iphone', 'android', 'phone', 'mobile', 'wap', 'netfront', 'java', 'opera mobi',
+      'opera mini', 'ucweb', 'windows ce', 'symbian', 'blackberry', 'windows phone', 'nokia', 'webos', 'iemobile'];
+    return mobileKeywords.some((keyword) => userAgent.indexOf(keyword) > -1);
+  }
   function renderData(data) {
     const fragment = document.createDocumentFragment();
     for (let i = 0; i < data.length; i++) {
@@ -319,7 +325,7 @@ function changeStyle(){
       p.appendChild(span);
       div.appendChild(img);
       div.appendChild(p);
-      div.style.width =  '24%'
+      div.style.width =  isMobile()? '32.5%': '25%'
       // div.style.height =  '200px'
       fragment.appendChild(div);
     }

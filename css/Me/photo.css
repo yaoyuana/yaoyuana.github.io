@@ -70,6 +70,7 @@ body{
     transition: 1s ease-out;
     background-color: #F1E7E7;
     padding: 10px;
+    border-radius: 20px;
 }
 
 .filter button {
