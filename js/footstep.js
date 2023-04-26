@@ -33,7 +33,6 @@ introAnimation();
 
 window.addEventListener("mousemove", (e) => {
     if (!introAnimationIsPlaying) {
-        debugger
         onPointerMove(e.clientX, e.clientY)
     }
 });
