@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/js/src/Plugins/matter.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;900&display=swap');
+        body {
+            margin: 0;
+            padding: 0;
+            background: transparent;
+            /* background: #facaca; */
+            /* color: transparent; */
+            font-family: 'fantasy','Inconsolata', monospace;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+        * {
+            user-select: none;
+        }
+        .word {
+            position: absolute;
+            cursor: grab;
+            font-size: 25px;
+            color: black;
+        }
+        .word.highlighted {
+            font-weight: bold;
+            color: #69C1AE;
+        }
+        #abstract {
+            color: #69C1AE;
+            font-size: 30px;
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="abstract">姚远，软件工程，前端开发（就这些？）</div>
+    <div id="text" style="display: none;"> 🐋 🐬 🐳 🐟 软件工程 我叫姚远，🐋 🐬 🐳 🐟 姚远， 姚远 ， 。 🐋 🐬 🐳 🐟 * @ ~  姚万里 万里 🐋 🐬 🐳 🐟 本人 00后 00年 计算机 姚远 23年23岁 23岁 ， 本科计算机 🐋 🐬 🐳 🐟 软件工程专业， 在陕西 西安 ， 岗位是 前端开发 ， 目前工作内容就是， 每天摸鱼写博客 ， 干啥都很菜 脾气也不好 工作很摆烂 懒滴 ， 也没啥写的， 主要是想整一些活， 打发打发时间 罢liao</div>
+</body>
+<script src="/js/src/ZONE/fallingWords.js"></script>
+</html>

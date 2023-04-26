@@ -1,10 +1,20 @@
 /* 引入字体 */
 @import url('https://fonts.font.im/css?family=Righteous');
+/* @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;900&display=swap'); */
 
 body{
     background: linear-gradient(150deg,#BEDBDF,#ebf4f5,#ACD1D0) !important;
 }
-
+.word {
+    position: absolute;
+    cursor: grab;
+    font-size: 30px;
+    color: #ffffff;
+}
+.word.highlighted {
+    font-weight: bold;
+    color: black;
+}
 /* #qcode{
     display: none;
     margin: 0;
