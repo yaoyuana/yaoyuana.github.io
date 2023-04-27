@@ -43,7 +43,7 @@
 <meta property="og:description" content="就像不远不近的树梢上落了一只鸟，你激动，不敢贸然走近，还赶忙笨手笨脚的摸出相机，怕错过了短暂的风景。可是照片拍完之后，鸟还留不留在树梢上，你就不去管它了">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-04-23T05:42:34.000Z">
-<meta property="article:modified_time" content="2023-04-23T09:14:45.939Z">
+<meta property="article:modified_time" content="2023-04-27T01:44:15.456Z">
 <meta property="article:author" content="yaoyuan">
 <meta property="article:tag" content="小情绪">
 <meta name="twitter:card" content="summary">
@@ -358,32 +358,7 @@ function changeStyle(){
     <div id="vcomment" class="comment"></div> 
     <script src="\js\src\Plugins\av-min.js"></script>
     <script src="\js\src\Plugins\Valine.min.js"></script>
-    <script>
-      window.onload = function() {
-        new Valine({
-            el: '#vcomment',
-            notify: true,
-            verify: false,
-            // app_id: 'DFIWx0Ig1P6q1pCANzVk1rOp-MdYXbMMI',
-            // app_key: 'HAVxxg2rAU74oBO1M1ssTo1U',
-            app_id: 'unnudWlPyrKXJy8ZHA7NZclo-gzGzoHsz',
-            app_key: 'HAVxxg2rAU74oBO1M1ssTo1U',
-            placeholder: '说点什么吧......',
-            avatar: 'monsterid',
-            pageSize: 5,
-            visitor: true,
-            highlight: true,
-            recordIP: true,
-            // serverURLs: 'https://dfiwx0ig.api.lncldglobal.com' 
-        });
-        let change = document.getElementById('change')
-        let comment = document.getElementById('vcomment')
-        change.addEventListener('click', function(){
-          console.log(comment.style.display)
-          comment.style.display = (comment.style.display == 'none'||comment.style.display=='')? 'block': 'none'
-        })
-      }
-    </script>
+    <script src="\js\src\comment.js"></script>
     
   </div>
 

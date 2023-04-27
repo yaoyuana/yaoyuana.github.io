@@ -35,15 +35,15 @@
 <link rel="canonical" href="https://yaoyuan.vip/2022/11/30/11-GitSubmodule使用/"/>
 
 
-<meta name="description" content="body{     background: linear-gradient(150deg,#BEDBDF,#ebf4f5,#ACD1D0) !important; }">
+<meta name="description" content="body{     background: linear-gradient(150deg,#BEDBDF,#ebf4f5,#ACD1D0) !important; }        $(document).ready(function() {     $.getJSON(&#39;https:&#x2F;&#x2F;api.github.com&#x2F;repos&#x2F;yaoyuana&#x2F;Blog&#x2F;commits?page&#x3D;1&amp;pe">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git SubModule使用">
 <meta property="og:url" content="https://yaoyuan.vip/2022/11/30/11-GitSubmodule%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="yaoyuan">
-<meta property="og:description" content="body{     background: linear-gradient(150deg,#BEDBDF,#ebf4f5,#ACD1D0) !important; }">
+<meta property="og:description" content="body{     background: linear-gradient(150deg,#BEDBDF,#ebf4f5,#ACD1D0) !important; }        $(document).ready(function() {     $.getJSON(&#39;https:&#x2F;&#x2F;api.github.com&#x2F;repos&#x2F;yaoyuana&#x2F;Blog&#x2F;commits?page&#x3D;1&amp;pe">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-11-30T06:15:22.000Z">
-<meta property="article:modified_time" content="2022-11-30T08:29:00.630Z">
+<meta property="article:modified_time" content="2023-04-27T05:47:22.036Z">
 <meta property="article:author" content="yaoyuan">
 <meta property="article:tag" content="Tools">
 <meta name="twitter:card" content="summary">
@@ -251,7 +251,22 @@ function changeStyle(){
 }
 </style>
 
-
+<div id="commit-history"></div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $.getJSON('https://api.github.com/repos/yaoyuana/Blog/commits?page=1&per_page=50', function(data) {
+      var commits = '';
+      $.each(data, function(i, commit) {
+        commits += '<div class="commit">';
+        commits += '<p class="commit-message">' + commit.commit.message + '</p>';
+        commits += '<p class="commit-author">' + commit.commit.author.name + '</p>';
+        commits += '</div>';
+      });
+      $('#commit-history').html(commits);
+    });
+  });
+</script>
 
             </div>
           
@@ -292,32 +307,7 @@ function changeStyle(){
     <div id="vcomment" class="comment"></div> 
     <script src="\js\src\Plugins\av-min.js"></script>
     <script src="\js\src\Plugins\Valine.min.js"></script>
-    <script>
-      window.onload = function() {
-        new Valine({
-            el: '#vcomment',
-            notify: true,
-            verify: false,
-            // app_id: 'DFIWx0Ig1P6q1pCANzVk1rOp-MdYXbMMI',
-            // app_key: 'HAVxxg2rAU74oBO1M1ssTo1U',
-            app_id: 'unnudWlPyrKXJy8ZHA7NZclo-gzGzoHsz',
-            app_key: 'HAVxxg2rAU74oBO1M1ssTo1U',
-            placeholder: '说点什么吧......',
-            avatar: 'monsterid',
-            pageSize: 5,
-            visitor: true,
-            highlight: true,
-            recordIP: true,
-            // serverURLs: 'https://dfiwx0ig.api.lncldglobal.com' 
-        });
-        let change = document.getElementById('change')
-        let comment = document.getElementById('vcomment')
-        change.addEventListener('click', function(){
-          console.log(comment.style.display)
-          comment.style.display = (comment.style.display == 'none'||comment.style.display=='')? 'block': 'none'
-        })
-      }
-    </script>
+    <script src="\js\src\comment.js"></script>
     
   </div>
 

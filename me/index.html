@@ -41,7 +41,7 @@
 <meta property="og:description" content="~ I&#39;m A vegetable student                     人海茫茫，你也匆匆路过我                        一个普通惬意的摸鱼的下午，我突然想好好介绍一下自己。         玛哚，上句话刚打完，我思绪刚飞走，被拉走开会去了🤷‍♂️          展开评论">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-02-10T14:07:08.000Z">
-<meta property="article:modified_time" content="2023-04-26T07:05:14.499Z">
+<meta property="article:modified_time" content="2023-04-27T05:57:59.075Z">
 <meta property="article:author" content="yaoyuan">
 <meta name="twitter:card" content="summary">
 
@@ -280,7 +280,8 @@ function changeStyle(){
     <div id="change">展开评论</div>
     <div id="vcomment" class="comment"></div> 
 </body>
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script src="\js\src\Plugins\Valine.min.js"></script>
+<script src="\js\src\comment.js"></script>
 <script>
     // 要操作的元素
     const circle=document.querySelector('.circle');
@@ -317,28 +318,6 @@ function changeStyle(){
         }
     });
     */
-    new Valine({
-        el: '#vcomment',
-        notify: true,
-        verify: false,
-        // app_id: 'DFIWx0Ig1P6q1pCANzVk1rOp-MdYXbMMI',
-        // app_key: 'LNfCXusAIdFZmfswnwN3a0gX',
-        app_id: 'unnudWlPyrKXJy8ZHA7NZclo-gzGzoHsz',
-        app_key: 'HAVxxg2rAU74oBO1M1ssTo1U',
-        placeholder: '说点什么吧......',
-        avatar: 'monsterid',
-        pageSize: 5,
-        visitor: true,
-        highlight: true,
-        recordIP: true,
-        // serverURLs: 'https://dfiwx0ig.api.lncldglobal.com'
-    });
-    let change = document.getElementById('change')
-    let comment = document.getElementById('vcomment')
-    change.addEventListener('click', function(){
-        console.log(comment.style.display)
-        comment.style.display = (comment.style.display == 'none'||comment.style.display=='')? 'block': 'none'
-    })
 </script>
 </html>
             </div>
