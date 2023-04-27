@@ -69,10 +69,7 @@ const waterfall = document.getElementById('waterfall')
 const filterBtn  = document.getElementById('filter')
 let filterBtns  = []  //所有按钮DOM
 let photoList = []
-console.log('有鬼啊~~~~~~~~~~~~~~·')
 function getData() {
-  debugger
-  console.log('姚远测试')
   return new Promise((resolve, reject) => {
     fetch('/photo/photoList.json')
       .then(response => response.json())
