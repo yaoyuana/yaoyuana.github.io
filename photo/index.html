@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
   <head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     
 <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -33,15 +34,15 @@
 <link rel="canonical" href="https://yaoyuan.vip/photo/"/>
 
 
-<meta name="description" content="切换展示效果                             &#x2F;&#x2F;TODO: 懒加载、滚动加载   const waterfall &#x3D; document.getElementById(&#39;waterfall&#39;)   const filterBtn  &#x3D; document.getElementById(&#39;filter&#39;)   let filte">
+<meta name="description" content="切换展示效果">
 <meta property="og:type" content="website">
 <meta property="og:title" content="照片墙">
 <meta property="og:url" content="https://yaoyuan.vip/photo/index.html">
 <meta property="og:site_name" content="yaoyuan">
-<meta property="og:description" content="切换展示效果                             &#x2F;&#x2F;TODO: 懒加载、滚动加载   const waterfall &#x3D; document.getElementById(&#39;waterfall&#39;)   const filterBtn  &#x3D; document.getElementById(&#39;filter&#39;)   let filte">
+<meta property="og:description" content="切换展示效果">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-01-09T14:07:08.000Z">
-<meta property="article:modified_time" content="2023-04-27T05:25:10.690Z">
+<meta property="article:modified_time" content="2023-04-27T07:24:12.441Z">
 <meta property="article:author" content="yaoyuan">
 <meta name="twitter:card" content="summary">
 
@@ -69,7 +70,7 @@
 
     <script type="text/javascript" src="\js\funnyTitle.js"></script>
     
-     <script src="../js/src/Plugins/gsap.min.js"></script>
+     <script src="/js/src/Plugins/gsap.min.js"></script>
     
     <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
     <title> 照片墙 - yaoyuan </title>
@@ -127,7 +128,7 @@
                         <a href="/links">
                             
                             
-                                邻居
+                                友邻
                             
                         </a>
                     </li>
@@ -154,7 +155,7 @@
                         <a href="/photo">
                             
                             
-                                照片
+                                相册
                             
                         </a>
                     </li>
@@ -258,106 +259,6 @@ function changeStyle(){
 <script type="text/javascript" src="\js\src\posts\photo.js"></script>
 <script type="text/javascript" src="\js\src\Plugins\view-image.min.js"></script>
 <script src="\js\src\posts\pubu.js"></script>
-<script>
-  //TODO: 懒加载、滚动加载
-  const waterfall = document.getElementById('waterfall')
-  const filterBtn  = document.getElementById('filter')
-  let filterBtns  = []  //所有按钮DOM
-  let photoList = []
-  function getData() {
-    return new Promise((resolve, reject) => {
-      fetch('./photoList.json')
-        .then(response => response.json())
-        .then(res => {
-            photoList = res
-            //组装筛选按钮
-            let btn = new Set([])
-            photoList.forEach(photo => {
-              let type = photo.type.split('、')
-              type.forEach(t =>{ btn.add(t) })
-            });
-            renderFilterBtn([...btn])
-            showList(photoList)
-            resolve(res)
-        });
-    })
-  }
-  getData()
-  function renderFilterBtn(filterButtons) {
-    const fragment = document.createDocumentFragment();
-    const button = document.createElement('button');
-    button.className = 'filter-button active'
-    button.textContent = '全部';
-    fragment.appendChild(button);
-    for (let i = 0; i < filterButtons.length; i++) {
-      const button = document.createElement('button');
-      button.className = 'filter-button'
-      button.textContent = filterButtons[i];
-      fragment.appendChild(button);
-    }
-    filterBtn.appendChild(fragment);
-    filterBtns = document.querySelectorAll('.filter-button'); 
-    filterBtns.forEach(button => {
-      button.addEventListener('click', () => {
-        // 移除所有按钮的active类
-        filterBtns.forEach(b => b.classList.remove('active'));
-        // 为当前按钮添加active类
-        button.classList.add('active');
-        showList( button.innerText == '全部'? photoList: photoList.filter(photo =>{
-          return photo.type.split('、').includes(button.innerText)
-        }))
-      });
-    });
-  }
-  function showList(res) {
-    renderData(res);
-    renderr(); // 添加移入移入事件
-    window.ViewImage && ViewImage.init('.waterfall img'); // 灯箱
-    const water = new WaterFall(waterfall, {gap: 0}) 
-    water.layout()
-  }
-  let timerId = null
-  function debounce(fn, delay) {
-    return function () {
-        let self = this;
-        let args = arguments;
-        timerId && clearTimeout(timerId);
-        timerId = setTimeout(function () {
-            fn.apply(self, args);
-        }, delay || 1000);
-    }
-  }
-  function isMobile() {
-    const userAgent = navigator.userAgent.toLowerCase();
-    const mobileKeywords = ['iphone', 'android', 'phone', 'mobile', 'wap', 'netfront', 'java', 'opera mobi',
-      'opera mini', 'ucweb', 'windows ce', 'symbian', 'blackberry', 'windows phone', 'nokia', 'webos', 'iemobile'];
-    return mobileKeywords.some((keyword) => userAgent.indexOf(keyword) > -1);
-  }
-  function renderData(data) {
-    const fragment = document.createDocumentFragment();
-    for (let i = 0; i < data.length; i++) {
-      const div = document.createElement('li');
-      const p = document.createElement('p');
-      const span = document.createElement('span');
-      const img = document.createElement('img');
-      div.className = 'waterfall-item'
-      img.src = data[i].link;
-      img.addEventListener('load',debounce(function(){
-        const water = new WaterFall(waterfall, {gap: 0}) 
-        water.layout();
-      }, 1000));
-      span.textContent = data[i].desc;
-      p.appendChild(span);
-      div.appendChild(img);
-      div.appendChild(p);
-      div.style.width =  isMobile()? '32.5%': '25%'
-      // div.style.height =  '200px'
-      fragment.appendChild(div);
-    }
-    waterfall.textContent  = ""
-    waterfall.appendChild(fragment);
-  }
-</script>
 </html>
             </div>
         </article>
@@ -425,8 +326,6 @@ function changeStyle(){
 
     <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
 <script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script>
-<script type="text/javascript" src="/lib/codeBlock/clipboard.min.js"></script>
-<script type="text/javascript" src="/lib/codeBlock/codeStyle.js"></script>
 <script type="text/javascript" src="/js/src/Plugins/fish.js"></script>
 
     <style type="text/css">code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }</style>
@@ -446,5 +345,6 @@ function changeStyle(){
         </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body>
   
     <script type="text/javascript" src="\js\footstep.js"></script>
+  
   
 </html>

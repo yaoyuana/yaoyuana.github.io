@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
   <head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     
 <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -61,7 +62,7 @@
 <meta property="og:image" content="https://picsum.photos/id/145/400/300">
 <meta property="og:image" content="https://picsum.photos/id/147/300/400">
 <meta property="article:published_time" content="2023-01-09T14:07:08.000Z">
-<meta property="article:modified_time" content="2023-04-27T05:25:05.830Z">
+<meta property="article:modified_time" content="2023-04-27T07:24:36.839Z">
 <meta property="article:author" content="yaoyuan">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://picsum.photos/id/1005/300/400">
@@ -90,7 +91,7 @@
 
     <script type="text/javascript" src="\js\funnyTitle.js"></script>
     
-     <script src="../js/src/Plugins/gsap.min.js"></script>
+     <script src="/js/src/Plugins/gsap.min.js"></script>
     
     <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
     <title> 照片墙 - yaoyuan </title>
@@ -148,7 +149,7 @@
                         <a href="/links">
                             
                             
-                                邻居
+                                友邻
                             
                         </a>
                     </li>
@@ -175,7 +176,7 @@
                         <a href="/photo">
                             
                             
-                                照片
+                                相册
                             
                         </a>
                     </li>
@@ -343,110 +344,7 @@ function changeStyle(){
   </div>
 </body>
 <script type="text/javascript" src="\js\src\Plugins\view-image.min.js"></script>
-<script>
-  let scrollsection = document.querySelector('.scrollsection')
-  function getData() {
-    return new Promise((resolve, reject) => {
-      fetch('./photoList.json')
-        .then(response => response.json())
-        .then(res => {
-            renderData(res)
-            window.ViewImage && ViewImage.init('.scrollsection img'); // 灯箱
-            const example = new Example({
-                root: document.querySelector('.scroll-animations-example')
-            });
-            Window.addEventListener('DOMSubtreeModified', () => {
-                const example = new Example({
-                    root: document.querySelector('.scroll-animations-example')
-                });
-            })
-        });
-    })
-  }
-  function renderData(data) {
-    const fragment = document.createDocumentFragment();
-    for (let i = 0; i < data.length; i++) {
-      const div = document.createElement('div');
-    //   const scroll = document.createElement('scroll-animations-example')
-      const img = document.createElement('img');
-    //   scroll.setAttribute('data-scroll-section')
-      div.className = random('className')
-      div.setAttribute('data-scroll', true)
-      div.setAttribute('data-scroll-speed', i==0?'item -normal -horizontal': random('number', 1, 5))
-      img.className = 'image'
-      img.src = data[i].link;
-      img.style.maxWidth = 600;
-      div.appendChild(img);
-    //   scroll.appendChild(div);
-      fragment.appendChild(div);
-    }
-    scrollsection.textContent  = ""
-    scrollsection.appendChild(fragment);
-  }
-  function random(type, min, max) {
-    let r = Math.floor(Math.random() * (max - min + 1) + min)
-    let arr =['item -small -horizontal','item -big -horizontal','item -normal -horizontal', 'item -normal','item -small','item -big']
-    if(type == 'number'){
-        return r
-    }else{
-        return arr[Math.floor(Math.random() * (arr.length-1 - 0 + 1) + 0)]
-    }
-  }
-  getData()
-  class Example {
-        constructor(options) {
-            this.root = options.root;
-
-            this.init();
-
-            setTimeout(this.showImages.bind(this), 1000);
-        }
-
-        init() {
-            this.scroll = new LocomotiveScroll({
-                el: this.root,
-                direction: 'horizontal',
-                smooth: true,
-                lerp: 0.05,
-                tablet: {
-                    smooth: true
-                },
-                smartphone: {
-                    smooth: true
-                }
-            });
-
-            this.images = this.root.querySelectorAll('.image');
-
-            [].forEach.call(this.images, (image) => {
-                image.addEventListener('click', () => {
-                    image.classList.add('-clicked');
-                    this.hideImages();
-                });
-            });
-        }
-
-        showImages() {
-            [].forEach.call(this.images, (image) => {
-                image.classList.remove('-clicked');
-                image.classList.add('-active');
-            });
-        }
-
-        hideImages() {
-            [].forEach.call(this.images, (image) => {
-                image.classList.remove('-active');
-            });
-
-            setTimeout(this.showImages.bind(this), 2000);
-        }
-    }
-  window.addEventListener('DOMContentLoaded', (event) => {
-    const example = new Example({
-        root: document.querySelector('.scroll-animations-example')
-    });
-  });
-</script>
+<script type="text/javascript" src="\js\src\posts\photo2.js"></script>
 </html>
             </div>
         </article>
@@ -514,8 +412,6 @@ function changeStyle(){
 
     <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
 <script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script>
-<script type="text/javascript" src="/lib/codeBlock/clipboard.min.js"></script>
-<script type="text/javascript" src="/lib/codeBlock/codeStyle.js"></script>
 <script type="text/javascript" src="/js/src/Plugins/fish.js"></script>
 
     <style type="text/css">code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }</style>
@@ -535,5 +431,6 @@ function changeStyle(){
         </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body>
   
     <script type="text/javascript" src="\js\footstep.js"></script>
+  
   
 </html>
