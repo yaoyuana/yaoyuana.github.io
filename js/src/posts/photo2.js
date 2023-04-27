@@ -1,7 +1,7 @@
 let scrollsection = document.querySelector('.scrollsection')
 function getData() {
     return new Promise((resolve, reject) => {
-        fetch('./photoList.json')
+        fetch('/photo/photoList.json')
         .then(response => response.json())
         .then(res => {
             renderData(res)
