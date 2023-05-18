@@ -75,7 +75,7 @@ function show(){
     }
     map.setViewport(pointList)
     markSection(markerList);
-    setTimeout(()=>{getCurrentPosition();getCurrentPosition3()},2000)
+    // setTimeout(()=>{getCurrentPosition();getCurrentPosition3()},2000)
 }
 // 根据地区名称高亮某个区域
 function highLightSpace (name) {
