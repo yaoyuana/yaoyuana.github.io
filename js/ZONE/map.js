@@ -9,7 +9,7 @@ fetch('/links/linklist.json')
 .then(res => {
     markObj = res
     // 获取 样式 文件
-    fetch('/js/src/ZONE/styleObj.json')
+    fetch('/js/ZONE/styleObj.json')
     .then(response => response.json())
     .then(resp => {
         styleObj = resp

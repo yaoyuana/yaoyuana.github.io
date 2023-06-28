@@ -71,7 +71,7 @@
 
 
 
-    <script type="text/javascript" src="\js\funnyTitle.js"></script>
+    <script type="text/javascript" src="\js\theme\funnyTitle.js"></script>
     
     <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
     <title> 模块和命名空间 - yaoyuan </title>
@@ -80,6 +80,39 @@
   <body>
     <div id="page">
       
+      <div class="wrapper">
+        <!-- 小狗的位置 -->
+        <div class="marker red d-none"></div>
+        <!-- 鼠标的位置 -->
+        <div class="marker green d-none"></div>
+        <!-- 狗狗面朝位置-->
+        <div class="marker blue d-none"></div>
+        <div class="dog">
+          <div class="body-wrapper">
+            <div class="body img-bg"></div>
+          </div>
+          <div class="head-wrapper">
+            <div class="head img-bg"></div>
+          </div>
+          <div class="leg-wrapper">
+            <div class="leg one img-bg"></div>
+          </div>
+          <div class="leg-wrapper">
+            <div class="leg two img-bg"></div>
+          </div>
+          <div class="leg-wrapper">
+            <div class="leg three img-bg"></div>
+          </div>
+          <div class="leg-wrapper">
+            <div class="leg four img-bg"></div>
+          </div>
+          <div class="tail-wrapper">
+            <div class="tail img-bg"></div>
+          </div>
+        </div>  
+      </div>
+      
+      <div class="indicator"></div>
       <header id="masthead"><div class="site-header-inner">
     <h1 class="site-title">
         <div
@@ -309,9 +342,9 @@ function changeStyle(){
     
     <div id="change">展开评论</div>
     <div id="vcomment" class="comment"></div> 
-    <script src="\js\src\Plugins\av-min.js"></script>
-    <script src="\js\src\Plugins\Valine.min.js"></script>
-    <script src="\js\src\comment.js"></script>
+    <script src="\js\Plugins\av-min.js"></script>
+    <script src="\js\Plugins\Valine.min.js"></script>
+    <script src="\js\theme\comment.js"></script>
     
   </div>
 
@@ -332,7 +365,7 @@ function changeStyle(){
     
         2022-10 至
     
-    2023-05
+    2023-06
     <div
       style="display:inline-block;"
     ></div>
@@ -382,9 +415,9 @@ function changeStyle(){
 
   
 
-    <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
-<script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script>
-<script type="text/javascript" src="/js/src/Plugins/fish.js"></script>
+    <script type="text/javascript" src="/js/theme/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/js/Plugins/bootstrap.js?v=1.1"></script>
+<script type="text/javascript" src="/js/Plugins/fish.js"></script>
 
     <style type="text/css">code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }</style>
   
@@ -401,6 +434,7 @@ function changeStyle(){
                 processImages: null,
             };
         </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body>
+  <script type="text/javascript" src="\js\theme\dog.js"></script>
   
   
     <script type="text/javascript" src="/lib/codeBlock/clipboard.min.js"></script>
