@@ -1566,6 +1566,10 @@ canvas:not(#ribbon-canvas), #web_bg {
   opacity: 0.1;
 }
 
+#commits {
+  display: none;
+}
+
 #moocBox {
   -moz-border-radius: 8px;
   -webkit-border-radius: 8px;
