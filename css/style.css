@@ -1580,7 +1580,7 @@ canvas:not(#ribbon-canvas), #web_bg {
 }
 
 #moocBox {
-  height: 144px;
+  height: 300px;
   margin-top: 10px;
   overflow: hidden;
 }
