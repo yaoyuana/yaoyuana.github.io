@@ -6,7 +6,7 @@
   <link href="https://yaoyuan.vip/atom.xml" rel="self"/>
   
   <link href="https://yaoyuan.vip/"/>
-  <updated>2023-11-30T09:44:30.251Z</updated>
+  <updated>2023-12-01T08:47:14.575Z</updated>
   <id>https://yaoyuan.vip/</id>
   
   <author>
@@ -17,14 +17,31 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>整活代码整理分享</title>
+    <link href="https://yaoyuan.vip/2023/12/01/19-%E6%95%B4%E6%B4%BB%E4%BB%A3%E7%A0%81%E6%95%B4%E7%90%86%E5%88%86%E4%BA%AB/"/>
+    <id>https://yaoyuan.vip/2023/12/01/19-%E6%95%B4%E6%B4%BB%E4%BB%A3%E7%A0%81%E6%95%B4%E7%90%86%E5%88%86%E4%BA%AB/</id>
+    <published>2023-12-01T03:11:11.000Z</published>
+    <updated>2023-12-01T08:47:14.575Z</updated>
+    
+    
+    <summary type="html">我看有博友对我网页的部分小花活感兴趣，这篇专门为此整理</summary>
+    
+    
+    
+    
+    <category term="整活" scheme="https://yaoyuan.vip/tags/%E6%95%B4%E6%B4%BB/"/>
+    
+  </entry>
+  
+  <entry>
     <title>菜谱</title>
     <link href="https://yaoyuan.vip/2023/11/29/18-%E8%8F%9C%E5%8D%95/"/>
     <id>https://yaoyuan.vip/2023/11/29/18-%E8%8F%9C%E5%8D%95/</id>
     <published>2023-11-29T09:16:34.000Z</published>
-    <updated>2023-11-30T09:44:30.251Z</updated>
+    <updated>2023-12-01T03:22:06.866Z</updated>
     
     
-    <summary type="html">整理，持续更新</summary>
+    <summary type="html">每天都在纠结吃什么，借鉴别人的小程序做了一个随机菜单（后续可以再添加功能：菜系搭配推荐、做法材料补充）</summary>
     
     
     
@@ -38,7 +55,7 @@
     <link href="https://yaoyuan.vip/2023/08/02/17-%E6%9C%80%E8%BF%91%E6%80%8E%E4%B9%88%E6%A0%B7/"/>
     <id>https://yaoyuan.vip/2023/08/02/17-%E6%9C%80%E8%BF%91%E6%80%8E%E4%B9%88%E6%A0%B7/</id>
     <published>2023-08-02T05:42:34.000Z</published>
-    <updated>2023-08-02T09:46:12.489Z</updated>
+    <updated>2023-12-01T03:19:06.923Z</updated>
     
     
     <summary type="html">摸鱼吐槽续更、吃喝玩、乱七八糟</summary>
@@ -336,7 +353,7 @@ body{
     <link href="https://yaoyuan.vip/2022/10/18/3-%E7%A2%8E%E5%98%B4%E5%AD%90/"/>
     <id>https://yaoyuan.vip/2022/10/18/3-%E7%A2%8E%E5%98%B4%E5%AD%90/</id>
     <published>2022-10-18T05:08:30.000Z</published>
-    <updated>2022-11-02T10:04:13.143Z</updated>
+    <updated>2023-12-01T05:43:38.378Z</updated>
     
     
       
@@ -364,7 +381,7 @@ body{
     <link href="https://yaoyuan.vip/2022/10/17/2-%E6%9D%82%E7%A2%8E%E5%AD%90/"/>
     <id>https://yaoyuan.vip/2022/10/17/2-%E6%9D%82%E7%A2%8E%E5%AD%90/</id>
     <published>2022-10-17T01:17:55.000Z</published>
-    <updated>2023-01-05T09:04:12.667Z</updated>
+    <updated>2023-12-01T03:10:14.824Z</updated>
     
     
     <summary type="html">node/npm/nvm孩子感冒老不好，多半是肺热：先试试看切换管理员权限可不可，再检查检查目录不行就删了重拉，拉完，路径对了文件在了肠子通了，肺热便退了</summary>
@@ -380,10 +397,10 @@ body{
   
   <entry>
     <title>杂碎子01</title>
-    <link href="https://yaoyuan.vip/2022/10/14/1-%E6%9D%82%E7%A2%8E%E5%AD%90/"/>
-    <id>https://yaoyuan.vip/2022/10/14/1-%E6%9D%82%E7%A2%8E%E5%AD%90/</id>
-    <published>2022-10-14T08:17:00.000Z</published>
-    <updated>2022-11-04T09:37:52.871Z</updated>
+    <link href="https://yaoyuan.vip/2022/10/10/1-%E6%9D%82%E7%A2%8E%E5%AD%90/"/>
+    <id>https://yaoyuan.vip/2022/10/10/1-%E6%9D%82%E7%A2%8E%E5%AD%90/</id>
+    <published>2022-10-10T08:17:00.000Z</published>
+    <updated>2023-12-01T05:42:53.901Z</updated>
     
     
       
