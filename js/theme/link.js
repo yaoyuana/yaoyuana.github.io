@@ -43,7 +43,7 @@ window.onload = function() {
   //     // serverURLs: 'https://dfiwx0ig.api.lncldglobal.com'  // 增加这一行！！！
   // });
     twikoo.init({
-      envId: 'http://twikoo.yaoyuan.vip', // 腾讯云环境填 envId；Vercel 环境填地址（https://xxx.vercel.app）
+      envId: 'https://twikoo.yaoyuan.vip', // 腾讯云环境填 envId；Vercel 环境填地址（https://xxx.vercel.app）
       el: '#tcomment', // 容器元素
   })
   let comment = document.getElementById('vcomment')
