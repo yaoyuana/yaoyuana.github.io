@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+<meta name="referrer" content="never">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="yaoyuan" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.1" />
+
+
+
+<link rel="canonical" href="https://yaoyuan.vip/photo/图片灯箱demo.html"/>
+
+
+<meta name="description" content=".slider-div {       height: 100%;       margin: 0 auto;       width: 50%;       font-size: 1.1em;       font-family: &#39;Harmony_Regular&#39;,&#39;Microsoft JhengHei&#39;;     }     .image-slider {">
+<meta property="og:type" content="website">
+<meta property="og:title" content="yaoyuan">
+<meta property="og:url" content="https://yaoyuan.vip/photo/%E5%9B%BE%E7%89%87%E7%81%AF%E7%AE%B1demo.html">
+<meta property="og:site_name" content="yaoyuan">
+<meta property="og:description" content=".slider-div {       height: 100%;       margin: 0 auto;       width: 50%;       font-size: 1.1em;       font-family: &#39;Harmony_Regular&#39;,&#39;Microsoft JhengHei&#39;;     }     .image-slider {">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-01-10T06:58:46.043Z">
+<meta property="article:modified_time" content="2025-01-10T06:58:45.953Z">
+<meta property="article:author" content="yaoyuan">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1" />
+
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    fancybox: {
+      enable: false
+    },
+  };
+</script>
+
+
+
+
+  
+
+
+
+    <script type="text/javascript" src="\js\theme\funnyTitle.js"></script>
+    
+     <script src="/js/Plugins/gsap.min.js"></script>
+    
+    <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+    <title>  - yaoyuan </title>
+  <meta name="generator" content="Hexo 6.3.0"></head>
+
+  <body>
+    <div id="page">
+      
+        <svg id="footstep" viewBox="0 0 0 0" style="position: fixed;top: 0;left: 0;width: 100vw;height: 100vh;pointer-events:none">
+          <defs>
+            <path id="feet-shape"
+              d="M41.5,30.2C36,24.6,4.7,26.1,7.7,49.4c.8,5.9,4,10.2,8,19.9,3,7.2-.1,15.7,5.8,20.8S43,91.6,38.6,75.9c-1.8-6.5-7.6-9.3-8.9-14.1C26.1,47.9,51.7,40.6,41.5,30.2Z M41.7,7.6c-2.6-.3-5.2,2.8-5.6,7s1.3,7.8,3.9,8.1,5.2-2.9,5.6-7.1S44.4,7.8,41.7,7.6Z M28.8,21.9c2.2.2,4.1-2.1,4.5-5.1s-1.1-5.7-3.2-6-4.1,2.1-4.5,5.1S26.7,21.6,28.8,21.9Z M20.1,23.3c1.6.1,3.1-1.8,3.4-4.4s-.8-4.7-2.4-4.9-3,1.8-3.3,4.3S18.5,23.1,20.1,23.3Z M14.9,25.5c1.4-.2,2.4-1.9,2.1-3.9s-1.6-3.4-3-3.3-2.4,2-2.2,3.9S13.4,25.7,14.9,25.5Z M10.9,29.2c1-.1,1.7-1.4,1.5-2.8s-1.1-2.5-2.2-2.4-1.7,1.4-1.6,2.8S9.8,29.3,10.9,29.2Z"/>
+            <symbol id="feet-left" viewBox="0 0 100 100">
+              <rect x="0" y="0" width="100" height="100" fill="none"/>
+              <use xlink:href="#feet-shape"/>
+            </symbol>
+            <symbol id="feet-right" viewBox="0 0 100 100">
+              <rect x="0" y="0" width="100" height="100" fill="none"/>
+              <g transform="scale(-1, 1) translate(-100, 0)">
+                  <use xlink:href="#feet-shape"/>
+              </g>
+            </symbol>
+          </defs>
+        </svg>
+      
+      <div class="wrapper">
+        <!-- 小狗的位置 -->
+        <div class="marker red d-none"></div>
+        <!-- 鼠标的位置 -->
+        <div class="marker green d-none"></div>
+        <!-- 狗狗面朝位置-->
+        <div class="marker blue d-none"></div>
+        <div class="dog">
+          <div class="body-wrapper">
+            <div class="body img-bg"></div>
+          </div>
+          <div class="head-wrapper">
+            <div class="head img-bg"></div>
+          </div>
+          <div class="leg-wrapper">
+            <div class="leg one img-bg"></div>
+          </div>
+          <div class="leg-wrapper">
+            <div class="leg two img-bg"></div>
+          </div>
+          <div class="leg-wrapper">
+            <div class="leg three img-bg"></div>
+          </div>
+          <div class="leg-wrapper">
+            <div class="leg four img-bg"></div>
+          </div>
+          <div class="tail-wrapper">
+            <div class="tail img-bg"></div>
+          </div>
+        </div>  
+      </div>
+      
+      <div class="indicator"></div>
+      <header id="masthead"><div class="site-header-inner">
+    <h1 class="site-title">
+        <div
+          style="display: inline-block"
+        >
+            <a href="/.">
+              <img 
+                style="border-radius:50%;width:40px"
+                id="avatar-img"
+                alt="yaoyuan" 
+                src="/images/Avatar.jpg"
+            ></a>
+        </div>
+        <a href="/." class="logo">yaoyuan</a>
+        <div class="tree" style="display: inline-block">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.32 108.44" class="tree-star">
+                <path d="M90.19 104.33L57.12 87.38 24.4 105l5.91-36.69L3.44 42.65l36.72-5.72 16.1-33.5L73.06 36.6l36.83 4.97-26.35 26.21z" fill="none" stroke-width="6.88" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+        </div>
+    </h1>
+
+    <nav id="nav-top">
+        
+            <input type="checkbox" id="ipt" class="changeBtn">
+            <span class="changeBtn"></span>
+            <span class="changeBtn"></span>
+            <ul id="menu-top" class="nav-top-items">
+                
+                    <li class="menu-item">
+                        <a href="/links">
+                            
+                            
+                                友邻
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/archives">
+                            
+                            
+                                归档
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/about">
+                            
+                            
+                                哔哔
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/photo">
+                            
+                            
+                                相册
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/me">
+                            
+                            
+                                姚远
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        
+  </nav>
+  <div class="switch" style="display: none !important;">
+    <i class="fa" style="margin-left: 4px;color: #fff">☀</i>
+    <i class="fa">🌙</i>
+  </div>
+</div>
+<script>
+//手机打开默认收起菜单
+let navBar = document.getElementById('nav-top')
+let ipt = document.getElementById('ipt')
+let changeBtns = document.getElementsByClassName('changeBtn')
+ipt.checked = document.body.clientWidth < 400? document.body.clientWidth < 380?true:false: true
+navBar.style.right = ipt.checked? "0px": "-240px"
+if(document.body.clientWidth < 380){
+    for(let i = 0;i<changeBtns.length;i++){
+        changeBtns[i].style.display = "none"
+    }
+}else{
+    ipt.addEventListener("click",()=>{
+        if(ipt.checked){
+            navBar.style.right = "0px"
+        }else{
+            navBar.style.right = "-240px"
+        }
+    })
+}
+// 切换按钮
+const btn=document.querySelector('.switch');
+if(localStorage.getItem('is_dark')==undefined) localStorage.setItem('is_dark','false')
+if(localStorage.getItem('is_dark') == 'true'){
+    btn.classList.add('dark');
+    let a=document.createElement('style');
+    a.id='aa';
+    a.innerHTML='html{background-color:#fff;filter:invert(1);font-size: large;} img{filter:invert(1);}.container div img{filter: blur(var(--blur)) invert(1) !important;}#baiduMap{filter: invert(1) !important}.card .thumb{filter: invert(1)}.circle{filter: invert(1)}#people{filter: invert(1)}';
+    document.head.appendChild(a);
+    localStorage.setItem('is_dark', 'true')
+}
+btn.addEventListener('click',function(){
+    changeStyle()
+})
+function changeStyle(){
+    let is_dark = localStorage.getItem('is_dark') == 'true'? true: false;
+    if(!is_dark){
+        // 切换为暗色主题
+        btn.classList.add('dark');
+        let a=document.createElement('style');
+        a.id='aa';
+        a.innerHTML='html{background-color:#fff;filter:invert(1);font-size: large;} img{filter:invert(1);}.container div img{filter: blur(var(--blur)) invert(1) !important;}#baiduMap{filter: invert(1) !important}.card .thumb{filter: invert(1)}.circle{filter: invert(1)}#people{filter: invert(1)}';
+        document.head.appendChild(a);
+        localStorage.setItem('is_dark', 'true')
+    }else if(is_dark && document.head.querySelector('#aa')){
+        // 切换为亮色主题
+        btn.classList.remove('dark');
+        document.head.querySelector('#aa').remove();
+        localStorage.setItem('is_dark', 'false')
+    }
+}
+</script>
+
+      </header>
+      <div id="content">
+        
+    <div id="primary">
+        <article class="post">
+            <header class="post-header">
+                <h1 class="post-title">
+                    
+                </h1>
+            </header>
+            <div class="post-content">
+                <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <style>
+    .slider-div {
+      height: 100%;
+      margin: 0 auto;
+      width: 50%;
+      font-size: 1.1em;
+      font-family: 'Harmony_Regular','Microsoft JhengHei';
+    }
+    .image-slider {
+      flex-flow: column;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      min-height: 300px;
+      overflow: hidden;
+      border-radius: 8px;
+      container-type: inline-size;
+      contain: content;
+      background-color: #0006;
+      box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 2px, rgba(0, 0, 0, 0.3) 0px 2px 4px,
+        rgba(0, 0, 0, 0.25) 0px 4px 8px, rgba(0, 0, 0, 0.2) 0px 8px 16px,
+        rgba(0, 0, 0, 0.15) 0px 16px 32px;
+    }
+
+    .slider__content {
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .slider-control--button {
+      border: 0;
+      background: 0;
+      outline: 0;
+      cursor: pointer;
+      place-content: center;
+      padding-inline: 1vw;
+      z-index: 1;
+      display: grid;
+    }
+
+    .icon {
+      height: 2rem;
+      width: 2rem;
+      fill: var(--icon-default);
+      border-radius: 50%;
+    }
+
+    .slider-control--button:where(:hover) {
+      background-image: linear-gradient(to var(--position),
+          #0000 0%,
+          #0002,
+          80%,
+          #0006 100%);
+
+      .icon {
+        fill: var(--icon-accent);
+        background: #0001;
+      }
+    }
+
+    /* .slider-control--button:active {
+          outline: 0.2em solid hsl(204 100 53);
+          outline-offset: -0.5em;
+      } */
+
+    .prev-button {
+      --position: left;
+    }
+
+    .next-button {
+      --position: right;
+    }
+
+    .image-display {
+      position: fixed;
+      inset: 0;
+    }
+
+    .slider-navigation {
+      position: fixed;
+      bottom: 0;
+      z-index: 10;
+      display: grid;
+      grid-auto-flow: column;
+      grid-template-columns: repeat(6, 1fr);
+      grid-auto-columns: 100%;
+      gap: 1.25rem;
+      padding: 1rem;
+      place-content: center;
+      background-color: var(--navigation-color);
+      backdrop-filter: blur(6px);
+    }
+
+    .nav-button {
+      padding: 0;
+      display: grid;
+      width: 100%;
+      height: 100%;
+      border-radius: 0.5em;
+      overflow: hidden;
+      align-items: center;
+      justify-content: center;
+      border: 0;
+      aspect-ratio: 16 / 9;
+      transition: filter 150ms linear, scale 266ms ease;
+    }
+
+    .thumbnail {
+      display: block;
+      max-width: 100%;
+      width: 100%;
+      object-fit: cover;
+      height: 100%;
+    }
+
+    .nav-button[aria-selected="true"] {
+      scale: 1.1;
+    }
+
+    .nav-button[aria-selected="true"],
+    .nav-button:focus-visible {
+      outline: 0.2em solid var(--active-color);
+      outline-offset: 0.2em;
+    }
+
+    .nav-button[aria-selected="false"] {
+      filter: opacity(0.7);
+    }
+
+    .nav-button[aria-selected="false"]:where(:hover, :focus-visible) {
+      filter: opacity(1);
+    }
+
+    @container (max-width: 660px) {
+      .nav-button:not(:has(img)) {
+        background-color: rgb(241, 235, 232);
+      }
+
+      .slider-navigation {
+        display: flex;
+        justify-content: center;
+        padding-block: 1.5em;
+      }
+
+      .nav-button {
+        inline-size: 0.625rem;
+        aspect-ratio: 1;
+        border-radius: 50%;
+      }
+
+      .nav-button>.thumbnail {
+        display: none;
+      }
+
+      .nav-button[aria-selected="true"] {
+        background-color: black;
+        scale: 1.5;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="slider-div">
+    <div class="image-slider">
+        <section class="slider__content">
+            <button type="button" class="slider-control--button prev-button">
+                <svg width="16" height="16" fill="currentColor" class="icon arrow-left-circle" viewbox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
+                </svg>
+            </button>
+            <main class="image-display"></main>
+            <button type="button" class="slider-control--button next-button">
+                <svg width="16" height="16" fill="currentColor" class="icon arrow-right-circle" viewbox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"/>
+                </svg>
+            </button>
+        </section>
+        <nav class="slider-navigation"></nav>
+    </div>
+    <p class="content"> </p>
+  </div>
+</body>
+<script>
+  // 生成一个图片灯箱类
+  class Slider {
+      constructor(slider, imgList) {
+          this.slider = slider;
+          this.imgList = imgList
+          this.sliderNavigation = this.slider.querySelector(".slider-navigation");
+          this.display = this.slider.querySelector(".image-display");
+          this.prevButton = this.slider.querySelector(".prev-button");
+          this.nextButton = this.slider.querySelector(".next-button");
+          this.content = this.slider.querySelector('.content')
+          this.currentSlideIndex = 0;
+          this.preloadedImages = {};
+          this.initialize();
+      }
+      initialize() {
+          this.drawImg();
+          this.setupSlider();
+          this.preloadImages();
+          this.eventListeners();
+      }
+      drawImg () {
+          const fragment = document.createDocumentFragment();
+          for (let i = 0; i < this.imgList.length; i++) {
+              const div = document.createElement('button');
+              const img = document.createElement('img');
+              div.className = 'nav-button'
+              div.setAttribute('aria-selected', true)
+              img.className = 'thumbnail'
+              img.src = this.imgList[i].src;
+              img.setAttribute('alt', i)
+              div.appendChild(img);
+              fragment.appendChild(div);
+          }
+          this.sliderNavigation.appendChild(fragment);
+          this.navButtons = Array.from(this.slider.querySelectorAll(".nav-button"));
+      }
+      setupSlider() {
+          this.showSlide(this.currentSlideIndex);
+      }
+      showSlide(index) {
+          this.currentSlideIndex = index;
+          const navButtonImg = this.navButtons[
+              this.currentSlideIndex
+          ].querySelector("img");
+          if (navButtonImg) {
+              const imgClone = navButtonImg.cloneNode();
+              this.display.replaceChildren(imgClone);
+              this.content.innerText = this.imgList[index].content
+          }
+          this.updateNavButtons();
+      }
+      updateNavButtons() {
+          this.navButtons.forEach((button, buttonIndex) => {
+              const isSelected = buttonIndex === this.currentSlideIndex;
+              button.setAttribute("aria-selected", isSelected);
+              if (isSelected) button.focus();
+          });
+      }
+      preloadImages() {
+          this.navButtons.forEach((button) => {
+              const imgElement = button.querySelector("img");
+              if (imgElement) {
+                  const imgSrc = imgElement.src;
+                  if (!this.preloadedImages[imgSrc]) {
+                      this.preloadedImages[imgSrc] = new Image();
+                      this.preloadedImages[imgSrc].src = imgSrc;
+                  }
+              }
+          });
+      }
+      eventListeners() {
+          document.addEventListener("keydown", (event) => {
+              this.handleAction(event.key);
+          });
+          this.sliderNavigation.addEventListener("click", (event) => {
+              const targetButton = event.target.closest(".nav-button");
+              const index = targetButton
+                  ? this.navButtons.indexOf(targetButton)
+                  : -1;
+              if (index !== -1) {
+                  this.showSlide(index);
+              }
+          })
+          this.prevButton.addEventListener("click", () =>
+              this.handleAction("prev")
+          );
+          this.nextButton.addEventListener("click", () =>
+              this.handleAction("next")
+          );
+      }
+      handleAction(action) {
+          if (action === "Home") {
+              this.currentSlideIndex = 0;
+          } else if (action === "End") {
+              this.currentSlideIndex = this.navButtons.length - 1;
+          } else if (action === "ArrowRight" || action === "next") {
+              this.currentSlideIndex =
+                  (this.currentSlideIndex + 1) % this.navButtons.length;
+          } else if (action === "ArrowLeft" || action === "prev") {
+              this.currentSlideIndex =
+                  (this.currentSlideIndex - 1 + this.navButtons.length) %
+                  this.navButtons.length;
+          }
+          this.showSlide(this.currentSlideIndex);
+      }
+  }
+  const imgList = [{
+        content: '五一回家了，家人一起露了营，哥哥的房子也交房了，开心！',
+        src: 'http://m.qpic.cn/psc?/V51jdjHV0Blt1j1u3SGl1KWqkk2a38ly/TmEUgtj9EK6.7V8ajmQrEDuWAAFC2aAI.RQ3ajQ6MaGGS8sneQjpIdezMtQkGo5PSWGVxPB1R7VCUGSRdIwL739sqyyJKRExXQhCvi9srmg!/b&bo=VQg.BsAP0AsHB1c!&rf=viewer_4'
+    },{
+        content: '表哥带我去看了西安的车展，买车的念头从此刻萌发。（一些后话：没怎么接触过电车，对电车没有好感的，但是啊啊啊啊啊小米su7，如果是你电车也不是不可以接受，因为你我动摇了，轮廓和那个紫色真的设计到了我的心巴上，有一次我电动车旁边就停了一辆，我真的驻足了好久从来没这么喜欢过。太喜欢了，一想到自己买不起就难过，在最攒不住钱的年纪碰到了最喜欢的车，永远有事情在对我攒的那三瓜俩枣虎视眈眈）',
+        src: 'http://m.qpic.cn/psc?/V51jdjHV0Blt1j1u3SGl1KWqkk2a38ly/TmEUgtj9EK6.7V8ajmQrEDuWAAFC2aAI.RQ3ajQ6MaHk9.w9BH93r5lOV3Raj556RV2VZXcy2U21ulWTH3tR0QGoKuAIgW8D8EYu6hBt18Q!/b&bo=PgZVCLwQUBYHB6k!&rf=viewer_4'
+    },{
+        content: '我去过很多趟花鸟鱼虫市场，对鹦鹉的喜爱溢于言表，但害怕自己养不好没有经验，数次都望而却步，这次带嫂子去玩，她听说了，直接买了，让我没有理由拒绝，哈哈哈哈霸道姐姐强制爱，喜欢！我一定会养好它滴,快看是不是很可爱，超有意境',
+        src: 'http://m.qpic.cn/psc?/V51jdjHV0Blt1j1u3SGl1KWqkk2a38ly/TmEUgtj9EK6.7V8ajmQrEC5wS*xu8yRG*nzcGRhSX6.WKDOevZ5UF**YXQt*MpVzxoT5P*1*x2TNuZWU4WeP4Zcw8zLAxjBnkrF7VQA37eE!/b&bo=PwZUCLwQUBYHB6k!&rf=viewer_4'
+    },{
+        content: '心情不好，夜逛公园，被秀恩爱',
+        src: 'http://m.qpic.cn/psc?/V51jdjHV0Blt1j1u3SGl1KWqkk2a38ly/TmEUgtj9EK6.7V8ajmQrEC5wS*xu8yRG*nzcGRhSX68w*mEQvAQNnUvkXvIkaeOvHHVgsN5ILp7YufmpHh3LWb9c2Hs09jgzhVtRvdcYsQM!/b&bo=PgZVCNALwA8HB1c!&rf=viewer_4'
+    },{
+        content: '还是我家近近，嘿嘿，这个月相册里都是它（有后续）',
+        src: 'http://m.qpic.cn/psc?/V51jdjHV0Blt1j1u3SGl1KWqkk2a38ly/TmEUgtj9EK6.7V8ajmQrEC5wS*xu8yRG*nzcGRhSX6.FnRI6FssNyvtg1jZnm0sUmZvA0k8HWHB8CG1TLWzXUthW6bE6tEVcHHSJeqydnsI!/b&bo=PgZVCLwQUBYHB6k!&rf=viewer_4'
+    },{
+        content: '啧啧啧，多帅！',
+        src: 'http://photonjmaz.photo.store.qq.com/psc?/V13HDzCu2xdTlA/TmEUgtj9EK6.7V8ajmQrED55EmmbImszlZdd.k1d*8mQB.GoHpPEWduu53Dtx5777QaO41LZiPXZL20Cu8L1ZxO4NrsOUeNaO*TtLhVQG*s!/b&bo=PgZVCAwJEAwHB1o!&rf=viewer_4'
+    }]
+  new Slider(document.querySelector(".slider-div"), imgList)
+</script>
+
+</html>
+            </div>
+        </article>
+    </div>
+
+      </div>
+
+      <footer id="colophon"><!--<div id="jsi-flying-fish-container"></div> 页底鱼池-->
+<span class="copyright-year">
+    
+    
+        &copy;
+    
+        2022-10 至
+    
+    2025-01
+    <div
+      style="display:inline-block;"
+    ></div>
+    <!--<span class="footer-author">yaoyuan.</span>
+    <span class="power-by">
+        秘密基地
+    </span>-->
+</span>
+<div id="runtime"></div>
+<script type="text/javascript">
+  function show_runtime(){
+    window.setTimeout("show_runtime()",1000);
+    X=new Date("10/14/2022");
+    Y=new Date();T=(Y.getTime()-X.getTime());
+    M=24*60*60*1000;
+    a=T/M;
+    A=Math.floor(a);
+    b=(a-A)*24;
+    B=Math.floor(b);
+    c=(b-B)*60;
+    C=Math.floor((b-B)*60);
+    D=Math.floor((c-C)*60);
+    runtime.innerHTML=""+A+"天"+B+"小时"+C+"分"+D+"秒"
+  }
+    show_runtime();
+</script>
+
+
+      </footer>
+      <!--
+      -->
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+
+    <script type="text/javascript" src="/js/theme/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/js/Plugins/bootstrap.js?v=1.1"></script>
+<!--<script type="text/javascript" src="/js/Plugins/fish.js"></script>页底鱼池-->
+
+    <style type="text/css">code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }</style>
+  
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 3,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body>
+  <script type="text/javascript" src="\js\theme\dog.js"></script>
+  
+    <script type="text/javascript" src="\js\theme\footstep.js"></script>
+  
+  
+</html>

@@ -1,25 +1,29 @@
-body{
+body {
     background: #e4f1e4 !important;
 }
-.post .post-content h1, h2 {
+
+.post .post-content h1,
+h2 {
     font-weight: 600 !important;
 }
 
 p {
     font-size: 1.1em;
     text-indent: 2em;
-    font-family: 'Harmony_Regular','Microsoft JhengHei';
+    font-family: 'Harmony_Regular', 'Microsoft JhengHei';
 }
+
 .over-flash {
     height: 100vh;
     width: 100vw;
     background-color: rgba(0, 0, 0, 0);
-    position: fixed; 
+    position: fixed;
     pointer-events: none;
     top: 0;
     left: 0;
 }
-#plane{
+
+#plane {
     color: #fff;
     font-size: 30px;
     /* 绝对定位 */
@@ -28,26 +32,40 @@ p {
     justify-content: center;
     align-items: center;
 }
+
 .content-text {
     background-color: #ffffff;
     padding: 20px;
     border-radius: 20px;
     min-height: 600px;
 }
+
 .content-text p {
     font-size: 16px;
 }
+
 .content-text .video-class {
     text-align: center;
     width: 100%;
 }
+
 .content-text video {
     max-width: 70%;
 }
+
 .content-text .car-photo img {
     width: 33%;
     display: inline-block;
 }
+
+.slider-div {
+    height: 100%;
+    margin: 0 auto;
+    width: 50%;
+    font-size: 1.1em;
+    font-family: 'Harmony_Regular', 'Microsoft JhengHei';
+}
+
 .image-slider {
     flex-flow: column;
     width: 100%;
@@ -64,7 +82,7 @@ p {
 }
 
 .slider__content {
-    height: 360px;
+    height: 100%;
     display: flex;
     justify-content: space-between;
 }
@@ -88,13 +106,12 @@ p {
 }
 
 .slider-control--button:where(:hover) {
-    background-image: linear-gradient(
-        to var(--position),
-        #0000 0%,
-        #0002,
-        80%,
-        #0006 100%
-    );
+    background-image: linear-gradient(to var(--position),
+            #0000 0%,
+            #0002,
+            80%,
+            #0006 100%);
+
     .icon {
         fill: var(--icon-accent);
         background: #0001;
@@ -102,13 +119,14 @@ p {
 }
 
 /* .slider-control--button:active {
-    outline: 0.2em solid hsl(204 100 53);
-    outline-offset: -0.5em;
-} */
+        outline: 0.2em solid hsl(204 100 53);
+        outline-offset: -0.5em;
+    } */
 
 .prev-button {
     --position: left;
 }
+
 .next-button {
     --position: right;
 }
@@ -119,6 +137,8 @@ p {
 }
 
 .slider-navigation {
+    position: fixed;
+    bottom: 0;
     z-index: 10;
     display: grid;
     grid-auto-flow: column;
@@ -188,7 +208,7 @@ p {
         border-radius: 50%;
     }
 
-    .nav-button > .thumbnail {
+    .nav-button>.thumbnail {
         display: none;
     }
 
