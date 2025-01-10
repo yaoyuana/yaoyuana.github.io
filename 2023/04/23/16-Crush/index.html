@@ -44,7 +44,7 @@
 <meta property="og:description" content="就像不远不近的树梢上落了一只鸟，你激动，不敢贸然走近，还赶忙笨手笨脚的摸出相机，怕错过了短暂的风景。可是照片拍完之后，鸟还留不留在树梢上，你就不去管它了">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-04-23T05:42:34.000Z">
-<meta property="article:modified_time" content="2023-04-27T01:44:15.456Z">
+<meta property="article:modified_time" content="2025-01-10T03:55:51.170Z">
 <meta property="article:author" content="yaoyuan">
 <meta property="article:tag" content="小情绪">
 <meta name="twitter:card" content="summary">
@@ -329,30 +329,7 @@ function changeStyle(){
 <p>你迷恋这份幻想，但也停留在这份幻想。你看着手中的那根火柴，那么短，慢慢地烧到了指尖，然后熄灭。熄灭之后，你心存感激，为无边黑暗里短暂然而鲜艳的那点火焰。</p>  
 <p>关于crush有一个固定搭配 是have a crush on sb.现在看来 它的准确译法应该是 短暂地、热烈地、但是又羞涩地喜欢某一个人</p>
 </div>
-<script>
-    let plane=document.getElementById('plane');
-    let deg=0,ex=0,ey=0,vx=0,vy=0,count=0;
-    window.addEventListener('mousemove',(e)=>{
-        ex=e.x-plane.offsetLeft-plane.clientWidth/2;
-        ey=e.y-plane.offsetTop-plane.clientHeight/2;
-        deg=360*Math.atan(ey/ex)/(2*Math.PI)+45;
-        if(ex<0){
-            deg+=180;
-        }
-        count=0;
-    })
-    function draw(){
-        plane.style.transform='rotate('+deg+'deg)';
-        if(count<100){
-            vx+=ex/100;
-            vy+=ey/100;
-        }
-        plane.style.left=vx+'px';
-        plane.style.top=vy+'px';
-        count++;
-    }
-    setInterval(draw, 1);
-</script>
+<script type="text/javascript" src="\js\posts\plane.js"></script>
             </div>
           
 
@@ -413,7 +390,7 @@ function changeStyle(){
     
         2022-10 至
     
-    2024-09
+    2025-01
     <div
       style="display:inline-block;"
     ></div>
