@@ -225,3 +225,202 @@ p {
     line-height: 32px;
     height: 32px;
 }
+
+:root {
+    --imgRotate: 0deg;
+}
+
+activities-widget {
+    container: activities-widget / inline-size;
+
+    inline-size: min(100%, 425px);
+    margin-inline: auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1lh auto auto;
+    gap: 0.5rem 2rem;
+
+    >* {
+        grid-area: 1 / 1 / 1 / 1;
+    }
+
+    >.activity {
+        display: grid;
+        grid-template-rows: subgrid;
+        grid-template-columns: subgrid;
+
+        grid-column: 1 / -1;
+        grid-row: 1 / -1;
+
+        .img {
+            grid-column: 1 / 2;
+            grid-row: 1 / 4;
+            width: 100%;
+            aspect-ratio: 1;
+
+            overflow: clip;
+            border-radius: 8px;
+            border: 3px solid light-dark(white, #333);
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+
+            rotate: var(--imgRotate, 0deg);
+            transition: 0.2s;
+
+            >img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+            }
+        }
+
+        &:nth-child(1) {
+            .img {
+                --imgRotate: 4deg;
+            }
+        }
+
+        &:nth-child(2) {
+            .img {
+                --imgRotate: -2deg;
+            }
+        }
+
+        &:nth-child(3) {
+            .img {
+                --imgRotate: -9deg;
+            }
+        }
+
+        &:nth-child(4) {
+            .img {
+                --imgRotate: 7deg;
+            }
+        }
+
+        .text {
+            grid-column: 2 / 3;
+            grid-row: 2 / 3;
+
+            color: light-dark(rgba(30, 30, 30, 0.6), rgba(240, 240, 240, 0.6));
+            opacity: 0;
+
+            translate: 0 20px;
+            transition: 0.5s cubic-bezier(0.85, 0, 0.15, 1);
+
+            pointer-events: none;
+
+            h3 {
+                color: light-dark(black, white);
+                margin: 0;
+            }
+        }
+
+        &.active {
+            .text {
+                opacity: 1;
+                translate: 0 0;
+                pointer-events: all;
+            }
+
+            .img {
+                animation: 0.66s moveOutIn cubic-bezier(0.34, 1.56, 0.64, 1);
+                animation-fill-mode: forwards;
+            }
+        }
+
+        @container activities-widget (width < 300px) {
+            display: block;
+            padding: 1rem;
+
+            .activity {
+                display: block;
+                margin-block-end: 3rem;
+
+                .img {
+                    max-inline-size: 125px;
+                    margin-inline: auto;
+                    margin-block-end: 0.5rem;
+                }
+
+                .text {
+                    opacity: 1;
+                    translate: 0 0;
+                    pointer-events: all;
+                    background: none;
+                }
+            }
+        }
+    }
+
+    &.children-animating {
+        .img {
+            animation: 0.75s straightenImages;
+        }
+    }
+
+    .activities-navigation {
+        grid-column: 2 / 3;
+        grid-row: 3 / 4;
+
+        user-select: none;
+        place-self: end;
+        z-index: 99;
+
+        >button {
+            border: 1px solid light-dark(black, white);
+            background: 0;
+            border-radius: 50px;
+            aspect-ratio: 1;
+
+            &:hover {
+                background: CanvasText;
+                color: Canvas;
+            }
+        }
+
+        @container activities-widget (width < 300px) {
+            display: none;
+        }
+    }
+
+    .activities-count {
+        grid-column: 2 / -1;
+        place-self: start;
+        z-index: 99;
+        color: light-dark(rgba(30, 30, 30, 0.6), rgba(240, 240, 240, 0.6));
+
+        @container activities-widget (width < 300px) {
+            display: none;
+        }
+    }
+}
+
+@keyframes straightenImages {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(-15deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes moveOutIn {
+
+    /* image */
+    50% {
+        translate: -100% 0;
+        scale: 1.15;
+    }
+
+    100% {
+        translate: 0 0;
+        z-index: 1;
+    }
+}

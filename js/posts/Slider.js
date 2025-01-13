@@ -69,9 +69,9 @@ class Slider {
         });
     }
     eventListeners() {
-        document.addEventListener("keydown", (event) => {
-            this.handleAction(event.key);
-        });
+        // document.addEventListener("keydown", (event) => {
+        //     this.handleAction(event.key);
+        // });
         this.sliderNavigation.addEventListener("click", (event) => {
             const targetButton = event.target.closest(".nav-button");
             const index = targetButton
