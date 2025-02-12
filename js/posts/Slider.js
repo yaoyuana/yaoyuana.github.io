@@ -31,6 +31,7 @@ class Slider {
             div.appendChild(img);
             fragment.appendChild(div);
         }
+        this.sliderNavigation.style.gridTemplateColumns = 'repeat(' + this.imgList.length +', 1fr)';
         this.sliderNavigation.appendChild(fragment);
         this.navButtons = Array.from(this.slider.querySelectorAll(".nav-button"));
     }

@@ -5,6 +5,7 @@ class Card {
         this.imgList = imgList
         this.count = imgList.length
         this.activeActivity = imgList.length ? 1 : 0
+        this.showCount = this.card.querySelector('.activities-count')
         this.prevButton = this.card.querySelector(".prev-button");
         this.nextButton = this.card.querySelector(".next-button");
         this.initialize();
@@ -65,6 +66,7 @@ class Card {
         this.allActivities.forEach((activity, i) => {
             activity.classList.remove("active");
         });
+        this.showCount.innerText = this.activeActivity + '/' + this.count
         this.allActivities[index].classList.add("active");
         this.card.classList.add("children-animating");
         this.card.addEventListener(
