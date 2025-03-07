@@ -24,12 +24,3 @@ function renderlink(data) {
 fetch('/links/linklist.json')
   .then(response => response.json())
   .then(res => renderlink(res));
-  
-window.onload = function() {
-    twikoo.init({
-      envId: 'https://twikoo.yaoyuan.vip/.netlify/functions/twikoo', // 腾讯云环境填 envId；Vercel 环境填地址（https://xxx.vercel.app）
-      el: '#tcomment', // 容器元素
-  })
-  let comment = document.getElementById('vcomment')
-  comment.style.display = 'block'
-}
