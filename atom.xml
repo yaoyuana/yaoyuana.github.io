@@ -6,7 +6,7 @@
   <link href="https://yaoyuan.vip/atom.xml" rel="self"/>
   
   <link href="https://yaoyuan.vip/"/>
-  <updated>2025-02-12T08:29:54.268Z</updated>
+  <updated>2025-12-02T06:46:30.582Z</updated>
   <id>https://yaoyuan.vip/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2025</title>
+    <link href="https://yaoyuan.vip/2025/12/02/21-2025/"/>
+    <id>https://yaoyuan.vip/2025/12/02/21-2025/</id>
+    <published>2025-12-02T05:42:34.000Z</published>
+    <updated>2025-12-02T06:46:30.582Z</updated>
+    
+    
+    <summary type="html">浅更一下</summary>
+    
+    
+    
+    
+    <category term="小情绪" scheme="https://yaoyuan.vip/tags/%E5%B0%8F%E6%83%85%E7%BB%AA/"/>
+    
+  </entry>
   
   <entry>
     <title>年更</title>
@@ -404,35 +421,6 @@ body{
     <summary type="html">node/npm/nvm孩子感冒老不好，多半是肺热：先试试看切换管理员权限可不可，再检查检查目录不行就删了重拉，拉完，路径对了文件在了肠子通了，肺热便退了</summary>
     
     
-    
-    
-    <category term="small talk" scheme="https://yaoyuan.vip/tags/small-talk/"/>
-    
-    <category term="整活" scheme="https://yaoyuan.vip/tags/%E6%95%B4%E6%B4%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>杂碎子01</title>
-    <link href="https://yaoyuan.vip/2022/10/10/1-%E6%9D%82%E7%A2%8E%E5%AD%90/"/>
-    <id>https://yaoyuan.vip/2022/10/10/1-%E6%9D%82%E7%A2%8E%E5%AD%90/</id>
-    <published>2022-10-10T08:17:00.000Z</published>
-    <updated>2023-12-01T05:42:53.901Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-
-&lt;head&gt;
-    &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;/css</summary>
-      
-    
-    
-    
-    <category term="碎碎念" scheme="https://yaoyuan.vip/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
     
     
     <category term="small talk" scheme="https://yaoyuan.vip/tags/small-talk/"/>

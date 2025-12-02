@@ -4,7 +4,8 @@ class Card {
         this.card = card;
         this.imgList = imgList
         this.count = imgList.length
-        this.activeActivity = imgList.length ? 1 : 0
+        this.activeActivity = 0
+        this.imgDiv = this.card.querySelector('.img-div')
         this.showCount = this.card.querySelector('.activities-count')
         this.prevButton = this.card.querySelector(".prev-button");
         this.nextButton = this.card.querySelector(".next-button");
@@ -15,6 +16,7 @@ class Card {
         this.eventListeners();
     }
     drawImg() {
+        this.showCount.innerText = (this.activeActivity + 1) + '/' + this.count
         const fragment = document.createDocumentFragment();
         for (let i = 0; i < this.imgList.length; i++) {
             const activityDiv = document.createElement('div');
@@ -38,7 +40,7 @@ class Card {
             activityDiv.appendChild(textDiv);
             fragment.appendChild(activityDiv);
         }
-        this.card.appendChild(fragment);
+        this.imgDiv.appendChild(fragment);
         this.allActivities = this.card.querySelectorAll(".activity"); // 所有imgDiv
     }
     eventListeners() {
@@ -66,7 +68,7 @@ class Card {
         this.allActivities.forEach((activity, i) => {
             activity.classList.remove("active");
         });
-        this.showCount.innerText = this.activeActivity + '/' + this.count
+        this.showCount.innerText = (this.activeActivity + 1) + '/' + this.count
         this.allActivities[index].classList.add("active");
         this.card.classList.add("children-animating");
         this.card.addEventListener(

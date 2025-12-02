@@ -1,0 +1,153 @@
+body{
+    background: linear-gradient(150deg,#ffdbdb,#F2E8E8,#FCFAFA) !important;
+}
+#primary {
+    max-width: 1440px;
+}
+.post .post-content img{
+    width: 50%;
+    margin: 0 auto;
+    display: block;
+    padding-top: 6px;
+}
+p {
+    font-size: 1.1em;
+    text-indent: 2em;
+    font-family: 'Harmony_Regular','Microsoft JhengHei',"Open Sans","PingFang SC","Hiragino Sans GB","Microsoft Yahei","Microsoft Jhenghei",sans-serif;
+}
+.over-flash {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0,0,0,0);
+    position: fixed; 
+    pointer-events: none;
+    top: 0;
+    left: 0;
+}
+#plane{
+    color: #fff;
+    font-size: 70px;
+    /* 绝对定位 */
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.photo-album{
+    display: flex;
+    flex:1;
+    max-width: 1440px;
+    padding: 0 3rem;
+    margin: 0 auto;
+    overflow: auto;
+    align-items: flex-start;
+    justify-content: center;
+}
+.card{
+    flex: 1 1 1%;
+    position: relative;
+    opacity: 0.5;
+    transition: flex 600ms cubic-bezier(0.25,1,0.5,1), opacity 250ms ease;
+}
+/* 鼠标悬停在卡片上时，调整卡片的弹性基础尺寸，使其占据容器30%的空间宽度，实现悬停时的视觉效果变化 */
+.card:hover{
+    flex-basis: 30%;
+}
+/* 卡片内部结构样式 */
+.card-inner{
+    margin: 0.25rem;
+    background: #fff;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    max-height: 200px;
+}
+.card picture{
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+.card picture img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    padding-top: 0 !important;
+    width: 100% !important;
+}
+.card.is-active,
+.card:hover{
+    opacity: 1;
+}
+.card:nth-child(2),
+.card:nth-child(5),
+.card:nth-child(9){
+    margin-top: 0;
+}
+.card:nth-child(2),
+.card:nth-child(4),
+.card:nth-child(6),
+.card:nth-child(8),
+.card:nth-child(10){
+    margin-top: 2.5%;
+}
+.card:nth-child(3),
+.card:nth-child(7){
+    margin-top: 5%;
+}
+
+/* 九宫格（微信朋友圈风格） */
+.nine-grid{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0.75rem;
+    max-width: 1440px;
+    padding: 0 3rem;
+    margin: 1.25rem auto;
+    align-items: stretch;
+    justify-items: stretch;
+}
+.nine-grid .nine-item{
+    position: relative;
+    width: 100%;
+    /* 使用宽高比保持方形格子 */
+    padding-top: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #f6f6f6;
+}
+.nine-grid .nine-item picture,
+.nine-grid .nine-item img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.nine-grid .nine-item img{
+    object-fit: cover; /* 居中并 cover */
+    object-position: center;
+    display: block;
+    transition: transform 260ms ease;
+}
+.nine-grid .nine-item:hover img{
+    transform: scale(1.06);
+}
+
+/* 响应式：窄屏变成 2 列或 1 列 */
+@media (max-width: 720px){
+    .nine-grid{
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+@media (max-width: 420px){
+    .nine-grid{
+        grid-template-columns: 3fr;
+    }
+}
