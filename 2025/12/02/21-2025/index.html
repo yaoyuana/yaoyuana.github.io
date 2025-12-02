@@ -44,7 +44,7 @@
 <meta property="og:description" content="浅更一下">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-12-02T05:42:34.000Z">
-<meta property="article:modified_time" content="2025-12-02T09:21:23.065Z">
+<meta property="article:modified_time" content="2025-12-02T09:27:40.597Z">
 <meta property="article:author" content="yaoyuan">
 <meta property="article:tag" content="小情绪">
 <meta name="twitter:card" content="summary">
@@ -316,34 +316,40 @@ function changeStyle(){
     "http://photonjmaz.photo.store.qq.com/psc?/V51jdjHV0Blt1j1u3SGl1KWqkk2a38ly/TmEUgtj9EK6.7V8ajmQrEJ.eOrTZI1SH8TdjX0f38t.0TrTljRJ1cS*AU839*iMagXf4E1xYclA5RKBx0IObHhWTJPxfobLbJNIHQ7eDJj0!/b&bo=mwQwCJsEMAgHByY!&rf=viewer_4",
     "http://photonjmaz.photo.store.qq.com/psc?/V51jdjHV0Blt1j1u3SGl1KWqkk2a38ly/TmEUgtj9EK6.7V8ajmQrELTgYqjXrE3JGGLDkNGV38*qGWnGqVnNykrD3JVwMjSu20lqCjrGGbs6yJv19*D9DyQFoTeY26BMiAs2GDuM7QA!/b&bo=QAZrCYAO2xUHJ2I!&rf=viewer_4"
   ];
-  // 渲染 photo-album
+  // 使用 DocumentFragment 批量渲染 photo-album
   const albumContainer = document.getElementById('photo-album-js');
+  const albumFragment = document.createDocumentFragment();
   photoAlbumImages.forEach(src => {
     const card = document.createElement('div');
     card.className = 'card';
     const cardInner = document.createElement('div');
     cardInner.className = 'card-inner';
-    // const picture = document.createElement('picture');
+    const picture = document.createElement('div');
+    picture.className = 'picture';
     const img = document.createElement('img');
     img.src = src;
-    // picture.appendChild(img);
-    cardInner.appendChild(img);
+    picture.appendChild(img);
+    cardInner.appendChild(picture);
     card.appendChild(cardInner);
-    albumContainer.appendChild(card);
+    albumFragment.appendChild(card);
   });
-  // 渲染 nine-grid
+  albumContainer.appendChild(albumFragment);
+  // 使用 DocumentFragment 批量渲染 nine-grid
   const gridContainer = document.getElementById('nine-grid-js');
+  const gridFragment = document.createDocumentFragment();
   nineGridImages.forEach((src, idx) => {
     const item = document.createElement('div');
     item.className = 'nine-item';
-    // const picture = document.createElement('picture');
+    const picture = document.createElement('div');
+    picture.className = 'picture';
     const img = document.createElement('img');
     img.src = src;
     img.alt = 'photo-' + (idx + 11);
-    // picture.appendChild(img);
-    item.appendChild(img);
-    gridContainer.appendChild(item);
+    picture.appendChild(img);
+    item.appendChild(picture);
+    gridFragment.appendChild(item);
   });
+  gridContainer.appendChild(gridFragment);
   window.ViewImage && ViewImage.init('.photo-content img'); // 灯箱
 </script>
             </div>
