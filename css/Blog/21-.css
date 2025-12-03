@@ -129,6 +129,7 @@ p {
     left: 0;
     width: 100%;
     height: 100%;
+    padding-top: 0 !important;
 }
 .nine-grid .nine-item img{
     object-fit: cover; /* 居中并 cover */
@@ -146,8 +147,8 @@ p {
         grid-template-columns: repeat(4, 1fr);
     }
 }
-@media (max-width: 420px){
+@media (max-width: 320px){
     .nine-grid{
-        grid-template-columns: 3fr;
+        grid-template-columns: repeat(3, 1fr);
     }
 }
