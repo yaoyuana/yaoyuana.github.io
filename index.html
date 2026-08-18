@@ -272,6 +272,20 @@ function changeStyle(){
                 <div><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="/images/Blog/zasuizi02/6.png" alt=""></div>
             </div>
             <script type="text/javascript" src="\js\theme\photo.js"></script>
+            <div class="danmaku-toolbar">
+                <button type="button" class="danmaku-fill-btn" id="danmaku-fill-btn">填充弹幕</button>
+            </div>
+            <div class="danmaku-stage" id="danmaku-stage" aria-hidden="true"></div>
+            <div class="danmaku-modal" id="danmaku-modal" aria-hidden="true">
+                <div class="danmaku-dialog" role="dialog" aria-labelledby="danmaku-title">
+                    <button type="button" class="danmaku-close" id="danmaku-close" aria-label="关闭">×</button>
+                    <h2 id="danmaku-title">填充弹幕</h2>
+                    <p class="danmaku-hint">和文章评论共用昵称、邮箱这些信息。发出去的会单独存成首页弹幕，加载首页时划过来。</p>
+                    <div id="danmaku-twikoo"></div>
+                </div>
+            </div>
+            <script src="\js\Plugins\twikoo.min.js"></script>
+            <script type="text/javascript" src="\js\theme\danmaku.js"></script>
         
         
             
