@@ -658,6 +658,12 @@ canvas:not(#ribbon-canvas), #web_bg {
   font-family: "Harmony_Regular";
   src: url("/font/HarmonyOS_Sans_SC_Regular.ttf") format("truetype");
 }
+#page img[data-original] {
+  object-fit: none !important;
+  object-position: center !important;
+  animation: none !important;
+}
+
 #content {
   margin: 0 auto;
   width: 90%;
