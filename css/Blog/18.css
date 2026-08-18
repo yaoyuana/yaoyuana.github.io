@@ -1,0 +1,214 @@
+
+#primary {
+    max-width: 1000px !important;
+}
+.post .post-content h1, h2 {
+    font-weight: 600 !important;
+}
+p {
+    font-size: 1.1em;
+    text-indent: 2em;
+    font-family: 'Harmony_Regular','Microsoft JhengHei';
+}
+.over-flash {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0);
+    position: fixed; 
+    pointer-events: none;
+    top: 0;
+    left: 0;
+}
+#plane{
+    color: #fff;
+    font-size: 30px;
+    /* 绝对定位 */
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content-text {
+    /* background-color: #ffffff; */
+    font-family: 'Harmony_Regular';
+    padding: 20px;
+    border-radius: 20px;
+    min-height: 900px;
+}
+.waterfall{
+    position: relative;
+    padding-inline-start: 0 !important;
+}
+.waterfall li{
+    display: inline-block;
+    list-style: none;
+    position: relative;
+    width: 25%;
+    height: 275px;
+    background: rgb(236, 146, 10, 0);
+    transition: all 0.1s;
+    overflow: hidden;
+    box-sizing: border-box;
+    border: 0.2rem solid rgba(0, 0, 0, 0);
+}
+.waterfall li img{
+    display: inline-block;
+    width: 100%;
+    height: calc(100% - 22px);
+    object-fit: cover;
+    object-position: center;
+    /* 过渡效果 */
+    transition: 0.25s ease-in;
+}
+.waterfall li p{
+    margin: 0 !important;
+    width: 100%;
+    height: calc(100% - 22px);
+    background-color: rgba(0,0,0,0.75);
+    position: absolute;
+    left: 0;
+    /* 默认移出可视范围 */
+    top: -100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+}
+.waterfall li .waterfall-desc {
+    height: 22px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.2;
+    padding-top: 4px;;
+}
+.waterfall li p span{
+    width: 80%;
+    font-size: 1.2em;
+    color: #c2c2c2;
+    line-height: 24px;
+    text-align: center;
+}
+/* .waterfall li:hover img{ */
+    /* 悬停图片变大 */
+    /* transform: scale(1.1); */
+/* } */
+.filter {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+    transition: 1s ease-out;
+    background-color: #F1E7E7;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.filter button {
+    font-family: 'Harmony_Regular';
+    padding: 3px 5px;
+    font-size: 18px;
+    background-color: #F2E7E7;
+    color: #ffb5b5; 
+    border: none;
+    border-radius: 5px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: 0.5s ease-out;
+}
+
+.filter button.active {
+    color: #ffb5b5;
+    background-color: #ffffff;
+}
+#search-btn{
+    display: inline-block;
+    margin-top: 5px;
+    padding: 5px 10px;
+    background: linear-gradient(135deg, #F5F7E6, #DBFFFB);
+    text-align: center;
+    text-decoration: none;
+    border-radius: 6px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    border: none;
+    height: 30px;
+    font-size: 20px;
+    font-weight: bold;
+}
+#search-btn span {
+    z-index: 10 !important;
+}
+#search-btn:hover {
+    background: linear-gradient(135deg, #DBFFFB, #F5F7E6);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+}
+
+.ripple {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.ripple::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transform: scale(10, 10);
+    opacity: 0;
+    transition: transform 0.5s ease-out, opacity 1s ease-out;
+}
+
+.ripple-effect {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.7);
+    animation: ripple-animation 1s;
+}
+
+@keyframes ripple-animation {
+    from {
+        width: 0;
+        height: 0;
+        opacity: 0.7;
+    }
+    to {
+        width: 300px;
+        height: 300px;
+        opacity: 0;
+    }
+}
+.temp{
+    position: absolute;
+    z-index: 999;
+    color: #777;
+    font-weight: 500;
+}
+#search-content {
+    text-align: center;
+    display: none;
+    font-size: 32px;
+    font-weight: 600;
+}
+#search-content .title {
+    margin: 15px 0 5px 0;
+}
+#whatImg {
+    max-height: 60vh;
+    object-fit: cover;
+}

@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="嗯。。"/>
+
+
+
+
+<meta name="referrer" content="never">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="yaoyuan" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.1" />
+
+
+
+<link rel="canonical" href="https://yaoyuan.vip/about/"/>
+
+
+<meta name="description" content="new Artitalk({         &#x2F;&#x2F; appId: &#39;DFIWx0Ig1P6q1pCANzVk1rOp-MdYXbMMI&#39;,         &#x2F;&#x2F; appKey: &#39;LNfCXusAIdFZmfswnwN3a0gX&#39; ,">
+<meta property="og:type" content="website">
+<meta property="og:title" content="嗯。。">
+<meta property="og:url" content="https://yaoyuan.vip/about/index.html">
+<meta property="og:site_name" content="yaoyuan">
+<meta property="og:description" content="new Artitalk({         &#x2F;&#x2F; appId: &#39;DFIWx0Ig1P6q1pCANzVk1rOp-MdYXbMMI&#39;,         &#x2F;&#x2F; appKey: &#39;LNfCXusAIdFZmfswnwN3a0gX&#39; ,">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://yaoyuan.vip/images/background.jpg">
+<meta property="article:published_time" content="2020-02-10T14:07:08.000Z">
+<meta property="article:modified_time" content="2026-08-18T05:54:32.860Z">
+<meta property="article:author" content="yaoyuan">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yaoyuan.vip/images/background.jpg">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1" />
+
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    fancybox: {
+      enable: false
+    },
+  };
+</script>
+
+
+
+
+  
+
+
+
+    <script type="text/javascript" src="\js\theme\funnyTitle.js"></script>
+    
+     <script src="/js/Plugins/gsap.min.js"></script>
+    
+    <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+    <title> 嗯。。 - yaoyuan </title>
+  <meta name="generator" content="Hexo 6.3.0"></head>
+
+  <body>
+    <div id="page">
+      
+        <svg id="footstep" viewBox="0 0 0 0" style="position: fixed;top: 0;left: 0;width: 100vw;height: 100vh;pointer-events:none">
+          <defs>
+            <path id="feet-shape"
+              d="M41.5,30.2C36,24.6,4.7,26.1,7.7,49.4c.8,5.9,4,10.2,8,19.9,3,7.2-.1,15.7,5.8,20.8S43,91.6,38.6,75.9c-1.8-6.5-7.6-9.3-8.9-14.1C26.1,47.9,51.7,40.6,41.5,30.2Z M41.7,7.6c-2.6-.3-5.2,2.8-5.6,7s1.3,7.8,3.9,8.1,5.2-2.9,5.6-7.1S44.4,7.8,41.7,7.6Z M28.8,21.9c2.2.2,4.1-2.1,4.5-5.1s-1.1-5.7-3.2-6-4.1,2.1-4.5,5.1S26.7,21.6,28.8,21.9Z M20.1,23.3c1.6.1,3.1-1.8,3.4-4.4s-.8-4.7-2.4-4.9-3,1.8-3.3,4.3S18.5,23.1,20.1,23.3Z M14.9,25.5c1.4-.2,2.4-1.9,2.1-3.9s-1.6-3.4-3-3.3-2.4,2-2.2,3.9S13.4,25.7,14.9,25.5Z M10.9,29.2c1-.1,1.7-1.4,1.5-2.8s-1.1-2.5-2.2-2.4-1.7,1.4-1.6,2.8S9.8,29.3,10.9,29.2Z"/>
+            <symbol id="feet-left" viewBox="0 0 100 100">
+              <rect x="0" y="0" width="100" height="100" fill="none"/>
+              <use xlink:href="#feet-shape"/>
+            </symbol>
+            <symbol id="feet-right" viewBox="0 0 100 100">
+              <rect x="0" y="0" width="100" height="100" fill="none"/>
+              <g transform="scale(-1, 1) translate(-100, 0)">
+                  <use xlink:href="#feet-shape"/>
+              </g>
+            </symbol>
+          </defs>
+        </svg>
+      
+      <div class="wrapper">
+        <!-- 小狗的位置 -->
+        <div class="marker red d-none"></div>
+        <!-- 鼠标的位置 -->
+        <div class="marker green d-none"></div>
+        <!-- 狗狗面朝位置-->
+        <div class="marker blue d-none"></div>
+        <div class="dog">
+          <div class="body-wrapper">
+            <div class="body img-bg"></div>
+          </div>
+          <div class="head-wrapper">
+            <div class="head img-bg"></div>
+          </div>
+          <div class="leg-wrapper">
+            <div class="leg one img-bg"></div>
+          </div>
+          <div class="leg-wrapper">
+            <div class="leg two img-bg"></div>
+          </div>
+          <div class="leg-wrapper">
+            <div class="leg three img-bg"></div>
+          </div>
+          <div class="leg-wrapper">
+            <div class="leg four img-bg"></div>
+          </div>
+          <div class="tail-wrapper">
+            <div class="tail img-bg"></div>
+          </div>
+        </div>  
+      </div>
+      
+      <div class="indicator"></div>
+      <header id="masthead"><div class="site-header-inner">
+    <h1 class="site-title">
+        <div
+          style="display: inline-block"
+        >
+            <a href="/.">
+              <img 
+                style="border-radius:50%;width:40px"
+                id="avatar-img"
+                alt="yaoyuan" 
+                src="/images/Avatar.jpg"
+            ></a>
+        </div>
+        <a href="/." class="logo">yaoyuan</a>
+        <div class="tree" style="display: inline-block">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.32 108.44" class="tree-star">
+                <path d="M90.19 104.33L57.12 87.38 24.4 105l5.91-36.69L3.44 42.65l36.72-5.72 16.1-33.5L73.06 36.6l36.83 4.97-26.35 26.21z" fill="none" stroke-width="6.88" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+        </div>
+    </h1>
+
+    <nav id="nav-top">
+        
+            <input type="checkbox" id="ipt" class="changeBtn">
+            <span class="changeBtn"></span>
+            <span class="changeBtn"></span>
+            <ul id="menu-top" class="nav-top-items">
+                
+                    <li class="menu-item">
+                        <a href="/links">
+                            
+                            
+                                友邻
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/archives">
+                            
+                            
+                                归档
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/about">
+                            
+                            
+                                哔哔
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/photo">
+                            
+                            
+                                相册
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/me">
+                            
+                            
+                                姚远
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        
+  </nav>
+  <div class="switch" style="display: none !important;">
+    <i class="fa" style="margin-left: 4px;color: #fff">☀</i>
+    <i class="fa">🌙</i>
+  </div>
+</div>
+<script>
+//手机打开默认收起菜单
+let navBar = document.getElementById('nav-top')
+let ipt = document.getElementById('ipt')
+let changeBtns = document.getElementsByClassName('changeBtn')
+ipt.checked = document.body.clientWidth < 400? document.body.clientWidth < 380?true:false: true
+navBar.style.right = ipt.checked? "0px": "-240px"
+if(document.body.clientWidth < 380){
+    for(let i = 0;i<changeBtns.length;i++){
+        changeBtns[i].style.display = "none"
+    }
+}else{
+    ipt.addEventListener("click",()=>{
+        if(ipt.checked){
+            navBar.style.right = "0px"
+        }else{
+            navBar.style.right = "-240px"
+        }
+    })
+}
+// 切换按钮
+const btn=document.querySelector('.switch');
+if(localStorage.getItem('is_dark')==undefined) localStorage.setItem('is_dark','false')
+if(localStorage.getItem('is_dark') == 'true'){
+    btn.classList.add('dark');
+    let a=document.createElement('style');
+    a.id='aa';
+    a.innerHTML='html{background-color:#fff;filter:invert(1);font-size: large;} img{filter:invert(1);}.container div img{filter: blur(var(--blur)) invert(1) !important;}#baiduMap{filter: invert(1) !important}.card .thumb{filter: invert(1)}.circle{filter: invert(1)}#people{filter: invert(1)}';
+    document.head.appendChild(a);
+    localStorage.setItem('is_dark', 'true')
+}
+btn.addEventListener('click',function(){
+    changeStyle()
+})
+function changeStyle(){
+    let is_dark = localStorage.getItem('is_dark') == 'true'? true: false;
+    if(!is_dark){
+        // 切换为暗色主题
+        btn.classList.add('dark');
+        let a=document.createElement('style');
+        a.id='aa';
+        a.innerHTML='html{background-color:#fff;filter:invert(1);font-size: large;} img{filter:invert(1);}.container div img{filter: blur(var(--blur)) invert(1) !important;}#baiduMap{filter: invert(1) !important}.card .thumb{filter: invert(1)}.circle{filter: invert(1)}#people{filter: invert(1)}';
+        document.head.appendChild(a);
+        localStorage.setItem('is_dark', 'true')
+    }else if(is_dark && document.head.querySelector('#aa')){
+        // 切换为亮色主题
+        btn.classList.remove('dark');
+        document.head.querySelector('#aa').remove();
+        localStorage.setItem('is_dark', 'false')
+    }
+}
+</script>
+
+      </header>
+      <div id="content">
+        
+    <div id="primary">
+        <article class="post">
+            <header class="post-header">
+                <h1 class="post-title">
+                    嗯。。
+                </h1>
+            </header>
+            <div class="post-content">
+                <!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/About/about.css">
+    <link rel="stylesheet" href="/css/Me/shuoshuo.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body class="about-body">
+    <!-- <p>Hi~你好</p> -->
+    <!-- <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="/images/background.jpg" alt=""> -->
+    <!-- <p color="#7DA5BF">我叫姚远</p>
+    <p >陕西渭南人，今年本科毕业，目前在西安从事前端开发的工作。</p> -->
+    <!-- <p >在各个平台，总是有话不敢讲，有图不敢晒，所以我来了这里。博客刚搭建，甚是喜爱，以后坚持记录把，不用对心情挑挑拣拣，
+        不用猜忌他人的阅后感，也不用为了卷而对自己的学习成果添油加醋，Just For Myself ~
+    </p> -->
+    <!-- <p>自己没完整的搞过什么大东西，都是左抄抄右腾腾。可能是没什么地方伸展，高中以前总是被指导着做，上了大学干项目是跟着别人打打杂，上了班也是守着自己的一亩三分地，以至于对领域外的东西真是蝉不知雪。</p>
+    <p>最近搞这个博客，满腔热血喔真的，但是只要涉及到设计，立马头大，我想要它华贵而不雍容，简单而又不普通，一眼惊艳再看留恋。（越说越TM离谱）</p>
+    <p>佩服有设计头脑又肯付出行动的人</p> -->
+    <!-- <iframe src="/ZONE/people.html" style="width: 100%;height: 500px;border: none;"></iframe> -->
+    <!-- 存放说说的容器 -->
+    <div id="artitalk_main"></div>
+     
+</body>
+<!-- 引用 artitalk -->
+<script type="text/javascript" src="\js\Plugins\artitalk.js"></script>
+<script type="text/javascript" src="\js\Plugins\view-image.min.js"></script>
+<script>
+    new Artitalk({
+        // appId: 'DFIWx0Ig1P6q1pCANzVk1rOp-MdYXbMMI',
+        // appKey: 'LNfCXusAIdFZmfswnwN3a0gX' ,
+        appId: 'unnudWlPyrKXJy8ZHA7NZclo-gzGzoHsz',
+        appKey: 'HAVxxg2rAU74oBO1M1ssTo1U' ,
+        pageSize: 10,
+        avatarPla: 'https://yaoyuan.vip/images/Avatar.jpg',
+        motion: 0,
+        bgImg: '',
+        shuoPla: '姚远，今天心情好不好，发生什么事儿了吗',
+        cssUrl: 'https://yaoyuan.vip/css/Me/shuoshuo.css',
+        serverURL: 'https://unnudwlp.lc-cn-n1-shared.com',  // 增加这一行！！！
+        atEmoji: {"3d眼镜":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/3d眼镜.png","EDG":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/EDG.png","LPL":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/LPL.png","beluga":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/beluga.png","不好意思":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/不好意思.png","不服吗":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/不服吗.png","亲亲":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/亲亲.png","伞兵":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/伞兵.png","倚墙笑":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/倚墙笑.png","值得肯定":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/值得肯定.png","偷偷看":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/偷偷看.png","傻笑":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/傻笑.png","再见":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/再见.png","出家人":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/出家人.png","击剑":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/击剑.png","加班":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/加班.png","勉强笑":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/勉强笑.png","危险":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/危险.png","发红包":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/发红包.png","吃手":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/吃手.png","吃瓜":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/吃瓜.png","吐血":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/吐血.png","吵架":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/吵架.png","呦吼":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/呦吼.png","呲牙笑":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/呲牙笑.png","哈士奇":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/哈士奇.png","哈士奇失去意识":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/哈士奇失去意识.png","哈士奇失望":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/哈士奇失望.png","哭泣":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/哭泣.png","唱歌":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/唱歌.png","喜欢":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/喜欢.png","嘿哈":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/嘿哈.png","大笑":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/大笑.png","失去信号":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/失去信号.png","失望":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/失望.png","头秃":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/头秃.png","奋斗":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/奋斗.png","好奇":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/好奇.png","好的":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/好的.png","害羞":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/害羞.png","小丑":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/小丑.png","小偷":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/小偷.png","尬笑":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/尬笑.png","尴尬":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/尴尬.png","应援":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/应援.png","开心":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/开心.png","引起不适":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/引起不适.png","微笑":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/微笑.png","思考":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/思考.png","恶心":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/恶心.png","恶魔":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/恶魔.png","恶魔恐惧":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/恶魔恐惧.png","惊吓":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/惊吓.png","惊吓白眼":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/惊吓白眼.png","惊讶":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/惊讶.png","惬意":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/惬意.png","感动":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/感动.png","愤怒":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/愤怒.png","我看好你":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/我看好你.png","手机相机":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/手机相机.png","打咩":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/打咩.png","打牌":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/打牌.png","托腮":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/托腮.png","扶额":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/扶额.png","抠鼻":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/抠鼻.png","抬眼镜":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/抬眼镜.png","拜托":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/拜托.png","捂嘴笑":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/捂嘴笑.png","捂脸":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/捂脸.png","擦汗":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/擦汗.png","放鞭炮":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/放鞭炮.png","敬礼":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/敬礼.png","整理发型":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/整理发型.png","斗鸡眼":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/斗鸡眼.png","智慧的眼神":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/智慧的眼神.png","月饼":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/月饼.png","有没有搞错":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/有没有搞错.png","正确":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/正确.png","没招":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/没招.png","波吉":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/波吉.png","泪奔":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/泪奔.png","流汗微笑":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/流汗微笑.png","流鼻涕":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/流鼻涕.png","深思":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/深思.png","滑稽":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/滑稽.png","滑稽吃瓜":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/滑稽吃瓜.png","滑稽喝水":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/滑稽喝水.png","滑稽奶茶":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/滑稽奶茶.png","滑稽柠檬":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/滑稽柠檬.png","滑稽狂汗":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/滑稽狂汗.png","滑稽被子":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/滑稽被子.png","烦恼":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/烦恼.png","熊熊":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/熊熊.png","熊猫":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/熊猫.png","熊猫唱歌":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/熊猫唱歌.png","熊猫喜欢":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/熊猫喜欢.png","熊猫失望":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/熊猫失望.png","熊猫意外":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/熊猫意外.png","熬夜":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/熬夜.png","爆炸":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/爆炸.png","牛年进宝":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/牛年进宝.png","狂热":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/狂热.png","狗头":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/狗头.png","狗头围脖":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/狗头围脖.png","狗头失望":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/狗头失望.png","狗头意外":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/狗头意外.png","狗头胖次":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/狗头胖次.png","狗头花":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/狗头花.png","狗头草":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/狗头草.png","猪头":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/猪头.png","猪头意外":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/猪头意外.png","生病":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/生病.png","电话":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/电话.png","疑问":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/疑问.png","疼痛":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/疼痛.png","痛哭":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/痛哭.png","看穿一切":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/看穿一切.png","眩晕":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/眩晕.png","睡觉":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/睡觉.png","禁言":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/禁言.png","笑哭":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/笑哭.png","纠结":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/纠结.png","绿帽":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/绿帽.png","缺牙笑":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/缺牙笑.png","翻白眼":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/翻白眼.png","老虎意外":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/老虎意外.png","耍酷":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/耍酷.png","胡子":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/胡子.png","菜狗":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/菜狗.png","菜狗花":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/菜狗花.png","蒙面滑稽":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/蒙面滑稽.png","虎年进宝":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/虎年进宝.png","被打":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/被打.png","裂开":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/裂开.png","警告":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/警告.png","读书":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/读书.png","财神红包":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/财神红包.png","超爱":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/超爱.png","这是啥":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/这是啥.png","送福":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/送福.png","送花":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/送花.png","错误":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/错误.png","阴险":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/阴险.png","难以置信":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/难以置信.png","面具":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/面具.png","饥渴":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/饥渴.png","鬼脸":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/鬼脸.png","黑线":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/黑线.png","鼓掌":"https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/鼓掌.png"}
+    })
+    window.ViewImage && ViewImage.init('#maina img');
+    setInterval(()=>{
+        let svg = document.getElementsByClassName('icon')
+        for(let i = 0;i < svg.length; i++ ){
+            svg[i].setAttribute('fill', '#ffc5c5')
+            svg[i].children[0].setAttribute('fill', '#ffc5c5')
+        }
+    }, 3000)
+    
+</script>
+</html>
+            </div>
+        </article>
+    </div>
+
+      </div>
+
+      <footer id="colophon"><!--<div id="jsi-flying-fish-container"></div> 页底鱼池-->
+<span class="copyright-year">
+    
+    
+        &copy;
+    
+        2022-10 至
+    
+    2026-08
+    <div
+      style="display:inline-block;"
+    ></div>
+    <!--<span class="footer-author">yaoyuan.</span>
+    <span class="power-by">
+        秘密基地
+    </span>-->
+</span>
+<div id="runtime"></div>
+<script type="text/javascript">
+  function show_runtime(){
+    window.setTimeout("show_runtime()",1000);
+    X=new Date("10/14/2022");
+    Y=new Date();T=(Y.getTime()-X.getTime());
+    M=24*60*60*1000;
+    a=T/M;
+    A=Math.floor(a);
+    b=(a-A)*24;
+    B=Math.floor(b);
+    c=(b-B)*60;
+    C=Math.floor((b-B)*60);
+    D=Math.floor((c-C)*60);
+    runtime.innerHTML=""+A+"天"+B+"小时"+C+"分"+D+"秒"
+  }
+    show_runtime();
+</script>
+
+
+      </footer>
+      <!--
+      -->
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+
+    <script type="text/javascript" src="/js/theme/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/js/Plugins/bootstrap.js?v=1.1"></script>
+<!--<script type="text/javascript" src="/js/Plugins/fish.js"></script>页底鱼池-->
+
+    <style type="text/css">code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }</style>
+  
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 3,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z\d\-\.\+]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(t.test(e.href)||r.test(e.href))&&(e.href=a.dataset.original)})});</script><script>(r=>{r.imageLazyLoadSetting.processImages=t;var a=r.imageLazyLoadSetting.isSPA,o=r.imageLazyLoadSetting.preloadRatio||1,d=i();function i(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(t){(a||t)&&(d=i());for(var e,n=0;n<d.length;n++)0<=(e=(e=d[n]).getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(r.innerHeight*o||document.documentElement.clientHeight*o)&&(()=>{var t,e,a,o,i=d[n];e=function(){d=d.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).dataset.loaded||(t.hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(a=new Image,o=t.getAttribute("data-original"),a.onload=function(){t.src=o,t.removeAttribute("data-original"),t.setAttribute("data-loaded",!0),e&&e()},a.onerror=function(){t.removeAttribute("data-original"),t.setAttribute("data-loaded",!1),t.src=o},t.src!==o&&(a.src=o)))})()}function e(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",e),r.addEventListener("resize",e),r.addEventListener("orientationchange",e)})(this);</script></body>
+  <script type="text/javascript" src="\js\theme\dog.js"></script>
+  
+    <script type="text/javascript" src="\js\theme\footstep.js"></script>
+  
+  
+</html>

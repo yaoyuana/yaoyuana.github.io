@@ -1,0 +1,54 @@
+body{
+    background: #f2ebf5 !important;
+}
+.post .post-content h1, h2 {
+    font-weight: 600 !important;
+}
+.post .post-content img{
+    width: 60%;
+    margin: 0 auto;
+    display: block;
+    padding-top: 6px;
+}
+p {
+    font-size: 1.1em;
+    text-indent: 2em;
+    font-family: 'Harmony_Regular','Microsoft JhengHei';
+}
+.over-flash {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0);
+    position: fixed; 
+    pointer-events: none;
+    top: 0;
+    left: 0;
+}
+#plane{
+    color: #fff;
+    font-size: 30px;
+    /* 绝对定位 */
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content-text {
+    padding: 20px;
+    border-radius: 20px;
+    min-height: 600px;
+}
+.content-text p {
+    font-size: 16px;
+}
+.content-text .video-class {
+    text-align: center;
+    width: 100%;
+}
+.content-text video {
+    max-width: 70%;
+}
+.content-text .car-photo img {
+    width: 33%;
+    display: inline-block;
+}

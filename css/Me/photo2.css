@@ -1,0 +1,213 @@
+html,
+body {
+    height: 100%;
+}
+
+body {
+    overflow: hidden;
+}
+
+.content {
+    height: 0px;
+    pointer-events: none;
+}
+#colophon {
+    display: none;
+}
+.post-header {
+    display: none;
+}
+.photoWall {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+.scrollsection {
+    padding: 15vh 10vh 10vh 10vmax;
+    min-width: 99999999999999vh;
+    pointer-events: none !important;
+}
+.scrollsection > .item {
+    display: inline-block;
+    position: relative;
+    margin: 0 -30vh 0 3vh;
+}
+.scrollsection > .item::before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+}
+.scrollsection > .item.-big {
+    height: 80vh;
+    width: 60vh;
+}
+.scrollsection > .item.-big.-horizontal {
+    height: 60vh;
+    width: 80vh;
+}
+.scrollsection > .item.-normal {
+    height: 60vh;
+    width: 45vh;
+    z-index: 100;
+}
+.scrollsection > .item.-normal:nth-of-type(3n) {
+    bottom: 5vh;
+}
+.scrollsection > .item.-normal:nth-of-type(4n) {
+    bottom: -5vh;
+}
+.scrollsection > .item.-small {
+    height: 40vh;
+    width: 30vh;
+    z-index: 200;
+}
+.scrollsection > .item.-small.-horizontal {
+    height: 30vh;
+    width: 40vh;
+}
+.scrollsection > .item.-small:nth-of-type(3n) {
+    bottom: 13vh;
+}
+.scrollsection > .item.-small:nth-of-type(4n) {
+    bottom: -13vh;
+}
+.scrollsection > .item > .image {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    filter: grayscale(1);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(0) translateY(0) scale(1);
+    transition: filter 0.3s ease, opacity 1s ease, transform 1s ease;
+    object-fit: contain;
+}
+.scrollsection > .item:nth-of-type(4n) > .image {
+    transform: translateX(-30vh) translateY(-30vh) scale(0.8);
+    transition-delay: 0;
+}
+.scrollsection > .item:nth-of-type(4n - 1) > .image {
+    transform: translateX(30vh) translateY(30vh) scale(0.7);
+    transition-delay: 0.05s;
+}
+.scrollsection > .item:nth-of-type(4n - 2) > .image {
+    transform: translateX(-30vh) translateY(30vh) scale(0.8);
+    transition-delay: 0.1s;
+}
+.scrollsection > .item.-normal.-horizontal {
+    height: 45vh;
+    width: 60vh;
+}
+.scrollsection > .item:nth-of-type(4n - 3) > .image {
+    transform: translateX(-30vh) translateY(-30vh) scale(0.8);
+    transition-delay: 0.15s;
+}
+.scrollsection > .item > .image.-active {
+    transform: translateX(0) translateY(0) scale(1);
+    opacity: 0.8;
+    pointer-events: auto;
+    transition: filter 0.3s ease, opacity 1s ease, transform 1s ease;
+}
+.scrollsection > .item > .image.-clicked {
+    transform: translateX(0) translateY(0) scale(5);
+    opacity: 0;
+    pointer-events: auto;
+    transition: filter 0.3s ease, opacity 1s ease, transform 1s ease;
+}
+.scrollsection > .item > .image.-active:hover {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    filter: grayscale(0);
+    opacity: 1;
+    cursor: pointer;
+    transform: translateX(0) translateY(0) scale(1.2);
+    z-index: 150;
+}
+.btn {
+    margin-top: 0;
+    margin-bottom: 10px;
+    display: inline-block;
+    position: relative;
+    background: linear-gradient(135deg, #6e87d6, #8b63e4);
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 6px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: none;
+  }
+  .btn a {
+    padding: 12px 15px !important;
+    line-height: 1.5rem !important;
+    color: #fff !important;
+    font-size: 16px !important;
+    font-weight: bold;
+  }
+  .btn:hover {
+    background: linear-gradient(135deg, #8b63e4, #6e87d6);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+  }
+  
+  .ripple {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  
+  .ripple::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transform: scale(10, 10);
+    opacity: 0;
+    transition: transform 0.5s ease-out, opacity 1s ease-out;
+  }
+  
+  .ripple-effect {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.7);
+    animation: ripple-animation 1s;
+  }
+  
+  @keyframes ripple-animation {
+    from {
+      width: 0;
+      height: 0;
+      opacity: 0.7;
+    }
+    to {
+      width: 300px;
+      height: 300px;
+      opacity: 0;
+    }
+  }
+  

@@ -1,0 +1,157 @@
+body {
+  font-family: 'Harmony_Regular', 'Microsoft JhengHei', "Open Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft Yahei", "Microsoft Jhenghei", sans-serif;
+  background: linear-gradient(150deg, #BEDBDF, #ebf4f5, #ACD1D0) !important;
+}
+
+.git-sub-note {
+  font-size: 1.02em;
+  line-height: 1.85;
+}
+
+.git-sub-note .gs-hero {
+  margin: 0.4em 0 1.4em;
+  padding: 1.15em 1.3em 1.05em;
+  border-radius: 16px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.72), rgba(172, 209, 208, 0.35)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.4), transparent);
+  border: 1px solid rgba(90, 158, 160, 0.28);
+  box-shadow: 0 10px 28px rgba(90, 140, 145, 0.12);
+}
+
+.git-sub-note .gs-kicker {
+  display: inline-block;
+  font-size: 0.78em;
+  letter-spacing: 0.12em;
+  color: #3d6f72;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 999px;
+  padding: 0.15em 0.7em;
+  margin-bottom: 0.45em;
+}
+
+.git-sub-note .gs-hero p {
+  margin: 0.35em 0 0;
+  text-indent: 0;
+}
+
+.git-sub-note h2 {
+  font-weight: 600 !important;
+  border-left: 4px solid #5a9ea0;
+  padding-left: 0.55em;
+  margin-top: 1.6em !important;
+}
+
+.git-sub-note .gs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0.9em 0 1.1em;
+}
+
+.git-sub-note .gs-card {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(90, 158, 160, 0.22);
+  border-radius: 12px;
+  padding: 0.85em 1em;
+}
+
+.git-sub-note .gs-card strong {
+  display: block;
+  color: #2f5d60;
+  margin-bottom: 0.25em;
+}
+
+.git-sub-note .gs-card p,
+.git-sub-note .gs-pit p,
+.git-sub-note .gs-flow p {
+  margin: 0;
+  text-indent: 0;
+  font-size: 0.98em;
+}
+
+.git-sub-note .gs-pit {
+  margin: 0.9em 0;
+  padding: 0.85em 1em;
+  border-radius: 12px;
+  background: rgba(255, 246, 236, 0.9);
+  border-left: 4px solid #e09a5a;
+}
+
+.git-sub-note .gs-ok {
+  background: rgba(232, 247, 242, 0.92);
+  border-left: 4px solid #4c9a86;
+}
+
+.git-sub-note .gs-flow {
+  margin: 0.9em 0 1.2em;
+  padding: 0.2em 0 0.2em 0.2em;
+}
+
+.git-sub-note .gs-step {
+  display: grid;
+  grid-template-columns: 2.1em 1fr;
+  gap: 0.55em;
+  margin: 0.55em 0;
+  align-items: start;
+}
+
+.git-sub-note .gs-num {
+  width: 1.85em;
+  height: 1.85em;
+  border-radius: 50%;
+  background: #5a9ea0;
+  color: #fff;
+  font-size: 0.85em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.15em;
+}
+
+.git-sub-note .gs-tree {
+  margin: 0.8em 0 1em;
+  padding: 0.95em 1.1em;
+  border-radius: 12px;
+  background: #243333;
+  color: #d7ecea;
+  font-family: Inconsolata, Monaco, Consolas, 'Courier New', Courier, monospace;
+  font-size: 0.9em;
+  line-height: 1.7;
+  overflow-x: auto;
+  white-space: pre;
+}
+
+.git-sub-note table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.55);
+  border-radius: 10px;
+  overflow: hidden;
+  font-size: 0.95em;
+}
+
+.git-sub-note th {
+  background: rgba(90, 158, 160, 0.22);
+  font-weight: 600;
+}
+
+.git-sub-note th,
+.git-sub-note td {
+  padding: 8px 12px !important;
+  border: 1px solid rgba(90, 158, 160, 0.2) !important;
+  vertical-align: top;
+}
+
+.git-sub-note .gs-sep {
+  margin: 1.1em 0;
+  border: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(90, 158, 160, 0.45), transparent);
+}
+
+@media screen and (max-width: 720px) {
+  .git-sub-note .gs-grid {
+    grid-template-columns: 1fr;
+  }
+}

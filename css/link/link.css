@@ -1,0 +1,156 @@
+#content {
+  max-width: none !important;
+}
+#primary {
+  max-width: 999px;
+}
+
+.links-content {
+  margin-top: 1rem
+}
+
+.link-navigation::after {
+  content: " ";
+  display: block;
+  clear: both
+}
+
+.card {
+  width: 130px;
+  font-size: 1rem;
+  padding: 0;
+  border-radius: 4px;
+  transition-duration: 1.5s;
+  margin-bottom: 1rem;
+  display: block;
+  float: left;
+  box-shadow: 0 2px 6px 0 rgba(0,0,0,.12);
+  background: #f5f5f5
+}
+
+.card {
+  margin-left: 6px
+}
+
+@media(max-width:567px) {
+  .card {
+    margin-left: 6px;
+    width: calc((100% - 30px)/3)
+  }
+
+  .card:nth-child(3n+1) {
+    margin-left: 0
+  }
+
+  .card:not(:nth-child(3n+1)) {
+    margin-left: 6px
+  }
+}
+
+@media(min-width:567px) {
+  .card {
+    margin-left: 8px;
+    width: calc((100% - 50px)/5)
+  }
+
+  .card:nth-child(5n+1) {
+    margin-left: 0
+  }
+
+  .card:not(:nth-child(5n+1)) {
+    margin-left: 8px
+  }
+}
+
+@media(min-width:768px) {
+  .card {
+    margin-left: 10px;
+    width: calc((100% - 68px)/6)
+  }
+
+  .card:nth-child(6n+1) {
+    margin-left: 0
+  }
+
+  .card:not(:nth-child(6n+1)) {
+    margin-left: 10px
+  }
+}
+
+@media(min-width:1200px) {
+  .card {
+    margin-left: 12px;
+    width: calc((100% - 100px)/8)
+  }
+
+  .card:nth-child(8n+1) {
+    margin-left: 0
+  }
+
+  .card:not(:nth-child(8n+1)) {
+    margin-left: 12px
+  }
+}
+
+.card:hover {
+  transform: scale(1.1);
+  box-shadow: 0 2px 6px 0 rgba(0,0,0,.12),0 0 6px 0 rgba(0,0,0,.04);
+  background-color: #b3bcbd;
+}
+
+.card .thumb {
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+  background-size: 100% 100%!important;
+}
+
+.posts-expand .post-body img {
+  margin: 0;
+  padding: 0;
+  border: 0
+}
+.card .thumb:hover {
+  transition-duration: 0.5s;
+}
+.card:hover  .thumb {
+  border-radius: 50%;
+  transform: translate(0%,-30%) scale(0.35);
+  box-shadow: 0 2px 6px 0 rgba(0,0,0,.12),0 0 6px 0 rgba(0,0,0,.04);
+}
+.card:hover  a img {
+  display: block !important;
+}
+.card .card-header {
+  display: block;
+  text-align: center;
+  padding: 1rem .25rem;
+  font-weight: 500;
+  color: #333;
+  white-space: normal
+}
+.card a {
+  position: relative;
+}
+.card a img {
+  position: absolute;
+  bottom: 0;
+  display: none !important;
+  z-index: -1;
+}
+
+.card .card-header a {
+  font-style: normal;
+  color: #2bbc8a;
+  font-weight: 700;
+  text-decoration: none;
+  border: 0;
+  text-wrap: nowrap;
+}
+
+.card .card-header a:hover {
+  color: #d480aa;
+  /* text-decoration: none; */
+  border: 0
+}
+

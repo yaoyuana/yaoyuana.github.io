@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="Git常用命令"/>
+
+
+
+
+  <meta name="keywords" content="Tools," />
+
+<meta name="referrer" content="never">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="yaoyuan" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.1" />
+
+
+
+<link rel="canonical" href="https://yaoyuan.vip/2022/11/10/8-Git常用命令/"/>
+
+
+<meta name="description" content="body{     font-family: &#39;Harmony_Regular&#39;,&#39;Microsoft JhengHei&#39;,&quot;Open Sans&quot;,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft Yahei&quot;,&quot;Microsoft Jhenghei&quot;,sans-serif;     background: linear-gradient(150deg,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git常用命令">
+<meta property="og:url" content="https://yaoyuan.vip/2022/11/10/8-Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/index.html">
+<meta property="og:site_name" content="yaoyuan">
+<meta property="og:description" content="body{     font-family: &#39;Harmony_Regular&#39;,&#39;Microsoft JhengHei&#39;,&quot;Open Sans&quot;,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft Yahei&quot;,&quot;Microsoft Jhenghei&quot;,sans-serif;     background: linear-gradient(150deg,">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-11-10T06:15:22.000Z">
+<meta property="article:modified_time" content="2026-08-18T05:54:32.860Z">
+<meta property="article:author" content="yaoyuan">
+<meta property="article:tag" content="Tools">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1" />
+
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    fancybox: {
+      enable: false
+    },
+  };
+</script>
+
+
+
+
+  
+
+
+
+    <script type="text/javascript" src="\js\theme\funnyTitle.js"></script>
+    
+    <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+    <title> Git常用命令 - yaoyuan </title>
+  <meta name="generator" content="Hexo 6.3.0"></head>
+
+  <body>
+    <div id="page">
+      
+      <div class="wrapper">
+        <!-- 小狗的位置 -->
+        <div class="marker red d-none"></div>
+        <!-- 鼠标的位置 -->
+        <div class="marker green d-none"></div>
+        <!-- 狗狗面朝位置-->
+        <div class="marker blue d-none"></div>
+        <div class="dog">
+          <div class="body-wrapper">
+            <div class="body img-bg"></div>
+          </div>
+          <div class="head-wrapper">
+            <div class="head img-bg"></div>
+          </div>
+          <div class="leg-wrapper">
+            <div class="leg one img-bg"></div>
+          </div>
+          <div class="leg-wrapper">
+            <div class="leg two img-bg"></div>
+          </div>
+          <div class="leg-wrapper">
+            <div class="leg three img-bg"></div>
+          </div>
+          <div class="leg-wrapper">
+            <div class="leg four img-bg"></div>
+          </div>
+          <div class="tail-wrapper">
+            <div class="tail img-bg"></div>
+          </div>
+        </div>  
+      </div>
+      
+      <div class="indicator"></div>
+      <header id="masthead"><div class="site-header-inner">
+    <h1 class="site-title">
+        <div
+          style="display: inline-block"
+        >
+            <a href="/.">
+              <img 
+                style="border-radius:50%;width:40px"
+                id="avatar-img"
+                alt="yaoyuan" 
+                src="/images/Avatar.jpg"
+            ></a>
+        </div>
+        <a href="/." class="logo">yaoyuan</a>
+        <div class="tree" style="display: inline-block">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.32 108.44" class="tree-star">
+                <path d="M90.19 104.33L57.12 87.38 24.4 105l5.91-36.69L3.44 42.65l36.72-5.72 16.1-33.5L73.06 36.6l36.83 4.97-26.35 26.21z" fill="none" stroke-width="6.88" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+        </div>
+    </h1>
+
+    <nav id="nav-top">
+        
+            <input type="checkbox" id="ipt" class="changeBtn">
+            <span class="changeBtn"></span>
+            <span class="changeBtn"></span>
+            <ul id="menu-top" class="nav-top-items">
+                
+                    <li class="menu-item">
+                        <a href="/links">
+                            
+                            
+                                友邻
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/archives">
+                            
+                            
+                                归档
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/about">
+                            
+                            
+                                哔哔
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/photo">
+                            
+                            
+                                相册
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/me">
+                            
+                            
+                                姚远
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        
+  </nav>
+  <div class="switch" style="display: none !important;">
+    <i class="fa" style="margin-left: 4px;color: #fff">☀</i>
+    <i class="fa">🌙</i>
+  </div>
+</div>
+<script>
+//手机打开默认收起菜单
+let navBar = document.getElementById('nav-top')
+let ipt = document.getElementById('ipt')
+let changeBtns = document.getElementsByClassName('changeBtn')
+ipt.checked = document.body.clientWidth < 400? document.body.clientWidth < 380?true:false: true
+navBar.style.right = ipt.checked? "0px": "-240px"
+if(document.body.clientWidth < 380){
+    for(let i = 0;i<changeBtns.length;i++){
+        changeBtns[i].style.display = "none"
+    }
+}else{
+    ipt.addEventListener("click",()=>{
+        if(ipt.checked){
+            navBar.style.right = "0px"
+        }else{
+            navBar.style.right = "-240px"
+        }
+    })
+}
+// 切换按钮
+const btn=document.querySelector('.switch');
+if(localStorage.getItem('is_dark')==undefined) localStorage.setItem('is_dark','false')
+if(localStorage.getItem('is_dark') == 'true'){
+    btn.classList.add('dark');
+    let a=document.createElement('style');
+    a.id='aa';
+    a.innerHTML='html{background-color:#fff;filter:invert(1);font-size: large;} img{filter:invert(1);}.container div img{filter: blur(var(--blur)) invert(1) !important;}#baiduMap{filter: invert(1) !important}.card .thumb{filter: invert(1)}.circle{filter: invert(1)}#people{filter: invert(1)}';
+    document.head.appendChild(a);
+    localStorage.setItem('is_dark', 'true')
+}
+btn.addEventListener('click',function(){
+    changeStyle()
+})
+function changeStyle(){
+    let is_dark = localStorage.getItem('is_dark') == 'true'? true: false;
+    if(!is_dark){
+        // 切换为暗色主题
+        btn.classList.add('dark');
+        let a=document.createElement('style');
+        a.id='aa';
+        a.innerHTML='html{background-color:#fff;filter:invert(1);font-size: large;} img{filter:invert(1);}.container div img{filter: blur(var(--blur)) invert(1) !important;}#baiduMap{filter: invert(1) !important}.card .thumb{filter: invert(1)}.circle{filter: invert(1)}#people{filter: invert(1)}';
+        document.head.appendChild(a);
+        localStorage.setItem('is_dark', 'true')
+    }else if(is_dark && document.head.querySelector('#aa')){
+        // 切换为亮色主题
+        btn.classList.remove('dark');
+        document.head.querySelector('#aa').remove();
+        localStorage.setItem('is_dark', 'false')
+    }
+}
+</script>
+
+      </header>
+      <div id="content">
+        
+    <div id="primary">
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          Git常用命令
+        
+      </h1>
+
+      <time class="post-time">
+          11月 10 2022
+      </time>
+    </header>
+
+
+
+    
+            
+              <div id="article-toc-inner">
+                <div id="mulu">
+                    <strong class="sidebar-title">
+                        目录 
+                    </strong>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">Git clone &amp; init</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">Git stash (存储区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">Git remote</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">Git branch &amp; checkout</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">Git add</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">Git commit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">Git rm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">Git push</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">Git pull &amp; fetch</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">Git merge</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">Git log</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">Git reset</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">HEAD</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">Git log &amp; reflog</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">Git revert</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">Git cherrt-pick</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">Git tag</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text"> Git SubMoudule</span></a></li></ol>
+                </div>
+              </div>
+            
+            <div class="post-content">
+            <style>
+  body{
+    font-family: 'Harmony_Regular','Microsoft JhengHei',"Open Sans","PingFang SC","Hiragino Sans GB","Microsoft Yahei","Microsoft Jhenghei",sans-serif;
+    background: linear-gradient(150deg,#BEDBDF,#ebf4f5,#ACD1D0) !important;
+}
+</style>
+<hr>
+<p><strong>本次调整（踩坑日记）</strong>：</p>
+<p>1、调整了下整体UI<br>2、优化了代码块样式，但渲染有点子问题，没有识别出语言而生成相应的HTML，弄了好久，没弄对…..<br>3、添加音乐：</p>
+<p style="text-indent: 2em">
+尝试aplayer插件： No ~ 插件的生成代码必须写在MD文件里通过Hexo进行渲染生成，而此主题页面是通过.swig渲染，不会走hexo，如之奈何，（写到这里，好像有点思路，可以专门把播放器写到md文件里，引进来hexo就会渲染了）；
+随后直接将插件的静态文件引入到页面，编写Html生成播放器，功能也挺全乎的，但是！！，页面一条转就会重新加载，严重影响使用，看博友使用了pjax： 主要是利用pushState来改变浏览器URL，利用ajax来请求页面，以实现不刷新浏览器更新页面，这样就能保证正在播放音乐中的播放器不受影响；
+我也加上了，没搞明白原理，并且没有效果。。。。。。
+暂时放弃了，下次再加把，然后把加的全删了（生气了/////
+</p>
+<s>4、本文只搭了内容框架，还没写，被上面两个功能折磨够呛，眼看着也已经到了下班时间，周五了，我还是撤了把，坐不住了</s>
+
+<hr>
+<p><strong>一些概念</strong></p>
+<ul>
+<li><code>暂存区</code><br>git add之后会存在此区域, 用来与本地仓库之间做一个缓存, 帮助Git在做diff时提高查找性能</li>
+<li>本地分支<br>git commit 之后会存在此区域, .git目录下的refs&#x2F;heads目录, 里面村的就是本地的分支代码信息.</li>
+<li><code>存储区</code><br>stash是本地的存储区,<br>场景: 已经改了本地的代码,但是突然有个人来问你另一个分支的问题,同事这个时候你代码搞了一半,又不想提交到Git仓库中,那么就可以考虑<code>git stash save &#39;临时存一下&#39;</code>,之后再<code>git stash pop</code></li>
+</ul>
+<blockquote>
+<p>有点不建议使用这个,确实得小心一点, 哪天stash了, 但是忘记恢复了, 哭哭可没人安慰喔</p>
+</blockquote>
+<hr>
+<p><strong>一些选项</strong></p>
+<blockquote>
+<p><code>-d</code>   –delete：删除<br><code>-D</code>   –delete –force的快捷键<br><code>-f</code>   –force：强制<br><code>-m</code>   –move：移动或重命名<br><code>-M</code>   –move –force的快捷键<br><code>-r</code>   –remote：远程<br><code>-a</code>   –all：所有</p>
+</blockquote>
+<hr>
+<h2><span id="git-clone-amp-init">Git clone &amp; init</span></h2><p>  不多说了昂，</p>
+<blockquote>
+<p><code>git init</code><br><code>git config &lt;--global&gt; user.name</code> xx<br><code>git config &lt;--global&gt; user.email</code> <a href="mailto:&#x78;&#120;&#x40;&#101;&#109;&#97;&#x69;&#108;&#x2e;&#x63;&#x6f;&#109;">&#x78;&#120;&#x40;&#101;&#109;&#97;&#x69;&#108;&#x2e;&#x63;&#x6f;&#109;</a><br><code>git clone</code> &lt;远程网址&gt;<br><code>git clone</code> &lt;远程网址&gt; &lt;本地目录&gt;<br><code>git clone</code> &lt;远程网址&gt; <code>-b</code> &lt;分支名称&gt; &lt;本地目录&gt;</p>
+</blockquote>
+<h2><span id="git-stash-存储区">Git stash (存储区</span></h2><p>  临时存一下不想被提交的代码, 数据存储在 .git 文件夹下的 refs&#x2F;stash 里</p>
+<pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">git stash save &#39;xxx&#39;: 储存变更
+
+git stash list: 查看储存区所有提交列表
+
+git stash pop: 弹出并应用最近的一次储存区的代码提交
+
+git stash drop stash@&#123;n&#125;: 删除某次储存记录
+
+git stash clear: 清楚所有 stash 信息
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2><span id="git-remote">Git remote</span></h2><pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">git remote (-v) &#x2F; (show)  : 显示远程仓库详细信息
+
+git remote rm &lt;仓库名称&gt;   : 删除某个远程版本库关联
+
+git remote add origin xxx.git  : 添加一个远程版本库关联
+
+git push -u origin master 表示把当前分支和远端仓库的 master 分支关联起来
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2><span id="git-branch-amp-checkout">Git branch &amp; checkout</span></h2><pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">git branch：查看本地所有分支信息
+
+git branch -r：查看远程仓库所有分支
+git branch -a：查看本地和远程仓库所有分支
+
+git checkout xxx : 切换至新的分支
+
+git branch xxx: 基于当前分支创建新的分支,但不切换
+git checkout -b newbranch :以当前分支为基准创建并切换到指定新分支
+
+git branch -d &lt;分支名&gt;: 删除一个分支，前提是该分支没有未合并的变动。
+git branch -D &lt;分支名&gt;: 强制删除一个分支，不管有没有未合并变化。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2><span id="git-add">Git add</span></h2><pre class="line-numbers language-none"><code class="language-none">git add [file1] [file2]: 添加一个或多个文件到暂存区
+
+git add .：把当前目录下得所有文件改动都添加到暂存区
+
+git add -A：把当前仓库内所有文件改动都添加到暂存区<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2><span id="git-commit">Git commit</span></h2><pre class="line-numbers language-none"><code class="language-none">git commit -m xxxx: 不多说了啊
+git commit -a -m xxxx : 连带着没有add的文件一起提交
+git commit -am xxxx
+
+git commit -m xxx --no-verify ：取消代码预检查，直接交（不推荐昂，即加了pre-commit,就要从一开始好好按规矩办事，跳过一次，次次跳，直接摆烂？
+
+git commit --amend 
+- 场景: 
+    - 你上次提交的commit信息有误
+    - 你上次提交的文件没改完或没改对
+    - 不想生成太多commit记录 ,可以交一次换一次, 这样最后合代码的时候就非常优雅
+- 步骤:
+  前面已经commit了;
+  重新将想改的文件改好,然后git add;
+  输入git commit --amend;
+  终端显示上次commit的信息, 光标移动至commit的信息并按下&quot;i&quot;进入编辑;
+  编辑完成后(覆盖上次的commit信息);
+  按下Esc退出编辑, 并输入 &quot;:wq&quot; 回车退出并保存修改，完成提交.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2><span id="git-rm">Git rm</span></h2><pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript"> 已经把私有文件提交至远程, 这时候.gitignore再添加是没用的
+ 所以需要先删除远程的文件, 再.gitignore
+
+git rm xxx： xxx从git仓库中删除了，配合 .gitignore 就能保证xxx文件变更都不会提交到远程。
+
+git rm -r dist：要删除的是一个目录，要加上 -r 。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2><span id="git-push">Git push</span></h2><blockquote>
+<p><code>git push --set-upstream origin branch1</code>: 推送分支并建立关联关系</p>
+</blockquote>
+<h2><span id="git-pull-amp-fetch">Git pull &amp; fetch</span></h2><blockquote>
+<p>没有冒号就是当前分支,没有中括号就是更新仓库<br><code>git pull [origin 远程分支:本地分支]</code>: 拉取最新版本合并到本地, 会自动合并,但如果你本地有修改就麻烦了啊,冲突太烦人了<br>所以!!!, 没事就pull一下括弧前提是工作区&#x2F;暂存区干干净净<br><code>git fetch [origin 远程分支:本地分支]</code>: 拉取最新版本至本地,不会自动合并,需要你手动<code>git merge origin/xxxx</code>一下</p>
+</blockquote>
+<h2><span id="git-merge">Git merge</span></h2><blockquote>
+<p><code>git merge origin/xxxx</code><br><code>git merge xxxx</code></p>
+</blockquote>
+<h2><span id="git-log">Git log</span></h2><h2><span id="git-reset">Git reset</span></h2><blockquote>
+<p><code>git reset [--soft | --mixed | --hard] [HEAD]</code><br>–soft: 重置你最新一次提交版本，不会修改你的暂存区和工作区。<br>–mixed: 默认参数，用于重置暂存区的文件与上一次的提交(commit)保持一致，工作区文件内容保持不变。<br>–hard: 重置所有提交到上一个版本，并且修改你的工作区，会彻底回到上一个提交版本，在代码中看不到当前提交的代码，也就是你的工作区改动也被干掉了。</p>
+</blockquote>
+<h2><span id="head">HEAD</span></h2><ul>
+<li>撤销 add<br>  <code>git reset</code><br>  <code>git reset HEAD</code></li>
+<li>撤销 commit<br>  <code>git reset HEAD^</code><br>  <code>git reset HEAD^^^^</code><br>  <code>git reset HEAD~n</code></li>
+<li>回滚<br>  <code>git reset --hard commitId</code></li>
+</ul>
+<h2><span id="git-log-amp-reflog">Git log &amp; reflog</span></h2><h2><span id="git-revert">Git revert</span></h2><h2><span id="git-cherrt-pick">Git cherrt-pick</span></h2><h2><span id="git-tag">Git tag</span></h2><ul>
+<li>轻量标签</li>
+<li>附注标签</li>
+</ul>
+<h2><span id="git-submoudule"> <strong>Git SubMoudule</strong></span></h2>
+            </div>
+          
+
+    
+      <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+          <a href="/tags/Tools/">Tools</a>
+          
+        </div>
+      
+
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2022/11/16/9-%E8%BF%99%E5%87%A0%E5%A4%A9/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">这几天</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    
+    
+      <a class="next" href="/2022/11/08/7-%E6%9D%82%E7%A2%8E%E5%AD%90/">
+        <span class="next-text nav-default">7-杂碎子</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+        
+  <div class="comments" id="comments">
+    
+    <div id="tcomment"></div>
+    <script src="\js\Plugins\twikoo.min.js"></script>
+    <script src="\js\theme\comment.js"></script>
+    
+  </div>
+
+
+      </footer>
+    
+  </article>
+
+    </div>
+
+      </div>
+
+      <footer id="colophon"><!--<div id="jsi-flying-fish-container"></div> 页底鱼池-->
+<span class="copyright-year">
+    
+    
+        &copy;
+    
+        2022-10 至
+    
+    2026-08
+    <div
+      style="display:inline-block;"
+    ></div>
+    <!--<span class="footer-author">yaoyuan.</span>
+    <span class="power-by">
+        秘密基地
+    </span>-->
+</span>
+<div id="runtime"></div>
+<script type="text/javascript">
+  function show_runtime(){
+    window.setTimeout("show_runtime()",1000);
+    X=new Date("10/14/2022");
+    Y=new Date();T=(Y.getTime()-X.getTime());
+    M=24*60*60*1000;
+    a=T/M;
+    A=Math.floor(a);
+    b=(a-A)*24;
+    B=Math.floor(b);
+    c=(b-B)*60;
+    C=Math.floor((b-B)*60);
+    D=Math.floor((c-C)*60);
+    runtime.innerHTML=""+A+"天"+B+"小时"+C+"分"+D+"秒"
+  }
+    show_runtime();
+</script>
+
+
+      </footer>
+      <!--
+      -->
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+
+    <script type="text/javascript" src="/js/theme/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/js/Plugins/bootstrap.js?v=1.1"></script>
+<!--<script type="text/javascript" src="/js/Plugins/fish.js"></script>页底鱼池-->
+
+    <style type="text/css">code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }</style>
+  
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 3,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z\d\-\.\+]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(t.test(e.href)||r.test(e.href))&&(e.href=a.dataset.original)})});</script><script>(r=>{r.imageLazyLoadSetting.processImages=t;var a=r.imageLazyLoadSetting.isSPA,o=r.imageLazyLoadSetting.preloadRatio||1,d=i();function i(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(t){(a||t)&&(d=i());for(var e,n=0;n<d.length;n++)0<=(e=(e=d[n]).getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(r.innerHeight*o||document.documentElement.clientHeight*o)&&(()=>{var t,e,a,o,i=d[n];e=function(){d=d.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).dataset.loaded||(t.hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(a=new Image,o=t.getAttribute("data-original"),a.onload=function(){t.src=o,t.removeAttribute("data-original"),t.setAttribute("data-loaded",!0),e&&e()},a.onerror=function(){t.removeAttribute("data-original"),t.setAttribute("data-loaded",!1),t.src=o},t.src!==o&&(a.src=o)))})()}function e(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",e),r.addEventListener("resize",e),r.addEventListener("orientationchange",e)})(this);</script></body>
+  <script type="text/javascript" src="\js\theme\dog.js"></script>
+  
+  
+    <script type="text/javascript" src="/lib/codeBlock/clipboard.min.js"></script>
+    <script type="text/javascript" src="/lib/codeBlock/codeStyle.js"></script>
+  
+</html>
