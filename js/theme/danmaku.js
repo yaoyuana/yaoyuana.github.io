@@ -2,7 +2,7 @@
   var TWI_ENV = 'https://twikoo.yaoyuan.vip/.netlify/functions/twikoo';
   var DANMAKU_PATH = '/danmaku';
   var COLORS = ['#c1121f', '#7b2cbf', '#0077b6', '#2d6a4f', '#ee6c4d', '#3d5a80', '#d62828', '#6a4c93'];
-  var FALLBACK = ['来填一条弹幕吧~', '首页也可以说话喔', '点下面「填充弹幕」发一条'];
+  var FALLBACK = ['来填一条弹幕吧~', '首页也可以说话喔'];
 
   var stage = document.getElementById('danmaku-stage');
   var btn = document.getElementById('danmaku-fill-btn');
