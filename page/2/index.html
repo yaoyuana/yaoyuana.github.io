@@ -273,9 +273,13 @@ function changeStyle(){
             </div>
             <script type="text/javascript" src="\js\theme\photo.js"></script>
             <button type="button" class="danmaku-fill-btn" id="danmaku-fill-btn" aria-label="填充弹幕">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <path fill="currentColor" d="M3.4 20.6 21 12 3.4 3.4 3 10.2 15 12 3 13.8z"/>
-                </svg>
+                <span class="danmaku-orb">
+                    <span class="danmaku-orb-bubble"></span>
+                    <svg class="danmaku-orb-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path fill="currentColor" d="M3.4 20.6 21 12 3.4 3.4 3 10.2 15 12 3 13.8z"/>
+                    </svg>
+                </span>
+                <span class="danmaku-orb-ground"></span>
             </button>
             <div class="danmaku-stage" id="danmaku-stage" aria-hidden="true"></div>
             <div class="danmaku-modal" id="danmaku-modal" aria-hidden="true">

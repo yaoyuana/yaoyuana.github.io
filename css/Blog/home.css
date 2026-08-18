@@ -44,59 +44,82 @@
 
 .danmaku-fill-btn {
     position: fixed;
-    right: 22px;
-    bottom: 78px;
+    right: 20px;
+    bottom: 96px;
     z-index: 30;
-    width: 56px;
-    height: 56px;
-    display: grid;
-    place-items: center;
+    width: 96px;
+    height: 96px;
     padding: 0;
     border: 0;
-    border-radius: 50%;
-    color: #fff;
+    background: transparent;
+    box-shadow: none;
     cursor: pointer;
-    background:
-        radial-gradient(circle at 30% 24%, rgba(255, 255, 255, 0.32), transparent 46%),
-        linear-gradient(165deg, #818cf8 0%, #4f46e5 48%, #3730a3 100%);
-    box-shadow:
-        0 10px 24px rgba(79, 70, 229, 0.42),
-        0 2px 8px rgba(15, 23, 42, 0.18);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    overflow: visible;
 }
 
-.danmaku-fill-btn::before {
-    content: "";
-    position: absolute;
-    inset: -7px;
+.danmaku-orb {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    animation: danmaku-orb-bubble 4s ease-in-out infinite;
+}
+
+.danmaku-orb-bubble {
+    display: block;
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
-    border: 2px solid rgba(99, 102, 241, 0.28);
-    animation: danmaku-orb-ring 2.8s ease-out infinite;
-    pointer-events: none;
-}
-
-.danmaku-fill-btn svg {
-    width: 22px;
-    height: 22px;
-    margin-left: 2px;
-}
-
-.danmaku-fill-btn:hover {
-    transform: translateY(-2px) scale(1.06);
+    background: radial-gradient(circle at 75% 30%, #fff 5px, #ff21c0 8%, #5b5b5b 60%, #ff21c0 100%);
     box-shadow:
-        0 16px 32px rgba(79, 70, 229, 0.5),
-        0 2px 8px rgba(15, 23, 42, 0.2);
+        inset 0 0 20px #fff,
+        inset 10px 0 46px #eaf5fc,
+        inset 80px 0 60px #efcde6,
+        inset -20px -60px 100px #f9f6de,
+        inset 0 50px 140px #f9f6de,
+        0 0 90px #fff;
 }
 
-@keyframes danmaku-orb-ring {
-    0% {
-        transform: scale(0.92);
-        opacity: 0.7;
-    }
-    100% {
-        transform: scale(1.18);
-        opacity: 0;
-    }
+.danmaku-orb-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 28px;
+    height: 28px;
+    margin-left: 1px;
+    color: rgba(255, 255, 255, 0.92);
+    filter: drop-shadow(0 1px 2px rgba(90, 20, 70, 0.35));
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.danmaku-orb-ground {
+    position: absolute;
+    left: 50%;
+    bottom: -48px;
+    width: 72px;
+    height: 19px;
+    margin-left: -36px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.15);
+    filter: blur(1px);
+    pointer-events: none;
+    animation: danmaku-orb-ground 4s ease-in-out infinite;
+}
+
+.danmaku-fill-btn:hover .danmaku-orb-bubble {
+    filter: brightness(1.06);
+}
+
+@keyframes danmaku-orb-bubble {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-18px); }
+}
+
+@keyframes danmaku-orb-ground {
+    0%, 100% { transform: scale(0.5); }
+    50% { transform: scale(1); }
 }
 
 .danmaku-stage {
