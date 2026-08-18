@@ -6,6 +6,22 @@ body {
     linear-gradient(168deg, #f8f2e8 0%, #efe3d2 42%, #e7d8c4 100%) !important;
 }
 
+#masthead {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  background: rgba(248, 242, 232, 0.82);
+  backdrop-filter: saturate(1.15) blur(16px);
+  -webkit-backdrop-filter: saturate(1.15) blur(16px);
+  box-shadow: 0 1px 0 rgba(61, 50, 40, 0.08);
+}
+
+#page {
+  padding-top: 65px;
+}
+
 #content {
   width: 94% !important;
   max-width: 1380px !important;
