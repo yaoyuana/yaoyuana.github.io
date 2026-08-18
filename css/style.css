@@ -973,11 +973,20 @@ canvas:not(#ribbon-canvas), #web_bg {
   }
 }
 #masthead {
-  z-index: 9;
+  position: fixed;
+  z-index: 40;
   top: 0;
   right: 0;
   left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: saturate(1.1) blur(16px);
+  -webkit-backdrop-filter: saturate(1.1) blur(16px);
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
+}
+
+#page {
+  padding-top: 65px;
 }
 
 .site-header-inner {
