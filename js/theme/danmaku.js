@@ -8,14 +8,14 @@
   var btn = document.getElementById('danmaku-fill-btn');
   var modal = document.getElementById('danmaku-modal');
   var closeBtn = document.getElementById('danmaku-close');
-  var twikooBox = document.getElementById('danmaku-twikoo');
   if (!stage || !btn || !modal) return;
 
   var list = [];
-  var cursor = 0;
+  var queue = [];
+  var active = {};
   var lane = 0;
   var inited = false;
-  var timer = null;
+  var waveTimer = null;
   var seen = {};
 
   function stripHtml(html) {
@@ -29,10 +29,25 @@
     if (!text) return null;
     if (text.length > 42) text = text.slice(0, 42) + '…';
     return {
-      id: item.id || item._id || text,
+      id: String(item.id || item._id || text),
       nick: item.nick || '路过的',
       text: text
     };
+  }
+
+  function keyOf(item) {
+    return item.id || item.nick + '|' + item.text;
+  }
+
+  function shuffle(items) {
+    var arr = items.slice();
+    for (var i = arr.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = arr[i];
+      arr[i] = arr[j];
+      arr[j] = tmp;
+    }
+    return arr;
   }
 
   function fetchDanmaku() {
@@ -57,8 +72,15 @@
       });
   }
 
+  function activeCount() {
+    return Object.keys(active).length;
+  }
+
   function spawn(item) {
     if (!item || !item.text) return;
+    var key = keyOf(item);
+    if (active[key]) return;
+    active[key] = true;
     var el = document.createElement('div');
     el.className = 'danmaku-item';
     var nick = document.createElement('span');
@@ -72,23 +94,51 @@
     lane += 1;
     el.style.top = top + 'px';
     el.style.color = COLORS[Math.floor(Math.random() * COLORS.length)];
-    el.style.animationDuration = 9 + Math.random() * 7 + 's';
+    el.style.animationDuration = 10 + Math.random() * 5 + 's';
     stage.appendChild(el);
     el.addEventListener('animationend', function () {
       el.remove();
+      delete active[key];
+      schedule();
     });
   }
 
-  function tick() {
-    if (!list.length) return;
-    spawn(list[cursor % list.length]);
-    cursor += 1;
+  function nextDelay() {
+    if (!list.length) return 5000;
+    if (queue.length) return 2400 + Math.random() * 1400;
+    if (activeCount()) return 1600;
+    return 9000;
   }
 
-  function startLoop() {
-    if (timer) return;
-    tick();
-    timer = setInterval(tick, 1400);
+  function schedule() {
+    if (waveTimer) return;
+    waveTimer = setTimeout(function () {
+      waveTimer = null;
+      pump();
+    }, nextDelay());
+  }
+
+  function pump() {
+    if (!list.length) return;
+    var maxOnScreen = Math.min(list.length, 6);
+    if (activeCount() >= maxOnScreen) {
+      schedule();
+      return;
+    }
+    if (!queue.length) {
+      if (activeCount() > 0) {
+        schedule();
+        return;
+      }
+      queue = shuffle(list);
+    }
+    var next = null;
+    while (queue.length && !next) {
+      var cand = queue.shift();
+      if (!active[keyOf(cand)]) next = cand;
+    }
+    if (next) spawn(next);
+    schedule();
   }
 
   function applyList(items) {
@@ -100,17 +150,19 @@
       list = items;
     }
     items.forEach(function (item) { seen[item.id] = true; });
-    startLoop();
+    queue = shuffle(list);
+    pump();
   }
 
   function refreshNew() {
     fetchDanmaku().then(function (items) {
       if (!items.length) return;
-      var fresh = items.filter(function (item) { return !seen[item.id]; });
-      if (!list.length || (list[0] && String(list[0].id).indexOf('fallback-') === 0)) {
+      var usingFallback = list[0] && String(list[0].id).indexOf('fallback-') === 0;
+      if (usingFallback) {
         applyList(items);
         return;
       }
+      var fresh = items.filter(function (item) { return !seen[item.id]; });
       fresh.reverse().forEach(function (item) {
         seen[item.id] = true;
         list.unshift(item);

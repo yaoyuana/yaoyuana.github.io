@@ -49,29 +49,54 @@
     z-index: 30;
     width: 56px;
     height: 56px;
+    display: grid;
+    place-items: center;
     padding: 0;
     border: 0;
     border-radius: 50%;
-    color: #4a3b2f;
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
+    color: #fff;
     cursor: pointer;
-    background: radial-gradient(circle at 32% 28%, #ffffff 0%, #f4ebe0 46%, #dcc9b4 100%);
+    background:
+        radial-gradient(circle at 30% 24%, rgba(255, 255, 255, 0.32), transparent 46%),
+        linear-gradient(165deg, #818cf8 0%, #4f46e5 48%, #3730a3 100%);
     box-shadow:
-        0 12px 24px rgba(61, 50, 40, 0.18),
-        inset 0 -8px 14px rgba(61, 50, 40, 0.08),
-        inset 0 8px 12px rgba(255, 255, 255, 0.78);
-    animation: danmaku-orb-float 3.4s ease-in-out infinite;
+        0 10px 24px rgba(79, 70, 229, 0.42),
+        0 2px 8px rgba(15, 23, 42, 0.18);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.danmaku-fill-btn::before {
+    content: "";
+    position: absolute;
+    inset: -7px;
+    border-radius: 50%;
+    border: 2px solid rgba(99, 102, 241, 0.28);
+    animation: danmaku-orb-ring 2.8s ease-out infinite;
+    pointer-events: none;
+}
+
+.danmaku-fill-btn svg {
+    width: 22px;
+    height: 22px;
+    margin-left: 2px;
 }
 
 .danmaku-fill-btn:hover {
-    transform: translateY(-2px) scale(1.04);
+    transform: translateY(-2px) scale(1.06);
+    box-shadow:
+        0 16px 32px rgba(79, 70, 229, 0.5),
+        0 2px 8px rgba(15, 23, 42, 0.2);
 }
 
-@keyframes danmaku-orb-float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-6px); }
+@keyframes danmaku-orb-ring {
+    0% {
+        transform: scale(0.92);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1.18);
+        opacity: 0;
+    }
 }
 
 .danmaku-stage {
