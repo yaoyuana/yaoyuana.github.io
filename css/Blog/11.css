@@ -3,6 +3,75 @@ body {
   background: linear-gradient(150deg, #BEDBDF, #ebf4f5, #ACD1D0) !important;
 }
 
+/* 目录放到标题下方、正文之前，取消右侧悬浮，避免和文章叠在一起 */
+.post #article-toc-inner {
+  position: static !important;
+  display: block !important;
+  visibility: visible !important;
+  min-width: 0 !important;
+  width: 100%;
+  height: auto;
+  top: auto;
+  margin: 0 0 1.15em;
+  color: #3d6f72;
+}
+
+.post #mulu {
+  position: static !important;
+  right: auto;
+  min-width: 0;
+  width: 100%;
+  padding: 0.95em 1.1em 1em;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(90, 158, 160, 0.28);
+  box-sizing: border-box;
+}
+
+.post #mulu .sidebar-title {
+  display: block;
+  font-size: 0.95em;
+  letter-spacing: 0.08em;
+  color: #3d6f72;
+  margin-bottom: 0.55em;
+}
+
+.post #mulu .toc {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.15em 0.9em;
+}
+
+.post #mulu .toc-item {
+  margin: 0;
+}
+
+.post #mulu .toc-link {
+  display: block;
+  padding: 0.22em 0;
+  color: #2f5d60 !important;
+  border-bottom: none !important;
+  font-size: 0.95em;
+}
+
+.post #mulu .toc-link:hover {
+  color: #1d7a78 !important;
+  border-bottom: none !important;
+}
+
+.post-content h2 {
+  scroll-margin-top: 72px;
+}
+
+@media screen and (max-width: 720px) {
+  .post #mulu .toc {
+    grid-template-columns: 1fr;
+  }
+}
+
 .git-sub-note {
   font-size: 1.02em;
   line-height: 1.85;
@@ -40,6 +109,22 @@ body {
   border-left: 4px solid #5a9ea0;
   padding-left: 0.55em;
   margin-top: 1.6em !important;
+}
+
+.git-sub-note blockquote {
+  background: rgba(255, 255, 255, 0.62) !important;
+  border-left: 3px solid #5a9ea0 !important;
+  border-radius: 0 10px 10px 0;
+  padding: 0.7em 1em !important;
+}
+
+.git-sub-note ul {
+  padding-left: 1.2em;
+}
+
+.git-sub-note .gs-hero p {
+  margin: 0.45em 0 0;
+  text-indent: 0;
 }
 
 .git-sub-note .gs-grid {
