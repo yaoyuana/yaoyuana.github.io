@@ -722,34 +722,34 @@ canvas:not(#ribbon-canvas), #web_bg {
   }
 }
 .tree {
-  width: 15px;
-  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  vertical-align: middle;
+  transform-origin: 50% 50%;
   transform-style: preserve-3d;
-  /* 主页/其它页：绕 Z 平面转 */
-  animation: tree-spin-z 2s linear infinite;
+  will-change: transform;
+  /* 主页绕 Z：慢转，避免 2s 一圈发晕 */
+  animation: tree-spin-z 8s linear infinite;
 }
 
 body.is-post .tree {
-  /* 文章页：绕 Y 立体翻；perspective 写进 transform，避免顶栏 backdrop-filter 把 3D 压扁 */
+  /* 文章绕 Y：透视拉远、略抬一点，像转盘而不是拍卡片 */
   animation-name: tree-spin-y;
+  animation-duration: 10s;
 }
 
 /* 星星 */
 .tree-star {
-  /* 定义线条 */
+  display: block;
+  width: 26px;
+  height: 26px;
   stroke: #f5e0a3;
-  /* 设置虚线：虚线长度 间距 */
   stroke-dasharray: 1000 1000;
-  width: 32px;
-  height: 32px;
-  /* 星星发光效果 */
-  filter: drop-shadow(0 0 10px #b2c7e2);
-  /* 绝对定位 */
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, 0);
-  /* 执行动画 */
-  animation: stroke 1s calc(var(--delay) * 0.95 * 0.05s) backwards;
+  filter: drop-shadow(0 0 8px #b2c7e2);
+  animation: stroke 1s backwards;
 }
 
 @keyframes tree-spin-z {
@@ -759,10 +759,10 @@ body.is-post .tree {
 }
 @keyframes tree-spin-y {
   from {
-    transform: perspective(48px) rotateY(0deg);
+    transform: perspective(320px) rotateX(14deg) rotateY(0deg);
   }
   to {
-    transform: perspective(48px) rotateY(360deg);
+    transform: perspective(320px) rotateX(14deg) rotateY(360deg);
   }
 }
 /* 星星出现 */
