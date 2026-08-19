@@ -1,6 +1,4 @@
 (function () {
-  var API = 'https://api.github.com/repos/yaoyuana/Blog/commits?page=1&per_page=50';
-  var TOKEN = 'token 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';
   var SPEED = 14;
   var box = document.getElementById('moocBox');
   var track = document.getElementById('commits-track');
@@ -19,17 +17,12 @@
     return String(message || '').split('\n')[0].trim() || 'update';
   }
 
-  function formatDate(iso) {
-    return iso && iso.length >= 10 ? iso.slice(5, 10) : '';
-  }
-
   function render(rows) {
     var html = '';
     rows.forEach(function (item, index) {
-      var commit = item.commit || {};
-      var message = firstLine(commit.message);
-      var date = formatDate((commit.committer && commit.committer.date) || (commit.author && commit.author.date));
-      var url = item.html_url || '#';
+      var message = firstLine(item.message);
+      var date = item.date || '';
+      var url = item.url || '#';
       html += '<li' + (index === 0 ? ' class="is-latest"' : '') + '>';
       html += '<a href="' + escapeHtml(url) + '" target="_blank" rel="noopener noreferrer" title="' + escapeHtml(message) + '">';
       html += escapeHtml(message);
@@ -98,12 +91,7 @@
     raf = requestAnimationFrame(tick);
   }
 
-  fetch(API, {
-    headers: {
-      Accept: 'application/vnd.github+json',
-      Authorization: TOKEN
-    }
-  })
+  fetch('/data/commits.json')
     .then(function (res) { return res.ok ? res.json() : Promise.reject(res); })
     .then(function (data) {
       if (!data || !data.length) {
