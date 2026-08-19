@@ -1,3 +1,6 @@
+if (typeof window.yyDestroyLoco === 'function') {
+    try { window.yyDestroyLoco(); } catch (e) {}
+}
 let scrollsection = document.querySelector('.scrollsection')
 function getData() {
     return new Promise((resolve, reject) => {
@@ -6,19 +9,20 @@ function getData() {
         .then(res => {
             renderData(res)
             window.ViewImage && ViewImage.init('.scrollsection img'); // 灯箱
+            var root = document.querySelector('.scroll-animations-example');
+            if (!root || typeof LocomotiveScroll === 'undefined') return;
             const example = new Example({
-                root: document.querySelector('.scroll-animations-example')
+                root: root
             });
         });
     })
 }
 function renderData(data) {
+    if (!scrollsection) return;
     const fragment = document.createDocumentFragment();
     for (let i = 0; i < data.length; i++) {
         const div = document.createElement('div');
-        //const scroll = document.createElement('scroll-animations-example')
         const img = document.createElement('img');
-        //scroll.setAttribute('data-scroll-section')
         div.className = random('className')
         div.setAttribute('data-scroll', true)
         div.setAttribute('data-scroll-speed', i==0?'item -normal -horizontal': random('number', 1, 5))
@@ -26,7 +30,6 @@ function renderData(data) {
         img.src = data[i].link;
         img.style.maxWidth = 600;
         div.appendChild(img);
-        //scroll.appendChild(div);
         fragment.appendChild(div);
     }
     scrollsection.textContent  = ""
@@ -41,7 +44,6 @@ function random(type, min, max) {
         return arr[Math.floor(Math.random() * (arr.length-1 - 0 + 1) + 0)]
     }
 }
-getData()
 class Example {
     constructor(options) {
         this.root = options.root;
@@ -61,6 +63,25 @@ class Example {
                 smooth: true
             }
         });
+        window.__yyLoco = this.scroll;
+        window.yyDestroyLoco = function () {
+            try {
+                if (window.__yyLoco && typeof window.__yyLoco.destroy === 'function') {
+                    window.__yyLoco.destroy();
+                }
+            } catch (e) {}
+            window.__yyLoco = null;
+            document.documentElement.classList.remove(
+                'has-scroll-smooth',
+                'has-scroll-init',
+                'has-scroll-scrolling',
+                'has-scroll-dragging'
+            );
+            document.documentElement.style.overflow = '';
+            document.body.style.overflow = '';
+            window.yyDestroyLoco = null;
+        };
+        if (window.yyPjaxOnLeave) window.yyPjaxOnLeave(window.yyDestroyLoco);
         this.images = this.root.querySelectorAll('.image');
 
         [].forEach.call(this.images, (image) => {
@@ -86,8 +107,4 @@ class Example {
         setTimeout(this.showImages.bind(this), 2000);
     }
 }
-window.addEventListener('DOMContentLoaded', (event) => {
-    const example = new Example({
-        root: document.querySelector('.scroll-animations-example')
-    });
-});
+getData()

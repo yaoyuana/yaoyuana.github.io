@@ -1,16 +1,33 @@
 /**
  * 试验性无感跳转（可整笔撤销）
  * 壳留下，只换 #content。ZONE 没有这套壳，仍整页走。
+ * innerHTML 不会执行 script，换页后要按顺序重跑页面脚本。
  */
 (function () {
   var TWI_ENV = 'https://twikoo.yaoyuan.vip/.netlify/functions/twikoo';
   var scripts = {};
+  var nativeSetInterval = window.setInterval;
+  var nativeSetTimeout = window.setTimeout;
+  var capturedTimers = [];
+
+  window.__yyPjaxLeaves = window.__yyPjaxLeaves || [];
+  window.yyPjaxOnLeave = window.yyPjaxOnLeave || function (fn) {
+    if (typeof fn === 'function') window.__yyPjaxLeaves.push(fn);
+  };
 
   function pathOf(href) {
     try {
       return new URL(href, location.href).pathname;
     } catch (e) {
       return '';
+    }
+  }
+
+  function absUrl(href) {
+    try {
+      return new URL(href.replace(/\\/g, '/'), location.href).href.split('#')[0];
+    } catch (e) {
+      return (href || '').replace(/\\/g, '/');
     }
   }
 
@@ -28,37 +45,289 @@
     return node.closest('a');
   }
 
+  function isShellSrc(src) {
+    src = (src || '').replace(/\\/g, '/');
+    if (/\/js\/theme\/(nav|dog|dog-talk|funnyTitle|footstep)\.js/i.test(src)) return true;
+    if (/\/js\/theme\/theme\.js/i.test(src)) return true;
+    if (/\/js\/Plugins\/jquery/i.test(src)) return true;
+    if (/\/js\/Plugins\/bootstrap/i.test(src)) return true;
+    if (/\/lib\/codeBlock\//i.test(src)) return true;
+    if (/\/js\/theme\/comment\.js/i.test(src)) return true;
+    if (/\/js\/theme\/link\.js/i.test(src)) return true;
+    return false;
+  }
+
+  function isLibrarySrc(src) {
+    src = (src || '').replace(/\\/g, '/');
+    return /twikoo|view-image|locomotive-scroll|artitalk|neontext|matter\.js|scrollTrigger|gsap\.min|Valine|av-min/i.test(src);
+  }
+
+  function isGlobalOnceSrc(src) {
+    src = (src || '').replace(/\\/g, '/');
+    return /\/js\/posts\/(Slider|Card)\.js/i.test(src);
+  }
+
+  function hasScript(src) {
+    var abs = absUrl(src);
+    var nodes = document.getElementsByTagName('script');
+    for (var i = 0; i < nodes.length; i++) {
+      var value = nodes[i].getAttribute('src');
+      if (value && absUrl(value) === abs) return true;
+    }
+    return false;
+  }
+
+  function wrapLocomotive() {
+    var Orig = window.LocomotiveScroll;
+    if (!Orig || Orig.__yyWrapped) return;
+    function Wrapped(opts) {
+      var inst = new Orig(opts);
+      window.__yyLoco = inst;
+      return inst;
+    }
+    Wrapped.prototype = Orig.prototype;
+    Wrapped.__yyWrapped = true;
+    window.LocomotiveScroll = Wrapped;
+  }
+
   function loadScript(src) {
     src = src.replace(/\\/g, '/');
-    if (scripts[src]) return scripts[src];
-    scripts[src] = new Promise(function (resolve, reject) {
-      if (src.indexOf('clipboard') !== -1 && window.ClipboardJS) {
-        resolve();
-        return;
-      }
-      if (src.indexOf('twikoo') !== -1 && window.twikoo) {
-        resolve();
-        return;
-      }
+    var key = absUrl(src);
+    if (scripts[key]) return scripts[key];
+    if (src.indexOf('clipboard') !== -1 && window.ClipboardJS) {
+      scripts[key] = Promise.resolve();
+      return scripts[key];
+    }
+    if (src.indexOf('twikoo') !== -1 && window.twikoo) {
+      scripts[key] = Promise.resolve();
+      return scripts[key];
+    }
+    if (/view-image/i.test(src) && window.ViewImage) {
+      scripts[key] = Promise.resolve();
+      return scripts[key];
+    }
+    if (/artitalk/i.test(src) && window.Artitalk) {
+      scripts[key] = Promise.resolve();
+      return scripts[key];
+    }
+    if (/locomotive-scroll/i.test(src) && window.LocomotiveScroll) {
+      wrapLocomotive();
+      scripts[key] = Promise.resolve();
+      return scripts[key];
+    }
+    if (/gsap\.min/i.test(src) && window.gsap) {
+      scripts[key] = Promise.resolve();
+      return scripts[key];
+    }
+    if (hasScript(src) && !isLibrarySrc(src) && isGlobalOnceSrc(src)) {
+      scripts[key] = Promise.resolve();
+      return scripts[key];
+    }
+    scripts[key] = new Promise(function (resolve, reject) {
       var el = document.createElement('script');
       el.src = src;
-      el.onload = function () { resolve(); };
+      el.onload = function () {
+        if (/locomotive-scroll/i.test(src)) wrapLocomotive();
+        resolve();
+      };
       el.onerror = reject;
       document.body.appendChild(el);
     });
-    return scripts[src];
+    return scripts[key];
   }
 
-  function applyPageCss(root) {
+  function evalPage(code, label) {
+    try {
+      var fn = new Function(code);
+      fn.call(window);
+    } catch (err) {
+      if (typeof console !== 'undefined' && console.warn) {
+        console.warn('[pjax script]', label || 'inline', err);
+      }
+    }
+  }
+
+  function collectScripts(doc, next) {
+    var list = [];
+    var seenSrc = {};
+    var seenInline = {};
+
+    function take(el) {
+      if (!el || (el.tagName || '').toLowerCase() !== 'script') return;
+      var type = (el.getAttribute('type') || 'text/javascript').toLowerCase();
+      if (type && type !== 'text/javascript' && type !== 'application/javascript' && type !== 'application/ecmascript') {
+        if (type !== '') return;
+      }
+      var src = el.getAttribute('src');
+      if (src) {
+        src = src.replace(/\\/g, '/');
+        var key = absUrl(src);
+        if (seenSrc[key]) return;
+        seenSrc[key] = 1;
+        if (isShellSrc(src)) return;
+        list.push({ src: src, code: null });
+        return;
+      }
+      var code = el.textContent || '';
+      if (!code.trim()) return;
+      var sig = code.replace(/\s+/g, ' ').slice(0, 160);
+      if (seenInline[sig]) return;
+      seenInline[sig] = 1;
+      if (code.indexOf('MOBILE_NAV') !== -1) return;
+      if (code.indexOf('__yyPjaxLeaves') !== -1 && code.length < 280) return;
+      list.push({ src: null, code: code });
+    }
+
+    if (doc.head) doc.head.querySelectorAll('script').forEach(take);
+    next.querySelectorAll('script').forEach(take);
+    if (doc.body) {
+      Array.prototype.forEach.call(doc.body.querySelectorAll('script'), function (el) {
+        if (next.contains(el)) return;
+        var src = el.getAttribute('src') || '';
+        src = src.replace(/\\/g, '/');
+        if (src && (isLibrarySrc(src) || /\/js\/posts\//i.test(src) || /\/js\/theme\/(danmaku|photo|weather|commits)/i.test(src))) {
+          take(el);
+          return;
+        }
+        if (!src && el.textContent && /Artitalk|photoAlbumImages|ViewImage|getClock|new Slider|new Card/.test(el.textContent)) {
+          take(el);
+        }
+      });
+    }
+    return list;
+  }
+
+  function runOne(item) {
+    if (!item.src) {
+      evalPage(item.code, 'inline');
+      return Promise.resolve();
+    }
+    var src = item.src.replace(/\\/g, '/');
+    if (isLibrarySrc(src) || isGlobalOnceSrc(src)) {
+      return loadScript(src);
+    }
+    return fetch(src, { cache: 'force-cache' })
+      .then(function (res) {
+        if (!res.ok) throw new Error('script ' + res.status);
+        return res.text();
+      })
+      .then(function (code) {
+        evalPage(code, src);
+      });
+  }
+
+  function runScripts(items) {
+    var i = 0;
+    function next() {
+      if (i >= items.length) return Promise.resolve();
+      var item = items[i++];
+      return runOne(item).catch(function (err) {
+        if (typeof console !== 'undefined' && console.warn) {
+          console.warn('[pjax script]', item.src || 'inline', err);
+        }
+      }).then(next);
+    }
+    return next();
+  }
+
+  function applyPageCss(doc, next) {
     document.querySelectorAll('link[data-pjax-css]').forEach(function (node) {
       node.remove();
     });
-    root.querySelectorAll('link[rel="stylesheet"]').forEach(function (link) {
+    var have = {};
+    document.querySelectorAll('link[rel="stylesheet"]').forEach(function (link) {
+      have[absUrl(link.href)] = 1;
+    });
+    var injected = {};
+    function take(link) {
+      var href = link.getAttribute('href');
+      if (!href) return;
+      href = href.replace(/\\/g, '/');
+      var key = absUrl(href);
+      if (have[key] || injected[key]) return;
+      injected[key] = 1;
       var el = document.createElement('link');
       el.rel = 'stylesheet';
-      el.href = link.getAttribute('href');
+      el.href = href;
       el.setAttribute('data-pjax-css', '1');
       document.head.appendChild(el);
+    }
+    if (doc.head) doc.head.querySelectorAll('link[rel="stylesheet"]').forEach(take);
+    next.querySelectorAll('link[rel="stylesheet"]').forEach(take);
+  }
+
+  function closeMobileNav() {
+    var ipt = document.getElementById('ipt');
+    var navBar = document.getElementById('nav-top');
+    if (!ipt || !navBar) return;
+    if (document.body.clientWidth < 480) {
+      ipt.checked = false;
+      navBar.style.right = '-240px';
+    }
+  }
+
+  function stopTimerCapture() {
+    window.setInterval = nativeSetInterval;
+    window.setTimeout = nativeSetTimeout;
+  }
+
+  function clearCapturedTimers() {
+    capturedTimers.forEach(function (item) {
+      if (item.kind === 'i') window.clearInterval(item.id);
+      else window.clearTimeout(item.id);
+    });
+    capturedTimers = [];
+    stopTimerCapture();
+  }
+
+  function startTimerCapture() {
+    clearCapturedTimers();
+    window.setInterval = function () {
+      var id = nativeSetInterval.apply(window, arguments);
+      capturedTimers.push({ kind: 'i', id: id });
+      return id;
+    };
+    window.setTimeout = function () {
+      var id = nativeSetTimeout.apply(window, arguments);
+      capturedTimers.push({ kind: 't', id: id });
+      return id;
+    };
+  }
+
+  function destroyNamed() {
+    ['yyDestroyPlane', 'yyDestroyDanmaku', 'yyDestroyPhoto', 'yyDestroyMenu', 'yyDestroyCommits', 'yyDestroyLoco'].forEach(function (name) {
+      if (typeof window[name] === 'function') {
+        try { window[name](); } catch (e) {}
+        window[name] = null;
+      }
+    });
+  }
+
+  function beforeSwap() {
+    var leaves = window.__yyPjaxLeaves || [];
+    window.__yyPjaxLeaves = [];
+    leaves.forEach(function (fn) {
+      try { fn(); } catch (e) {}
+    });
+    destroyNamed();
+    clearCapturedTimers();
+    try {
+      if (window.__yyLoco && typeof window.__yyLoco.destroy === 'function') {
+        window.__yyLoco.destroy();
+      }
+    } catch (e) {}
+    window.__yyLoco = null;
+    var dog = document.querySelector('.dog');
+    if (dog) dog.style.display = '';
+    document.body.style.overflow = '';
+    document.documentElement.classList.remove(
+      'has-scroll-smooth',
+      'has-scroll-init',
+      'has-scroll-scrolling',
+      'has-scroll-dragging'
+    );
+    document.querySelectorAll('span.temp').forEach(function (node) {
+      node.remove();
     });
   }
 
@@ -166,9 +435,14 @@
     var cur = document.getElementById('content');
     if (!next || !cur) {
       location.href = url;
-      return;
+      return Promise.resolve();
     }
-    applyPageCss(next);
+    beforeSwap();
+    applyPageCss(doc, next);
+    var pageScripts = collectScripts(doc, next);
+    next.querySelectorAll('script').forEach(function (node) {
+      if (node.parentNode) node.parentNode.removeChild(node);
+    });
     cur.innerHTML = next.innerHTML;
     document.title = doc.title || document.title;
     if (doc.body && doc.body.className != null) {
@@ -176,7 +450,16 @@
     }
     if (push) history.pushState({ yyPjax: 1 }, '', url);
     window.scrollTo(0, 0);
-    afterSwap();
+    closeMobileNav();
+    startTimerCapture();
+    return runScripts(pageScripts).then(function () {
+      afterSwap();
+    }).then(function () {
+      stopTimerCapture();
+    }, function (err) {
+      stopTimerCapture();
+      throw err;
+    });
   }
 
   var inflight = 0;
@@ -190,7 +473,7 @@
       })
       .then(function (html) {
         if (id !== inflight) return;
-        swap(html, url, push);
+        return swap(html, url, push);
       })
       .catch(function () {
         location.href = url;

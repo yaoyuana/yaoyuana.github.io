@@ -61,8 +61,12 @@ class WaterFall {
   }
 window.onload = function() {
   const waterfall = document.getElementById('waterfall');
+  if (!waterfall) return;
   const water = new WaterFall(waterfall, {gap: 0})
   water.layout()
+}
+if (document.readyState === 'complete') {
+  window.onload();
 }
 //TODO: 懒加载、滚动加载
 const waterfall = document.getElementById('waterfall')

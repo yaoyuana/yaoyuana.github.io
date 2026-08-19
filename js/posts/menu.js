@@ -1,30 +1,44 @@
 // 飞行物
-let plane = $('#plane')[0];
-let deg = 0, ex = 0,ey = 0, vx = 0, vy = 0, count = 0;
-window.addEventListener('mousemove',(e)=>{
-    ex = e.x - plane.offsetLeft-plane.clientWidth/2;
-    ey = e.y - plane.offsetTop-plane.clientHeight/2;
-    deg = 360*Math.atan(ey/ex)/(2*Math.PI)+45;
-    if(ex < 0){
-        deg += 180;
+(function () {
+  if (typeof window.yyDestroyPlane === 'function') {
+    try { window.yyDestroyPlane(); } catch (e) {}
+  }
+  var plane = $('#plane')[0];
+  if (!plane) return;
+  var deg = 0, ex = 0, ey = 0, vx = 0, vy = 0, count = 0;
+  function onMove(e) {
+    ex = e.x - plane.offsetLeft - plane.clientWidth / 2;
+    ey = e.y - plane.offsetTop - plane.clientHeight / 2;
+    deg = 360 * Math.atan(ey / ex) / (2 * Math.PI) + 45;
+    if (ex < 0) {
+      deg += 180;
     }
-    count=0;
-})
-function draw(){
-    plane.style.transform = 'rotate('+deg+'deg)';
-    if( count < 100 ){
-        vx += ex / 100;
-        vy += ey / 100;
+    count = 0;
+  }
+  function draw() {
+    plane.style.transform = 'rotate(' + deg + 'deg)';
+    if (count < 100) {
+      vx += ex / 100;
+      vy += ey / 100;
     }
     plane.style.left = vx + 'px';
-    plane.style.top = vy+ 'px';
+    plane.style.top = vy + 'px';
     count++;
-}
-setInterval(draw, 1);
+  }
+  window.addEventListener('mousemove', onMove);
+  var planeTimer = setInterval(draw, 1);
+  window.yyDestroyPlane = function () {
+    window.removeEventListener('mousemove', onMove);
+    clearInterval(planeTimer);
+    window.yyDestroyPlane = null;
+  };
+  if (window.yyPjaxOnLeave) window.yyPjaxOnLeave(window.yyDestroyPlane);
+})();
 
 const waterfall = $('#waterfall')[0]
 const filterBtn  = $('#filter')[0]
-$('.dog')[0].style.display = 'none'
+var dogEl = document.querySelector('.dog')
+if (dogEl) dogEl.style.display = 'none'
 const header1  = $('#masthead')[0]
 const header2  = $('.post-header')[0]
 const footer  = $('.post-footer')[0]
@@ -68,7 +82,7 @@ function getData() {
   })
 }
 getData()
-searchBtn.addEventListener('click',(e)=>{
+if (searchBtn) searchBtn.addEventListener('click',(e)=>{
     waterfall.style.display = 'none'
     searchCot.style.display = 'block'
     searchBtn.innerText = '停止'
@@ -199,3 +213,18 @@ function renderData(data) {
   waterfall.textContent  = ""
   waterfall.appendChild(fragment);
 }
+
+window.yyDestroyMenu = function () {
+  var dog = document.querySelector('.dog');
+  if (dog) dog.style.display = '';
+  if (timer) clearInterval(timer);
+  if (timerId) clearTimeout(timerId);
+  document.querySelectorAll('span.temp').forEach(function (node) { node.remove(); });
+  var header1 = document.getElementById('masthead');
+  if (header1) header1.style.opacity = '';
+  document.querySelectorAll('.post-header, .post-footer, #filter').forEach(function (el) {
+    el.style.opacity = '';
+  });
+  window.yyDestroyMenu = null;
+};
+if (window.yyPjaxOnLeave) window.yyPjaxOnLeave(window.yyDestroyMenu);

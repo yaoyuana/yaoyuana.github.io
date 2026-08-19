@@ -1,3 +1,6 @@
+if (typeof window.yyDestroyPhoto === 'function') {
+  try { window.yyDestroyPhoto(); } catch (e) {}
+}
 // 要操作的元素
 const container=document.querySelector('.container');
 const imgs=document.querySelectorAll('.container img');
@@ -21,7 +24,7 @@ const imgs=document.querySelectorAll('.container img');
 //         img.style.setProperty('--blur',blurValue+'px');
 //     })
 // })
-document.addEventListener('mousemove',function(e){
+function yyPhotoMove(e){
     // let x = e.pageX;
     // let y = e.pageY;
     let percent=e.clientX/window.outerWidth;
@@ -39,4 +42,12 @@ document.addEventListener('mousemove',function(e){
         img.style.setProperty('--offset',offset+'px');
         img.style.setProperty('--blur',blurValue+'px');
     })
-})
+}
+if (container && imgs.length) {
+  document.addEventListener('mousemove', yyPhotoMove);
+  window.yyDestroyPhoto = function () {
+    document.removeEventListener('mousemove', yyPhotoMove);
+    window.yyDestroyPhoto = null;
+  };
+  if (window.yyPjaxOnLeave) window.yyPjaxOnLeave(window.yyDestroyPhoto);
+}

@@ -1,4 +1,7 @@
 (function () {
+  if (typeof window.yyDestroyDanmaku === 'function') {
+    try { window.yyDestroyDanmaku(); } catch (e) {}
+  }
   var TWI_ENV = 'https://twikoo.yaoyuan.vip/.netlify/functions/twikoo';
   var DANMAKU_PATH = '/danmaku';
   var COLORS = ['#c1121f', '#7b2cbf', '#0077b6', '#2d6a4f', '#ee6c4d', '#3d5a80', '#d62828', '#6a4c93'];
@@ -196,12 +199,30 @@
 
   btn.addEventListener('click', openModal);
   if (closeBtn) closeBtn.addEventListener('click', closeModal);
-  modal.addEventListener('click', function (e) {
+  function onModalClick(e) {
     if (e.target === modal) closeModal();
-  });
-  document.addEventListener('keydown', function (e) {
+  }
+  function onKey(e) {
     if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
-  });
+  }
+  modal.addEventListener('click', onModalClick);
+  document.addEventListener('keydown', onKey);
+
+  function destroy() {
+    if (waveTimer) {
+      clearTimeout(waveTimer);
+      waveTimer = null;
+    }
+    if (stage) stage.innerHTML = '';
+    btn.removeEventListener('click', openModal);
+    if (closeBtn) closeBtn.removeEventListener('click', closeModal);
+    modal.removeEventListener('click', onModalClick);
+    document.removeEventListener('keydown', onKey);
+    closeModal();
+    window.yyDestroyDanmaku = null;
+  }
+  window.yyDestroyDanmaku = destroy;
+  if (window.yyPjaxOnLeave) window.yyPjaxOnLeave(destroy);
 
   fetchDanmaku()
     .then(applyList)

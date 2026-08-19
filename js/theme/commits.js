@@ -1,4 +1,7 @@
 (function () {
+  if (typeof window.yyDestroyCommits === 'function') {
+    try { window.yyDestroyCommits(); } catch (e) {}
+  }
   var SPEED = 14;
   var TWI_ENV = 'https://twikoo.yaoyuan.vip/.netlify/functions/twikoo';
   var DANMAKU_PATH = '/danmaku';
@@ -86,7 +89,7 @@
         wrapY();
         box.scrollTop = y;
       }
-      raf = requestAnimationFrame(tick);
+      window.__yyCommitsRaf = raf = requestAnimationFrame(tick);
     }
 
     function hold() {
@@ -114,6 +117,15 @@
     });
     raf = requestAnimationFrame(tick);
   }
+
+  window.yyDestroyCommits = function () {
+    if (window.__yyCommitsRaf) {
+      cancelAnimationFrame(window.__yyCommitsRaf);
+      window.__yyCommitsRaf = 0;
+    }
+    window.yyDestroyCommits = null;
+  };
+  if (window.yyPjaxOnLeave) window.yyPjaxOnLeave(window.yyDestroyCommits);
 
   function showSidebar() {
     box.classList.add('is-held');
