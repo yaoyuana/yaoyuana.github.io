@@ -327,9 +327,17 @@ function init() {
     }
   }
 
+  const setWalking = on => {
+    window.yyDogWalking = !!on
+    try {
+      window.dispatchEvent(new CustomEvent(on ? 'yy-dog-walk' : 'yy-dog-stop'))
+    } catch (e) {}
+  }
+
   const stopAtGoal = () => {
     clearInterval(elements.dog.timer.all)
     elements.dog.timer.all = null
+    setWalking(false)
     const { dog } = elements.dog
     const { x, y } = elements.dog.actualPos
     dog.style.left = px(x)
@@ -346,6 +354,7 @@ function init() {
   const moveDog = () =>{
     clearInterval(elements.dog.timer.all)
     const { dog } = elements.dog
+    setWalking(true)
 
     elements.dog.timer.all = setInterval(()=> {
       const start = angles.indexOf(elements.dog.angle)

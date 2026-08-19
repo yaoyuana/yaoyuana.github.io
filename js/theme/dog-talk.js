@@ -92,9 +92,9 @@
     ],
     idle: [
       '还在吗。我可以继续当屏保。',
-      '三分钟没点。我怀疑你去倒水了。',
+      '一直没点。我怀疑你去倒水了。',
       '你要是走了，记得关灯。我关不了。',
-      '三分钟。你要么去倒水，要么已经魂飞了。',
+      '你要么去倒水，要么已经魂飞了。',
       '走可以。别假装依依不舍。',
       '关页面前不用跟我告别。我记不住。',
       '主人在拖更。我在值班。你在浪费时间。',
@@ -220,6 +220,17 @@
     stopFollow();
   }
 
+  function dogIsWalking() {
+    return !!(window.yyDogWalking);
+  }
+
+  function scheduleHide() {
+    clearTimeout(hideTimer);
+    if (!bubble || !bubble.classList.contains('is-on')) return;
+    if (dogIsWalking()) return;
+    hideTimer = setTimeout(hideBubble, 3000);
+  }
+
   function speak(line, opt) {
     opt = opt || {};
     if (!line || !dogVisible()) return false;
@@ -231,9 +242,7 @@
     bubble.classList.add('is-on');
     placeBubble();
     startFollow();
-    clearTimeout(hideTimer);
-    var hold = Math.min(6200, 2400 + line.length * 70);
-    hideTimer = setTimeout(hideBubble, hold);
+    scheduleHide();
     return true;
   }
 
@@ -468,7 +477,7 @@
       }
       speak(pick(LINES.idle));
       bumpIdle();
-    }, 3 * 60 * 1000);
+    }, 15 * 1000);
   }
 
   function watchFooter() {
@@ -499,6 +508,14 @@
   document.addEventListener('click', onClick);
   document.addEventListener('keydown', bumpIdle);
   document.addEventListener('scroll', bumpIdle, { passive: true });
+  window.addEventListener('yy-dog-walk', function () {
+    window.yyDogWalking = true;
+    clearTimeout(hideTimer);
+  });
+  window.addEventListener('yy-dog-stop', function () {
+    window.yyDogWalking = false;
+    scheduleHide();
+  });
   bumpIdle();
   armHour();
   watchFooter();
