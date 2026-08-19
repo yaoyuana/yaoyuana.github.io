@@ -1,35 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
   <head>
-    <script>
-      (function () {
-        function shanghaiHour() {
-          try {
-            var parts = new Intl.DateTimeFormat('en-GB', {
-              timeZone: 'Asia/Shanghai',
-              hour: '2-digit',
-              hour12: false
-            }).formatToParts(new Date());
-            var i;
-            for (i = 0; i < parts.length; i++) {
-              if (parts[i].type === 'hour') return parseInt(parts[i].value, 10);
-            }
-          } catch (e) {}
-          return new Date().getHours();
-        }
-        function slot() {
-          var hour = shanghaiHour();
-          if (hour >= 5 && hour < 11) return 'morning';
-          if (hour >= 11 && hour < 17) return 'noon';
-          return 'evening';
-        }
-        function apply() {
-          document.documentElement.setAttribute('data-tod', slot());
-        }
-        apply();
-        setInterval(apply, 60000);
-      })();
-    </script>
     <script src="/js/Plugins/jquery-3.6.0.min.js"></script>
     
 <meta charset="UTF-8"/>

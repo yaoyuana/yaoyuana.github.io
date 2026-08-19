@@ -25,20 +25,11 @@ body {
     --home-c1: #f6f7e6;
     --home-c2: #dafffc;
     --home-c3: #dafffc;
-    --tod-veil: transparent;
     background-color: #f6f7e6;
-    background-image: linear-gradient(var(--tod-veil), var(--tod-veil)), linear-gradient(var(--home-bg-angle), var(--home-c1), var(--home-c2), var(--home-c3));
+    background-image: linear-gradient(var(--home-bg-angle), var(--home-c1), var(--home-c2), var(--home-c3));
     background-attachment: fixed;
     background-repeat: no-repeat;
     animation: home-bg-cycle 256s linear infinite;
-}
-
-html[data-tod="morning"] body {
-    --tod-veil: rgba(255, 255, 255, 0.36);
-}
-
-html[data-tod="evening"] body {
-    --tod-veil: rgba(42, 44, 52, 0.24);
 }
 
 @keyframes home-bg-cycle {

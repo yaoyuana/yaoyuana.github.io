@@ -1,35 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
   <head>
-    <script>
-      (function () {
-        function shanghaiHour() {
-          try {
-            var parts = new Intl.DateTimeFormat('en-GB', {
-              timeZone: 'Asia/Shanghai',
-              hour: '2-digit',
-              hour12: false
-            }).formatToParts(new Date());
-            var i;
-            for (i = 0; i < parts.length; i++) {
-              if (parts[i].type === 'hour') return parseInt(parts[i].value, 10);
-            }
-          } catch (e) {}
-          return new Date().getHours();
-        }
-        function slot() {
-          var hour = shanghaiHour();
-          if (hour >= 5 && hour < 11) return 'morning';
-          if (hour >= 11 && hour < 17) return 'noon';
-          return 'evening';
-        }
-        function apply() {
-          document.documentElement.setAttribute('data-tod', slot());
-        }
-        apply();
-        setInterval(apply, 60000);
-      })();
-    </script>
     <script src="/js/Plugins/jquery-3.6.0.min.js"></script>
     
 <meta charset="UTF-8"/>
@@ -707,6 +678,37 @@ function changeStyle(){
     
 
     
+    <div class="tod-clock">
+        <div class="tod-badge" id="tod-badge" title="上海时间">
+            <svg class="tod-pic tod-morning" viewBox="0 0 36 36" aria-hidden="true">
+                <circle class="tod-sun" cx="18" cy="16" r="7" fill="#ffd36b"/>
+                <circle cx="15.2" cy="17.2" r="1.1" fill="#ff9aa0"/>
+                <circle cx="20.8" cy="17.2" r="1.1" fill="#ff9aa0"/>
+                <path d="M8 24c2-4 6-6 10-6s8 2 10 6" fill="#fff7f0" stroke="#ecd7c8" stroke-width="1"/>
+                <ellipse cx="13" cy="24" rx="5" ry="3.2" fill="#fff"/>
+                <ellipse cx="23" cy="24" rx="5.5" ry="3.4" fill="#fff"/>
+            </svg>
+            <svg class="tod-pic tod-noon" viewBox="0 0 36 36" aria-hidden="true">
+                <g class="tod-rays" fill="#ffd36b">
+                    <rect x="16.5" y="3" width="3" height="6" rx="1.5"/>
+                    <rect x="16.5" y="27" width="3" height="6" rx="1.5"/>
+                    <rect x="3" y="16.5" width="6" height="3" rx="1.5"/>
+                    <rect x="27" y="16.5" width="6" height="3" rx="1.5"/>
+                    <rect x="7.2" y="7.2" width="3" height="6" rx="1.5" transform="rotate(-45 8.7 10.2)"/>
+                    <rect x="25.8" y="7.2" width="3" height="6" rx="1.5" transform="rotate(45 27.3 10.2)"/>
+                    <rect x="7.2" y="22.8" width="3" height="6" rx="1.5" transform="rotate(45 8.7 25.8)"/>
+                    <rect x="25.8" y="22.8" width="3" height="6" rx="1.5" transform="rotate(-45 27.3 25.8)"/>
+                </g>
+                <circle cx="18" cy="18" r="7.2" fill="#ffe08a"/>
+                <circle cx="15.4" cy="17.4" r="1.05" fill="#f3a3a8"/>
+                <circle cx="20.6" cy="17.4" r="1.05" fill="#f3a3a8"/>
+            </svg>
+            <svg class="tod-pic tod-evening" viewBox="0 0 36 36" aria-hidden="true">
+                <path d="M21 8.5a10 10 0 1 0 6.2 17.2A10.5 10.5 0 0 1 21 8.5z" fill="#f4e2a6"/>
+                <path class="tod-star" d="M9 11.5l.7 1.5 1.6.3-1.15 1.2.25 1.6L9 15.2l-1.4.9.25-1.6L6.7 13.3l1.6-.3z" fill="#ffe9a8"/>
+                <path class="tod-star tod-star-2" d="M28.5 13l.5 1.1 1.2.2-.85.9.2 1.15L28.5 16l-1.05.55.2-1.15-.85-.9 1.2-.2z" fill="#ffe9a8"/>
+            </svg>
+        </div>
     <div class="time">
 		<div class="column">
 		    <div class="num">0</div>
@@ -768,6 +770,7 @@ function changeStyle(){
 		    <div class="num">9</div>
 		</div>
 	</div>
+    </div>
     <div class="widget-area widget_tags">
         <h3 class="widget-title">Abstract</h3>
         <div>&nbsp;&nbsp;
@@ -845,6 +848,35 @@ setInterval(() => {
         })
     })
 }, 1000);
+
+(function () {
+    var badge = document.getElementById('tod-badge');
+    if (!badge) return;
+    function shanghaiHour() {
+        try {
+            var parts = new Intl.DateTimeFormat('en-GB', {
+                timeZone: 'Asia/Shanghai',
+                hour: '2-digit',
+                hour12: false
+            }).formatToParts(new Date());
+            var i;
+            for (i = 0; i < parts.length; i++) {
+                if (parts[i].type === 'hour') return parseInt(parts[i].value, 10);
+            }
+        } catch (e) {}
+        return new Date().getHours();
+    }
+    function applyTodIcon() {
+        var hour = shanghaiHour();
+        var slot = (hour >= 5 && hour < 11) ? 'morning' : (hour >= 11 && hour < 17) ? 'noon' : 'evening';
+        var label = slot === 'morning' ? '上海 · 清晨' : slot === 'noon' ? '上海 · 午间' : '上海 · 夜里';
+        badge.className = 'tod-badge is-' + slot;
+        badge.setAttribute('title', label);
+        badge.setAttribute('aria-label', label);
+    }
+    applyTodIcon();
+    setInterval(applyTodIcon, 60000);
+})();
 </script>
 </div>
 
