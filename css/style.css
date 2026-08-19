@@ -724,10 +724,14 @@ canvas:not(#ribbon-canvas), #web_bg {
 .tree {
   width: 15px;
   height: 30px;
-  /* 开启3D */
   transform-style: preserve-3d;
-  /* 执行动画 */
-  animation: spin 2s linear infinite;
+  /* 主页/其它页：绕 Z 平面转 */
+  animation: tree-spin-z 2s linear infinite;
+}
+
+body.is-post .tree {
+  /* 文章页：绕 Y 立体翻；perspective 写进 transform，避免顶栏 backdrop-filter 把 3D 压扁 */
+  animation-name: tree-spin-y;
 }
 
 /* 星星 */
@@ -748,10 +752,17 @@ canvas:not(#ribbon-canvas), #web_bg {
   animation: stroke 1s calc(var(--delay) * 0.95 * 0.05s) backwards;
 }
 
-/* 圣诞树旋转 */
-@keyframes spin {
+@keyframes tree-spin-z {
   to {
-    transform: rotateY(360deg);
+    transform: rotateZ(360deg);
+  }
+}
+@keyframes tree-spin-y {
+  from {
+    transform: perspective(48px) rotateY(0deg);
+  }
+  to {
+    transform: perspective(48px) rotateY(360deg);
   }
 }
 /* 星星出现 */
