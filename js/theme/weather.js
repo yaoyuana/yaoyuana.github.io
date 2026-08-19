@@ -61,6 +61,13 @@
     return '天气';
   }
 
+  function publishWeather(info) {
+    window.yyWeather = info;
+    try {
+      window.dispatchEvent(new CustomEvent('yy-weather', { detail: info }));
+    } catch (e) {}
+  }
+
   function setIcon(name) {
     badge.setAttribute('data-icon', name);
   }
@@ -87,6 +94,15 @@
     setText(tipWind, '-- km/h');
     setText(tipRange, '--° / --°');
     badge.setAttribute('aria-label', where + ' · ' + when);
+    publishWeather({
+      place: where,
+      desc: when,
+      temp: null,
+      feel: null,
+      icon: icon,
+      ok: false,
+      usedFallback: where === FALLBACK.place
+    });
   }
 
   function applyWeather(data, place) {
@@ -117,6 +133,15 @@
       setText(tipRange, Math.round(min) + '° / ' + Math.round(max) + '°');
     }
     badge.setAttribute('aria-label', where + ' ' + desc + ' ' + temp + '°');
+    publishWeather({
+      place: where,
+      desc: desc,
+      temp: isNaN(temp) ? null : temp,
+      feel: isNaN(feel) ? null : feel,
+      icon: icon,
+      ok: true,
+      usedFallback: where === FALLBACK.place && window.__yyWeatherFallback === true
+    });
   }
 
   function readCache() {
@@ -138,7 +163,8 @@
         lat: payload.lat,
         lon: payload.lon,
         place: payload.place,
-        data: payload.data
+        data: payload.data,
+        usedFallback: payload.usedFallback === true
       }));
     } catch (e) {}
   }
@@ -146,11 +172,13 @@
   function locate() {
     return new Promise(function (resolve) {
       if (!navigator.geolocation) {
+        window.__yyWeatherFallback = true;
         resolve(FALLBACK);
         return;
       }
       navigator.geolocation.getCurrentPosition(
         function (pos) {
+          window.__yyWeatherFallback = false;
           resolve({
             lat: pos.coords.latitude,
             lon: pos.coords.longitude,
@@ -158,6 +186,7 @@
           });
         },
         function () {
+          window.__yyWeatherFallback = true;
           resolve(FALLBACK);
         },
         { enableHighAccuracy: false, timeout: 8000, maximumAge: 30 * 60 * 1000 }
@@ -181,7 +210,7 @@
         var placePromise = loc.place ? Promise.resolve(loc.place) : lookupPlace(loc.lat, loc.lon);
         return placePromise.then(function (place) {
           var where = place || loc.place || '当前位置';
-          writeCache({ lat: loc.lat, lon: loc.lon, place: where, data: data });
+          writeCache({ lat: loc.lat, lon: loc.lon, place: where, data: data, usedFallback: window.__yyWeatherFallback === true });
           applyWeather(data, where);
         });
       });
@@ -190,6 +219,7 @@
   function load() {
     var cached = readCache();
     if (cached && cached.data) {
+      window.__yyWeatherFallback = cached.usedFallback === true;
       applyWeather(cached.data, cached.place);
       return;
     }

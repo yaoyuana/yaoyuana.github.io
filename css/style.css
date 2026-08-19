@@ -945,6 +945,34 @@ canvas:not(#ribbon-canvas), #web_bg {
   background-color: rgb(0, 140, 255);
 }
 
+.dog-bubble {
+  position: fixed;
+  z-index: 10050;
+  max-width: 220px;
+  padding: 8px 12px 9px;
+  background: #fffdf6;
+  border: 2px solid #9a5838;
+  border-radius: 14px 14px 14px 4px;
+  color: #5a3b2e;
+  font-size: 13px;
+  line-height: 1.45;
+  letter-spacing: 0.02em;
+  box-shadow: 3px 3px 0 rgba(154, 88, 56, 0.18);
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.dog-bubble.is-on {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dog-bubble-text {
+  margin: 0;
+}
+
 .header {
   padding: 20px 20px;
 }

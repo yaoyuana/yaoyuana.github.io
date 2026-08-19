@@ -149,6 +149,7 @@
       root.style.display = 'block';
       if (mode === 'marquee') requestAnimationFrame(bindMotion);
       else showSidebar();
+      try { window.dispatchEvent(new CustomEvent('yy-danmaku')); } catch (e) {}
     })
     .catch(function () {
       render(FALLBACK);
