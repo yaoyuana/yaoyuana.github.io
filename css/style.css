@@ -466,6 +466,11 @@ p {
   text-align: justify;
 }
 
+html {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
 body {
   cursor: url("/images/mouse/normal.cur"), default;
 }
@@ -492,6 +497,7 @@ body {
   vertical-align: baseline;
   background: linear-gradient(150deg, #f6f7e6, #dafffc);
   overflow-x: hidden;
+  max-width: 100%;
 }
 
 img {
@@ -668,6 +674,7 @@ canvas:not(#ribbon-canvas), #web_bg {
   margin: 0 auto;
   width: 90%;
   max-width: 1000px;
+  overflow-x: hidden;
 }
 
 #primary.home {

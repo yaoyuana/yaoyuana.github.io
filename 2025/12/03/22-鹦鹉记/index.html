@@ -49,7 +49,7 @@
 <meta property="og:image" content="https://s41.ax1x.com/2025/12/03/pZeFySs.jpg">
 <meta property="og:image" content="https://s41.ax1x.com/2025/12/03/pZeFBFg.jpg">
 <meta property="article:published_time" content="2025-12-03T05:42:34.000Z">
-<meta property="article:modified_time" content="2026-08-19T08:16:04.405Z">
+<meta property="article:modified_time" content="2026-08-19T09:13:08.347Z">
 <meta property="article:author" content="yaoyuan">
 <meta property="article:tag" content="小情绪">
 <meta name="twitter:card" content="summary">
@@ -299,76 +299,12 @@ function changeStyle(){
         <i class="fa fa-paper-plane" aria-hidden="true" style="color: rgba(195, 226, 253, 0.8)"></i>
     </div>
 </div>
-
-<div class="photo-content">
-    <div class="photo-album" id="photo-album-js"></div>
-    <div class="nine-grid" id="nine-grid-js"></div>
-</div>
 <script type="text/javascript" src="\js\posts\plane.js"></script>
 <script type="text/javascript" src="\js\Plugins\view-image.min.js"></script>
 <script>
-  // 第一组图片
-  const photoAlbumImages = [
-    "http://photonjmaz.photo.store.qq.com/psc?/V51jdjHV0Blt1j1u3SGl1KWqkk2a38ly/TmEUgtj9EK6.7V8ajmQrEK4iMo3SKiNnakwR*zem8WDcC560KMhN06KE.Zr8zOC6h6wZKmOZWlGdlXI.ezFbGDbnLsWJ8TyWeF6XHoe93PU!/b&bo=YAlABqgMcAgHJ*U!&rf=viewer_4",
-    "http://photonjmaz.photo.store.qq.com/psc?/V51jdjHV0Blt1j1u3SGl1KWqkk2a38ly/TmEUgtj9EK6.7V8ajmQrEPEE.LtWXAH4*eqIR7XLKWgnrvqs.bIGXsrjwDTAm6UhBIoZJiJUJ0HmE63XBuKCRUHsntAfrjH*pz3WrgMsUVY!/b&bo=YAlABqgMcAgHB9U!&rf=viewer_4",
-    "http://photonjmaz.photo.store.qq.com/psc?/V51jdjHV0Blt1j1u3SGl1KWqkk2a38ly/TmEUgtj9EK6.7V8ajmQrEAbnDbdWtbZI8AO62jzhfeBodAnnl3.wSbn0y.b6gLG9K4YdwmdcJdlnjZCHc*7.lO2Mbo3xdYWn19*CJiybgeI!/b&bo=YAlABn4YVBAHNxs!&rf=viewer_4",
-    "http://photonjmaz.photo.store.qq.com/psc?/V51jdjHV0Blt1j1u3SGl1KWqkk2a38ly/TmEUgtj9EK6.7V8ajmQrEPEE.LtWXAH4*eqIR7XLKWjF1X4kSrWC8eLL*43xCfIiJvTy4B6P6Fxd*AFc5txJtrkgfC.AWlsau35M39Lw0NE!/b&bo=YAlABqgMcAgHF8U!&rf=viewer_4",
-    "http://photonjmaz.photo.store.qq.com/psc?/V51jdjHV0Blt1j1u3SGl1KWqkk2a38ly/TmEUgtj9EK6.7V8ajmQrECvw8d32D2NVUEg75sPp.x98.23v4KYR3EfYzfIlQIrjuKeZh7nJG.kpsXJoureExLcZiXDYY8lyFNEyzmFLLuM!/b&bo=YAlABn4YVBAHJws!&rf=viewer_4",
-    "http://photonjmaz.photo.store.qq.com/psc?/V51jdjHV0Blt1j1u3SGl1KWqkk2a38ly/TmEUgtj9EK6.7V8ajmQrEAJxkC0lz9cXr3ekSsLVCOT1hGP9rPha3.yswEC73t0j2MY5Lp5z*QGmxwYnufkUXfYQZ1FFrH7fF8jpsLl7FLE!/b&bo=JAk*BsIUMQ4HB9s!&rf=viewer_4",
-    "http://photonjmaz.photo.store.qq.com/psc?/V51jdjHV0Blt1j1u3SGl1KWqkk2a38ly/TmEUgtj9EK6.7V8ajmQrEE8Qo4NsCSPNTiG.hLBCf2WNEwIIpcReRdXwmvhfOmItpNVcXZ8gGIi4cpbWFySwGT1hlPkWBrwam7czzOa2x.w!/b&bo=YAlABn4YVBAHJws!&rf=viewer_4",
-    "http://photonjmaz.photo.store.qq.com/psc?/V51jdjHV0Blt1j1u3SGl1KWqkk2a38ly/TmEUgtj9EK6.7V8ajmQrEBJbOV6NLogObPT8hLGWXBM57WUgxYCsEPaohDyKOjqmVLYmoPns9jhItaPF8brYftWvgA4J8t6gl8ETpmFB9GQ!/b&bo=YAlABn4YVBAHNxs!&rf=viewer_4",
-    "http://photonjmaz.photo.store.qq.com/psc?/V51jdjHV0Blt1j1u3SGl1KWqkk2a38ly/TmEUgtj9EK6.7V8ajmQrEK4iMo3SKiNnakwR*zem8WDuN2egMZmw.EjY*2L5ZP8KVta9RB1HuW.SgkoKozy69jG5gOmh0lcZZkevuLUcLOg!/b&bo=YAlABqgMcAgHB9U!&rf=viewer_4",
-    "http://photonjmaz.photo.store.qq.com/psc?/V51jdjHV0Blt1j1u3SGl1KWqkk2a38ly/TmEUgtj9EK6.7V8ajmQrECvw8d32D2NVUEg75sPp.x.lFgvLrXq2vAQJVHKXDk1WkgXtDoBah3smxzs21qYRTuHyZkmlktj1oD.pwuffGCw!/b&bo=YAlABn4YVBAHNxs!&rf=viewer_4"
-  ];
-  // 第二组图片
-  const nineGridImages = [
-    "http://photonjmaz.photo.store.qq.com/psc?/V51jdjHV0Blt1j1u3SGl1KWqkk2a38ly/TmEUgtj9EK6.7V8ajmQrEG1XvUvmhqNbS3HzDZJ7JdZl6UU7mxAqbOJf5QPjw0lPBBwots3WDyPHy7k4EsRJM0cdmd9Dnyny4KY7WG9s66U!/b&bo=QAZgCYAOwBUHB1I!&rf=viewer_4",
-    "http://photonjmaz.photo.store.qq.com/psc?/V51jdjHV0Blt1j1u3SGl1KWqkk2a38ly/TmEUgtj9EK6.7V8ajmQrEH5eON3W3MO0M95vocnOWKOxg0Fu1V*DbFLd*JHJsclxzyPjCrd6CpEC8XIBIEh1bjbRsHWmOz*yaFeS3cpihuQ!/b&bo=VgUACFYFAAgHJwY!&rf=viewer_4",
-    "http://photonjmaz.photo.store.qq.com/psc?/V51jdjHV0Blt1j1u3SGl1KWqkk2a38ly/TmEUgtj9EK6.7V8ajmQrEAJxkC0lz9cXr3ekSsLVCORTEsjjO7va6XghDNEk0Sr5*ZPe159jdfeOriJZP9XJhZBuC5tDdsYsS68SpVNUv.8!/b&bo=mwQkBpsEJAYHByY!&rf=viewer_4",
-    "http://photonjmaz.photo.store.qq.com/psc?/V51jdjHV0Blt1j1u3SGl1KWqkk2a38ly/TmEUgtj9EK6.7V8ajmQrELTgYqjXrE3JGGLDkNGV389gv*A4zu4lWSpYmTawQRQSSP9Al*j6*lX7FP4YqYomx22wzG*u6UR8BLXDMlCWQfA!/b&bo=QAZgCYAOwBUHF0I!&rf=viewer_4",
-    "http://photonjmaz.photo.store.qq.com/psc?/V51jdjHV0Blt1j1u3SGl1KWqkk2a38ly/TmEUgtj9EK6.7V8ajmQrEAJxkC0lz9cXr3ekSsLVCORTEsjjO7va6XghDNEk0Sr5*ZPe159jdfeOriJZP9XJhZBuC5tDdsYsS68SpVNUv.8!/b&bo=mwQkBpsEJAYHFzY!&rf=viewer_4",
-    "http://photonjmaz.photo.store.qq.com/psc?/V51jdjHV0Blt1j1u3SGl1KWqkk2a38ly/TmEUgtj9EK6.7V8ajmQrEBMPFxX4TfYhlBsMusnzL5SNAeZkxXFQKL0NxjOx0qEnJaWCUxhYqbhu5x9kfIvm2FmQKLmfvzm4cfVX9Mu3R8s!/b&bo=mwQwCJsEMAgHJwY!&rf=viewer_4",
-    "http://photonjmaz.photo.store.qq.com/psc?/V51jdjHV0Blt1j1u3SGl1KWqkk2a38ly/TmEUgtj9EK6.7V8ajmQrEBMPFxX4TfYhlBsMusnzL5R6UhwUtxnMo0cMs6ojiGgaVw4l3yUTEujcezwzGDQDn9hQ*6Ms1GgqnpwPqLAwT4g!/b&bo=mwQwCJsEMAgHJwY!&rf=viewer_4",
-    "http://photonjmaz.photo.store.qq.com/psc?/V51jdjHV0Blt1j1u3SGl1KWqkk2a38ly/TmEUgtj9EK6.7V8ajmQrELTgYqjXrE3JGGLDkNGV388p4eCWnhTNBth2uXv7jhXEZ2VjDklWYVvhAYZuu2lMHgaS0S5aYc1SdMuY3XbNe*s!/b&bo=QAZgCYAOwBUHJ3I!&rf=viewer_4",
-    "http://photonjmaz.photo.store.qq.com/psc?/V51jdjHV0Blt1j1u3SGl1KWqkk2a38ly/TmEUgtj9EK6.7V8ajmQrEAbnDbdWtbZI8AO62jzhfeAWc55Dhm3XcbJo6QRZd25WplCtzOElMi3QJ42apPmI4rxjF9Lh.5HymArYGw6QcwE!/b&bo=QAZgCVQQfhgHBys!&rf=viewer_4",
-    "http://photonjmaz.photo.store.qq.com/psc?/V51jdjHV0Blt1j1u3SGl1KWqkk2a38ly/TmEUgtj9EK6.7V8ajmQrEJ.eOrTZI1SH8TdjX0f38t*jvNlzYcSs2oMKeV7FIgiNtUpMwNn4W1MEnv0Lou4e9HWPjep7RA*E.8SiCr01ajQ!/b&bo=mwQwCJsEMAgHJwY!&rf=viewer_4",
-    "http://photonjmaz.photo.store.qq.com/psc?/V51jdjHV0Blt1j1u3SGl1KWqkk2a38ly/TmEUgtj9EK6.7V8ajmQrEJ.eOrTZI1SH8TdjX0f38t.0TrTljRJ1cS*AU839*iMagXf4E1xYclA5RKBx0IObHhWTJPxfobLbJNIHQ7eDJj0!/b&bo=mwQwCJsEMAgHByY!&rf=viewer_4",
-    "http://photonjmaz.photo.store.qq.com/psc?/V51jdjHV0Blt1j1u3SGl1KWqkk2a38ly/TmEUgtj9EK6.7V8ajmQrELTgYqjXrE3JGGLDkNGV38*qGWnGqVnNykrD3JVwMjSu20lqCjrGGbs6yJv19*D9DyQFoTeY26BMiAs2GDuM7QA!/b&bo=QAZrCYAO2xUHJ2I!&rf=viewer_4"
-  ];
-  const albumContainer = document.getElementById('photo-album-js');
-  const albumFragment = document.createDocumentFragment();
-  photoAlbumImages.forEach(src => {
-    const card = document.createElement('div');
-    card.className = 'card';
-    const cardInner = document.createElement('div');
-    cardInner.className = 'card-inner';
-    const picture = document.createElement('div');
-    picture.className = 'picture';
-    const img = document.createElement('img');
-    img.src = src;
-    picture.appendChild(img);
-    cardInner.appendChild(picture);
-    card.appendChild(cardInner);
-    albumFragment.appendChild(card);
-  });
-  if (albumContainer) albumContainer.appendChild(albumFragment);
-  const gridContainer = document.getElementById('nine-grid-js');
-  const gridFragment = document.createDocumentFragment();
-  nineGridImages.forEach((src, idx) => {
-    const item = document.createElement('div');
-    item.className = 'nine-item';
-    const picture = document.createElement('div');
-    picture.className = 'picture';
-    const img = document.createElement('img');
-    img.src = src;
-    img.alt = 'photo-' + (idx + 11);
-    picture.appendChild(img);
-    item.appendChild(picture);
-    gridFragment.appendChild(item);
-  });
-  if (gridContainer) gridContainer.appendChild(gridFragment);
-  window.ViewImage && ViewImage.init('.photo-content img'); // 灯箱
+  window.ViewImage && ViewImage.init('.spin-wrap img');
 </script>
+
             </div>
           
 

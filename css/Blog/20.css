@@ -14,13 +14,14 @@ p {
 }
 
 .over-flash {
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
     background-color: rgba(0, 0, 0, 0);
     position: fixed;
     pointer-events: none;
-    top: 0;
-    left: 0;
+    inset: 0;
 }
 
 #plane {
