@@ -1,6 +1,35 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
   <head>
+    <script>
+      (function () {
+        function shanghaiHour() {
+          try {
+            var parts = new Intl.DateTimeFormat('en-GB', {
+              timeZone: 'Asia/Shanghai',
+              hour: '2-digit',
+              hour12: false
+            }).formatToParts(new Date());
+            var i;
+            for (i = 0; i < parts.length; i++) {
+              if (parts[i].type === 'hour') return parseInt(parts[i].value, 10);
+            }
+          } catch (e) {}
+          return new Date().getHours();
+        }
+        function slot() {
+          var hour = shanghaiHour();
+          if (hour >= 5 && hour < 11) return 'morning';
+          if (hour >= 11 && hour < 17) return 'noon';
+          return 'evening';
+        }
+        function apply() {
+          document.documentElement.setAttribute('data-tod', slot());
+        }
+        apply();
+        setInterval(apply, 60000);
+      })();
+    </script>
     <script src="/js/Plugins/jquery-3.6.0.min.js"></script>
     
 <meta charset="UTF-8"/>
@@ -72,7 +101,6 @@
 
 
     <script type="text/javascript" src="\js\theme\funnyTitle.js"></script>
-    <script type="text/javascript" src="\js\theme\tree-star.js" defer></script>
     
     <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
     <title> Git常用命令 - yaoyuan </title>
@@ -128,7 +156,11 @@
             ></a>
         </div>
         <a href="/." class="logo">yaoyuan</a>
-        <div class="tree" aria-hidden="true"></div>
+        <div class="tree" style="display: inline-block">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.32 108.44" class="tree-star">
+                <path d="M90.19 104.33L57.12 87.38 24.4 105l5.91-36.69L3.44 42.65l36.72-5.72 16.1-33.5L73.06 36.6l36.83 4.97-26.35 26.21z" fill="none" stroke-width="6.88" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+        </div>
     </h1>
 
     <nav id="nav-top">
@@ -312,7 +344,7 @@ function changeStyle(){
 <hr>
 <h2><span id="git-clone-amp-init">Git clone &amp; init</span></h2><p>  不多说了昂，</p>
 <blockquote>
-<p><code>git init</code><br><code>git config &lt;--global&gt; user.name</code> xx<br><code>git config &lt;--global&gt; user.email</code> <a href="mailto:&#x78;&#x78;&#64;&#101;&#x6d;&#x61;&#105;&#108;&#46;&#x63;&#111;&#x6d;">&#x78;&#x78;&#64;&#101;&#x6d;&#x61;&#105;&#108;&#46;&#x63;&#111;&#x6d;</a><br><code>git clone</code> &lt;远程网址&gt;<br><code>git clone</code> &lt;远程网址&gt; &lt;本地目录&gt;<br><code>git clone</code> &lt;远程网址&gt; <code>-b</code> &lt;分支名称&gt; &lt;本地目录&gt;</p>
+<p><code>git init</code><br><code>git config &lt;--global&gt; user.name</code> xx<br><code>git config &lt;--global&gt; user.email</code> <a href="mailto:&#x78;&#120;&#x40;&#101;&#x6d;&#97;&#x69;&#x6c;&#46;&#x63;&#111;&#109;">&#x78;&#120;&#x40;&#101;&#x6d;&#97;&#x69;&#x6c;&#46;&#x63;&#111;&#109;</a><br><code>git clone</code> &lt;远程网址&gt;<br><code>git clone</code> &lt;远程网址&gt; &lt;本地目录&gt;<br><code>git clone</code> &lt;远程网址&gt; <code>-b</code> &lt;分支名称&gt; &lt;本地目录&gt;</p>
 </blockquote>
 <h2><span id="git-stash-存储区">Git stash (存储区</span></h2><p>  临时存一下不想被提交的代码, 数据存储在 .git 文件夹下的 refs&#x2F;stash 里</p>
 <pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">git stash save &#39;xxx&#39;: 储存变更

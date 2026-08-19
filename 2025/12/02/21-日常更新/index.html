@@ -1,6 +1,35 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
   <head>
+    <script>
+      (function () {
+        function shanghaiHour() {
+          try {
+            var parts = new Intl.DateTimeFormat('en-GB', {
+              timeZone: 'Asia/Shanghai',
+              hour: '2-digit',
+              hour12: false
+            }).formatToParts(new Date());
+            var i;
+            for (i = 0; i < parts.length; i++) {
+              if (parts[i].type === 'hour') return parseInt(parts[i].value, 10);
+            }
+          } catch (e) {}
+          return new Date().getHours();
+        }
+        function slot() {
+          var hour = shanghaiHour();
+          if (hour >= 5 && hour < 11) return 'morning';
+          if (hour >= 11 && hour < 17) return 'noon';
+          return 'evening';
+        }
+        function apply() {
+          document.documentElement.setAttribute('data-tod', slot());
+        }
+        apply();
+        setInterval(apply, 60000);
+      })();
+    </script>
     <script src="/js/Plugins/jquery-3.6.0.min.js"></script>
     
 <meta charset="UTF-8"/>
@@ -72,7 +101,6 @@
 
 
     <script type="text/javascript" src="\js\theme\funnyTitle.js"></script>
-    <script type="text/javascript" src="\js\theme\tree-star.js" defer></script>
     
     <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
     <title> 日常更新 - yaoyuan </title>
@@ -128,7 +156,11 @@
             ></a>
         </div>
         <a href="/." class="logo">yaoyuan</a>
-        <div class="tree" aria-hidden="true"></div>
+        <div class="tree" style="display: inline-block">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.32 108.44" class="tree-star">
+                <path d="M90.19 104.33L57.12 87.38 24.4 105l5.91-36.69L3.44 42.65l36.72-5.72 16.1-33.5L73.06 36.6l36.83 4.97-26.35 26.21z" fill="none" stroke-width="6.88" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+        </div>
     </h1>
 
     <nav id="nav-top">

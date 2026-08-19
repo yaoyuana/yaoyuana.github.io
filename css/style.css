@@ -492,6 +492,15 @@ body {
   vertical-align: baseline;
   background: linear-gradient(150deg, #f6f7e6, #dafffc);
   overflow-x: hidden;
+  transition: background 0.8s ease;
+}
+
+html[data-tod=morning] body {
+  background: linear-gradient(150deg, #fbfaf4, #eef8f6);
+}
+
+html[data-tod=evening] body {
+  background: linear-gradient(150deg, #d2d3c8, #9eb8b6);
 }
 
 img {
@@ -722,19 +731,34 @@ canvas:not(#ribbon-canvas), #web_bg {
   }
 }
 .tree {
-  display: inline-block;
-  width: 34px;
-  height: 34px;
-  vertical-align: middle;
-  line-height: 0;
+  width: 15px;
+  height: 30px;
+  transform-style: preserve-3d;
+  animation: spin 2s linear infinite;
 }
 
-.tree-star-canvas {
-  display: block;
-  width: 34px;
-  height: 34px;
+.tree-star {
+  stroke: #f5e0a3;
+  stroke-dasharray: 1000 1000;
+  width: 32px;
+  height: 32px;
+  filter: drop-shadow(0 0 10px #b2c7e2);
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  animation: stroke 1s calc(var(--delay) * 0.95 * 0.05s) backwards;
 }
 
+@keyframes spin {
+  to {
+    transform: rotateY(360deg);
+  }
+}
+@keyframes stroke {
+  from {
+    stroke-dashoffset: -1000;
+  }
+}
 .wrapper {
   position: absolute;
   width: 100%;
@@ -958,6 +982,20 @@ canvas:not(#ribbon-canvas), #web_bg {
   backdrop-filter: saturate(1.1) blur(16px);
   -webkit-backdrop-filter: saturate(1.1) blur(16px);
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
+  transition: background 0.8s ease, box-shadow 0.8s ease;
+}
+
+html[data-tod=morning] #masthead {
+  background: rgba(255, 255, 255, 0.22);
+  backdrop-filter: saturate(0.88) blur(16px) brightness(1.05);
+  -webkit-backdrop-filter: saturate(0.88) blur(16px) brightness(1.05);
+}
+
+html[data-tod=evening] #masthead {
+  background: rgba(24, 26, 32, 0.16);
+  backdrop-filter: saturate(0.66) blur(16px) brightness(0.96);
+  -webkit-backdrop-filter: saturate(0.66) blur(16px) brightness(0.96);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.22);
 }
 
 #page {
