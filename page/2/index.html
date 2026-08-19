@@ -664,7 +664,7 @@ function changeStyle(){
 
     
     <div class="tod-clock">
-        <div class="tod-badge" id="tod-badge" title="上海时间">
+        <div class="tod-badge" id="tod-badge" tabindex="0" data-icon="noon" aria-describedby="tod-tip">
             <svg class="tod-pic tod-morning" viewBox="0 0 36 36" aria-hidden="true">
                 <circle class="tod-sun" cx="18" cy="16" r="7" fill="#ffd36b"/>
                 <circle cx="15.2" cy="17.2" r="1.1" fill="#ff9aa0"/>
@@ -673,7 +673,7 @@ function changeStyle(){
                 <ellipse cx="13" cy="24" rx="5" ry="3.2" fill="#fff"/>
                 <ellipse cx="23" cy="24" rx="5.5" ry="3.4" fill="#fff"/>
             </svg>
-            <svg class="tod-pic tod-noon" viewBox="0 0 36 36" aria-hidden="true">
+            <svg class="tod-pic tod-noon tod-clear-day" viewBox="0 0 36 36" aria-hidden="true">
                 <g class="tod-rays" fill="#ffd36b">
                     <rect x="16.5" y="3" width="3" height="6" rx="1.5"/>
                     <rect x="16.5" y="27" width="3" height="6" rx="1.5"/>
@@ -688,12 +688,72 @@ function changeStyle(){
                 <circle cx="15.4" cy="17.4" r="1.05" fill="#f3a3a8"/>
                 <circle cx="20.6" cy="17.4" r="1.05" fill="#f3a3a8"/>
             </svg>
-            <svg class="tod-pic tod-evening" viewBox="0 0 36 36" aria-hidden="true">
+            <svg class="tod-pic tod-evening tod-clear-night" viewBox="0 0 36 36" aria-hidden="true">
                 <path d="M21 8.5a10 10 0 1 0 6.2 17.2A10.5 10.5 0 0 1 21 8.5z" fill="#f4e2a6"/>
                 <path class="tod-star" d="M9 11.5l.7 1.5 1.6.3-1.15 1.2.25 1.6L9 15.2l-1.4.9.25-1.6L6.7 13.3l1.6-.3z" fill="#ffe9a8"/>
                 <path class="tod-star tod-star-2" d="M28.5 13l.5 1.1 1.2.2-.85.9.2 1.15L28.5 16l-1.05.55.2-1.15-.85-.9 1.2-.2z" fill="#ffe9a8"/>
             </svg>
+            <svg class="tod-pic tod-partly" viewBox="0 0 36 36" aria-hidden="true">
+                <circle cx="13" cy="13" r="6" fill="#ffe08a"/>
+                <ellipse cx="14" cy="23" rx="9" ry="6" fill="#fff"/>
+                <ellipse cx="23" cy="24" rx="8" ry="5.4" fill="#f4f1ea"/>
+                <ellipse cx="20" cy="21" rx="7" ry="5" fill="#fff"/>
+            </svg>
+            <svg class="tod-pic tod-partly-night" viewBox="0 0 36 36" aria-hidden="true">
+                <path d="M14 8a7 7 0 1 0 4.4 12.1A7.4 7.4 0 0 1 14 8z" fill="#f4e2a6"/>
+                <ellipse cx="14" cy="24" rx="9" ry="6" fill="#ece7dc"/>
+                <ellipse cx="23" cy="25" rx="8" ry="5.4" fill="#f7f3ea"/>
+                <ellipse cx="20" cy="22" rx="7" ry="5" fill="#fff"/>
+            </svg>
+            <svg class="tod-pic tod-overcast" viewBox="0 0 36 36" aria-hidden="true">
+                <ellipse cx="13" cy="18" rx="8" ry="6" fill="#d9d4cb"/>
+                <ellipse cx="24" cy="19" rx="8.5" ry="6.2" fill="#cfc9be"/>
+                <ellipse cx="18" cy="16" rx="9" ry="6.5" fill="#e8e3d8"/>
+            </svg>
+            <svg class="tod-pic tod-fog" viewBox="0 0 36 36" aria-hidden="true">
+                <ellipse cx="18" cy="14" rx="9" ry="6" fill="#ddd8ce"/>
+                <rect x="8" y="22" width="20" height="2" rx="1" fill="#cfc9be"/>
+                <rect x="10" y="26" width="16" height="2" rx="1" fill="#ddd8ce"/>
+                <rect x="9" y="30" width="18" height="2" rx="1" fill="#cfc9be"/>
+            </svg>
+            <svg class="tod-pic tod-drizzle" viewBox="0 0 36 36" aria-hidden="true">
+                <ellipse cx="18" cy="13" rx="10" ry="7" fill="#d5e4ee"/>
+                <path class="tod-drop" d="M12 24q0 3 2 3t2-3q0-2-2-5-2 3-2 5z" fill="#8eb8d8"/>
+                <path class="tod-drop" d="M17 26q0 3 2 3t2-3q0-2-2-5-2 3-2 5z" fill="#7aa8cc"/>
+                <path class="tod-drop" d="M22 24q0 3 2 3t2-3q0-2-2-5-2 3-2 5z" fill="#8eb8d8"/>
+            </svg>
+            <svg class="tod-pic tod-rain" viewBox="0 0 36 36" aria-hidden="true">
+                <ellipse cx="18" cy="12" rx="10" ry="7" fill="#9eb6c9"/>
+                <path class="tod-drop" d="M11 22q0 4 2.4 4t2.4-4q0-2.4-2.4-6.2-2.4 3.8-2.4 6.2z" fill="#5b8fb8"/>
+                <path class="tod-drop" d="M16.6 24q0 4 2.4 4t2.4-4q0-2.4-2.4-6.2-2.4 3.8-2.4 6.2z" fill="#4e82ab"/>
+                <path class="tod-drop" d="M22.2 22q0 4 2.4 4t2.4-4q0-2.4-2.4-6.2-2.4 3.8-2.4 6.2z" fill="#5b8fb8"/>
+            </svg>
+            <svg class="tod-pic tod-snow" viewBox="0 0 36 36" aria-hidden="true">
+                <ellipse cx="18" cy="12" rx="10" ry="7" fill="#e4eef6"/>
+                <g class="tod-flake" fill="#9bb8d4">
+                    <circle cx="12" cy="24" r="1.4"/>
+                    <circle cx="18" cy="28" r="1.6"/>
+                    <circle cx="25" cy="23" r="1.3"/>
+                    <circle cx="21" cy="21" r="1"/>
+                </g>
+            </svg>
+            <svg class="tod-pic tod-storm" viewBox="0 0 36 36" aria-hidden="true">
+                <ellipse cx="18" cy="13" rx="10" ry="7" fill="#6d7c8c"/>
+                <path class="tod-bolt" d="M20 18l-7 8h5l-2 8 9-10h-5z" fill="#ffd36b"/>
+            </svg>
+            <div class="tod-tip" id="tod-tip" role="tooltip">
+                <div class="tod-tip-place">上海</div>
+                <div class="tod-tip-main">
+                    <span id="tod-tip-temp">--°</span>
+                    <span id="tod-tip-desc">读取中</span>
+                </div>
+                <div class="tod-tip-row"><span>体感</span><b id="tod-tip-feel">--°</b></div>
+                <div class="tod-tip-row"><span>湿度</span><b id="tod-tip-hum">--%</b></div>
+                <div class="tod-tip-row"><span>风速</span><b id="tod-tip-wind">-- km/h</b></div>
+                <div class="tod-tip-row"><span>今日</span><b id="tod-tip-range">--° / --°</b></div>
+            </div>
         </div>
+        <div class="tod-temp" id="tod-temp"></div>
     <div class="time">
 		<div class="column">
 		    <div class="num">0</div>
@@ -833,36 +893,8 @@ setInterval(() => {
         })
     })
 }, 1000);
-
-(function () {
-    var badge = document.getElementById('tod-badge');
-    if (!badge) return;
-    function shanghaiHour() {
-        try {
-            var parts = new Intl.DateTimeFormat('en-GB', {
-                timeZone: 'Asia/Shanghai',
-                hour: '2-digit',
-                hour12: false
-            }).formatToParts(new Date());
-            var i;
-            for (i = 0; i < parts.length; i++) {
-                if (parts[i].type === 'hour') return parseInt(parts[i].value, 10);
-            }
-        } catch (e) {}
-        return new Date().getHours();
-    }
-    function applyTodIcon() {
-        var hour = shanghaiHour();
-        var slot = (hour >= 5 && hour < 11) ? 'morning' : (hour >= 11 && hour < 17) ? 'noon' : 'evening';
-        var label = slot === 'morning' ? '上海 · 清晨' : slot === 'noon' ? '上海 · 午间' : '上海 · 夜里';
-        badge.className = 'tod-badge is-' + slot;
-        badge.setAttribute('title', label);
-        badge.setAttribute('aria-label', label);
-    }
-    applyTodIcon();
-    setInterval(applyTodIcon, 60000);
-})();
 </script>
+<script type="text/javascript" src="\js\theme\weather.js"></script>
 </div>
 
 

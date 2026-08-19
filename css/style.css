@@ -1515,6 +1515,7 @@ canvas:not(#ribbon-canvas), #web_bg {
 }
 
 .tod-clock {
+  position: relative;
   margin-bottom: 10px;
   text-align: center;
 }
@@ -1523,7 +1524,22 @@ canvas:not(#ribbon-canvas), #web_bg {
   position: relative;
   width: 36px;
   height: 36px;
-  margin: 0 auto 6px;
+  margin: 0 auto 2px;
+  cursor: pointer;
+  outline: none;
+}
+
+.tod-temp {
+  min-height: 1.1em;
+  margin-bottom: 4px;
+  font-size: 0.78em;
+  letter-spacing: 0.04em;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.tod-temp:empty {
+  display: none;
+  margin: 0;
 }
 
 .tod-pic {
@@ -1538,28 +1554,120 @@ canvas:not(#ribbon-canvas), #web_bg {
   transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
-.tod-badge.is-morning .tod-morning,
-.tod-badge.is-noon .tod-noon,
-.tod-badge.is-evening .tod-evening {
+.tod-badge[data-icon=morning] .tod-morning,
+.tod-badge[data-icon=noon] .tod-noon,
+.tod-badge[data-icon=evening] .tod-evening,
+.tod-badge[data-icon=clear-day] .tod-clear-day,
+.tod-badge[data-icon=clear-night] .tod-clear-night,
+.tod-badge[data-icon=partly] .tod-partly,
+.tod-badge[data-icon=partly-night] .tod-partly-night,
+.tod-badge[data-icon=overcast] .tod-overcast,
+.tod-badge[data-icon=fog] .tod-fog,
+.tod-badge[data-icon=drizzle] .tod-drizzle,
+.tod-badge[data-icon=rain] .tod-rain,
+.tod-badge[data-icon=snow] .tod-snow,
+.tod-badge[data-icon=storm] .tod-storm {
   opacity: 1;
   transform: scale(1);
 }
 
-.tod-badge.is-morning .tod-sun {
+.tod-badge[data-icon=morning] .tod-sun {
   animation: tod-bob 3s ease-in-out infinite;
 }
 
-.tod-badge.is-noon .tod-rays {
+.tod-badge[data-icon=noon] .tod-rays,
+.tod-badge[data-icon=clear-day] .tod-rays {
   transform-origin: 18px 18px;
   animation: tod-spin 16s linear infinite;
 }
 
-.tod-badge.is-evening .tod-star {
+.tod-badge[data-icon=evening] .tod-star,
+.tod-badge[data-icon=clear-night] .tod-star {
   animation: tod-twinkle 2.2s ease-in-out infinite;
 }
 
-.tod-badge.is-evening .tod-star-2 {
+.tod-badge[data-icon=evening] .tod-star-2,
+.tod-badge[data-icon=clear-night] .tod-star-2 {
   animation-delay: 0.8s;
+}
+
+.tod-badge[data-icon=rain] .tod-drop,
+.tod-badge[data-icon=drizzle] .tod-drop {
+  animation: tod-drip 1.4s ease-in-out infinite;
+}
+
+.tod-badge[data-icon=snow] .tod-flake {
+  animation: tod-bob 2.4s ease-in-out infinite;
+}
+
+.tod-badge[data-icon=storm] .tod-bolt {
+  animation: tod-twinkle 0.9s ease-in-out infinite;
+}
+
+.tod-tip {
+  position: absolute;
+  right: calc(100% + 10px);
+  top: 50%;
+  width: 168px;
+  padding: 10px 12px 8px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 2px 8px 18px rgba(80, 70, 60, 0.12);
+  text-align: left;
+  color: rgba(0, 0, 0, 0.62);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translate(6px, -50%);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+  z-index: 45;
+}
+
+.tod-badge:hover .tod-tip,
+.tod-badge:focus .tod-tip,
+.tod-badge:focus-within .tod-tip {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(0, -50%);
+}
+
+.tod-tip-place {
+  font-size: 0.72em;
+  letter-spacing: 0.12em;
+  opacity: 0.55;
+}
+
+.tod-tip-main {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin: 4px 0 8px;
+}
+
+#tod-tip-temp {
+  font-size: 1.45em;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.78);
+}
+
+#tod-tip-desc {
+  font-size: 0.86em;
+}
+
+.tod-tip-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.78em;
+  line-height: 1.7;
+}
+
+.tod-tip-row span {
+  opacity: 0.5;
+}
+
+.tod-tip-row b {
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.7);
 }
 
 @keyframes tod-bob {
@@ -1580,6 +1688,16 @@ canvas:not(#ribbon-canvas), #web_bg {
     opacity: 0.45;
   }
   50% {
+    opacity: 1;
+  }
+}
+@keyframes tod-drip {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.75;
+  }
+  50% {
+    transform: translateY(2px);
     opacity: 1;
   }
 }
