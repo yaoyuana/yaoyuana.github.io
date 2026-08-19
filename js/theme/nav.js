@@ -1,8 +1,6 @@
 /**
- * 试验性无感跳转（可整笔撤销本文件 + layout 里的 script 引用）
- *
- * 壳（顶栏、小狗、页脚）留下，只换 #content。
- * 回首页、相册/哔哔/姚远、ZONE、以及带重脚本的文章仍整页刷新。
+ * 试验性无感跳转（可整笔撤销）
+ * 壳留下，只换 #content。ZONE 没有这套壳，仍整页走。
  */
 (function () {
   var TWI_ENV = 'https://twikoo.yaoyuan.vip/.netlify/functions/twikoo';
@@ -16,38 +14,18 @@
     }
   }
 
-  function isHomePath(path) {
-    return path === '/' || /^\/page\/\d+\/?$/.test(path);
-  }
-
   function shouldHardNav(href) {
     var path = pathOf(href);
     if (!path) return true;
-    if (isHomePath(path)) return true;
     if (/^\/ZONE\//i.test(path)) return true;
-    if (/^\/(me|about|photo|Circle)(\/|$)/i.test(path)) return true;
-    var deny = [
-      '甘南',
-      '鹦鹉记',
-      '整活',
-      '18-菜单',
-      'Crush',
-      '16-Crush',
-      '日常更新',
-      '拖更一年',
-      '照片忆录',
-      '圣诞',
-      '最近怎么样',
-      '山的那边',
-      '/2-杂碎子',
-      '/3-碎嘴子',
-      '/4-杂碎子'
-    ];
-    var decoded = '';
-    try { decoded = decodeURIComponent(path); } catch (e) { decoded = path; }
-    return deny.some(function (key) {
-      return path.indexOf(key) !== -1 || decoded.indexOf(key) !== -1;
-    });
+    return false;
+  }
+
+  function closestLink(node) {
+    if (!node) return null;
+    if (node.nodeType !== 1) node = node.parentElement;
+    if (!node || !node.closest) return null;
+    return node.closest('a');
   }
 
   function loadScript(src) {
@@ -223,9 +201,8 @@
   }
 
   document.addEventListener('click', function (e) {
-    if (e.defaultPrevented) return;
     if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-    var link = e.target.closest && e.target.closest('a');
+    var link = closestLink(e.target);
     if (!link) return;
     if (link.hasAttribute('download')) return;
     if (link.target && link.target !== '_self') return;
@@ -237,8 +214,9 @@
     if (next === now) return;
     if (shouldHardNav(next)) return;
     e.preventDefault();
+    e.stopPropagation();
     go(next, true);
-  });
+  }, true);
 
   window.addEventListener('popstate', function () {
     if (shouldHardNav(location.href)) {
