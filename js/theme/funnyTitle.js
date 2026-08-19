@@ -1,11 +1,13 @@
 window.localStorage.setItem('OriginTitle',document.title);
 document.addEventListener('visibilitychange', function () {
+    var $icon = $('[rel="shortcut icon"], [rel="icon"]');
+    var favicon = '/favicon.ico';
     if (document.hidden) {
-        $('[rel="icon"]').attr('href', "/img/trhx2.png");
+        $icon.attr('href', favicon);
         document.title = '我躲好了！o.Oヾ';
     }
     else {
-        $('[rel="icon"]').attr('href', "/img/trhx2.png");
+        $icon.attr('href', favicon);
         document.title = '被发现了！O.oヾ';
         setTimeout(function () {
             document.title = window.localStorage.getItem('OriginTitle');

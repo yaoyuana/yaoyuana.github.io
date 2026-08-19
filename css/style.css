@@ -1074,6 +1074,15 @@ canvas:not(#ribbon-canvas), #web_bg {
   display: inline-block;
 }
 
+@media screen and (min-width: 480px) {
+  #nav-top {
+    right: 0;
+  }
+  #nav-top input,
+#nav-top > span {
+    display: none;
+  }
+}
 .posts {
   margin-bottom: 10px;
   border-bottom: 1px solid #eee;

@@ -207,8 +207,8 @@ body {
     right: 20px;
     bottom: 150px;
     z-index: 30;
-    width: 200px;
-    height: 200px;
+    width: 110px;
+    height: 110px;
     padding: 0;
     border: 0;
     margin: 0;
@@ -220,6 +220,17 @@ body {
     appearance: none;
     font: inherit;
     color: inherit;
+}
+
+.danmaku-fill-btn .danmaku-orb {
+    transform: scale(0.55);
+    transform-origin: top left;
+}
+
+@media only screen and (max-width: 750px) {
+    .danmaku-fill-btn {
+        display: none;
+    }
 }
 
 .danmaku-orb {

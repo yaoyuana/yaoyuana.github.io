@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
   <head>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/js/Plugins/jquery-3.6.0.min.js"></script>
     
 <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -34,15 +34,15 @@
 <link rel="canonical" href="https://yaoyuan.vip/links/"/>
 
 
-<meta name="description" content="排名不分先后，每次刷新会随机排列。没有头像连接的，会随机展示一张美照 悬停查看快照，此功能来自这位邻居~                交朋友的格式名称：姚远 网址：https:&#x2F;&#x2F;yaoyuan.vip 头像：https:&#x2F;&#x2F;yaoyuan.vip&#x2F;images&#x2F;Avatar.jpg 描述：A vegetable student">
+<meta name="description" content="排名不分先后，每次刷新会随机排列。没有头像连接的，会随机展示一张美照 悬停查看快照，此功能来自这位邻居~                交朋友的格式名称：姚远 网址：https:&#x2F;&#x2F;yaoyuan.vip 头像：https:&#x2F;&#x2F;yaoyuan.vip&#x2F;images&#x2F;Avatar.jpg 描述：A vegetable student         隐约雷鸣，阴霾天空，但盼风雨来，能留你在此。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="我喜欢的博客">
 <meta property="og:url" content="https://yaoyuan.vip/links/index.html">
 <meta property="og:site_name" content="yaoyuan">
-<meta property="og:description" content="排名不分先后，每次刷新会随机排列。没有头像连接的，会随机展示一张美照 悬停查看快照，此功能来自这位邻居~                交朋友的格式名称：姚远 网址：https:&#x2F;&#x2F;yaoyuan.vip 头像：https:&#x2F;&#x2F;yaoyuan.vip&#x2F;images&#x2F;Avatar.jpg 描述：A vegetable student">
+<meta property="og:description" content="排名不分先后，每次刷新会随机排列。没有头像连接的，会随机展示一张美照 悬停查看快照，此功能来自这位邻居~                交朋友的格式名称：姚远 网址：https:&#x2F;&#x2F;yaoyuan.vip 头像：https:&#x2F;&#x2F;yaoyuan.vip&#x2F;images&#x2F;Avatar.jpg 描述：A vegetable student         隐约雷鸣，阴霾天空，但盼风雨来，能留你在此。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-08-18T05:54:32.860Z">
-<meta property="article:modified_time" content="2026-08-18T05:54:32.860Z">
+<meta property="article:published_time" content="2026-08-19T03:02:52.110Z">
+<meta property="article:modified_time" content="2026-08-19T03:02:52.110Z">
 <meta property="article:author" content="yaoyuan">
 <meta name="twitter:card" content="summary">
 
@@ -211,40 +211,41 @@
   </div>
 </div>
 <script>
-//手机打开默认收起菜单
+// 窄屏汉堡菜单；480 与 logo 隐藏断点对齐，避免 380–400 空档
 let navBar = document.getElementById('nav-top')
 let ipt = document.getElementById('ipt')
-let changeBtns = document.getElementsByClassName('changeBtn')
-ipt.checked = document.body.clientWidth < 400? document.body.clientWidth < 380?true:false: true
-navBar.style.right = ipt.checked? "0px": "-240px"
-if(document.body.clientWidth < 380){
-    for(let i = 0;i<changeBtns.length;i++){
-        changeBtns[i].style.display = "none"
+const MOBILE_NAV = 480
+function isMobileNav() {
+    return document.body.clientWidth < MOBILE_NAV
+}
+function layoutNav() {
+    if (!navBar || !ipt) return
+    if (isMobileNav()) {
+        ipt.checked = false
+        navBar.style.right = '-240px'
+    } else {
+        ipt.checked = true
+        navBar.style.right = '0px'
     }
-}else{
-    ipt.addEventListener("click",()=>{
-        if(ipt.checked){
-            navBar.style.right = "0px"
-        }else{
-            navBar.style.right = "-240px"
-        }
+}
+layoutNav()
+window.addEventListener('resize', layoutNav)
+if (ipt) {
+    ipt.addEventListener('click', function () {
+        if (!isMobileNav()) return
+        navBar.style.right = ipt.checked ? '0px' : '-240px'
     })
 }
-// 切换按钮
+// 暗色开关已隐藏，忽略遗留 is_dark，避免整页反色
 const btn=document.querySelector('.switch');
 if(localStorage.getItem('is_dark')==undefined) localStorage.setItem('is_dark','false')
-if(localStorage.getItem('is_dark') == 'true'){
-    btn.classList.add('dark');
-    let a=document.createElement('style');
-    a.id='aa';
-    a.innerHTML='html{background-color:#fff;filter:invert(1);font-size: large;} img{filter:invert(1);}.container div img{filter: blur(var(--blur)) invert(1) !important;}#baiduMap{filter: invert(1) !important}.card .thumb{filter: invert(1)}.circle{filter: invert(1)}#people{filter: invert(1)}';
-    document.head.appendChild(a);
-    localStorage.setItem('is_dark', 'true')
+if (btn) {
+    btn.addEventListener('click',function(){
+        changeStyle()
+    })
 }
-btn.addEventListener('click',function(){
-    changeStyle()
-})
 function changeStyle(){
+    if (!btn) return
     let is_dark = localStorage.getItem('is_dark') == 'true'? true: false;
     if(!is_dark){
         // 切换为暗色主题
@@ -274,7 +275,7 @@ function changeStyle(){
                 </h1>
             </header>
             <div class="post-content">
-                <link rel="stylesheet" href="../../css/link/link.css">
+                <link rel="stylesheet" href="/css/link/link.css">
 
 
 <center>排名不分先后，每次刷新会随机排列。没有头像连接的，会随机展示一张美照</center>
@@ -288,9 +289,9 @@ function changeStyle(){
   </div>
 </div>
 
-<h2><span id="交朋友的格式">交朋友的格式</span></h2><pre class="line-numbers language-嘻嘻" data-language="嘻嘻"><code class="language-嘻嘻">名称：姚远
-网址：https:&#x2F;&#x2F;yaoyuan.vip
-头像：https:&#x2F;&#x2F;yaoyuan.vip&#x2F;images&#x2F;Avatar.jpg
+<h2><span id="交朋友的格式">交朋友的格式</span></h2><pre class="line-numbers language-text" data-language="text"><code class="language-text">名称：姚远
+网址：https://yaoyuan.vip
+头像：https://yaoyuan.vip/images/Avatar.jpg
 描述：A vegetable student<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <hr>
@@ -345,7 +346,7 @@ function changeStyle(){
 <script type="text/javascript">
   function show_runtime(){
     window.setTimeout("show_runtime()",1000);
-    X=new Date("10/14/2022");
+    X=new Date("2022-10-14T00:00:00+08:00");
     Y=new Date();T=(Y.getTime()-X.getTime());
     M=24*60*60*1000;
     a=T/M;
@@ -372,15 +373,6 @@ function changeStyle(){
 
 
     
-
-
-
-
-  
-    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
-  
-
-  
 
     <script type="text/javascript" src="/js/theme/theme.js?v=1.1"></script>
 <script type="text/javascript" src="/js/Plugins/bootstrap.js?v=1.1"></script>
