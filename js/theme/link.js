@@ -20,7 +20,14 @@ function renderlink(data) {
   document.querySelector(".link-navigation").innerHTML = li;
 }
 
-// 获取 json 文件
-fetch('/links/linklist.json')
-  .then(response => response.json())
-  .then(res => renderlink(res));
+function yyInitLinks() {
+  var mount = document.querySelector('.link-navigation');
+  if (!mount) return;
+  fetch('/links/linklist.json')
+    .then(function (response) { return response.json(); })
+    .then(function (res) { renderlink(res); })
+    .catch(function () {});
+}
+
+window.yyInitLinks = yyInitLinks;
+yyInitLinks();

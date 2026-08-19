@@ -973,6 +973,15 @@ canvas:not(#ribbon-canvas), #web_bg {
   margin: 0;
 }
 
+html.is-pjaxing #content {
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+#content {
+  transition: opacity 0.15s ease;
+}
+
 .header {
   padding: 20px 20px;
 }
