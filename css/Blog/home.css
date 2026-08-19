@@ -1,3 +1,163 @@
+@property --home-bg-angle {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 150deg;
+}
+@property --home-c1 {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #f6f7e6;
+}
+@property --home-c2 {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #dafffc;
+}
+@property --home-c3 {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #dafffc;
+}
+
+/* 首页背景：每套色转一圈（24s）再淡入下一套（8s），八套接龙循环 */
+body {
+    --home-bg-angle: 150deg;
+    --home-c1: #f6f7e6;
+    --home-c2: #dafffc;
+    --home-c3: #dafffc;
+    background-color: #f6f7e6;
+    background-image: linear-gradient(var(--home-bg-angle), var(--home-c1), var(--home-c2), var(--home-c3));
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    animation: home-bg-cycle 256s linear infinite;
+}
+
+@keyframes home-bg-cycle {
+    /* 1 柠檬薄荷 */
+    0% {
+        --home-bg-angle: 150deg;
+        --home-c1: #f6f7e6;
+        --home-c2: #dafffc;
+        --home-c3: #dafffc;
+    }
+    9.375% {
+        --home-bg-angle: 510deg;
+        --home-c1: #f6f7e6;
+        --home-c2: #dafffc;
+        --home-c3: #dafffc;
+    }
+    /* 2 薄荷腮红 */
+    12.5% {
+        --home-bg-angle: 510deg;
+        --home-c1: #dafffc;
+        --home-c2: #ffdbdb;
+        --home-c3: #ffdbdb;
+    }
+    21.875% {
+        --home-bg-angle: 870deg;
+        --home-c1: #dafffc;
+        --home-c2: #ffdbdb;
+        --home-c3: #ffdbdb;
+    }
+    /* 3 腮红蜜桃 */
+    25% {
+        --home-bg-angle: 870deg;
+        --home-c1: #ffdbdb;
+        --home-c2: #f9efd5;
+        --home-c3: #f9efd5;
+    }
+    34.375% {
+        --home-bg-angle: 1230deg;
+        --home-c1: #ffdbdb;
+        --home-c2: #f9efd5;
+        --home-c3: #f9efd5;
+    }
+    /* 4 蜜桃雾玫瑰 */
+    37.5% {
+        --home-bg-angle: 1230deg;
+        --home-c1: #f9efd5;
+        --home-c2: #f3d2d2;
+        --home-c3: #f3d2d2;
+    }
+    46.875% {
+        --home-bg-angle: 1590deg;
+        --home-c1: #f9efd5;
+        --home-c2: #f3d2d2;
+        --home-c3: #f3d2d2;
+    }
+    /* 5 玫瑰丁香 */
+    50% {
+        --home-bg-angle: 1590deg;
+        --home-c1: #f3d2d2;
+        --home-c2: #e9d6f0;
+        --home-c3: #e9d6f0;
+    }
+    59.375% {
+        --home-bg-angle: 1950deg;
+        --home-c1: #f3d2d2;
+        --home-c2: #e9d6f0;
+        --home-c3: #e9d6f0;
+    }
+    /* 6 丁香青瓷 */
+    62.5% {
+        --home-bg-angle: 1950deg;
+        --home-c1: #e9d6f0;
+        --home-c2: #cfe8e6;
+        --home-c3: #cfe8e6;
+    }
+    71.875% {
+        --home-bg-angle: 2310deg;
+        --home-c1: #e9d6f0;
+        --home-c2: #cfe8e6;
+        --home-c3: #cfe8e6;
+    }
+    /* 7 青瓷天空 */
+    75% {
+        --home-bg-angle: 2310deg;
+        --home-c1: #cfe8e6;
+        --home-c2: #b9e2ea;
+        --home-c3: #b9e2ea;
+    }
+    84.375% {
+        --home-bg-angle: 2670deg;
+        --home-c1: #cfe8e6;
+        --home-c2: #b9e2ea;
+        --home-c3: #b9e2ea;
+    }
+    /* 8 天空樱雪 */
+    87.5% {
+        --home-bg-angle: 2670deg;
+        --home-c1: #b9e2ea;
+        --home-c2: #f6eaea;
+        --home-c3: #f6f7e6;
+    }
+    96.875% {
+        --home-bg-angle: 3030deg;
+        --home-c1: #b9e2ea;
+        --home-c2: #f6eaea;
+        --home-c3: #f6f7e6;
+    }
+    /* 角度接回 150deg，避免循环时倒转 */
+    96.876% {
+        --home-bg-angle: 150deg;
+        --home-c1: #b9e2ea;
+        --home-c2: #f6eaea;
+        --home-c3: #f6f7e6;
+    }
+    100% {
+        --home-bg-angle: 150deg;
+        --home-c1: #f6f7e6;
+        --home-c2: #dafffc;
+        --home-c3: #dafffc;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body {
+        animation: none;
+    }
+}
+
 .container{
     /* 随眼睛动的小人儿~ */
     width: 100%;
