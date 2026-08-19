@@ -1,6 +1,7 @@
 (function () {
   var badge = document.getElementById('tod-badge');
   var tempEl = document.getElementById('tod-temp');
+  var tipPlace = document.querySelector('.tod-tip-place');
   var tipTemp = document.getElementById('tod-tip-temp');
   var tipDesc = document.getElementById('tod-tip-desc');
   var tipFeel = document.getElementById('tod-tip-feel');
@@ -9,27 +10,23 @@
   var tipRange = document.getElementById('tod-tip-range');
   if (!badge) return;
 
-  var CACHE_KEY = 'yy-weather-sh';
+  var CACHE_KEY = 'yy-weather-loc';
   var CACHE_MS = 20 * 60 * 1000;
-  var WEATHER_URL = 'https://api.open-meteo.com/v1/forecast?latitude=31.2304&longitude=121.4737&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m,is_day&daily=temperature_2m_max,temperature_2m_min&timezone=Asia%2FShanghai&forecast_days=1';
+  var FALLBACK = { lat: 34.2655, lon: 108.9541, place: '西安' };
 
-  function shanghaiHour() {
-    try {
-      var parts = new Intl.DateTimeFormat('en-GB', {
-        timeZone: 'Asia/Shanghai',
-        hour: '2-digit',
-        hour12: false
-      }).formatToParts(new Date());
-      var i;
-      for (i = 0; i < parts.length; i++) {
-        if (parts[i].type === 'hour') return parseInt(parts[i].value, 10);
-      }
-    } catch (e) {}
+  function weatherUrl(lat, lon) {
+    return 'https://api.open-meteo.com/v1/forecast?latitude=' + lat +
+      '&longitude=' + lon +
+      '&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m,is_day' +
+      '&daily=temperature_2m_max,temperature_2m_min&timezone=auto&forecast_days=1';
+  }
+
+  function localHour() {
     return new Date().getHours();
   }
 
   function fallbackIcon() {
-    var hour = shanghaiHour();
+    var hour = localHour();
     if (hour >= 5 && hour < 11) return 'morning';
     if (hour >= 11 && hour < 17) return 'noon';
     return 'evening';
@@ -72,21 +69,27 @@
     if (el) el.textContent = text;
   }
 
-  function showFallback() {
+  function setPlace(name) {
+    setText(tipPlace, name || FALLBACK.place);
+  }
+
+  function showFallback(place) {
     var icon = fallbackIcon();
-    var label = icon === 'morning' ? '上海 · 清晨' : icon === 'noon' ? '上海 · 午间' : '上海 · 夜里';
+    var where = place || FALLBACK.place;
+    var when = icon === 'morning' ? '清晨' : icon === 'noon' ? '午间' : '夜里';
     setIcon(icon);
+    setPlace(where);
     setText(tempEl, '');
     setText(tipTemp, '--°');
-    setText(tipDesc, label + ' · 天气暂读不到');
+    setText(tipDesc, when + ' · 天气暂读不到');
     setText(tipFeel, '--°');
     setText(tipHum, '--%');
     setText(tipWind, '-- km/h');
     setText(tipRange, '--° / --°');
-    badge.setAttribute('aria-label', label);
+    badge.setAttribute('aria-label', where + ' · ' + when);
   }
 
-  function applyWeather(data) {
+  function applyWeather(data, place) {
     var cur = data.current || {};
     var daily = data.daily || {};
     var code = Number(cur.weather_code);
@@ -99,7 +102,9 @@
     var wind = Math.round(cur.wind_speed_10m);
     var max = daily.temperature_2m_max && daily.temperature_2m_max[0];
     var min = daily.temperature_2m_min && daily.temperature_2m_min[0];
+    var where = place || FALLBACK.place;
     setIcon(icon);
+    setPlace(where);
     setText(tempEl, isNaN(temp) ? '' : temp + '°');
     setText(tipTemp, isNaN(temp) ? '--°' : temp + '°');
     setText(tipDesc, desc);
@@ -111,7 +116,7 @@
     } else {
       setText(tipRange, Math.round(min) + '° / ' + Math.round(max) + '°');
     }
-    badge.setAttribute('aria-label', '上海 ' + desc + ' ' + temp + '°');
+    badge.setAttribute('aria-label', where + ' ' + desc + ' ' + temp + '°');
   }
 
   function readCache() {
@@ -120,33 +125,81 @@
       if (!raw) return null;
       var parsed = JSON.parse(raw);
       if (!parsed || !parsed.at || Date.now() - parsed.at > CACHE_MS) return null;
-      return parsed.data;
+      return parsed;
     } catch (e) {
       return null;
     }
   }
 
-  function writeCache(data) {
+  function writeCache(payload) {
     try {
-      localStorage.setItem(CACHE_KEY, JSON.stringify({ at: Date.now(), data: data }));
+      localStorage.setItem(CACHE_KEY, JSON.stringify({
+        at: Date.now(),
+        lat: payload.lat,
+        lon: payload.lon,
+        place: payload.place,
+        data: payload.data
+      }));
     } catch (e) {}
+  }
+
+  function locate() {
+    return new Promise(function (resolve) {
+      if (!navigator.geolocation) {
+        resolve(FALLBACK);
+        return;
+      }
+      navigator.geolocation.getCurrentPosition(
+        function (pos) {
+          resolve({
+            lat: pos.coords.latitude,
+            lon: pos.coords.longitude,
+            place: ''
+          });
+        },
+        function () {
+          resolve(FALLBACK);
+        },
+        { enableHighAccuracy: false, timeout: 8000, maximumAge: 30 * 60 * 1000 }
+      );
+    });
+  }
+
+  function lookupPlace(lat, lon) {
+    return fetch('https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=' + lat + '&longitude=' + lon + '&localityLanguage=zh')
+      .then(function (res) { return res.ok ? res.json() : Promise.reject(res); })
+      .then(function (json) {
+        return json.city || json.locality || json.principalSubdivision || '';
+      })
+      .catch(function () { return ''; });
+  }
+
+  function fetchWeather(loc) {
+    return fetch(weatherUrl(loc.lat, loc.lon))
+      .then(function (res) { return res.ok ? res.json() : Promise.reject(res); })
+      .then(function (data) {
+        var placePromise = loc.place ? Promise.resolve(loc.place) : lookupPlace(loc.lat, loc.lon);
+        return placePromise.then(function (place) {
+          var where = place || loc.place || '当前位置';
+          writeCache({ lat: loc.lat, lon: loc.lon, place: where, data: data });
+          applyWeather(data, where);
+        });
+      });
   }
 
   function load() {
     var cached = readCache();
-    if (cached) {
-      applyWeather(cached);
+    if (cached && cached.data) {
+      applyWeather(cached.data, cached.place);
       return;
     }
     setIcon(fallbackIcon());
-    fetch(WEATHER_URL)
-      .then(function (res) { return res.ok ? res.json() : Promise.reject(res); })
-      .then(function (data) {
-        writeCache(data);
-        applyWeather(data);
-      })
-      .catch(function () {
-        showFallback();
+    setPlace('定位中');
+    locate()
+      .then(function (loc) {
+        return fetchWeather(loc).catch(function () {
+          showFallback(loc.place || '当前位置');
+        });
       });
   }
 
