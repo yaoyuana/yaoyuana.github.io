@@ -95,15 +95,25 @@ function init() {
     y: null,
     angle: null,
   }
+  const goal = {
+    x: null,
+    y: null,
+  }
 
   const distance = 30
+  const dogSize = 96
+  const arriveDist = 72
   const nearestN = (x, n) => x === 0 ? 0 : (x - 1) + Math.abs(((x - 1) % n) - n)
   const px = num => `${num}px`
   const radToDeg = rad => Math.round(rad * (180 / Math.PI))
   const degToRad = deg => deg / (180 / Math.PI)
-  const overlap = (a, b) =>{
-    const buffer = 20
-    return Math.abs(a - b) < buffer
+  const snapAngle = angle => nearestN(angle, 45) || 360
+  const pointerInWrapper = e => {
+    const rect = elements.wrapper.getBoundingClientRect()
+    return {
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    }
   }
 
   const rotateCoord = ({ angle, origin, x, y }) =>{
@@ -122,15 +132,20 @@ function init() {
     target.style.transform = `translate(${x || 0}, ${y || 0})`
   }
 
-  const targetAngle = dog =>{
+  const targetAngle = (dog, target) =>{
     if (!dog) return
-    const angle = radToDeg(Math.atan2(dog.pos.y - control.y, dog.pos.x - control.x)) - 90
+    const aim = target || control
+    if (aim.x == null || aim.y == null) return
+    const angle = radToDeg(Math.atan2(dog.pos.y - aim.y, dog.pos.x - aim.x)) - 90
     const adjustedAngle = angle < 0 ? angle + 360 : angle
-    return nearestN(adjustedAngle, 45)
+    return snapAngle(adjustedAngle)
   }
 
+  const distTo = (x, y, target) => Math.hypot(target.x - x, target.y - y)
+
   const reachedTheGoalYeah = (x, y) =>{
-    return overlap(control.x , x) && overlap(control.y, y)
+    if (goal.x == null || goal.y == null) return false
+    return distTo(x, y, goal) <= arriveDist
   }
 
   const positionLegs = (dog, frame) => {
@@ -248,9 +263,13 @@ function init() {
 
   const createDog = () => {
     const { dog } = elements
-    const { width, height, left, top } = dog.getBoundingClientRect()
+    const width = dog.offsetWidth || dogSize
+    const height = dog.offsetHeight || dogSize
+    const left = dog.offsetLeft
+    const top = dog.offsetTop
     dog.style.left = px(left)
     dog.style.top = px(top)
+    dog.style.bottom = 'auto'
 
     positionLegs(dog, 0)
     const index = 0
@@ -290,11 +309,11 @@ function init() {
     const lowerLimit = -40 // 离边缘距离
     const upperLimit = 40
     if (x > lowerLimit && x < (elements.body.clientWidth - upperLimit)){
-      dogData.pos.x = x + 48
+      dogData.pos.x = x + dogSize / 2
       dogData.actualPos.x = x
     } 
     if (y > lowerLimit && y < (elements.body.clientHeight - upperLimit)){
-      dogData.pos.y = y + 48
+      dogData.pos.y = y + dogSize / 2
       dogData.actualPos.y = y
     }
     dog.style.left = px(x)
@@ -308,38 +327,38 @@ function init() {
     }
   }
 
+  const stopAtGoal = () => {
+    clearInterval(elements.dog.timer.all)
+    elements.dog.timer.all = null
+    const { dog } = elements.dog
+    const { x, y } = elements.dog.actualPos
+    dog.style.left = px(x)
+    dog.style.top = px(y)
+    stopLegs(dog)
+    turnDog({
+      dog: elements.dog,
+      start: angles.indexOf(elements.dog.angle),
+      end: defaultEnd,
+      direction: 'clockwise'
+    })
+  }
+
   const moveDog = () =>{
     clearInterval(elements.dog.timer.all)
     const { dog } = elements.dog
 
     elements.dog.timer.all = setInterval(()=> {
-      const { left, top } = dog.getBoundingClientRect()
       const start = angles.indexOf(elements.dog.angle)
-      const end = angles.indexOf(targetAngle(elements.dog))
+      const end = angles.indexOf(targetAngle(elements.dog, goal))
+      const { x: cx, y: cy } = elements.dog.pos
 
-      // 停止
-      if (reachedTheGoalYeah(left + 48, top + 48)) {
-        clearInterval(elements.dog.timer.all)
-        const { x, y } = elements.dog.actualPos
-        dog.style.left = px(x)
-        dog.style.top = px(y)
-        stopLegs(dog)
-        turnDog({
-          dog: elements.dog,
-          start,
-          end: defaultEnd,
-          direction: 'clockwise'
-        })
+      if (reachedTheGoalYeah(cx, cy)) {
+        stopAtGoal()
         return
       }
 
-      let { x, y } = elements.dog.actualPos
-      const dir = directionConversions[targetAngle(elements.dog)]
-      if (dir !== 'up' && dir !== 'down') x += (dir.includes('left')) ? -distance : distance
-      if (dir !== 'left' && dir !== 'right') y += (dir.includes('up')) ? -distance : distance
-
       positionMarker(0, elements.dog.pos)
-      positionMarker(1, control)
+      positionMarker(1, goal)
 
       const { x: x2, y: y2 } = rotateCoord({
         angle: elements.dog.angle,
@@ -356,19 +375,25 @@ function init() {
       }
 
       if (!elements.dog.turning && elements.dog.walk) {
+        if (end < 0) return
         if (start !== end) {
           elements.dog.turning = true
 
           const direction = getDirection({ 
             pos: elements.dog.pos,
             facing: elements.dog.facing,
-            target: control,
+            target: goal,
           })
           turnDog({
             dog: elements.dog,
             start, end, direction,
           })
         } else {
+          let { x, y } = elements.dog.actualPos
+          const dir = directionConversions[targetAngle(elements.dog, goal)]
+          if (!dir) return
+          if (dir !== 'up' && dir !== 'down') x += (dir.includes('left')) ? -distance : distance
+          if (dir !== 'left' && dir !== 'right') y += (dir.includes('up')) ? -distance : distance
           checkBoundaryAndUpdateDogPos(x, y, dog, elements.dog)
           moveLegs(dog)
         }
@@ -396,12 +421,20 @@ function init() {
   }
 
   elements.body.addEventListener('mousemove', e =>{
-    control.x = e.pageX
-    control.y = e.pageY
-    triggerTurnDog()
+    const pt = pointerInWrapper(e)
+    control.x = pt.x
+    control.y = pt.y
+    if (!elements.dog.timer.all) triggerTurnDog()
   })
 
-  elements.body.addEventListener('click', moveDog)
+  elements.body.addEventListener('click', e =>{
+    const pt = pointerInWrapper(e)
+    control.x = pt.x
+    control.y = pt.y
+    goal.x = pt.x
+    goal.y = pt.y
+    moveDog()
+  })
 
 }
 
