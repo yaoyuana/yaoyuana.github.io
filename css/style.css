@@ -722,55 +722,19 @@ canvas:not(#ribbon-canvas), #web_bg {
   }
 }
 .tree {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
+  display: inline-block;
+  width: 34px;
+  height: 34px;
   vertical-align: middle;
-  transform-origin: 50% 50%;
-  transform-style: preserve-3d;
-  will-change: transform;
-  /* 主页绕 Z：慢转，避免 2s 一圈发晕 */
-  animation: tree-spin-z 8s linear infinite;
+  line-height: 0;
 }
 
-body.is-post .tree {
-  /* 文章绕 Y：透视拉远、略抬一点，像转盘而不是拍卡片 */
-  animation-name: tree-spin-y;
-  animation-duration: 10s;
-}
-
-/* 星星 */
-.tree-star {
+.tree-star-canvas {
   display: block;
-  width: 26px;
-  height: 26px;
-  stroke: #f5e0a3;
-  stroke-dasharray: 1000 1000;
-  filter: drop-shadow(0 0 8px #b2c7e2);
-  animation: stroke 1s backwards;
+  width: 34px;
+  height: 34px;
 }
 
-@keyframes tree-spin-z {
-  to {
-    transform: rotateZ(360deg);
-  }
-}
-@keyframes tree-spin-y {
-  from {
-    transform: perspective(320px) rotateX(14deg) rotateY(0deg);
-  }
-  to {
-    transform: perspective(320px) rotateX(14deg) rotateY(360deg);
-  }
-}
-/* 星星出现 */
-@keyframes stroke {
-  from {
-    stroke-dashoffset: -1000;
-  }
-}
 .wrapper {
   position: absolute;
   width: 100%;
