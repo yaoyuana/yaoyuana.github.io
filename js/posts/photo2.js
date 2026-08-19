@@ -8,11 +8,11 @@ function getData() {
         .then(response => response.json())
         .then(res => {
             renderData(res)
-            window.ViewImage && ViewImage.init('.scrollsection img'); // 灯箱
+            window.ViewImage && ViewImage.init('.scrollsection img');
             var root = document.querySelector('.scroll-animations-example');
             if (!root || typeof LocomotiveScroll === 'undefined') return;
-            const example = new Example({
-                root: root
+            waitImages(root, function () {
+                new Example({ root: root });
             });
         });
     })
@@ -34,6 +34,32 @@ function renderData(data) {
     }
     scrollsection.textContent  = ""
     scrollsection.appendChild(fragment);
+}
+function waitImages(root, cb) {
+    var imgs = [].slice.call(root.querySelectorAll('img'));
+    if (!imgs.length) { cb(); return; }
+    var left = imgs.length;
+    var done = false;
+    function one() {
+        left -= 1;
+        if (left <= 0 && !done) {
+            done = true;
+            cb();
+        }
+    }
+    imgs.forEach(function (img) {
+        if (img.complete && img.naturalWidth) one();
+        else {
+            img.addEventListener('load', one);
+            img.addEventListener('error', one);
+        }
+    });
+    setTimeout(function () {
+        if (!done) {
+            done = true;
+            cb();
+        }
+    }, 4000);
 }
 function random(type, min, max) {
     let r = Math.floor(Math.random() * (max - min + 1) + min)
@@ -83,6 +109,10 @@ class Example {
         };
         if (window.yyPjaxOnLeave) window.yyPjaxOnLeave(window.yyDestroyLoco);
         this.images = this.root.querySelectorAll('.image');
+        if (this.scroll && typeof this.scroll.update === 'function') {
+            var self = this;
+            setTimeout(function () { try { self.scroll.update(); } catch (e) {} }, 300);
+        }
 
         [].forEach.call(this.images, (image) => {
             image.addEventListener('click', () => {

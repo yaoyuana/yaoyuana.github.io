@@ -239,6 +239,7 @@
       have[absUrl(link.href)] = 1;
     });
     var injected = {};
+    var waits = [];
     function take(link) {
       var href = link.getAttribute('href');
       if (!href) return;
@@ -250,10 +251,25 @@
       el.rel = 'stylesheet';
       el.href = href;
       el.setAttribute('data-pjax-css', '1');
-      document.head.appendChild(el);
+      waits.push(new Promise(function (resolve) {
+        var done = false;
+        function finish() {
+          if (done) return;
+          done = true;
+          resolve();
+        }
+        el.addEventListener('load', finish);
+        el.addEventListener('error', finish);
+        setTimeout(finish, 2000);
+        document.head.appendChild(el);
+        try {
+          if (el.sheet) finish();
+        } catch (e) {}
+      }));
     }
     if (doc.head) doc.head.querySelectorAll('link[rel="stylesheet"]').forEach(take);
     next.querySelectorAll('link[rel="stylesheet"]').forEach(take);
+    return Promise.all(waits);
   }
 
   function closeMobileNav() {
@@ -415,9 +431,18 @@
   }
 
   function initLazy() {
+    document.querySelectorAll('#content img[data-original]').forEach(function (img) {
+      var real = img.getAttribute('data-original');
+      if (!real) return;
+      if (img.getAttribute('src') !== real) img.src = real;
+      img.removeAttribute('data-original');
+    });
+    document.querySelectorAll('#content [bg-lazy]').forEach(function (el) {
+      el.removeAttribute('bg-lazy');
+    });
     var setting = window.imageLazyLoadSetting;
     if (setting && typeof setting.processImages === 'function') {
-      setting.processImages(true);
+      try { setting.processImages(true); } catch (e) {}
     }
   }
 
@@ -438,7 +463,7 @@
       return Promise.resolve();
     }
     beforeSwap();
-    applyPageCss(doc, next);
+    var cssReady = applyPageCss(doc, next);
     var pageScripts = collectScripts(doc, next);
     next.querySelectorAll('script').forEach(function (node) {
       if (node.parentNode) node.parentNode.removeChild(node);
@@ -452,7 +477,9 @@
     window.scrollTo(0, 0);
     closeMobileNav();
     startTimerCapture();
-    return runScripts(pageScripts).then(function () {
+    return cssReady.then(function () {
+      return runScripts(pageScripts);
+    }).then(function () {
       afterSwap();
     }).then(function () {
       stopTimerCapture();
