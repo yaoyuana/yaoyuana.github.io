@@ -467,10 +467,14 @@ p {
 }
 
 html {
-  overflow-x: hidden;
   max-width: 100%;
 }
 
+@media not screen and (min-width: 1421px) {
+  html {
+    overflow-x: hidden;
+  }
+}
 body {
   cursor: url("/images/mouse/normal.cur"), default;
 }
@@ -674,7 +678,6 @@ canvas:not(#ribbon-canvas), #web_bg {
   margin: 0 auto;
   width: 90%;
   max-width: 1000px;
-  overflow-x: hidden;
 }
 
 #primary.home {
